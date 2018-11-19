@@ -30,13 +30,18 @@ Github：https://github.com/dongxuteng/software
 * 崔一鸣
   * E-mail：cuiyimingyoung@outlook.com
   * Github：https://github.com/cuiyiming1998
-
 * 张天护
   * E-mail：zthdy11@outlook.com
   * Github：https://github.com/zhangtianhu
 * 高歌远
   * E-mail：986264376@qq.com
   * Github：https://github.com/tracyuan
+* 张韬毅
+  * E-mail: 734045289@qq.com
+  * Github: https://github.com/zhangtaoyi77
+* 吴三荣
+  * E-mail: 2085067543@qq.com
+  * Github: https://github.com/wusanrong915
 
 
 
