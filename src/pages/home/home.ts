@@ -44,7 +44,7 @@ export class HomePage {
   ]
 
   Go_nr(){
-      this.navCtrl.push(NeirongPage) ;
+      this.navCtrl.push('NeirongPage') ;
   }
   Go_fb(){
     this.navCtrl.push('FabuPage');

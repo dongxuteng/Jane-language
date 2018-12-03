@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, App} from 'ionic-angular';
-import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the MePage page.
@@ -23,7 +22,7 @@ export class MePage {
   }
   
   Login(){
-    this.app.getRootNav().push(LoginPage);
+    this.navCtrl.push('LoginPage');
   }
 
 }

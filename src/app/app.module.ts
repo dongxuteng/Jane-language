@@ -15,7 +15,6 @@ import { InfoPage } from '../pages/info/info';
 import { MePage } from '../pages/me/me';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
-import { NeirongPage } from '../pages/neirong/neirong';
 
 @NgModule({
   declarations: [
@@ -27,9 +26,6 @@ import { NeirongPage } from '../pages/neirong/neirong';
     SightPage,
     InfoPage,
     MePage,
-    LoginPage,
-    SignupPage,
-    NeirongPage
   ],
   imports: [
     BrowserModule,
@@ -45,9 +41,6 @@ import { NeirongPage } from '../pages/neirong/neirong';
     SightPage,
     InfoPage,
     MePage,
-    LoginPage,
-    SignupPage,
-    NeirongPage
   ],
   providers: [
     StatusBar,

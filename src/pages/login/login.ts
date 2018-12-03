@@ -18,7 +18,7 @@ export class LoginPage {
   }
 
   goSignup(){
-    this.navCtrl.push(SignupPage);
+    this.navCtrl.push('SignupPage');
   }
   
   // 返回首页
@@ -26,14 +26,21 @@ export class LoginPage {
     this.app.getRootNavs()[0].setRoot(TabsPage);
   } 
 
+  ionViewDidEnter(){
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+       Object.keys(elements).map((key) => {
+          elements[key].style.display = 'none';
+         });
+       }   
+  }
   //ionic当退出页面的时候触发的方法
   ionViewWillLeave() {
     let elements = document.querySelectorAll(".tabbar");
     if (elements != null) {
 	   Object.keys(elements).map((key) => {
     		elements[key].style.display = 'flex';
-	    });
+	});
     }
   }
-
 }
