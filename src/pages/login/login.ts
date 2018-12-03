@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
-import { SignupPage } from '../signup/signup';
+import $ from 'jquery';
 
 
 @IonicPage()
@@ -22,8 +22,26 @@ export class LoginPage {
   }
   
   // 返回首页
-  return(){
+  login(){
+    $.ajax({
+      type: 'post',
+      url: 'http://localhost:8100/#/login',
+      data: {
+        username: $('#username').val(),
+        password: $('#password').val()
+      },
+      success: function(data){
+        // 验证成功
+        if(data.status == 1){
+          alert(data.message);
+        }
+      },
+      error: function(){
+        alert(404);
+      }
+    })
     this.app.getRootNavs()[0].setRoot(TabsPage);
+
   } 
 
   ionViewDidEnter(){
