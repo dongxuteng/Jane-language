@@ -34,13 +34,13 @@ export class LoginPage {
         // 验证成功
         if(data.status == 1){
           alert(data.message);
-          this.app.getRootNavs()[0].setRoot(TabsPage);
         }
       },
       error: function(){
         alert(404);
       }
     })
+    this.app.getRootNavs()[0].setRoot(TabsPage);
 
   } 
 
