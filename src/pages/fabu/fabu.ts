@@ -15,9 +15,12 @@ declare var BMap;
 })
 export class FabuPage {
   localCityName: string;
-  url="http://api.openweathermap.org/data/2.5/weather?q="+localStorage.getItem('currentCity')+"&appid=d9d89c7f2152ca0906eb224667788da8";
-  constructor(public navCtrl: NavController, public navParams: NavParams,public http:HttpClient) {
+  arr={
+    name:'赫恩曼尼'
   }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
   ionViewDidLoad() { 
     var myCity = new BMap.LocalCity();
     myCity.get(function (result) {

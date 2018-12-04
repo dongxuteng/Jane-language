@@ -8,13 +8,21 @@
 
 <ion-content>
   <div class="big">
-    <div class="sm">
     <input type="file">
-    </div>
   </div>
-<div class="msg">
+<div class="msg" >
+  <span>
+  <i class="iconfont icon-ditu"></i>
   {{localCityName}}
+  </span>
+  <span style="position:absolute;right:10px;">{{arr.name}}</span>
   <ion-label color="black" stacked>选择音乐</ion-label>
-  <ion-input type="text" placeholder="文本"></ion-input>
+  <p></p>
+  <textarea  cols="30" rows="10" style="width:100%">
+  </textarea>
 </div>
+<span class="bf">
+<i class="iconfont icon-baocun">保存</i>
+<i class="iconfont icon-fabu">发布</i>
+</span>
 </ion-content>
