@@ -14,6 +14,7 @@ import { SightPage } from '../pages/sight/sight';
 import { InfoPage } from '../pages/info/info';
 import { MePage } from '../pages/me/me';
 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -24,6 +25,7 @@ import { MePage } from '../pages/me/me';
     SightPage,
     InfoPage,
     MePage,
+    
   ],
   imports: [
     BrowserModule,
