@@ -13,8 +13,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SightPage } from '../pages/sight/sight';
 import { InfoPage } from '../pages/info/info';
 import { MePage } from '../pages/me/me';
-import { LoginPage } from '../pages/login/login';
-import { SignupPage } from '../pages/signup/signup';
 
 @NgModule({
   declarations: [

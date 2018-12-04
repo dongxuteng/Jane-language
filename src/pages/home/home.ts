@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController} from 'ionic-angular';
+<<<<<<< HEAD
 import {HttpClient} from '@angular/common/http';
+=======
+import { clamp } from 'ionic-angular/util/util';
+>>>>>>> 8a5f6d1c10c1d204b6ae4866cabe02367218ac0c
 declare var BMap;
 @Component({
   selector: 'page-home',
