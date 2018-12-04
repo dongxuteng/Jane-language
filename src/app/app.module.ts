@@ -26,7 +26,6 @@ import { HttpClientModule } from '@angular/common/http';
     SightPage,
     InfoPage,
     MePage,
-    
   ],
   imports: [
     BrowserModule,
