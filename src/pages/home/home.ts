@@ -44,7 +44,7 @@ export class HomePage {
       this.Dat=d.getDate();
       this.Mon= arr[d.getMonth()+1];
       this.http.get(this.url).subscribe((data)=>{
-      this.Temp=parseInt(data.main.temp-273.13);
+      this.Temp=parseInt(data.main.temp)-273
       console.log(this.Temp);
       return this.Dat+this.Mon+this.Year+this.Temp;
      })
