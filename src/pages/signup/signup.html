@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center style="padding-right: 54px;">注册</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="main">
+    <div class="head">
+      <i class="iconfont icon-smile" style="font-size: 1.5em;"></i>
+    </div>
+    <ion-item>
+      <ion-label floating>
+        <ion-icon ios="ios-person-outline" md="md-person"></ion-icon>
+        请输入用户名
+      </ion-label>
+      <ion-input type="text" id="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>
+        <ion-icon ios="ios-phone-portrait-outline" md="md-phone-portrait"></ion-icon>
+        请输入手机号
+        </ion-label>
+      <ion-input type="text" id="phone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>
+        <ion-icon ios="ios-alert-outline" md="md-alert"></ion-icon>
+        请输入验证码
+        </ion-label>
+      <ion-input type="password" id="phonepwd"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>
+        <ion-icon ios="ios-lock-outline" md="md-lock"></ion-icon>
+        请输入密码
+        </ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>
+        <ion-icon ios="ios-lock-outline" md="md-lock"></ion-icon>
+        请确认密码
+        </ion-label>
+      <ion-input type="password" id="password"></ion-input>
+    </ion-item>
+    <button ion-button class="login" (click)="goLogin()">注册</button>
+  </div>
+</ion-content>
+
+<!-- TODO:
+  用户名验证：长度在6到13;
+  手机号验证;
+  密码验证;
+  ajax回调函数 -->
