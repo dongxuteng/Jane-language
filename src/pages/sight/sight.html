@@ -19,7 +19,7 @@
       <button ion-item>
         励志
       </button>
-      <button ion-item>
+      <button ion-item (click)="goFoods()">
         美食
       </button>
       <button ion-item>
@@ -61,13 +61,13 @@
       <ion-card-title>{{ assey.title }}</ion-card-title>
       <p class="inner">{{ assey.inner }}</p>
     </ion-card-content>
-    <ion-row>
+    <ion-row >
       <ion-col col-8>
         <ion-item>
           <ion-avatar item-start>
             <img src="{{ assey.iconSrc }}">
           </ion-avatar>
-          <h2 style="text-align: left">{{ assey.name }}</h2>
+          <h2 style="text-align: left;">{{ assey.name }}</h2>
           <p style="text-align: left">{{ assey.talk }}</p>
         </ion-item>
       </ion-col>

@@ -43,6 +43,10 @@ export class SightPage {
   ionViewDidLoad() {
   }
   
+  goFoods(){
+    this.navCtrl.push('FoodsPage');
+  }
+
   // 下拉刷新
   doRefresh(refresher) {
     console.log('Begin async operation', refresher);
