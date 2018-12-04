@@ -42,7 +42,7 @@ export class HomePage {
       this.http.get(this.url).subscribe((data)=>{
       this.Temp=parseInt(data.main.temp)-273
       console.log(this.Temp);
-      return this.Dat+this.Mon+this.Year;
+      return this.Dat+this.Mon+this.Year+this.Temp;
      })
    }
 
