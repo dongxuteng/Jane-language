@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController} from 'ionic-angular';
 import { clamp } from 'ionic-angular/util/util';
-import { NeirongPage } from '../neirong/neirong';
 declare var BMap;
 // declare var BMapLib;
 @Component({
