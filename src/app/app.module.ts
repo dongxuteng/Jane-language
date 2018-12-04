@@ -13,8 +13,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SightPage } from '../pages/sight/sight';
 import { InfoPage } from '../pages/info/info';
 import { MePage } from '../pages/me/me';
-import { HttpClientModule } from '@angular/common/http';
-
+import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
+import { NeirongPage } from '../pages/neirong/neirong';
+import { ChatPage } from '../pages/chat/chat';
 
 @NgModule({
   declarations: [
@@ -26,11 +28,13 @@ import { HttpClientModule } from '@angular/common/http';
     SightPage,
     InfoPage,
     MePage,
-    
+    LoginPage,
+    SignupPage,
+    NeirongPage,
+    ChatPage
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -43,11 +47,15 @@ import { HttpClientModule } from '@angular/common/http';
     SightPage,
     InfoPage,
     MePage,
+    LoginPage,
+    SignupPage,
+    NeirongPage,
+    ChatPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

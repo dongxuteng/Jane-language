@@ -15,6 +15,7 @@ export class SignupPage {
   }
 
   ionViewDidLoad() {
+    console.log('ionViewDidLoad SignupPage');
   }
 
   // 点击注册触发
