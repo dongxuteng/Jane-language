@@ -31,10 +31,5 @@ export class FabuPage {
    this.localCityName = localStorage.getItem('currentCity'); 
 }, 500); 
 }
-  // ngOnInit(){
-  //       this.http.get(this.url).subscribe((data)=>{
-  //         var w=parseInt(data.main.temp-273.13);
-  //     console.log(w);
-  //   })
-  // }
+
 }
