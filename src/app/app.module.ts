@@ -28,13 +28,10 @@ import { ChatPage } from '../pages/chat/chat';
     SightPage,
     InfoPage,
     MePage,
-<<<<<<< HEAD
-=======
     LoginPage,
     SignupPage,
     NeirongPage,
     ChatPage
->>>>>>> 8d0a202b1110983db8ca702ae15053585eaf9836
   ],
   imports: [
     BrowserModule,
