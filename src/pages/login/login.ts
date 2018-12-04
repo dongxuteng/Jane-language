@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
-import { SignupPage } from '../signup/signup';
 
 
 @IonicPage()
@@ -15,10 +14,16 @@ export class LoginPage {
   }
 
   ionViewDidLoad() {
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+       Object.keys(elements).map((key) => {
+          elements[key].style.display = 'none';
+     });
+    }  
   }
 
   goSignup(){
-    this.navCtrl.push(SignupPage);
+    this.navCtrl.push('SignupPage');
   }
   
   // 返回首页

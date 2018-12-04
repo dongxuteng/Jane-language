@@ -16,6 +16,12 @@ export class SignupPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignupPage');
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+       Object.keys(elements).map((key) => {
+          elements[key].style.display = 'none';
+      });
+    } 
   }
 
   // 点击注册触发
@@ -39,13 +45,7 @@ export class SignupPage {
     this.navCtrl.pop();
   }
 
-  ionViewDidEnter(){
-    let elements = document.querySelectorAll(".tabbar");
-    if (elements != null) {
-       Object.keys(elements).map((key) => {
-          elements[key].style.display = 'none';
-         });
-       }   
+  ionViewDidEnter(){  
   }
   //ionic当退出页面的时候触发的方法
   ionViewWillLeave() {

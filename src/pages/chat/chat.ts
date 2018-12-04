@@ -78,16 +78,16 @@ export class ChatPage {
       text: '谢谢'
     }
   ];
-
+  
   @ViewChild(Content) content: Content;
-
+  
   public messageForm: any;
   chatBox: any;
-
+  
   constructor(public navParams: NavParams,
-              public navCtrl: NavController,
-              public formBuilder: FormBuilder) {
-    this.messageForm = formBuilder.group({
+    public navCtrl: NavController,
+    public formBuilder: FormBuilder) {
+      this.messageForm = formBuilder.group({
       message: new FormControl('')
     });
     this.chatBox = '';
@@ -96,22 +96,30 @@ export class ChatPage {
   ionViewDidLoad() {
     let modelData: string = '用户名：' + this.navParams.get('chatId');
     console.log(modelData);
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+       Object.keys(elements).map((key) => {
+          elements[key].style.display = 'none';
+      });
+    }   
   }
-
+  ionViewDidEnter(){
+  }
+  
   // 发送消息
   send(message) {
     if (message && message !== '') {
       // this.messageService.sendMessage(chatId, message);
-
+      
       const messageData =
-        {
-          toId: this.toUser._id,
-          _id: 6,
-          date: new Date(),
-          userId: this.user._id,
-          //username: this.User.username,
-          pic: this.toUser.pic,
-          text: message
+      {
+        toId: this.toUser._id,
+        _id: 6,
+        date: new Date(),
+        userId: this.user._id,
+        //username: this.User.username,
+        pic: this.toUser.pic,
+        text: message
         };
 
       this.messages.push(messageData);
@@ -146,6 +154,15 @@ export class ChatPage {
   }
   pushInfoPage(){
     this.navCtrl.pop();
+  }
+  //ionic当退出页面的时候触发的方法
+  ionViewWillLeave() {
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+	   Object.keys(elements).map((key) => {
+    		elements[key].style.display = 'flex';
+	    });
+    }
   }
 
 }
