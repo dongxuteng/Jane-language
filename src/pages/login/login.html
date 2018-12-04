@@ -8,14 +8,14 @@
           <ion-icon ios="ios-person-outline" md="md-person"></ion-icon>
           请输入用户名
         </ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" id="username"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>
         <ion-icon ios="ios-lock-outline" md="md-lock"></ion-icon>
           请输入密码
         </ion-label>
-        <ion-input type="password"></ion-input>
+        <ion-input type="password" id="pwd"></ion-input>
       </ion-item>
       <ion-grid>
         <ion-row>
@@ -27,7 +27,7 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-      <button ion-button class="login" (click)="return()">登录</button>
+      <button ion-button class="login" (click)="login()">登录</button>
   </div>
   <fieldset class="footer">
     <legend>&nbsp;&nbsp;&nbsp;&nbsp;第三方登录&nbsp;&nbsp;&nbsp;&nbsp;</legend>

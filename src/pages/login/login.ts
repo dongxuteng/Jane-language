@@ -22,7 +22,10 @@ export class LoginPage {
   }
   
   // 返回首页
-  return(){
+  login(){
+    let username = document.getElementById("username");
+    let pwd = document.getElementById("pwd");
+      
     this.app.getRootNavs()[0].setRoot(TabsPage);
   } 
 
