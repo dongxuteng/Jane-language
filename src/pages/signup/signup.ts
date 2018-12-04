@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import $ from 'jquery';
 
 @IonicPage()
 @Component({
@@ -13,6 +14,18 @@ export class SignupPage {
 
   ionViewDidLoad() {
   }
+
+  goLogin(){
+    $.ajax({
+      type: 'post',
+      url: 'http://localhost:8100/#/signup',
+      data: {
+        
+      }
+    })
+    this.navCtrl.pop();
+  }
+
   ionViewDidEnter(){
     let elements = document.querySelectorAll(".tabbar");
     if (elements != null) {
