@@ -1,19 +1,18 @@
 // http://ionicframework.com/docs/theming/
 @font-face {
-    font-family: 'Ionicons';
-    src: url('../assets/fonts/iconfont.eot');
-    src: url('../assets/fonts/iconfont.eot?#iefix') format('embedded-opentype'),
-    url('../assets/fonts/iconfont.woff') format('woff'),
-    url('../assets/fonts/iconfont.ttf') format('truetype'),
-    url('../assets/fonts/iconfont.svg#iconfont') format('svg');
-}
-.iconfont{
-    font-family:"Ionicons" !important;
+    font-family: 'iconfont';  /* project id 914955 */
+    src: url('//at.alicdn.com/t/font_914955_2te213uqfmj.eot');
+    src: url('//at.alicdn.com/t/font_914955_2te213uqfmj.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_914955_2te213uqfmj.woff') format('woff'),
+    url('//at.alicdn.com/t/font_914955_2te213uqfmj.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_914955_2te213uqfmj.svg#iconfont') format('svg');
+  }
+  .iconfont{
+    font-family:"iconfont" !important;
     font-size:16px;font-style:normal;
     -webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0.2px;
-    -moz-osx-font-smoothing: grayscale;
-}
+    -moz-osx-font-smoothing: grayscale;}
 
 // App Global Sass
 // --------------------------------------------------
