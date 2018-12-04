@@ -13,6 +13,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SightPage } from '../pages/sight/sight';
 import { InfoPage } from '../pages/info/info';
 import { MePage } from '../pages/me/me';
+import { HttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { MePage } from '../pages/me/me';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    HttpClient,
   ]
 })
 export class AppModule {}
