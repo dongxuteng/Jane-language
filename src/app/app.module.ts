@@ -13,9 +13,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SightPage } from '../pages/sight/sight';
 import { InfoPage } from '../pages/info/info';
 import { MePage } from '../pages/me/me';
-import { LoginPage } from '../pages/login/login';
-import { SignupPage } from '../pages/signup/signup';
-import { NeirongPage } from '../pages/neirong/neirong';
 import { ChatPage } from '../pages/chat/chat';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -29,9 +26,6 @@ import { HttpClientModule } from '@angular/common/http';
     SightPage,
     InfoPage,
     MePage,
-    LoginPage,
-    SignupPage,
-    NeirongPage,
     ChatPage
   ],
   imports: [
@@ -49,9 +43,6 @@ import { HttpClientModule } from '@angular/common/http';
     SightPage,
     InfoPage,
     MePage,
-    LoginPage,
-    SignupPage,
-    NeirongPage,
     ChatPage
   ],
   providers: [

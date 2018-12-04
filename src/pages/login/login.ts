@@ -25,7 +25,7 @@ export class LoginPage {
   login(){
     let username = document.getElementById("username");
     let pwd = document.getElementById("pwd");
-      
+    console.log(pwd.innerHTML);
     this.app.getRootNavs()[0].setRoot(TabsPage);
   } 
 
