@@ -5,17 +5,17 @@
     </div>
       <ion-item>
         <ion-label floating>
-          <ion-icon ios="ios-menu" md="md-person"></ion-icon>
-          Username
+          <ion-icon ios="ios-person-outline" md="md-person"></ion-icon>
+          请输入用户名
         </ion-label>
-        <ion-input type="text" id="username"></ion-input>
+        <ion-input type="text"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>
-        <ion-icon ios="ios-menu" md="md-lock"></ion-icon>
-          Password
+        <ion-icon ios="ios-lock-outline" md="md-lock"></ion-icon>
+          请输入密码
         </ion-label>
-        <ion-input type="password" id="password"></ion-input>
+        <ion-input type="password"></ion-input>
       </ion-item>
       <ion-grid>
         <ion-row>
@@ -27,22 +27,26 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-      <button ion-button class="login" (click)="login()">登录</button>
+      <button ion-button class="login" (click)="return()">登录</button>
   </div>
   <fieldset class="footer">
     <legend>&nbsp;&nbsp;&nbsp;&nbsp;第三方登录&nbsp;&nbsp;&nbsp;&nbsp;</legend>
     <ion-grid>
       <ion-row>
         <ion-col col-4>
-          <i class="iconfont icon-qq"></i>
+          <i class="iconfont">&#xe613;</i>
         </ion-col>
         <ion-col col-4>
-          <i class="iconfont icon-wechat2"></i>
+          <i class="iconfont">&#xe602;</i>
         </ion-col>
         <ion-col col-4>
-          <i class="iconfont icon-sina1"></i>
+          <i class="iconfont">&#xe698;</i>
         </ion-col>
       </ion-row>
     </ion-grid>
   </fieldset>
 </ion-content>
+<!-- 
+  TODO：
+    ajax; 
+-->

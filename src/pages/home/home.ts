@@ -16,11 +16,12 @@ export class HomePage {
   localCityName: string;
   Temp:number;
   constructor(public navCtrl: NavController,public http:HttpClient) {
-      this.http.get(this.url).subscribe((data)=>{
-      this.Temp=parseInt(data['main'].temp)-273
-      console.log(this.Temp);
-      return this.Temp;
-     })
+    //温度
+    this.http.get(this.url).subscribe((data)=>{
+    this.Temp=parseInt(data['main'].temp)-273
+    console.log(this.Temp);
+    return this.Temp;
+    })
   }
 
   ionViewDidLoad() { 
