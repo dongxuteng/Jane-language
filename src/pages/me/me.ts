@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, App} from 'ionic-angular';
-import { LoginPage } from '../login/login';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the MePage page.
@@ -16,14 +15,30 @@ import { LoginPage } from '../login/login';
 })
 export class MePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public app: App) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
+    console.log('ionViewDidLoad MePage');
   }
   
-  Login(){
-    this.app.getRootNav().push(LoginPage);
+  function1(){
+    this.navCtrl.push("MypagePage")
+  }
+  
+  function2(){
+    this.navCtrl.push("WenPage")
   }
 
+  function3(){
+    this.navCtrl.push("YinPage")
+  }
+
+  function4(){
+    this.navCtrl.push("GuanzhuPage")
+  }
+
+  function5(){
+    this.navCtrl.push("ShezhiPage")
+  }
 }
