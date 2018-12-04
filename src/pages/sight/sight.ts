@@ -44,7 +44,7 @@ export class SightPage {
   }
   
   goFoods(){
-    this.navCtrl.push('FoodsPage');
+    this.navCtrl.push("FoodsPage",{ title : "foods"});
   }
 
   // 下拉刷新
