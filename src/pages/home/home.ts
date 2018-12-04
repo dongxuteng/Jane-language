@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController} from 'ionic-angular';
 import {HttpClient} from '@angular/common/http';
-import { clamp } from 'ionic-angular/util/util';
 declare var BMap;
 @Component({
   selector: 'page-home',
@@ -10,42 +9,42 @@ declare var BMap;
 
 
 export class HomePage {
-//   url="http://api.openweathermap.org/data/2.5/weather?q="+localStorage.getItem('currentCity')+"&appid=d9d89c7f2152ca0906eb224667788da8";
-//   Mon:string;
-//   Dat:Number;
-//   Year:Number;
-//   localCityName: string;
-//   Temp:number;
-  constructor(public navCtrl: NavController) {
+  url="http://api.openweathermap.org/data/2.5/weather?q="+localStorage.getItem('currentCity')+"&appid=d9d89c7f2152ca0906eb224667788da8";
+  Mon:string;
+  Dat:Number;
+  Year:Number;
+  localCityName: string;
+  Temp:number;
+  constructor(public navCtrl: NavController,public http:HttpClient) {
   }
 
-//   ionViewDidLoad() { 
+  ionViewDidLoad() { 
 
-// //地点
-//     var myCity = new BMap.LocalCity();
-//     myCity.get(function (result) {
-//     var cityName = result.name; 
-//     localStorage.setItem('currentCity', cityName);
-//     return cityName;
-//   });
-//   // 延迟500毫秒取存储在localStorage中的 cityName 
-//     setTimeout(() => {
-//     this.localCityName = localStorage.getItem('currentCity'); 
-//  }, 500); 
-//  }
-//     ngOnInit(){
-//   // 日期
-//       var arr=["Jan","Feb","Mar","Apr","May","Jun",,"Jul","Aug","Sept","Oct","Nov","Dec"];
-//       var d=new Date();
-//       this.Year=d.getFullYear();
-//       this.Dat=d.getDate();
-//       this.Mon= arr[d.getMonth()+1];
-//       this.http.get(this.url).subscribe((data)=>{
-//       // this.Temp=parseInt(data.main.temp)-273
-//       console.log(this.Temp);
-//       return this.Dat+this.Mon+this.Year+this.Temp;
-//      })
-//    }
+//地点
+    var myCity = new BMap.LocalCity();
+    myCity.get(function (result) {
+    var cityName = result.name; 
+    localStorage.setItem('currentCity', cityName);
+    return cityName;
+  });
+  // 延迟500毫秒取存储在localStorage中的 cityName 
+    setTimeout(() => {
+    this.localCityName = localStorage.getItem('currentCity'); 
+ }, 500); 
+ }
+    ngOnInit(){
+  // 日期
+      var arr=["Jan","Feb","Mar","Apr","May","Jun",,"Jul","Aug","Sept","Oct","Nov","Dec"];
+      var d=new Date();
+      this.Year=d.getFullYear();
+      this.Dat=d.getDate();
+      this.Mon= arr[d.getMonth()+1];
+      this.http.get(this.url).subscribe((data)=>{
+      this.Temp=parseInt(data.main.temp)-273
+      console.log(this.Temp);
+      return this.Dat+this.Mon+this.Year+this.Temp;
+     })
+   }
 
   
   arr=[
