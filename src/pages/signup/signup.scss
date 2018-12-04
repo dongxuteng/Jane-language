@@ -10,12 +10,25 @@ page-signup {
             }
         }
     }
+<<<<<<< HEAD
     .head{
-        width: 100px;
-        height: 100px;
-        margin: 0 auto;
-        margin-top: 2.5em;
+        display: flex;
+        width: 120px;
+        height: 120px;
+        margin: 3em auto;
         border-radius: 50%;
         border: 1px solid #bbbbbb;
+        align-items: center;
+        justify-content: center
     }
+    .login{
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 10%;
+        border: 1px solid darkgray;
+        background-color:rgb(247,247,247);
+        color: gray;
+    }
+=======
+>>>>>>> 37a16ca013b93e76c0f55e1d549b56efa811bb1a
 }
