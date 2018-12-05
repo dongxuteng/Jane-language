@@ -1,6 +1,6 @@
 
 <ion-header>
-    <i class="iconfont icon-left1"></i>
+    <i class="iconfont icon-left1" (click)="goMePage()"></i>
     <i class="iconfont icon-more"></i>
 </ion-header>
 
@@ -19,5 +19,18 @@
   </div>
   <div class="username">
     <h3> {{ person.username }}</h3>
+  </div>
+  <div class="info">
+    <p>
+      关注： {{ person.focus }}
+      |
+      粉丝： {{ person.fans }}
+    </p>
+  </div>
+  <div class="labels">
+    <span class="female"> ♀{{ ageLabels[1]}}</span>
+    <span> Lv.{{ level }}</span>
+    <span>{{ location }}</span>
+    <span>{{ constellation[2] }}</span>
   </div>
 </ion-content>

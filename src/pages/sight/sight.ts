@@ -49,6 +49,9 @@ export class SightPage {
   }
 
 
+  goPersonal(){
+    this.navCtrl.push('PersonalPage');
+  }
   // 点赞计数
   like(){
     

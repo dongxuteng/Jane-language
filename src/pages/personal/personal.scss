@@ -21,8 +21,6 @@ page-personal {
         opacity: 0.1;
         color: black;
     }
-    ion-title{
-    }
     .icon{
         margin-top: 5em;
         margin-left: 2em;
@@ -58,5 +56,22 @@ page-personal {
         width: 80px;
         text-align: center;
         color: white;
+    }
+    .info{
+        margin-left: 2em;
+        font-size: 1.1em;
+        color: rgb(247,247,247);
+    }
+    .labels{
+        margin-left: 4em;
+        span{
+            padding: 0px 8px;
+            color: white;
+            border-radius: 10px;
+            background-color: #B4B4B2;
+        }
+        .female{
+            background-color: #CC6699;
+        }
     }
 }

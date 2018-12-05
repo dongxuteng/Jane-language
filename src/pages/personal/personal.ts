@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the PersonalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -19,13 +13,41 @@ export class PersonalPage {
   }
 
 
-  person={
-    username:'花颜',
-    funs:2650,
+  person = {
+    username:'Ezreal',
+    fans:2650,
     focus:10,
     msg:'玩手机没有用，早，努力学习吧！',
     img:'',
     iconSrc:'../../assets/imgs/test.png'
+  }
+
+  ageLabels = [
+    "90后",
+    "00后",
+    "10后"
+  ];
+
+  level = 6;
+
+  location = "石家庄";
+
+  constellation = [
+    "白羊座",
+    "金牛座",
+    "双子座",
+    "巨蟹座",
+    "狮子座",
+    "处女座",
+    "天秤座",
+    "天蝎座",
+    "射手座",
+    "摩羯座",
+    "水瓶座",
+    "双鱼座"
+  ]
+  goMePage(){
+    this.navCtrl.pop();
   }
 
   ionViewDidLoad() {
