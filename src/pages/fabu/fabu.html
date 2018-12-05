@@ -7,22 +7,35 @@
 
 
 <ion-content>
-  <div class="big">
-    <input type="file">
-  </div>
+    <div class="big">
+      <div class="small">
+        <i class="iconfont icon-tupianshangchuan" style="font-size:3em;"></i>
+        <p style="color:gray">上传你的时刻</p>
+      </div>
+    </div>
 <div class="msg" >
-  <span>
   <i class="iconfont icon-ditu"></i>
   {{localCityName}}
-  </span>
   <span style="position:absolute;right:10px;">{{arr.name}}</span>
   <ion-label color="black" stacked>选择音乐</ion-label>
   <p></p>
   <textarea  cols="30" rows="10" style="width:100%">
   </textarea>
 </div>
-<span class="bf">
-<i class="iconfont icon-baocun">保存</i>
-<i class="iconfont icon-fabu">发布</i>
-</span>
+<div class="div1">
+<div class="div2">
+  <div class="d1">
+<button ion-button full class="bf" color='light'>
+    <i class="iconfont icon-baocun1" style="font-size:1.5em;"></i>
+</button>
+    <span style="font-size:1.3em;">保存</span>
+    </div>
+    <div class="d2">
+<button ion-button full class="bf" color='light'>
+    <i class="iconfont icon-fabu" style="font-size:2em;"></i>
+</button>
+    <span style="font-size:1.3em;">发布</span>
+    </div>
+</div>
+</div>
 </ion-content>
