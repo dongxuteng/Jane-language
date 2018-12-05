@@ -52,4 +52,7 @@ export class FoodsPage {
       likes: '877 Likes'
     }
   ]
+  foodsmore(){
+    this.navCtrl.push('FoodmorePage')
+  }
 }

@@ -4,15 +4,32 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>guanzhu</ion-title>
-  </ion-navbar>
-
+<ion-header class="header">
+  <div>
+    <i class="iconfont icon-zuojiantou1" (click)="function1()" ></i>
+    <p>我的关注</p>
+  </div>
 </ion-header>
 
-
-<ion-content padding>
-
+<ion-content>
+  <!-- 下拉刷新 -->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content
+            pullingIcon="arrow-dropdown"
+            pullingText="Pull to refresh"
+            refreshingSpinner="circles"
+            refreshingText="刷新...">
+    </ion-refresher-content>
+  </ion-refresher>
+  
+  <ion-list>
+    <ion-item *ngFor="let guanzhu of guanzhus" class="block">
+      <ion-avatar item-start style="margin-bottom:10%">
+        <img [src]="guanzhu.imageUrl">
+      </ion-avatar>     
+        <h2>{{guanzhu.title}}</h2>
+        <p>{{guanzhu.lastMessage}}</p>
+      <button class="guanzhu">{{guanzhu.zhuangtai}}</button>
+    </ion-item>
+  </ion-list>
 </ion-content>
