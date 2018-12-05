@@ -22,4 +22,38 @@ export class GuanzhuPage {
     console.log('ionViewDidLoad GuanzhuPage');
   }
 
+  guanzhus = [{
+    id: '001',
+    imageUrl:"../assets/imgs/icon.png",
+    title: '简小语',
+    lastMessage: '简语官方客服',
+    zhuangtai:'取消关注'
+  },
+    {
+      id: '002',
+      imageUrl:"../assets/imgs/icon.png",
+      title: 'Tony',
+      lastMessage: '一个写手',
+      zhuangtai:'关注',
+    },
+    {
+      id: '003',
+      imageUrl: "../assets/imgs/icon.png",
+      title: 'Steve',
+      lastMessage: '666',
+      zhuangtai:'互相关注',
+    }];
+
+     //下拉刷新
+ doRefresh(refresher) {//请求数据的请求方法可以写在这个函数里面
+  console.log('Begin async operation', refresher);
+  setTimeout(() => {
+    console.log('刷新成功');
+    refresher.complete();
+  }, 2000);
+ }
+  function1(){
+    this.navCtrl.pop();
+  }
+
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MePage } from '../me/me';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the ShezhiPage page.
@@ -24,6 +25,9 @@ export class ShezhiPage {
   }
   function1(){
     this.navCtrl.pop();
+  }
+  function2(){
+    this.navCtrl.push(LoginPage);
   }
   ionViewDidEnter(){
     let elements = document.querySelectorAll(".tabbar");
