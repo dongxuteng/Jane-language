@@ -29,9 +29,27 @@ export class FoodsPage {
     }
   }
 
-  arr = [
+  articles = [
     {
-      title: '如何制作传统的法国羊角面包'
+      title: '如何制作传统的法国羊角面包',
+      imgSrc: '../../assets/imgs/3.jpg',
+      iconSrc: '../../assets/imgs/icon.png',
+      username: 'Kika Kong',
+      likes: '222 Likes'
+    },
+    {
+      title: '草莓味甜点',
+      imgSrc: '../../assets/imgs/2.jpg',
+      iconSrc: '../../assets/imgs/icon.png',
+      username: 'Kika Kong',
+      likes: '334 Likes'
+    },
+    {
+      title: '好看又好吃的马卡龙',
+      imgSrc: '../../assets/imgs/6.jpg',
+      iconSrc: '../../assets/imgs/icon.png',
+      username: 'Kika Kong',
+      likes: '877 Likes'
     }
   ]
 }

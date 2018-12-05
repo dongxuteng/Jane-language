@@ -7,6 +7,9 @@
 
 <ion-content padding>
   <ion-card *ngFor="let item of articles">
-
+    <img src="{{ item.imgSrc }}" alt="">
+    <div class="card-title"> {{ item.title }} </div>
+    <div class="card-username"> {{ item.username }}</div>
+    <div class="card-subtitle"> {{ item.likes }}</div>
   </ion-card>
 </ion-content>
