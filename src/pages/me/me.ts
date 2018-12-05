@@ -23,7 +23,7 @@ export class MePage {
   }
   
   function1(){
-    this.navCtrl.push("MypagePage")
+    this.navCtrl.push('PersonalPage')
   }
   
   function2(){
