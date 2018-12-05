@@ -10,6 +10,25 @@ page-fabu {
         border:none;
     }
     .bf{
-        margin:0 auto;
+        width: 3.3em;
+        border-radius: 50% 50%;
+    }
+    .div1{
+        width: 100%;
+        display: flex;
+        flex-direction: column;  
+    }
+    .d1{
+        float: left; 
+        text-align: center;
+ 
+    }
+    .d2{
+        float: left;
+        text-align: center;
+        margin-left: 3em;
+    }
+    .div2{
+        align-self: center;
     }
 }
