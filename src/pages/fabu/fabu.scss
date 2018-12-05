@@ -1,9 +1,20 @@
 page-fabu {
     .big{
-        height: 250px;
+        height: 18em;
         width: 100%;
         background-image:url("../assets/imgs/fbbg.jpg");
         background-size: cover;
+        display: flex;
+        flex-direction: column;  
+    }
+    .small{
+        width: 11em;
+        height: 7em;
+        background-color: gainsboro;
+        text-align: center;
+        align-self:center;
+        position: absolute;
+        top: 8%;
     }
     textarea{
         background-color:rgb(247,247,247);
