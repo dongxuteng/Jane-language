@@ -43,8 +43,15 @@ export class SightPage {
   ionViewDidLoad() {
   }
   
+  // 页面跳转
   goFoods(){
-    this.navCtrl.push("FoodsPage",{ title : "foods"});
+    this.navCtrl.push("FoodsPage");
+  }
+
+
+  // 点赞计数
+  like(){
+    
   }
 
   // 下拉刷新
