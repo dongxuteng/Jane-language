@@ -3,4 +3,36 @@ page-foods {
         padding-right: 54px;
         text-align: center;
     }
+    ion-content{
+        ion-card {
+            position: relative;
+            text-align: center;
+            border-radius: 3px;
+            ion-item{
+                text-align: center;
+            }
+        }
+        .card-title {
+            position: absolute;
+            top: 35%;
+            font-size: 1.7em;
+            width: 100%;
+            font-weight: bold;
+            color: #fff;
+        }
+        .card-username{
+            position: absolute;
+            top: 55%;
+            width: 100%;
+            font-size: 1.3em;
+            color: #fff;
+        }
+        .card-subtitle {
+            font-size: 1.0em;
+            position: absolute;
+            top: 75%;
+            width: 100%;
+            color: #fff;
+        }
+    }
 }

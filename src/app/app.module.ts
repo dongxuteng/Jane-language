@@ -2,6 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -14,6 +15,8 @@ import { SightPage } from '../pages/sight/sight';
 import { InfoPage } from '../pages/info/info';
 import { MePage } from '../pages/me/me';
 import { ChatPage } from '../pages/chat/chat';
+import {WelcomePage} from '../pages/welcome/welcome';
+import {LoginPage} from '../pages/login/login';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -26,11 +29,14 @@ import { HttpClientModule } from '@angular/common/http';
     SightPage,
     InfoPage,
     MePage,
-    ChatPage
+    ChatPage,
+    WelcomePage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     HttpClientModule
   ],
   bootstrap: [IonicApp],
@@ -43,11 +49,14 @@ import { HttpClientModule } from '@angular/common/http';
     SightPage,
     InfoPage,
     MePage,
-    ChatPage
+    ChatPage,
+    WelcomePage,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Storage,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
