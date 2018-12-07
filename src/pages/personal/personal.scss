@@ -42,13 +42,13 @@ page-personal {
         width: 60px;
         height: 35px;
         background-color: #B4B4B2;
-        border-radius: 2px;
+        border-radius: 3px;
         color: white;
         font-weight: 500;
         text-transform: uppercase;
         overflow: hidden;
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-                    0 3px 1px -2px rgba(0, 0, 0, 0.2), 
+                    0 3px 1px -2px rgba(0, 0, 0, 0.2),
                     0 1px 5px 0 rgba(0, 0, 0, 0.12);
     }
     .username{
@@ -56,14 +56,20 @@ page-personal {
         width: 80px;
         text-align: center;
         color: white;
+        h3{
+            margin-top: 20px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
     }
     .info{
         margin-left: 2em;
+        margin-bottom: 0.5em;
         font-size: 1.1em;
         color: rgb(247,247,247);
     }
     .labels{
-        margin-left: 4em;
+        margin-left: 2em;
         span{
             padding: 0px 8px;
             color: white;
@@ -73,5 +79,16 @@ page-personal {
         .female{
             background-color: #CC6699;
         }
+    }
+    .dynamic{
+        position: absolute;
+        top: 300px;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: auto;
+        background-color: white;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
     }
 }
