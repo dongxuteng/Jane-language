@@ -14,12 +14,13 @@ export class PersonalPage {
 
 
   person = {
-    username:'Ezreal',
-    fans:2650,
-    focus:10,
-    msg:'玩手机没有用，早，努力学习吧！',
-    img:'',
-    iconSrc:'../../assets/imgs/test.png'
+    username: 'Ezreal',
+    fans: 2650,
+    focus: 10,
+    msg: '玩手机没有用，早，努力学习吧！',
+    img: '',
+    iconSrc: '../../assets/imgs/test.png',
+    arcticleTimes: 295
   }
 
   ageLabels = [
@@ -46,25 +47,25 @@ export class PersonalPage {
     "水瓶座",
     "双鱼座"
   ]
-  goMePage(){
+  goMePage() {
     this.navCtrl.pop();
   }
 
   ionViewDidLoad() {
     let elements = document.querySelectorAll(".tabbar");
     if (elements != null) {
-       Object.keys(elements).map((key) => {
-          elements[key].style.display = 'none';
-     });
-    }  
+      Object.keys(elements).map((key) => {
+        elements[key].style.display = 'none';
+      });
+    }
   }
-   //ionic当退出页面的时候触发的方法
-   ionViewWillLeave() {
+  //ionic当退出页面的时候触发的方法
+  ionViewWillLeave() {
     let elements = document.querySelectorAll(".tabbar");
     if (elements != null) {
-	   Object.keys(elements).map((key) => {
-    		elements[key].style.display = 'flex';
-	    });
+      Object.keys(elements).map((key) => {
+        elements[key].style.display = 'flex';
+      });
     }
   }
 }

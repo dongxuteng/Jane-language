@@ -1,9 +1,7 @@
-
 <ion-header>
-    <i class="iconfont icon-left1" (click)="goMePage()"></i>
-    <i class="iconfont icon-more"></i>
+  <i class="iconfont icon-left1" (click)="goMePage()"></i>
+  <i class="iconfont icon-more"></i>
 </ion-header>
-
 
 <ion-content>
   <div class="icon">
@@ -21,9 +19,9 @@
     <h3> {{ person.username }}</h3>
   </div>
   <div class="info">
-      关注： {{ person.focus }}
-      |
-      粉丝： {{ person.fans }}
+    关注： {{ person.focus }}
+    |
+    粉丝： {{ person.fans }}
   </div>
   <div class="labels">
     <span class="female"> ♀{{ ageLabels[1]}}</span>
@@ -31,20 +29,11 @@
     <span>{{ location }}</span>
     <span>{{ constellation[2] }}</span>
   </div>
-  <div class="dynamic" padding>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
+  <div class="dynamic">
+    <ul class="list">
+      <li>文章</li>
+      <li class="checked">动态<sup> &nbsp; {{ person.arcticleTimes }}</sup></li>
+      <li>TA的关注</li>
+    </ul>
   </div>
 </ion-content>

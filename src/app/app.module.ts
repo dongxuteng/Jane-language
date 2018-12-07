@@ -16,7 +16,6 @@ import { InfoPage } from '../pages/info/info';
 import { MePage } from '../pages/me/me';
 import { ChatPage } from '../pages/chat/chat';
 import {WelcomePage} from '../pages/welcome/welcome';
-import {LoginPage} from '../pages/login/login';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -31,7 +30,6 @@ import { HttpClientModule } from '@angular/common/http';
     MePage,
     ChatPage,
     WelcomePage,
-    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +49,6 @@ import { HttpClientModule } from '@angular/common/http';
     MePage,
     ChatPage,
     WelcomePage,
-    LoginPage
   ],
   providers: [
     StatusBar,
