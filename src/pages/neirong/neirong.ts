@@ -19,7 +19,8 @@ export class NeirongPage {
      img:'assets/imgs/2.jpg',
      tx:'assets/imgs/icon.png',
      num:'50',
-     date:'2018/11/11'
+     date:'2018/11/11',
+     likes:'999'
    }]
 
    ionViewDidEnter(){
