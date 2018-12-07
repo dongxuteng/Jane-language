@@ -1,17 +1,8 @@
 page-neirong {
 // 
-// ion-title{
-//     height: 50px;
-//     text-align: center;
-// }
-.title{
-    font-size:1.5em;
-    max-width:200px;
-    margin:0;
-    overflow:hidden;
-    text-overflow:ellipsis;
-    white-space:nowrap;
-    padding-left: 2em;
+ion-title{
+    height: 50px;
+    text-align: center;
 }
 .date{
     float: right;
@@ -32,6 +23,5 @@ page-neirong {
 .div{
     border-bottom: 1px solid gray;
 }
-
 
 }
