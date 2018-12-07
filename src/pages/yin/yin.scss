@@ -1,3 +1,15 @@
 page-yin {
-
+    ion-navbar{
+        text-align: center;
+        ion-title{
+            background-color: rgb(247,247,247);
+            padding-right: 54px;
+        }
+    }
+    .music{
+        margin-top: 20px;
+     }
+     #audio{
+         text-align: center;
+     }  
 }
