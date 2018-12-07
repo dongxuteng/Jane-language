@@ -1,24 +1,44 @@
 page-neirong {
 // 
-ion-title{
-    height: 50px;
-    text-align: center;
+.title{
+    max-width: 15em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 4.5em;
+    margin: 0;
 }
 .date{
     float: right;
 }
-.btn{
-    width:50px;
-    position: relative;
-    left: 25%;
-    margin: 0;
+.img{
+    float: left;
+    width: 50px;
+    height: 50px;
+    border-radius: 50% 50%;
+    overflow: hidden;
 }
-#shc{
-    font-size: 25px;
+.username{
     position: relative;
-    left: 80%;
-    bottom: 30px;
-    margin: 0;
+    top:1.6em;
+}
+.guanz{
+    width: 3m;
+    height: 1.7em;
+    position: relative;
+    top:1.2em;
+    right: 3em;
+}
+#like{
+    font-size:2em;
+    position: relative;
+    top:0.6em;
+    left:2em;
+}
+.likes{
+    position: relative;
+    left: 7em;
+    font-size: 0.8em;
 }
 .div{
     border-bottom: 1px solid gray;

@@ -6,10 +6,17 @@
 -->
 <ion-header *ngFor="let arr of arr">
     <ion-navbar>
-      <ion-title text-center style="padding-right: 54px;">{{ arr.title }}
-      <i class="iconfont icon-shoucang" style="position:absolute;right:2em;font-size:1em;"></i>
-      <i class="iconfont icon-share" style="position:absolute;right:0.5em;font-size:1em;" ></i>
-      </ion-title>
+      <ion-row>
+      <ion-col col-8>
+      <h5 class="title">{{ arr.title }}</h5>
+      </ion-col>
+      <ion-col col-3>
+      <i class="iconfont icon-shoucang" style="font-size:1.5em;"></i>
+      </ion-col>
+      <ion-col col-1>
+      <i class="iconfont icon-share" style="font-size:1.5em;" ></i>
+    </ion-col>
+      </ion-row> 
     </ion-navbar> 
   </ion-header>
 
@@ -37,7 +44,7 @@
           </button>
         </ion-col>
         <ion-col col-2>
-            <i class="iconfont icon-xihuan" ></i>
+            <i class="iconfont icon-xihuan" id="like"></i>
             <span class="likes">{{arr.likes}}</span>
         </ion-col>
       </ion-row>
