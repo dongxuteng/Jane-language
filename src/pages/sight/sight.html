@@ -55,7 +55,7 @@
   </ion-slides>
   
   <!-- 卡片 -->
-  <ion-card *ngFor = "let assey of asseys">
+  <ion-card *ngFor = "let assey of asseys"(click)="goSightmore()">
     <img src="{{ assey.imgSrc }}">
     <ion-card-content>
       <ion-card-title>{{ assey.title }}</ion-card-title>

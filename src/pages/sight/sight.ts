@@ -48,7 +48,9 @@ export class SightPage {
     this.navCtrl.push("FoodsPage");
   }
 
-
+goSightmore(){
+  this.navCtrl.push('SightmorePage')
+}
   goPersonal(){
     this.navCtrl.push('PersonalPage');
   }
