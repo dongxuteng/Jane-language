@@ -1,11 +1,17 @@
 <ion-header *ngFor="let arr of arr">
-  <ion-navbar>
-    <ion-title text-center style="padding-right: 54px;">{{ arr.title }}
-    <i class="iconfont icon-shoucang" style="position:absolute;right:4em;font-size:1em;"></i>
-    <i class="iconfont icon-share" style="position:absolute;right:0.5em;font-size:1em;" ></i>
-    </ion-title>
-  </ion-navbar>
-
+    <ion-navbar>
+      <ion-row>
+      <ion-col col-8>
+      <h5 class="title">{{ arr.title }}</h5>
+      </ion-col>
+      <ion-col col-3>
+      <i class="iconfont icon-shoucang" style="font-size:1.5em;"></i>
+      </ion-col>
+      <ion-col col-1>
+      <i class="iconfont icon-share" style="font-size:1.5em;" ></i>
+    </ion-col>
+      </ion-row> 
+    </ion-navbar> 
   </ion-header>
 
 
@@ -19,18 +25,23 @@
     <p>{{arr.msg}}</p>
     <p class="date">{{arr.date}}</p>
   </div>
-    <p>
-      <ion-list style="margin:0;">
-          <ion-item>
-            <ion-avatar item-start>
-              <img src="{{arr.tx}}">
-            </ion-avatar>
-            <a style="position:relative;top:25px;">{{arr.name}}</a>
-            <button ion-button block outline class="btn">关注</button>
-            <ion-icon class="iconfont icon-xihuan" id="shc"></ion-icon>
-          </ion-item>
-        </ion-list>
-      </p>
+  <ion-row >
+      <ion-col col-7>
+        <div class="img">
+            <img src="{{ arr.tx }}">
+        </div>
+          <a class="username">{{ arr.name }}</a>   
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button block outline class="guanz">
+          关注
+        </button>
+      </ion-col>
+      <ion-col col-2>
+          <i class="iconfont icon-xihuan" id="like"></i>
+          <span class="likes">{{arr.likes}}</span>
+      </ion-col>
+    </ion-row>
     </div>
     <div>
       <span>评论</span>
