@@ -24,12 +24,16 @@ page-home {
   }
 
   .main{
-    height: 450px;
+    height: 30em!important;
     border: 1px solid darkgray;
   }
-
+  .img{
+    height: 50%;
+  }
   ion-card-content{
     text-align: left;
+    height: 100%;
+    position: relative;
     h1{
       text-indent: 0.5em;
     }
@@ -39,8 +43,6 @@ page-home {
     }
     .bottom{
       width: 100%;
-      position: relative;
-      bottom: -4em;
     }
     .col{
         ion-col{
