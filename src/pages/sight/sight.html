@@ -55,11 +55,11 @@
   </ion-slides>
 
   <!-- 卡片 -->
-  <ion-card *ngFor="let assey of asseys" (click)="goSightmore()">
-    <img src="{{ assey.imgSrc }}">
-    <ion-card-content>
+  <ion-card *ngFor="let assey of asseys">
+    <img src="{{ assey.imgSrc }}" (click)="goSightmore()">
+    <ion-card-content (click)="goSightmore()">
       <ion-card-title>{{ assey.title }}</ion-card-title>
-      <p class="inner">{{ assey.inner }}</p>
+      <p>{{ assey.inner }}</p>
     </ion-card-content>
     <ion-row>
       <ion-col col-8>
