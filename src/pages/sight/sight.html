@@ -39,9 +39,9 @@
 <!-- 标题栏 -->
 <ion-header>
   <ion-navbar>
-      <button ion-button menuToggle>
-        <ion-icon ios="ios-menu" md="md-menu"></ion-icon>
-      </button>
+    <button ion-button menuToggle>
+      <ion-icon ios="ios-menu" md="md-menu"></ion-icon>
+    </button>
     <ion-title>精选</ion-title>
   </ion-navbar>
 </ion-header>
@@ -49,19 +49,19 @@
 <ion-content>
   <!-- 轮播图 -->
   <ion-slides pager="true" autoplay="1000" loop="true" class="sli">
-    <ion-slide *ngFor = "let src of srcs">
+    <ion-slide *ngFor="let src of srcs">
       <img src="{{ src }}" alt="">
     </ion-slide>
   </ion-slides>
-  
+
   <!-- 卡片 -->
-  <ion-card *ngFor = "let assey of asseys"(click)="goSightmore()">
+  <ion-card *ngFor="let assey of asseys" (click)="goSightmore()">
     <img src="{{ assey.imgSrc }}">
     <ion-card-content>
       <ion-card-title>{{ assey.title }}</ion-card-title>
       <p class="inner">{{ assey.inner }}</p>
     </ion-card-content>
-    <ion-row >
+    <ion-row>
       <ion-col col-8>
         <ion-item (click)="goPersonal()">
           <ion-avatar item-start>

@@ -1,36 +1,56 @@
 page-home {
-    background-color:bisque !important;
-    ion-header{
-        height: 60px;
-    .rightFloat{
-        float: right;
-    }
-    .temp{
-        font-size: 10px;
-        position: relative;
-        bottom:7px;
-    }
-    .city{
-        font-size: 15px;
-        font-weight: bold;
-    }
-    .floatleft{
-        float: left;
-    }
-}
+  background-color: bisque !important;
 
+  ion-header {
+    height: 50px;
+    line-height: 50px;
 
-    .a2{
-        position: absolute;
-        left: 50%;
-        right: 50%;
-        .num{
-            font-size: 20px;
-        }
+    .rightFloat {
+      float: right;
     }
-    .a3{
-        position: absolute;
-        left:90%;
-        font-size: 25px;
+
+    .temp {
+      font-size: 15px;
     }
+
+    .city {
+      font-size: 20px;
+    }
+
+    .floatleft {
+      font-size: 25px;
+      float: left;
+    }
+  }
+
+  .main{
+    height: 450px;
+    border: 1px solid darkgray;
+  }
+
+  ion-card-content{
+    text-align: left;
+    h1{
+      text-indent: 0.5em;
+    }
+    p{
+      margin-top: 10px!important;
+      text-indent: 2em;
+    }
+  }
+  .a2 {
+    position: absolute;
+    left: 50%;
+    right: 50%;
+
+    .num {
+      font-size: 20px;
+    }
+  }
+
+  .a3 {
+    position: absolute;
+    left: 90%;
+    font-size: 25px;
+  }
 }
