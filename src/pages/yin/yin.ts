@@ -19,7 +19,22 @@ export class YinPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad YinPage');
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map((key) => {
+        elements[key].style.display = 'none';
+      });
+    }
   }
-
+  ionViewDidEnter() {
+  }
+  //ionic当退出页面的时候触发的方法
+  ionViewWillLeave() {
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map((key) => {
+        elements[key].style.display = 'flex';
+      });
+    }
+  }
 }

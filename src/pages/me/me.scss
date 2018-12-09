@@ -1,74 +1,83 @@
 page-me {
-    .tou{
-        margin: 0 auto;
-        width: 130px;
-        height: 150px;
-        position: relative;
-        top: 20px;
-        text-align: center;
-        p{
-            font-size: 15px;
-            color: white;
-        }
+  .tou {
+    margin: 0 auto;
+    width: 130px;
+    height: 150px;
+    position: relative;
+    top: 20px;
+    text-align: center;
+
+    p {
+      font-size: 15px;
+      color: white;
     }
-    .my{
-        width:90px;
-        height: 60%;
-        border-radius: 50% 50%;
-        margin-top: 30px
+  }
+
+  .my {
+    width: 90px;
+    height: 60%;
+    border-radius: 50% 50%;
+    margin-top: 30px;
+  }
+
+  ion-header{
+    background-image: url("../../assets/imgs/0.jpg");
+    background-size: cover;
+
+  }
+  .bgmy {
+    height: 16em;
+    text-align: center;
+
+    p {
+      font-size: 16px;
+      color: gray;
+    }
+  }
+
+  .y {
+    height: 45%;
+    padding-left: 7%;
+    padding-right: 7%;
+
+    i {
+      font-size: 23px;
     }
 
-    .bgmy{
-        background-image: url("../../assets/imgs/11.jpg");
-        height: 16em;
-        background-size: cover;
-        text-align: center;
-       
-        p{
-            font-size: 16px;
-            color: gray;
-        }
-                   
-    }             
-     
-    .y{
-        height: 45%;
-        padding-left:7%;
-        padding-right:7%;     
-        i{
-            font-size: 23px;
-        }
-        p{
-            text-align: center;
-        }
+    p {
+      text-align: center;
     }
-    .u{
-        height: 90%;
-        background-color:white;       
-        border:1px solid rgb(184, 182, 182);
-        border-radius: 50% 50%; 
-        box-shadow:1px 1px 3px rgb(184, 182, 182);
-        margin-left: 4.2%;
-        margin-right: 4.2%;             
-    }        
-    .row{
-        padding-left:7%;
-        padding-right:7%;
-        text-align: center;        
-        .col{        
-            font-size: 11px;                      
-        }
-        
-    }
-    .a{ 
-        background-color: white;
-        height: 35%;
-        border-bottom:1px solid rgba(128, 128, 128, 0.5);
-    }
-    .list{
-        font-size: 13.5px;
-        color: black;
-        border: none;       
-    }
+  }
 
+  .u {
+    height: 90%;
+    background-color: white;
+    border: 1px solid rgb(184, 182, 182);
+    border-radius: 50% 50%;
+    box-shadow: 1px 1px 3px rgb(184, 182, 182);
+    margin-left: 4.2%;
+    margin-right: 4.2%;
+  }
+
+  .row {
+    padding-left: 7%;
+    padding-right: 7%;
+    text-align: center;
+
+    .col {
+      font-size: 11px;
+    }
+  }
+
+  .a {
+    background-color: white;
+    height: 35%;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+  }
+
+  .list {
+    font-size: 13.5px;
+    color: black;
+    border: none;
+  }
 }

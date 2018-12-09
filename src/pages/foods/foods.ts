@@ -17,7 +17,7 @@ export class FoodsPage {
        Object.keys(elements).map((key) => {
           elements[key].style.display = 'none';
       });
-    }   
+    }
   }
   //ionic当退出页面的时候触发的方法
   ionViewWillLeave() {
@@ -31,7 +31,7 @@ export class FoodsPage {
 
   articles = [
     {
-      title: '如何制作传统的法国羊角面包',
+      title: '制作传统的法国羊角面包',
       imgSrc: '../../assets/imgs/3.jpg',
       iconSrc: '../../assets/imgs/icon.png',
       username: 'Kika Kong',

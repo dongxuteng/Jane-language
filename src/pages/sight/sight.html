@@ -6,32 +6,40 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
-    <ion-list>
-      <button ion-item>
+    <ul>
+      <li>
+        <i class="iconfont icon-jingxuan"></i>
         精选
-      </button>
-      <button ion-item>
+      </li>
+      <li>
+        <i class="iconfont icon-pencil"></i>
         随笔
-      </button>
-      <button ion-item>
-        情感
-      </button>
-      <button ion-item>
-        励志
-      </button>
-      <button ion-item (click)="goFoods()">
+      </li>
+      <li (click)="goFoods()">
+        <i class="iconfont icon-meishi"></i>
         美食
-      </button>
-      <button ion-item>
+      </li>
+      <li>
+        <i class="iconfont icon-heart"></i>
+        情感
+      </li>
+      <li>
+        <i class="iconfont icon-power"></i>
+        励志
+      </li>
+      <li>
+        <i class="iconfont icon-theearthdiqiu"></i>
         旅行
-      </button>
-      <button ion-item>
+      </li>
+      <li>
+        <i class="iconfont icon-yinle"></i>
         音乐
-      </button>
-      <button ion-item>
+      </li>
+      <li>
+        <i class="iconfont icon-iconset0129"></i>
         影视
-      </button>
-    </ion-list>
+      </li>
+    </ul>
   </ion-content>
 </ion-menu>
 <ion-nav id="nav" #content [root]="rootPage"></ion-nav>

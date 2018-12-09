@@ -21,24 +21,24 @@ export class MePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MePage');
   }
-  
-  function1(){
+
+  function1() {
     this.navCtrl.push('MyPage')
   }
-  
-  function2(){
+
+  function2() {
     this.navCtrl.push("WenPage")
   }
 
-  function3(){
+  function3() {
     this.navCtrl.push("YinPage")
   }
 
-  function4(){
+  function4() {
     this.navCtrl.push("GuanzhuPage")
   }
 
-  function5(){
+  function5() {
     this.navCtrl.push("ShezhiPage")
   }
 }

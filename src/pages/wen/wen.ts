@@ -21,7 +21,7 @@ export class WenPage {
       inner: "Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a ?! Whoa. This is heavy.Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.",
       iconSrc: "../../assets/imgs/icon.png",
       comments: 256,
-      likes: 999,
+      likes: 99,
     },
     {
       name: "简小语",
@@ -30,14 +30,19 @@ export class WenPage {
       //imgSrc: "../../assets/imgs/3.jpg",
       iconSrc: "../../assets/imgs/icon.png",
       comments: 187,
-      likes: 999,
+      likes: 45,
     }
   ]
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad WenPage');
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map((key) => {
+        elements[key].style.display = 'none';
+      });
+    }
   }
   // 下拉刷新
   doRefresh(refresher) {
@@ -47,6 +52,16 @@ export class WenPage {
       refresher.complete();
     }, 2000);
   }
-  
+  ionViewDidEnter() {
+  }
+  //ionic当退出页面的时候触发的方法
+  ionViewWillLeave() {
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map((key) => {
+        elements[key].style.display = 'flex';
+      });
+    }
+  }
 
 }
