@@ -1,6 +1,13 @@
 page-info {
+  .segment-md .segment-button.segment-activated{
+    border-color: black;
+  }
+  .segment-md .segment-button{
+    color: black;
+  }
     .header{
         text-align: center;
+        color: wheat!important;
         }
 
     .top{
@@ -9,6 +16,17 @@ page-info {
         font-size: 16px;
         // height:60px;
         // margin:-16px 0 0 -16px;
+    }
+    #bottom{
+      margin-top: 10px;
+      border-top: 1px solid darkgray;
+    }
+    .item-md{
+      margin: 0;
+      padding: 0;
+    }
+    ion-list{
+      padding: 0;
     }
     .time{
         float: right;
