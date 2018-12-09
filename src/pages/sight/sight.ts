@@ -44,18 +44,18 @@ export class SightPage {
   }
 
   // 页面跳转
-  goFoods(){
+  goFoods() {
     this.navCtrl.push("FoodsPage");
   }
 
-goSightmore(){
-  this.navCtrl.push('SightmorePage')
-}
-  goPersonal(){
+  goSightmore() {
+    this.navCtrl.push('SightmorePage')
+  }
+  goPersonal() {
     this.navCtrl.push('PersonalPage');
   }
   // 点赞计数
-  like(){
+  like() {
 
   }
 
