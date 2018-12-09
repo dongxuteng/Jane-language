@@ -71,4 +71,7 @@ Go_nr(){
 Go_fb(){
   this.navCtrl.push('FabuPage');
 }
+Goperson(){
+  this.navCtrl.push('PersonalPage')
+}
 }
