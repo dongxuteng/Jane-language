@@ -9,6 +9,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SightPage {
 
+  count: number;
 
   srcs = [
     "../../assets/imgs/1.jpg",
@@ -55,8 +56,8 @@ export class SightPage {
     this.navCtrl.push('PersonalPage');
   }
   // 点赞计数
-  like() {
-
+  likeCounting() {
+    console.log("1111111");
   }
 
   // 下拉刷新

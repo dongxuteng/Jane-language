@@ -79,10 +79,10 @@
           <p style="text-align: left">{{ assey.talk }}</p>
         </ion-item>
       </ion-col>
-      <ion-col col-2>
+      <ion-col col-2 (click)="likeCounting()">
         <button ion-button icon-start clear small>
           <ion-icon name="thumbs-up"></ion-icon>
-          <div (click)="like()">{{ assey.likes }}</div>
+          <div>{{ assey.likes }}</div>
         </button>
       </ion-col>
       <ion-col col-2>
