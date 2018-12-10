@@ -29,7 +29,9 @@ export class MePage {
   Text() {
     this.navCtrl.push("WenPage")
   }
-
+Video(){
+  this.navCtrl.push("VideoPage")
+}
   Music() {
     this.navCtrl.push("YinPage")
   }
