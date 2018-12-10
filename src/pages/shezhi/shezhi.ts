@@ -27,6 +27,18 @@ export class ShezhiPage {
     this.navCtrl.pop();
   }
   function2(){
+    this.navCtrl.push('ZhanghaoPage');
+  }
+  function3(){
+    this.navCtrl.push('XinxiaoxiPage');
+  }
+  function4(){
+    this.navCtrl.push('YinsiPage');
+  }
+  function5(){
+    this.navCtrl.push('TongyongPage');
+  }
+  tuichu(){
     this.navCtrl.push(LoginPage);
   }
   ionViewDidEnter(){
