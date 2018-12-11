@@ -1,5 +1,6 @@
 page-neirong {
   //
+
   .title {
     max-width: 15em;
     overflow: hidden;
@@ -48,18 +49,7 @@ page-neirong {
     font-size: 0.8em;
   }
 
-  .content {
+  .div {
     border-bottom: 1px solid gray;
-  }
-
-
-  .author{
-    text-indent: 1em;
-  }
-
-  .article{
-    width:100%;
-    text-indent: 2em;
-    word-wrap: break-word;
   }
 }

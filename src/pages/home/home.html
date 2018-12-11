@@ -11,11 +11,11 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-slides (ionSlideTap)="bannerEvent()" loop>
+  <ion-slides loop>
     <ion-slide *ngFor='let arr of arr'>
       <!--图片-->
       <ion-card class="main">
-        <img class="img" src="{{arr.img}}" />
+        <img  class="img"src="{{arr.img}}" />
         <ion-card-content>
           <h1>
             {{arr.title}}

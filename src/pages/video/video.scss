@@ -1,14 +1,21 @@
 page-video {
+
 ion-title{
     text-align: center;
 }
+ion-content{
+    background-image: url("../../assets/imgs/4.jpg");
 video{
     width:100%;
 }
 ion-card{
     border: 1px solid darkgray;
+    .card-content{
+        padding: 0;
+    }
 }
 .col{
     line-height: 2.5em;
-}
+}   
+    }
 }

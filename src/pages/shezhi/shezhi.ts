@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MePage } from '../me/me';
 import { LoginPage } from '../login/login';
+import { HelpPage } from '../help/help';
+import { AboutPage } from '../about/about';
+import { SwitchAccountPage } from '../switch-account/switch-account';
 
 /**
  * Generated class for the ShezhiPage page.
@@ -26,20 +29,29 @@ export class ShezhiPage {
   function1(){
     this.navCtrl.pop();
   }
-  function2(){
+   zhanghao(){
     this.navCtrl.push('ZhanghaoPage');
   }
-  function3(){
+  xinxiaoxi(){
     this.navCtrl.push('XinxiaoxiPage');
   }
-  function4(){
+  yinsi(){
     this.navCtrl.push('YinsiPage');
   }
-  function5(){
+  tongyong(){
     this.navCtrl.push('TongyongPage');
   }
   tuichu(){
     this.navCtrl.push(LoginPage);
+  }
+  help(){
+    this.navCtrl.push(HelpPage);
+  }
+  about(){
+    this.navCtrl.push(AboutPage);
+  }
+  switch(){
+    this.navCtrl.push(SwitchAccountPage);
   }
   ionViewDidEnter(){
     let elements = document.querySelectorAll(".tabbar");

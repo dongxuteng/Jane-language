@@ -22,7 +22,7 @@ export class WelcomePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad WelcomePage');
   }
-  goToHome(){
+  goToLogin(){
     this.navCtrl.setRoot(LoginPage);
 }
 }

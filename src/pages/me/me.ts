@@ -35,7 +35,9 @@ export class MePage {
   Music() {
     this.navCtrl.push("YinPage")
   }
-
+  Image(){
+    this.navCtrl.push("ImagePage")
+  }
   function4() {
     this.navCtrl.push("GuanzhuPage")
   }
