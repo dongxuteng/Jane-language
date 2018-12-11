@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-//import { TabsPage } from '../tabs/tabs';
-import {LoginPage} from '../login/login';
+import { LoginPage } from '../login/login';
+
 /**
- * Generated class for the WelcomePage page.
+ * Generated class for the SwitchAccountPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,18 +11,18 @@ import {LoginPage} from '../login/login';
 
 @IonicPage()
 @Component({
-  selector: 'page-welcome',
-  templateUrl: 'welcome.html',
+  selector: 'page-switch-account',
+  templateUrl: 'switch-account.html',
 })
-export class WelcomePage {
+export class SwitchAccountPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad WelcomePage');
+    console.log('ionViewDidLoad SwitchAccountPage');
   }
   goToLogin(){
-    this.navCtrl.setRoot(LoginPage);
-}
+    this.navCtrl.push(LoginPage);
+  }
 }

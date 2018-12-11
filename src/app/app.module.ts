@@ -16,6 +16,9 @@ import { InfoPage } from '../pages/info/info';
 import { MePage } from '../pages/me/me';
 import { ChatPage } from '../pages/chat/chat';
 import {WelcomePage} from '../pages/welcome/welcome';
+import { HelpPage } from '../pages/help/help';
+import { SwitchAccountPage } from '../pages/switch-account/switch-account';
+import { FeedbackPage } from '../pages/feedback/feedback';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -30,6 +33,9 @@ import { HttpClientModule } from '@angular/common/http';
     MePage,
     ChatPage,
     WelcomePage,
+    HelpPage,
+    SwitchAccountPage,
+    FeedbackPage
   ],
   imports: [
     BrowserModule,
@@ -49,6 +55,9 @@ import { HttpClientModule } from '@angular/common/http';
     MePage,
     ChatPage,
     WelcomePage,
+    HelpPage,
+    SwitchAccountPage,
+    FeedbackPage
   ],
   providers: [
     StatusBar,
