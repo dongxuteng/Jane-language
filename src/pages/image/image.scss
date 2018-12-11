@@ -1,0 +1,27 @@
+page-image {
+    ion-title{
+        padding-right: 54px;
+        text-align: center;
+    }
+    ion-content{
+        background-image: url("../../assets/imgs/4.jpg");
+        ion-card {
+            position: relative;
+            text-align: center;
+            border-radius: 3px;
+            ion-item{
+                text-align: center;
+            }
+            i{
+                line-height: 2em;
+            }
+            #xiazai{
+                font-size: 2em;
+            }
+            #like{
+                font-size:2em;
+                color:red;
+            }
+        }
+    }
+}
