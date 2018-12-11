@@ -38,6 +38,9 @@ export class MePage {
   Image(){
     this.navCtrl.push("ImagePage")
   }
+  Share(){
+    this.navCtrl.push('SharePage')
+  }
   function4() {
     this.navCtrl.push("GuanzhuPage")
   }
