@@ -1,0 +1,64 @@
+<!--
+  Generated template for the SharePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>我的分享</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <div>
+    <ion-segment [(ngModel)]="interest">
+      <ion-segment-button value="text">
+        文章
+      </ion-segment-button>
+      <ion-segment-button value="music">
+        音乐
+      </ion-segment-button>
+      <ion-segment-button value="video">
+        视频
+      </ion-segment-button>
+    </ion-segment>
+    </div>
+    <!---->
+    <div [ngSwitch]="interest">
+      <ion-list *ngSwitchCase="'text'">
+        <ion-item *ngFor="let arrmsg of arrmsg">
+          <ion-avatar item-start (click)="Goperson()">
+            <img src="{{arrmsg.tx}}">
+            <p style="text-align:center">{{arrmsg.name}}</p>
+          </ion-avatar>
+            <h3>{{arrmsg.title}}</h3>
+        </ion-item>
+      </ion-list>
+      <ion-list *ngSwitchCase="'music'">
+        <ion-card>
+            <img src="../../assets/imgs/6.jpg">
+            <ion-card-content id="audio">
+                <ion-card-title>杨宗纬、张碧晨——凉凉</ion-card-title>
+                <audio id="myAudio" src="../../assets/imgs/liangliang.mp3" controls="controls"  loop="false">
+                </audio>
+            </ion-card-content>
+        </ion-card>
+          <ion-item>
+            <ion-avatar item-start>
+              <img src="assets/imgs/1.jpg">
+            </ion-avatar>
+          </ion-item>
+        </ion-list>
+        <ion-list *ngSwitchCase="'video'">
+            <ion-item>
+              <ion-avatar item-start>
+                <img src="assets/imgs/3.jpg">
+              </ion-avatar>
+            </ion-item>
+          </ion-list>
+    </div>
+  </ion-content>
