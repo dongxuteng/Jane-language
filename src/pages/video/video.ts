@@ -19,14 +19,14 @@ export class VideoPage {
       iconSrc: "assets/imgs/4.jpg",
       likes: 11,
       comments: 25,
-      url:'../../assets/imgs/video.mp4'
+      url:'http://edge.ivideo.sina.com.cn/180245613.mp4?KID=sina,viask&Expires=1544630400&ssig=XaEGf0qxFV'
     },
     {
       name: "Weapon",
       iconSrc: "assets/imgs/1.jpg",
       likes: 56,
       comments: 87,
-      url:'../../assets/imgs/video.mp4'     
+      url:'http://edge.ivideo.sina.com.cn/193274290.mp4?KID=sina,viask&Expires=1544630400&ssig=%2FbvRLtnpke'     
     }   
   ]
 
