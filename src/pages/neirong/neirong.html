@@ -5,10 +5,10 @@
         <h5 class="title">{{ arr.title }}</h5>
       </ion-col>
       <ion-col col-3>
-        <i class="iconfont icon-shoucang" style="font-size:1.5em;"></i>
+        <i class="iconfont icon-shoucang" style="font-size:1.5em; padding-right: 10px; float: right;"></i>
       </ion-col>
       <ion-col col-1>
-        <i class="iconfont icon-share" style="font-size:1.5em;"></i>
+        <i class="iconfont icon-gengduo" style="font-size:1.6em; float: right;"></i>
       </ion-col>
     </ion-row>
   </ion-navbar>
@@ -17,12 +17,12 @@
 
 
 <ion-content *ngFor='let arr of arr'>
-  <div class="div">
+  <div class="content">
     <img src="{{arr.img}}">
     <div padding>
       <h2>{{arr.title}}</h2>
-      <p>&nbsp;&nbsp;&nbsp;&nbsp;作者/{{arr.name}}</p>
-      <p>{{arr.msg}}</p>
+      <p class="author">作者/{{arr.name}}</p>
+      <div class="article">{{arr.msg}}</div>
       <p class="date">{{arr.date}}</p>
     </div>
     <ion-row style="margin-top: 20px;">
