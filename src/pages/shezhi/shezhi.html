@@ -13,13 +13,13 @@
 
 <ion-content style="background-color:rgb(248, 248, 248);">
   <div style="margin-top:5%">  
-    <button ion-item class="list" (click)="function2()">账号与安全</button>
-    <button ion-item class="list" style="margin-top:5%" (click)="function3()">新消息提醒</button>
-    <button ion-item class="list" (click)="function4()">隐私</button>
-    <button ion-item class="list" (click)="function5()">通用</button>
-    <button ion-item class="list" style="margin-top:5%">帮助与反馈</button>
-    <button ion-item class="list">关于</button>
-    <button ion-item class="list">切换账号</button>
+    <button ion-item class="list">账号与安全</button>
+    <button ion-item class="list" style="margin-top:5%">新消息提醒</button>
+    <button ion-item class="list">隐私</button>
+    <button ion-item class="list">通用</button>
+    <button ion-item class="list" style="margin-top:5%" (click)="help()">帮助与反馈</button>
+    <button ion-item class="list" (click)="about()">关于</button>
+    <button ion-item class="list" (click)="switch()">切换账号</button>
     <button ion-button color="danger" class="tuichu" (click)="tuichu()">退出登录</button>
   </div>
 </ion-content>

@@ -22,17 +22,15 @@ export class MePage {
     console.log('ionViewDidLoad MePage');
   }
 
-  goMy() {
+  function1() {
     this.navCtrl.push('MyPage')
   }
 
-  Text() {
+  function2() {
     this.navCtrl.push("WenPage")
   }
-  Video(){
-  this.navCtrl.push("VideoPage")
-}
-  Music() {
+
+  function3() {
     this.navCtrl.push("YinPage")
   }
 

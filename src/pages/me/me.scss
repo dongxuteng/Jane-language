@@ -19,7 +19,8 @@ page-me {
     border-radius: 50% 50%;
     margin-top: 30px;
   }
-  .bgmy{
+
+  ion-header{
     background-image: url("../../assets/imgs/0.jpg");
     background-size: cover;
 
@@ -35,9 +36,10 @@ page-me {
   }
 
   .y {
+    height: 45%;
     padding-left: 7%;
     padding-right: 7%;
-    height: 35%;
+
     i {
       font-size: 23px;
     }
@@ -46,13 +48,13 @@ page-me {
       text-align: center;
     }
   }
+
   .u {
-    // height: 80%;
+    height: 90%;
     background-color: white;
     border: 1px solid rgb(184, 182, 182);
     border-radius: 50% 50%;
     box-shadow: 1px 1px 3px rgb(184, 182, 182);
-    // margin: 0;
     margin-left: 4.2%;
     margin-right: 4.2%;
   }
@@ -69,7 +71,7 @@ page-me {
 
   .a {
     background-color: white;
-    height: 10em;
+    height: 35%;
     border-bottom: 1px solid rgba(128, 128, 128, 0.5);
   }
 
