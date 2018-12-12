@@ -1,41 +1,37 @@
-<!--
-  Generated template for the FabuPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-
-
 <ion-content>
-    <div class="big">
-      <div class="small">
-        <i class="iconfont icon-tupianshangchuan" style="font-size:3em;"></i>
-        <p style="color:gray">上传你的时刻</p>
+  <div class="headImg">
+    <div class="header">
+      <i class="iconfont icon-left1" (click)="return()"></i>
+    </div>
+    <div class="centerImg">
+      <i class="iconfont icon-tupianshangchuan" style="font-size:3em;"></i>
+      <p>上传你的时刻</p>
+    </div>
+  </div>
+  <div class="contain" padding>
+    <div class="textHead">
+      <i class="iconfont icon-ditu"></i>
+      {{localCityName}}
+      <span class="name">{{arr.name}}</span>
+    </div>
+      <ion-label color="black" stacked>选择音乐</ion-label>
+    <textarea class="textInput">
+    </textarea>
+  </div>
+  <div class="buttons">
+    <div class="buttons-float">
+      <div class="btn-save">
+        <button ion-button full class="btnShadow" color='light'>
+          <i class="iconfont icon-baocun1" style="font-size:1.5em;"></i>
+        </button>
+        <span style="font-size:1.3em;">保存</span>
+      </div>
+      <div class="btn-release">
+        <button ion-button full class="btnShadow" color='light'>
+          <i class="iconfont icon-fabu" style="font-size:2em;"></i>
+        </button>
+        <span style="font-size:1.3em;">发布</span>
       </div>
     </div>
-<div class="msg" >
-  <i class="iconfont icon-ditu"></i>
-  {{localCityName}}
-  <span style="position:absolute;right:10px;">{{arr.name}}</span>
-  <ion-label color="black" stacked>选择音乐</ion-label>
-  <p></p>
-  <textarea  cols="30" rows="10" style="width:100%">
-  </textarea>
-</div>
-<div class="div1">
-<div class="div2">
-  <div class="d1">
-<button ion-button full class="bf" color='light'>
-    <i class="iconfont icon-baocun1" style="font-size:1.5em;"></i>
-</button>
-    <span style="font-size:1.3em;">保存</span>
-    </div>
-    <div class="d2">
-<button ion-button full class="bf" color='light'>
-    <i class="iconfont icon-fabu" style="font-size:2em;"></i>
-</button>
-    <span style="font-size:1.3em;">发布</span>
-    </div>
-</div>
-</div>
+  </div>
 </ion-content>

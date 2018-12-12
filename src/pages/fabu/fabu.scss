@@ -1,45 +1,96 @@
 page-fabu {
-    .big{
-        height: 18em;
-        width: 100%;
-        background-image:url("../assets/imgs/0.jpg");
-        background-size: cover;
-        display: flex;
-        flex-direction: column;  
+  .header {
+    height: 40px;
+    line-height: 40px;
+  }
+
+  .icon-left1 {
+    font-size: 1.5em;
+    padding-left: 20px;
+  }
+
+  .icon-more {
+    font-size: 1.5em;
+    float: right;
+    padding-right: 20px;
+  }
+
+  .headImg {
+    height: 18em;
+    width: 100%;
+    background-image: url("../assets/imgs/0.jpg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .centerImg {
+    position: absolute;
+    top: 10%;
+    padding-top: 6%;
+    width: 60%;
+    height: 18%;
+    background-color: rgba(164,164,164,0.5);
+    text-align: center;
+    align-self: center;
+    color: #101010;
+
+    p {
+      color: #BDBDBD;
     }
-    .small{
-        width: 11em;
-        height: 7em;
-        background-color: gainsboro;
-        text-align: center;
-        align-self:center;
-        position: absolute;
-        top: 8%;
+  }
+
+  .contain {
+    .icon-ditu:before {
+      font-size: 1.5em;
     }
-    textarea{
-        background-color:rgb(247,247,247);
-        border:none;
-    }
-    .bf{
-        width: 3.3em;
-        border-radius: 50% 50%;
-    }
-    .div1{
-        width: 100%;
-        display: flex;
-        flex-direction: column;  
-    }
-    .d1{
-        float: left; 
-        text-align: center;
- 
-    }
-    .d2{
-        float: left;
-        text-align: center;
-        margin-left: 3em;
-    }
-    .div2{
-        align-self: center;
-    }
+  }
+
+  .textHead {
+    width: 100%;
+  }
+
+  .name {
+    position: relative;
+    bottom: 0;
+    float: right;
+    color: #7A9DB6;
+    font-weight: bold;
+  }
+  .textInput {
+    background-color: rgb(247,247,247);
+    border: none;
+    height: 20rem;
+    width: 100%;
+  }
+
+  .btnShadow {
+    width: 3.3em;
+    border-radius: 50% 50%;
+    box-shadow: 2px 2px 2px #AAAAAA;
+  }
+
+  .buttons {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .buttons-float {
+    align-self: center;
+    float: left;
+  }
+
+  .btn-save {
+    float: left;
+  }
+  .btn-release {
+    float: left;
+    text-align: center;
+    margin-left: 3em;
+  }
+
 }
