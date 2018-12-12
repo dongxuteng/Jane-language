@@ -9,10 +9,17 @@
     <ion-navbar>
       <ion-title>我的分享</ion-title>
     </ion-navbar>
+<<<<<<< HEAD
 
   </ion-header>
 
 
+=======
+  
+  </ion-header>
+  
+  
+>>>>>>> ee3bc292c8dc67fc10e54cac2ece4bd7b8cb55cc
   <ion-content padding>
     <div>
     <ion-segment [(ngModel)]="interest">
@@ -33,7 +40,11 @@
         <ion-item *ngFor="let arrmsg of arrmsg">
           <ion-avatar item-start (click)="Goperson()">
             <img src="{{arrmsg.tx}}">
+<<<<<<< HEAD
             <p style="text-align:center">{{arrmsg.name}}</p>
+=======
+            <p class="name">{{arrmsg.name}}</p>
+>>>>>>> ee3bc292c8dc67fc10e54cac2ece4bd7b8cb55cc
           </ion-avatar>
             <h3>{{arrmsg.title}}</h3>
         </ion-item>
@@ -48,7 +59,11 @@
             </ion-card-content>
           </ion-list>
         </ion-card>
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> ee3bc292c8dc67fc10e54cac2ece4bd7b8cb55cc
         <ion-list *ngSwitchCase="'video'">
           <ion-card *ngFor="let arr of arrvideo">
             <ion-card-content>
@@ -75,7 +90,11 @@
                       <div>{{ arr.comments }}</div>
                     </button>
                   </ion-col>
+<<<<<<< HEAD
                 </ion-row>
+=======
+                </ion-row>  
+>>>>>>> ee3bc292c8dc67fc10e54cac2ece4bd7b8cb55cc
             </ion-card>
           </ion-list>
     </div>
