@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {HttpClient} from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 /**
  * Generated class for the FabuPage page.
  *
@@ -15,42 +15,46 @@ declare var BMap;
 })
 export class FabuPage {
   localCityName: string;
-  arr={
-    name:'赫恩曼尼'
+  arr = {
+    name: '赫恩曼尼'
   }
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() { 
-    var myCity = new BMap.LocalCity();
-    myCity.get(function (result) {
-    var cityName = result.name; 
-    localStorage.setItem('currentCity', cityName);
-    return cityName;
-});
-
-//延迟500毫秒取存储在localStorage中的 cityName 
-  setTimeout(() => {
-   this.localCityName = localStorage.getItem('currentCity'); 
-}, 500); 
-}
-
-ionViewDidEnter(){
-  let elements = document.querySelectorAll(".tabbar");
-  if (elements != null) {
-     Object.keys(elements).map((key) => {
+  ionViewDidLoad() {
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map((key) => {
         elements[key].style.display = 'none';
-       });
-     }   
-}
-//ionic当退出页面的时候触发的方法
-ionViewWillLeave() {
-  let elements = document.querySelectorAll(".tabbar");
-  if (elements != null) {
-   Object.keys(elements).map((key) => {
-      elements[key].style.display = 'flex';
-});
-  }
-}
+      });
+    }
+    var myCity = new BMap.LocalCity();
+    myCity.get(function(result) {
+      var cityName = result.name;
+      localStorage.setItem('currentCity', cityName);
+      return cityName;
+    });
 
+    //延迟500毫秒取存储在localStorage中的 cityName
+    setTimeout(() => {
+      this.localCityName = localStorage.getItem('currentCity');
+    }, 500);
+  }
+
+  ionViewDidEnter() {
+  }
+  //ionic当退出页面的时候触发的方法
+  ionViewWillLeave() {
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map((key) => {
+        elements[key].style.display = 'flex';
+      });
+    }
+  }
+
+  //返回主页
+  return() {
+    this.navCtrl.pop();
+  }
 }
