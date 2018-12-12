@@ -1,0 +1,28 @@
+page-travel {
+    ion-title{
+        text-align: center;
+    }
+    .sli{
+        height:auto;
+        img{
+            width: 100%;
+            height: 11em;
+        }
+    }
+    h3{
+        text-align: center;
+    }
+    .title{
+        max-width: 12em;
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 0;  
+    }
+    .card{
+        border: 1px solid gray;
+        img{
+            height: 7em;
+            width: 100%;
+        }
+    }
+}
