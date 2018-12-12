@@ -1,0 +1,82 @@
+<!--
+  Generated template for the SharePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>我的分享</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <div>
+    <ion-segment [(ngModel)]="interest">
+      <ion-segment-button value="text">
+        文章
+      </ion-segment-button>
+      <ion-segment-button value="music">
+        音乐
+      </ion-segment-button>
+      <ion-segment-button value="video">
+        视频
+      </ion-segment-button>
+    </ion-segment>
+    </div>
+    <!---->
+    <div [ngSwitch]="interest">
+      <ion-list *ngSwitchCase="'text'">
+        <ion-item *ngFor="let arrmsg of arrmsg">
+          <ion-avatar item-start (click)="Goperson()">
+            <img src="{{arrmsg.tx}}">
+            <p class="name">{{arrmsg.name}}</p>
+          </ion-avatar>
+            <h3>{{arrmsg.title}}</h3>
+        </ion-item>
+      </ion-list>
+        <ion-card>
+            <ion-list *ngSwitchCase="'music'">
+            <img src="../../assets/imgs/6.jpg">
+            <ion-card-content id="audio">
+                <ion-card-title>杨宗纬、张碧晨——凉凉</ion-card-title>
+                <audio id="myAudio" src="../../assets/imgs/liangliang.mp3" controls="controls"  loop="false">
+                </audio>
+            </ion-card-content>
+          </ion-list>
+        </ion-card>
+  
+        <ion-list *ngSwitchCase="'video'">
+          <ion-card *ngFor="let arr of arrvideo">
+            <ion-card-content>
+                <video src="{{arr.url}}" controls="controls"></video>
+             </ion-card-content>
+              <ion-row>
+                  <ion-col col-7>
+                    <ion-item (click)="Goperson()">
+                      <ion-avatar item-start>
+                        <img src="{{ arr.tx }}">
+                      </ion-avatar>
+                      <h2 style="text-align: left;">{{ arr.name }}</h2>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col col-2>
+                    <button ion-button icon-start clear small>
+                      <ion-icon name="thumbs-up"></ion-icon>
+                      <div>{{ arr.likes }}</div>
+                    </button>
+                  </ion-col>
+                  <ion-col col-3>
+                    <button ion-button icon-start clear small>
+                      <ion-icon name="text"></ion-icon>
+                      <div>{{ arr.comments }}</div>
+                    </button>
+                  </ion-col>
+                </ion-row>  
+            </ion-card>
+          </ion-list>
+    </div>
+  </ion-content>
