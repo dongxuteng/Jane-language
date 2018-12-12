@@ -29,9 +29,6 @@ export class HelpPage {
     console.log('ionViewDidLoad HelpPage');
   }
   goToFeedBack(){
-<<<<<<< HEAD
-    this.navCtrl.push(FeedbackPage);
-=======
     this.navCtrl.push(FeedbackPage)
   }
   fun1(){
@@ -45,7 +42,6 @@ export class HelpPage {
   }
   fun4(){
     this.navCtrl.push(UpdatePage)
->>>>>>> ee3bc292c8dc67fc10e54cac2ece4bd7b8cb55cc
   }
 
 }

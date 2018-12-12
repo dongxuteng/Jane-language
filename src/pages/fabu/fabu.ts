@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-<<<<<<< HEAD
-import { HttpClient } from '@angular/common/http'
-=======
 import {HttpClient} from '@angular/common/http'
->>>>>>> ee3bc292c8dc67fc10e54cac2ece4bd7b8cb55cc
 /**
  * Generated class for the FabuPage page.
  *
