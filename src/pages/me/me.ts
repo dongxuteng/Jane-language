@@ -23,7 +23,7 @@ export class MePage {
   }
 
   goMy() {
-    this.navCtrl.push('MyPage')
+    this.navCtrl.push('MypagePage')
   }
 
   Text() {

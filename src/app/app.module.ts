@@ -19,6 +19,10 @@ import {WelcomePage} from '../pages/welcome/welcome';
 import { HelpPage } from '../pages/help/help';
 import { SwitchAccountPage } from '../pages/switch-account/switch-account';
 import { FeedbackPage } from '../pages/feedback/feedback';
+import { OpenclosePage } from '../pages/openclose/openclose';
+import { SwicityPage } from '../pages/swicity/swicity';
+import { OpagePage } from '../pages/opage/opage';
+import { UpdatePage } from '../pages/update/update';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -35,7 +39,11 @@ import { HttpClientModule } from '@angular/common/http';
     WelcomePage,
     HelpPage,
     SwitchAccountPage,
-    FeedbackPage
+    FeedbackPage,
+    OpenclosePage,
+    SwicityPage,
+    OpagePage,
+    UpdatePage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +65,11 @@ import { HttpClientModule } from '@angular/common/http';
     WelcomePage,
     HelpPage,
     SwitchAccountPage,
-    FeedbackPage
+    FeedbackPage,
+    OpenclosePage,
+    SwicityPage,
+    OpagePage,
+    UpdatePage
   ],
   providers: [
     StatusBar,
