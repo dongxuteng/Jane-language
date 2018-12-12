@@ -29,16 +29,19 @@ export class MePage {
   Text() {
     this.navCtrl.push("WenPage")
   }
-  Video() {
-    this.navCtrl.push("VideoPage")
-  }
+  Video(){
+  this.navCtrl.push("VideoPage")
+}
   Music() {
     this.navCtrl.push("YinPage")
   }
-  Image() {
+  Image(){
     this.navCtrl.push("ImagePage")
   }
-  Share() {
+  Interest(){
+    this.navCtrl.push('InterestPage')
+  }
+  Share(){
     this.navCtrl.push('SharePage')
   }
   function4() {

@@ -8,11 +8,11 @@
 <ion-content>
   <div class="header" no-border>
     <div class="bgmy">
-      <div class="tou">
-        <img src="assets/imgs/icon.png" class="my" (click)="goMy()">
-        <p>赫恩曼尼</p>
+        <div class="tou">
+          <img src="assets/imgs/icon.png" class="my" (click)="goMy()">
+          <p>赫恩曼尼</p>
+        </div>
       </div>
-    </div>
   </div>
   <div class="a">
     <p style="text-align:center;margin-top: 0;padding-top: 5px;">我的收藏</p>
@@ -31,7 +31,7 @@
     </div>
   </div>
   <button ion-item class="list" (click)="function4()">我的关注<i class="iconfont icon-arrow-right" style="float:right"></i></button>
-  <button ion-item class="list">我的兴趣<i class="iconfont icon-arrow-right" style="float:right"></i></button>
+  <button ion-item class="list" (click)='Interest()'>我的兴趣<i class="iconfont icon-arrow-right" style="float:right"></i></button>
   <button ion-item class="list" (click)="Share()">我的分享<i class="iconfont icon-arrow-right" style="float:right"></i></button>
   <div style="height:28%;background-color:rgba(248,248,248);padding-top:5%">
     <button ion-item class="list" (click)="function5()">设置<i class="iconfont icon-arrow-right" style="float:right"></i></button>
