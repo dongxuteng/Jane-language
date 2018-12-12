@@ -25,6 +25,14 @@ export class SharePage {
     title:'如何制作传统的法国羊角面包'
   }
 ]
+  arrvideo=[{
+    name:'花颜',
+    tx:'assets/imgs/3.jpg',
+    likes:'45',
+    comments:'60',
+    url:'http://edge.ivideo.sina.com.cn/180245613.mp4?KID=sina,viask&Expires=1544630400&ssig=XaEGf0qxFV'
+  }];
+  interest:string="text";
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
   Goperson(){
@@ -36,7 +44,7 @@ export class SharePage {
        Object.keys(elements).map((key) => {
           elements[key].style.display = 'none';
          });
-       }   
+       }
   }
   //ionic当退出页面的时候触发的方法
   ionViewWillLeave() {
