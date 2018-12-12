@@ -17,8 +17,6 @@ export class InterestPage {
   testCheckboxOpen: boolean;
   testCheckboxResult;
   arr;
-  a;
-  b;
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
   }
   ionViewDidLoad() {
@@ -60,12 +58,9 @@ export class InterestPage {
         this.testCheckboxOpen = false;
         this.testCheckboxResult = data;
         this.arr=data;
-        for(var i=0;i<this.arr.length;i++){
-          console.log(this.arr[i]);
-        }
-        this.a=this.arr[0];
-        this.b=this.arr[1];
-        
+        // for(var i=0;i<this.arr.length;i++){
+        //   console.log(this.arr[i]);
+        // }
 
       }
     });

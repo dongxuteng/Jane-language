@@ -14,15 +14,32 @@
 
 
 <ion-content padding>
+  <ion-card>
+    <ion-card-header>
       <button ion-button block color="secondary" (click)="showCheckbox()">选择你的兴趣</button> 
-           <button> {{a}}</button>
-            <button>{{b}}</button>
-            <ul>
-                <li>
-                  {{a}}
-                </li>
-                <li>
-                 {{b}}
-                </li>
-              </ul>
+    </ion-card-header>
+          <ion-list>
+            <button ion-item>
+                <ion-icon name="cafe" item-start></ion-icon>
+              美食
+            </button>
+        
+            <button ion-item>
+              <ion-icon name="medical" item-start></ion-icon>
+              随笔
+            </button>
+        
+            <button ion-item>
+              <ion-icon name="planet" item-start></ion-icon>
+              旅行
+            </button>
+        
+            <button ion-item>
+              <ion-icon name="paw" item-start></ion-icon>
+              情感
+            </button>
+        
+          </ion-list>
+        </ion-card>
+        
 </ion-content>
