@@ -44,11 +44,7 @@ export class SharePage {
        Object.keys(elements).map((key) => {
           elements[key].style.display = 'none';
          });
-<<<<<<< HEAD
-       }
-=======
        }   
->>>>>>> ee3bc292c8dc67fc10e54cac2ece4bd7b8cb55cc
   }
   //ionic当退出页面的时候触发的方法
   ionViewWillLeave() {

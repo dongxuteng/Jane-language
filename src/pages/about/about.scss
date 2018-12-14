@@ -4,12 +4,21 @@ page-about {
     
     .b1{
         text-align: center; 
-        font-size: 20px;
+        font-size: 18px;
+        
     }
     .b2{
-        background-color:white;
-        text-align: left;
-        color:black;
-        padding: 5px 5px;
+        height: 120px;   
+        background-color: white;   
+        padding-left: 15px;
+        padding-right: 15px;
+        p{ padding-top: 10px; 
+            font-size: 17px
+        }
     }
+    .list{
+        margin-top: 10px;
+        margin-bottom:150px;
+    }
+
 }
