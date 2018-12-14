@@ -1,0 +1,27 @@
+page-essay {
+    ion-navbar{
+        ion-title{
+        background-color: rgb(247,247,247);
+        text-align: center;
+    }
+}
+ion-content{
+    .item-md{ padding: 0; }
+    .item-inner{
+        padding-left: 0;
+        line-height: 50px;
+        font-size: 1.1em;
+        text-align: center;
+        border: none;
+    }
+    .card{ margin-top: 20px; }
+    ion-card{
+        .card-title-md{ margin: 4px 0; }
+        .col{
+            height: 66px;
+            line-height: 44px;
+        }
+        p{ text-indent: 2em; }
+    }
+}
+}

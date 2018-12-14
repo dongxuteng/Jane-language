@@ -47,6 +47,15 @@ export class SightPage {
   goFoods() {
     this.navCtrl.push("FoodsPage");
   }
+  goEssays(){
+    this.navCtrl.push("EssayPage");
+  }
+  goEmotions(){
+    this.navCtrl.push("EmotionPage");
+  }
+  goEncouragements(){
+    this.navCtrl.push("EncouragementPage");
+  }
 
   goSightmore() {
     this.navCtrl.push('SightmorePage')
@@ -54,8 +63,11 @@ export class SightPage {
   goPersonal() {
     this.navCtrl.push('PersonalPage');
   }
-  goTravel(){
-    this.navCtrl.push('TravelPage')
+  goTravel() {
+    this.navCtrl.push('TravelPage');
+  }
+  goSight(){
+    this.navCtrl.push('SightPage')
   }
   goMusic(){
     this.navCtrl.push('MusicPage')

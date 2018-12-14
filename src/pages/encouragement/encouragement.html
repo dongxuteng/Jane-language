@@ -1,0 +1,28 @@
+<!--
+  Generated template for the EncouragementPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>励志</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card *ngFor="let item of articles" (click)="goEncourage()">
+      <div>
+        <div class="left"><img src="{{ item.imgSrc }}" alt=""></div>
+        <div class="right">
+          <div class="card-title"> {{ item.title }} </div>
+          <div class="card-inner"> {{ item.inner }}</div>
+          <div class="card-subtitle"> {{ item.likes }}</div>
+        </div>
+      </div>
+    </ion-card>
+  
+</ion-content>
