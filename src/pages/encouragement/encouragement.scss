@@ -1,0 +1,46 @@
+page-encouragement {
+    ion-title{
+        padding-right: 54px;
+        text-align: center;
+    }
+    ion-content{
+        ion-card {
+            position: relative;
+            text-align: center;
+            border-radius: 3px;
+            height: 160px;
+            ion-item{
+                text-align: center;
+            }
+        }
+        .left{
+            width: 150px;
+            height: 150px;
+            float: left;
+            padding: 3px;
+        }
+        .right{
+            float: right;
+            width:250px;
+            text-align:left;
+            padding: 5px;
+        }
+        .card-title {
+            height:26px;
+            font-size:16px;
+            font-weight: bold;
+            color: black;
+        }
+        .card-inner{
+            padding-top:5px;
+            overflow: hidden;
+            height: 80px;
+        }
+         .card-subtitle {
+             font-size: 14px;
+             color:red;
+             margin-top: 10px;
+             margin-left: 170px;
+         }
+    }
+}
