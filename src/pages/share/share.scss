@@ -15,8 +15,21 @@ page-share {
     .card-content{
         padding: 0;
     }
-    .col{
-        line-height: 2.5em;
-    }
-
+    ion-card {
+        .card-title-md {
+          margin: 4px 0;
+        }
+  
+        .col {
+          height: 66px;
+          line-height: 44px;
+        }
+  
+        p {
+          text-indent: 2em;
+        }
+      }
+      .item-md {
+        padding: 0;
+      }
 }

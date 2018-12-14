@@ -15,15 +15,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SharePage {
   arrmsg=[{
-    name:'赫恩曼尼',
-    tx:'assets/imgs/0.jpg',
-    title:'如何看待高通在专利侵权案中获得临时禁令，福州法院禁止苹果在化销售'
+    name: "Ezreal",
+    title: "一段话",
+    inner: "Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.",
+    iconSrc: "../../assets/imgs/4.jpg",
+    likes: 11,
+    comments: 25
   },
-  {
-    name:'花颜',
-    tx:'assets/imgs/3.jpg',
-    title:'如何制作传统的法国羊角面包'
-  }
 ]
   arrvideo=[{
     name:'花颜',
@@ -35,7 +33,7 @@ export class SharePage {
   interest:string="text";
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-  Goperson(){
+  goPersonal(){
     this.navCtrl.push('PersonalPage')
   }
   ionViewDidEnter(){

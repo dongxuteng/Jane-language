@@ -29,15 +29,40 @@
     </div>
     <!---->
     <div [ngSwitch]="interest">
-      <ion-list *ngSwitchCase="'text'">
-        <ion-item *ngFor="let arrmsg of arrmsg">
-          <ion-avatar item-start (click)="Goperson()">
-            <img src="{{arrmsg.tx}}">
-            <p style="text-align:center">{{arrmsg.name}}</p>
-          </ion-avatar>
-            <h3>{{arrmsg.title}}</h3>
-        </ion-item>
-      </ion-list>
+   <!-- 文章卡片 -->
+      <ion-card *ngSwitchCase="'text'">
+        <div  *ngFor="let assey of arrmsg">
+        <img src="{{ assey.imgSrc }}">
+        <ion-card-content>
+          <ion-card-title>{{ assey.title }}</ion-card-title>
+          <p>{{ assey.inner }}</p>
+        </ion-card-content>
+        <ion-row>
+          <ion-col col-8>
+            <ion-item (click)="goPersonal()">
+              <ion-avatar item-start>
+                <img src="{{ assey.iconSrc }}">
+              </ion-avatar>
+              <h2 style="text-align: left;">{{ assey.name }}</h2>
+              <p style="text-align: left">{{ assey.talk }}</p>
+            </ion-item>
+          </ion-col>
+          <ion-col col-2>
+            <button ion-button icon-start clear small>
+              <ion-icon name="thumbs-up"></ion-icon>
+              <div>{{ assey.likes }}</div>
+            </button>
+          </ion-col>
+          <ion-col col-2>
+            <button ion-button icon-start clear small>
+              <ion-icon name="text"></ion-icon>
+              <div>{{ assey.comments }}</div>
+            </button>
+          </ion-col>
+        </ion-row>
+        </div>
+        </ion-card>
+<!--音乐-->
         <ion-card>
             <ion-list *ngSwitchCase="'music'">
             <img src="../../assets/imgs/6.jpg">
