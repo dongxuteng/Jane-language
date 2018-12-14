@@ -47,15 +47,21 @@ export class SightPage {
   goFoods() {
     this.navCtrl.push("FoodsPage");
   }
+  goEssays(){
+    this.navCtrl.push("EssayPage");
+  }
+  goEmotions(){
+    this.navCtrl.push("EmotionPage");
+  }
+  goEncouragements(){
+    this.navCtrl.push("EncouragementPage");
+  }
 
   goSightmore() {
     this.navCtrl.push('SightmorePage')
   }
   goPersonal() {
     this.navCtrl.push('PersonalPage');
-  }
-  goTravel(){
-    this.navCtrl.push('TravelPage')
   }
   // 点赞计数
   like() {
