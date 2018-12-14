@@ -14,7 +14,7 @@
 
 
 <ion-content padding>
-    <ion-card *ngFor = "let assey of asseys">
+    <ion-card *ngFor = "let assey of asseys" (click)='emotionmore()'>
         <ion-card-content>
           <ion-card-title>{{ assey.title }}</ion-card-title>
           <p class="inner">{{ assey.inner }}</p>

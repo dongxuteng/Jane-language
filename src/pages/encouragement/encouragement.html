@@ -14,7 +14,7 @@
 
 
 <ion-content padding>
-    <ion-card *ngFor="let item of articles">
+    <ion-card *ngFor="let item of articles" (click)="goEncourage()">
       <div>
         <div class="left"><img src="{{ item.imgSrc }}" alt=""></div>
         <div class="right">

@@ -56,18 +56,18 @@ export class SightPage {
   goEncouragements(){
     this.navCtrl.push("EncouragementPage");
   }
-  goTravel(){
-    this.navCtrl.push('TravelPage')
-  }
-  goMovie(){
-    this.navCtrl.push('MoviePage')
-  }
 
   goSightmore() {
     this.navCtrl.push('SightmorePage')
   }
   goPersonal() {
     this.navCtrl.push('PersonalPage');
+  }
+  goTravel() {
+    this.navCtrl.push('TravelPage');
+  }
+  goSight(){
+    this.navCtrl.push('SightPage')
   }
   // 点赞计数
   like() {

@@ -47,5 +47,7 @@ export class EmotionPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad EmotionPage');
   }
-
+  emotionmore(){
+    this.navCtrl.push('EmotionmorePage')
+  }
 }

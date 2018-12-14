@@ -41,5 +41,8 @@ export class EncouragementPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad EncouragementPage');
   }
+  goEncourage(){
+    this.navCtrl.push('EncouragemorePage')
+  }
 
 }

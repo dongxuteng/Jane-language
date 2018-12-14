@@ -46,5 +46,8 @@ export class EssayPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad EssayPage');
   }
+  goEssaymore(){
+    this.navCtrl.push('EssaymorePage')
+  }
 
 }
