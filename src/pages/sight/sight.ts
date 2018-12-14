@@ -67,10 +67,13 @@ export class SightPage {
     this.navCtrl.push('TravelPage');
   }
   goSight(){
-    this.navCtrl.push('SightPage')
+    this.navCtrl.push('SightPage');
   }
   goMusic(){
-    this.navCtrl.push('MusicPage')
+    this.navCtrl.push('MusicPage');
+  }
+  goMovie(){
+    this.navCtrl.push("MoviePage");
   }
   // 点赞计数
   like() {
