@@ -1,7 +1,11 @@
 page-travel {
-    ion-title{
+    ion-navbar{
         text-align: center;
-    }
+        ion-title {
+            background-color: rgb(247,247,247);
+            padding-left: 54px;
+          }
+        }
     .sli{
         height:auto;
         img{

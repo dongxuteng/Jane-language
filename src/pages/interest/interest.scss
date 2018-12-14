@@ -1,3 +1,10 @@
 page-interest {
-    ion-title{ text-align: center}
+    page-interest {
+        ion-navbar{
+            text-align: center;
+            ion-title{
+            padding-right:54px;
+            }
+        }
+    }
 }

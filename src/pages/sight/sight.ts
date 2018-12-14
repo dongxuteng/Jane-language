@@ -56,6 +56,12 @@ export class SightPage {
   goEncouragements(){
     this.navCtrl.push("EncouragementPage");
   }
+  goTravel(){
+    this.navCtrl.push('TravelPage')
+  }
+  goMovie(){
+    this.navCtrl.push('MoviePage')
+  }
 
   goSightmore() {
     this.navCtrl.push('SightmorePage')
