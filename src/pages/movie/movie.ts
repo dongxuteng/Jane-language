@@ -49,8 +49,8 @@ ionViewWillLeave() {
 });
   }
 }
-goMoviemore(){
-  this.navCtrl.push("MoviemorePage")
-}
+// goMoviemore(){
+//   this.navCtrl.push("MoviemorePage")
+// }
 
 }
