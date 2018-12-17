@@ -12,7 +12,18 @@
 
 </ion-header>
 
-
-<ion-content padding>
-
+<ion-content>
+  <ion-card class="card" *ngFor="let arr of arr">
+    <img src="{{arr.img}}"/>
+    <ion-card-content>
+      <ion-card-title class="title">
+        {{arr.title}}
+      </ion-card-title>
+      <p class="pp">
+        {{arr.p}}
+      </p>
+      <audio style="float:left;" id="myAudio" src="../../assets/imgs/liangliang.mp3" controls="controls"  loop="false">
+      </audio>
+    </ion-card-content>
+    </ion-card>
 </ion-content>
