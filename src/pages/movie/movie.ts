@@ -20,14 +20,15 @@ export class MoviePage {
   }
   arr=[{
     tx:'assets/imgs/3.jpg',
-    url:'http://edge.ivideo.sina.com.cn/180518871.mp4?KID=sina,viask&Expires=1544803200&ssig=pzZ5EvhSe1',
+    url:'http://edge.ivideo.sina.com.cn/147027968.mp4?KID=sina,viask&Expires=1545062400&ssig=WhcfBjl6Rz',
     name:'赫赫',
-    face:'assets/imgs/fj2.jpg'
-  },{
+    talk:44
+  },
+  {
     tx:'assets/imgs/3.jpg',
-    url:'http://edge.ivideo.sina.com.cn/180518871.mp4?KID=sina,viask&Expires=1544803200&ssig=pzZ5EvhSe1',
-    name:'花颜',
-    face:'assets/imgs/fj1.jpg'
+    url:'http://edge.ivideo.sina.com.cn/147027968.mp4?KID=sina,viask&Expires=1545062400&ssig=WhcfBjl6Rz',
+    name:'赫赫',
+    talk:44
   }
 ]
 
@@ -48,8 +49,8 @@ ionViewWillLeave() {
 });
   }
 }
-goMoviemore(){
-  this.navCtrl.push("MoviemorePage")
-}
+// goMoviemore(){
+//   this.navCtrl.push("MoviemorePage")
+// }
 
 }
