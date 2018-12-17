@@ -13,15 +13,37 @@ page-movie {
     // .card-content{
     //     padding: 0;
     // }
+    h3{
+        text-align: center;
+        margin: 0;
+    }
+    p{
+        text-indent: 2em;
+        text-align: left;
+        max-height: 8.5em;
+        overflow: hidden;
+    }
+    .slide-zoom{
+        position: absolute;
+        top:2em;
+    }
+    ion-row{
+        position: absolute;
+        bottom:1em;
+    }
     ion-card{
-        height: 35em!important;
+        height: 30em!important;
         border-color: 1px solid pink;
+        ion-card-content{
+            text-align: left;
+        }
     }
     .item{
         padding: 0;
     }
     vg-player{
-        height:30em;
+        height:15em;
+        width: 100%;
         overflow: hidden;
         video{
             height: 100%;
