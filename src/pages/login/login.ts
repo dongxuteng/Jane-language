@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App, AlertController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
+import $ from 'jquery'
 
 
 @IonicPage()
@@ -10,7 +11,10 @@ import { TabsPage } from '../tabs/tabs';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public app: App) {
+  username: string;
+  pwd: string;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public app: App, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -25,13 +29,48 @@ export class LoginPage {
   goSignup(){
     this.navCtrl.push('SignupPage');
   }
+
   
-  // 返回首页
+  // 登录验证,返回首页
   login(){
-    let username = document.getElementById("username");
-    let pwd = document.getElementById("pwd");
-    console.log(pwd.innerHTML);
-    this.app.getRootNavs()[0].setRoot(TabsPage);
+    console.log(this.username);
+    console.log(this.pwd);
+    if(this.pwd.length > 6 && this.username.length > 6){ 
+      $.ajax({
+        type: 'post',
+        url: 'http://localhost:8100/#/login',
+        data: {
+          username:this.username,
+          password:this.pwd
+        },
+        success: function(data) {
+          if(data.id == 6){
+            alert(data.status);
+          }
+          else if(data.id == 1){
+            console.log(data.status);
+            alert(data.me);
+          }
+        }
+      })
+      this.app.getRootNav().setRoot(TabsPage);
+    }
+    // else if(this.username == undefined || this.pwd == undefined){
+    //   const alert = this.alertCtrl.create({
+    //     title: '错误',
+    //     subTitle: '请输入用户名或密码',
+    //     buttons: ['好']
+    //   });
+    //   alert.present();
+    // }
+    else{
+      const alert = this.alertCtrl.create({
+        title: '错误',
+        subTitle: '请输入正确的用户名和密码',
+        buttons: ['好']
+      });
+      alert.present();
+    }
   } 
 
   //ionic当退出页面的时候触发的方法
