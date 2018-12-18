@@ -61,12 +61,16 @@ export class LoginPage {
           password: this.pwd
         },
         success: function (data) {
+          console.log('success');
           if (data.id == 6) {
             alert(data.status);
           } else if (data.id == 1) {
             console.log(data.status);
             alert(data.me);
           }
+        },
+        error: function(err) {
+          console.error(err);
         }
       })
       this.app.getRootNav().setRoot(TabsPage);
