@@ -1,5 +1,5 @@
 <!-- 侧边菜单 -->
-<ion-menu [content]="content">
+<ion-menu [content]="content" class="menu">
   <ion-header>
     <ion-toolbar>
       <ion-title>分类</ion-title>
@@ -7,10 +7,6 @@
   </ion-header>
   <ion-content>
     <ul>
-      <li (click)='goSight()'>
-        <i class="iconfont icon-jingxuan"></i>
-        精选
-      </li>
       <li (click)="goEssays()">
         <i class="iconfont icon-pencil"></i>
         随笔
