@@ -61,14 +61,19 @@ export class LoginPage {
           password: this.pwd
         },
         success: function (data) {
+          console.log('success');
           if (data.id == 6) {
             alert(data.status);
           } else if (data.id == 1) {
             console.log(data.status);
             alert(data.me);
           }
+        },
+        error: function(err) {
+          console.error(err);
         }
       })
+      this.app.getRootNav().setRoot(TabsPage);
     }
         else {
           const alert = this.alertCtrl.create({
@@ -78,7 +83,6 @@ export class LoginPage {
           });
           alert.present();
         }
-        this.app.getRootNav().setRoot(TabsPage);
   }
 
   //ionic当退出页面的时候触发的方法
