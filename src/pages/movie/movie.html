@@ -18,17 +18,9 @@
 
 
 <ion-content padding>
-  <!-- <ion-row >
-    <ion-col col-6 *ngFor="let arr of arr">
-      <ion-card>
-          <ion-card-content>
-             <img src="{{arr.face}}" (click)="goMoviemore()">
-           </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row> -->
+  <h3>{{this.title}}</h3>
   <ion-slides>
-    <ion-slide *ngFor="let arr of arr">
+    <ion-slide *ngFor='let arr of arr'>
       <ion-card>
         <vg-player>
           <vg-overlay-play></vg-overlay-play>
@@ -43,31 +35,75 @@
               <vg-time-display [vgProperty]="'total'"></vg-time-display>
             <vg-fullscreen></vg-fullscreen>
           </vg-controls>
-          <video #media [vgMedia]="media" poster="你的poster" src="{{arr.url}}" ></video>
+          <video #media [vgMedia]="media" poster="你的poster" src="{{this.video}}" ></video>
         </vg-player>
         <ion-row>
-            <ion-col col-8>
+          <p>{{this.des}}</p>
+            <ion-col col-6>
               <ion-item (click)="goPersonal()">
                 <ion-avatar item-start>
-                  <img src="{{ arr.tx }}">
+                  <img src="{{arr.tx}}">
                 </ion-avatar>
-                <h2 style="text-align: left;">{{ arr.name }}</h2>
+                <h2 style="text-align: left;">{{arr.name}}</h2>
               </ion-item>
             </ion-col>
-            <ion-col col-2>
+            <ion-col col-3>
               <button ion-button icon-start clear small>
                 <ion-icon name="thumbs-up"></ion-icon>
-                <div>{{ arr.talk }}</div>
+                <div>{{arr.talk}}</div>
               </button>
             </ion-col>
-            <ion-col col-2>
+            <ion-col col-3>
               <button ion-button icon-start clear small>
                 <ion-icon name="text"></ion-icon>
-                <div>{{ arr.talk }}</div>
+                <div>{{arr.talk}}</div>
               </button>
             </ion-col>
           </ion-row>
         </ion-card>
     </ion-slide>
+        <ion-slide *ngFor='let arr of arr'>
+          <ion-card>
+            <vg-player>
+              <vg-overlay-play></vg-overlay-play>
+              <vg-buffering></vg-buffering>
+              <vg-controls [vgAutohide]="true" [vgAutohideTime]="2">
+                <vg-play-pause></vg-play-pause>
+                  <vg-time-display [vgProperty]="'current'"></vg-time-display>
+                 <vg-scrub-bar>
+                    <vg-scrub-bar-current-time [vgSlider]="true"></vg-scrub-bar-current-time>
+                     <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+                </vg-scrub-bar>
+                  <vg-time-display [vgProperty]="'total'"></vg-time-display>
+                <vg-fullscreen></vg-fullscreen>
+              </vg-controls>
+              <video #media [vgMedia]="media" poster="你的poster" src="{{this.video2}}" ></video>
+            </vg-player>
+            <ion-row>
+              <p>{{this.des2}}</p>
+                <ion-col col-6>
+                  <ion-item (click)="goPersonal()">
+                    <ion-avatar item-start>
+                      <img src="{{arr.tx}}">
+                    </ion-avatar>
+                    <h2 style="text-align: left;">{{arr.name}}</h2>
+                  </ion-item>
+                </ion-col>
+                <ion-col col-3>
+                  <button ion-button icon-start clear small>
+                    <ion-icon name="thumbs-up"></ion-icon>
+                    <div>{{arr.talk}}</div>
+                  </button>
+                </ion-col>
+                <ion-col col-3>
+                  <button ion-button icon-start clear small>
+                    <ion-icon name="text"></ion-icon>
+                    <div>{{arr.talk}}</div>
+                  </button>
+                </ion-col>
+              </ion-row>
+            </ion-card>
+        </ion-slide>
   </ion-slides>
+  
 </ion-content>
