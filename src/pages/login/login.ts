@@ -61,6 +61,7 @@ export class LoginPage {
           }
         }
       })
+      this.app.getRootNav().setRoot(TabsPage);
     }
     // else if(this.username == undefined || this.pwd == undefined){
       //   const alert = this.alertCtrl.create({
@@ -78,7 +79,6 @@ export class LoginPage {
           });
           alert.present();
         }
-        this.app.getRootNav().setRoot(TabsPage);
   }
 
   //ionic当退出页面的时候触发的方法
