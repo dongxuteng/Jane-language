@@ -1,0 +1,13 @@
+<nav class="navbar navbar-fixed-top navbar-static-top nav-inverse" role="navigation" style="position:fixed;z-index: 1000;width: 100%">
+	  <div class="navbar-header">
+	    <a class="navbar-brand" href="/admin/login"><img src="/images/jane_1.png"/>&nbsp;&nbsp;&nbsp;&nbsp;简语后台管理系统</a>
+	  </div>
+	
+    <ul class="nav navbar-right">
+        <% if (locals.username) { %>   
+          <li class="li"><a href="#">管理员:<%= username %></a></li>
+          <li class="li"><a href="/admin/login">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;退出登陆</a></li> 
+        <% } %>           
+    </ul>
+</nav> 
+

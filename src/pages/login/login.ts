@@ -39,6 +39,15 @@ export class LoginPage {
     this.navCtrl.push('SignupPage');
   }
 
+  // 账号密码错误弹窗
+  validateErr(){
+    const alert = this.alertCtrl.create({
+      title: '错误',
+      subTitle: '用户名或密码错误',
+      buttons:['好']
+    });
+    alert.present();
+  }
 
   // 登录验证,返回首页
   login() {
@@ -55,18 +64,22 @@ export class LoginPage {
     else if (this.pwd.length > 6 && this.username.length > 6) {
       $.ajax({
         type: 'post',
-        url: 'http://localhost:8100/api/login',
+        url: '/api/login',
         data: {
           username: this.username,
           password: this.pwd
         },
         success: function (data) {
           console.log('success');
-          if (data.id == 6) {
-            alert(data.status);
-          } else if (data.id == 1) {
-            console.log(data.status);
-            alert(data.me);
+          if (data == 0) {
+            this.validateErr();
+          } else if (localStorage.getItem("user") == this.username) {
+            this.navCtrl.push(TabsPage);
+            this.app.getRootNavs()[0].setRoot(TabsPage);
+          } else{
+            localStorage.setItem("user",this.username);
+            this.navCtrl.push(TabsPage);
+            this.app.getRootNavs()[0].setRoot(TabsPage);
           }
         },
         error: function(err) {

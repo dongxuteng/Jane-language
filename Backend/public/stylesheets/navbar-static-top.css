@@ -1,0 +1,106 @@
+html,body{
+  width: 100%;
+  height: 100%;
+}
+.navbar-static-top img{
+  width: 50px;
+  height: 50px;
+}  
+.navbar-static-top {
+  background-color: rgb(25,144,239);
+}
+.navbar-static-top a{
+  text-decoration: none;
+  color: white;
+}
+.li{
+  float: left;
+}
+.navbar{
+  height: 12%;
+  padding:0em 1em!important;
+}
+
+.container-fluid{
+  height: 88%;
+}
+.container-fluid .container{
+  padding-left: 0px!important;
+}
+.maintxtrow{
+  height: 100%;
+}
+/* 导航栏 */
+.navleft{
+  background-color: rgb(57, 68, 96);
+  position: fixed;
+  top: 12%;
+  width: 50%;
+  z-index: 1000;
+  height: 100%;
+  
+}
+
+.navleft a{
+  color: white;
+  
+}
+.navlist{
+  margin-top: 1%;
+  margin-left: 20%;
+}
+.navlist li{
+  margin-top: 16%;
+}
+/* 主内容 */
+.maintxt{
+  background-color: whitesmoke;
+  height:auto;
+  text-align: center; 
+  position: absolute;
+  right: 0;
+  margin-top: 5.5%;
+  height: 88%;
+  overflow: auto;
+}
+.maintxtrow{
+  height: 88%; 
+}
+h2{
+  margin: 2% auto;
+}
+/* 首页 */
+.thum{
+  border: 1px solid black;
+  float: left;
+  margin-top: 3%;
+  margin-left: 6.8%;
+}
+.thum img{
+  width: 100px;
+  height: 100px;
+}
+/* 用户管理 */
+.sort{
+  margin-left: 1.5%;
+}
+.sort a{
+  text-decoration: none;
+}
+.usertable{
+  margin-top: 2%;
+}
+.search{
+  margin-left: 50%;
+  margin-top: -1.5%;
+}
+/* 管理员 */
+.addadmin{
+    margin-top: -9.5%;
+    margin-left: 90%;
+}
+.mastertable{
+  margin-top: -1%;
+}
+
+

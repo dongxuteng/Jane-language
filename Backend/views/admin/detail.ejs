@@ -1,0 +1,50 @@
+<div class="container">
+    <h2><%= title %></h2>
+    <form role="form" class="search" id="SearchUser" style="margin-left:650px" method="POST" action="/admin/all/SearchUser">
+            <div class="input-group" >
+                <input type="text" style="border-radius:10px" name="txt">
+                <button class="btn btn-info" onclick="if(true){document.getElementById('SearchUser').submit();}">搜索用户</button>
+            </div>
+    </form>
+
+            <table class="table  table-hover table-condensed usertable">
+                <thead>
+                    <tr>
+                        <th>头像</th>
+                        <th>用户名</th>
+                        <th>昵称</th>
+                        <th>性别</th>
+                        <th>年龄</th>
+                        <th>手机号</th>
+                        <th>地点</th>
+                        <th>注册时间</th>
+                        <th>权限</th>                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach(function(item){ %>
+                        <tr>
+                            <td><img src="<%= item.img %>" alt="headimg" style="height: 35px;width: 35px"></td>
+                            <td><%= item.username %></td>
+                            <td><%= item.name %></td>
+                            <td><%= item.gender %></td>
+                            <td><%= item.age %></td>
+                            <td><%= item.phoneNumber %></td>
+                            <td><%= item.area %></td>
+                            <td><%= item.regtime.toISOString().slice(0,10) %></td>
+                            <td>
+                                <form action="/admin/all/delMsg_seeker" id="<%= item.Uid %>" method="post">
+                                    <input type="hidden" name="d_msg_s" value="<%= item.Uid %>">
+                                </form>
+                                <button class="btn btn-danger btn-sm"  onclick="if(confirm('你确定将用户<%= item.username %>发布彻底删除吗？')){
+                                    document.getElementById('<%= item.Uid %>').submit();
+                                    event.preventDefault(); }">删除     
+                                </button>
+                            </td>
+                        </tr>
+                    <% }) %>
+                   
+                </tbody>
+            </table>        
+
+</div>
