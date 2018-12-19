@@ -12,7 +12,7 @@
 <ion-content>
   <ion-card *ngFor = "let assey of asseys">
     <!-- <img src="{{ assey.imgSrc }}"> -->
-    <ion-card-content>
+    <ion-card-content (click)="goEncouragemore()">
       <ion-card-title>{{ assey.title }}</ion-card-title>
       <p class="inner">{{ assey.inner }}</p>
     </ion-card-content>

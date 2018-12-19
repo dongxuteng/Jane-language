@@ -16,6 +16,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class WenPage {
   asseys = [
     {
+      name: "二十四番花信",
+      title: "年少有为",
+      inner: "谁都想年少有为，可现实却很多人一生碌碌无为。每个人在年少时，都对未来有个美好的憧憬，以为等到长大后，这些憧憬就能一一实现，但真正等到年老那时，却发现梦想一个都未曾实现。今天，许久未发朋友圈的大学同学，突然分享李荣浩的歌曲《年少有为》，配文却是年少无为。想想看，我们已经离开大学整整五年的时间，有些人混得风生水起，大部分人却一直碌碌无为，差距一点点产生，焦虑也在一点点增加。如果这辈子注定年少无为，我们该以何种姿态来面对自身呢?又以何种面貌来面对，对我们寄予厚望的父母呢?",
+      iconSrc: "../../assets/imgs/one.png",
+      comments: 321,
+      likes: 77,
+    },
+    {
       name: "花颜",
       title: "一段话",
       inner: "Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a ?! Whoa. This is heavy.Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.",
@@ -30,14 +38,6 @@ export class WenPage {
       iconSrc: "../../assets/imgs/icon.png",
       comments: 187,
       likes: 45,
-    },
-    {
-      name: "二十四番花信",
-      title: "年少有为",
-      inner: "谁都想年少有为，可现实却很多人一生碌碌无为。每个人在年少时，都对未来有个美好的憧憬，以为等到长大后，这些憧憬就能一一实现，但真正等到年老那时，却发现梦想一个都未曾实现。今天，许久未发朋友圈的大学同学，突然分享李荣浩的歌曲《年少有为》，配文却是年少无为。想想看，我们已经离开大学整整五年的时间，有些人混得风生水起，大部分人却一直碌碌无为，差距一点点产生，焦虑也在一点点增加。如果这辈子注定年少无为，我们该以何种姿态来面对自身呢?又以何种面貌来面对，对我们寄予厚望的父母呢?",
-      iconSrc: "../../assets/imgs/one.png",
-      comments: 321,
-      likes: 77,
     }
   ]
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -69,6 +69,9 @@ export class WenPage {
         elements[key].style.display = 'flex';
       });
     }
+  }
+  goEncouragemore(){
+    this.navCtrl.push('EncouragemorePage')
   }
 
 }
