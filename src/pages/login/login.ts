@@ -12,6 +12,7 @@ import {
   TabsPage
 } from '../tabs/tabs';
 import $ from 'jquery'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @IonicPage()
@@ -24,8 +25,9 @@ export class LoginPage {
   username: string;
   pwd: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public app: App, public alertCtrl: AlertController) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public app: App, public alertCtrl: AlertController, public http: HttpClient) {}
 
+  
   ionViewDidLoad() {
     let elements = document.querySelectorAll(".tabbar");
     if (elements != null) {
@@ -34,11 +36,11 @@ export class LoginPage {
       });
     }
   }
-
+  
   goSignup() {
     this.navCtrl.push('SignupPage');
   }
-
+  
   // 账号密码错误弹窗
   validateErr(){
     const alert = this.alertCtrl.create({
@@ -48,56 +50,47 @@ export class LoginPage {
     });
     alert.present();
   }
-
+  
   // 登录验证,返回首页
+  headers = new HttpHeaders({ 'Content-Type':'application/x-www-form-urlencoded' });
   login() {
-    console.log(this.username);
-    console.log(this.pwd);
     if(this.username == undefined || this.pwd == undefined){
       const alert = this.alertCtrl.create({
-          title: '错误',
-          subTitle: '请输入用户名或密码',
-          buttons: ['好']
-        });
-        alert.present();
-      }
-    else if (this.pwd.length > 6 && this.username.length > 6) {
-      $.ajax({
-        type: 'post',
-        url: '/api/login',
-        data: {
-          username: this.username,
-          password: this.pwd
-        },
-        success: function (data) {
-          console.log('success');
-          if (data == 0) {
-            this.validateErr();
-          } else if (localStorage.getItem("user") == this.username) {
-            this.navCtrl.push(TabsPage);
-            this.app.getRootNavs()[0].setRoot(TabsPage);
-          } else{
-            localStorage.setItem("user",this.username);
-            this.navCtrl.push(TabsPage);
-            this.app.getRootNavs()[0].setRoot(TabsPage);
-          }
-        },
-        error: function(err) {
-          console.error(err);
-        }
+        title: '错误',
+        subTitle: '请输入用户名或密码',
+        buttons: ['好']
       });
+      alert.present();
     }
-        else {
-          const alert = this.alertCtrl.create({
-            title: '错误',
-            subTitle: '请输入正确的用户名和密码',
-            buttons: ['好']
-          });
-          alert.present(); 
-        }
-        this.app.getRootNav().setRoot(TabsPage);
+    else {
+        this.http.post('/api/login',{"username":this.username,"password":this.pwd},{headers:this.headers}).subscribe((data)=>{
+          console.log(data);
+          if(!data[0]) {
+            this.alert();
+          }
+          else{
+            console.log(data[0]);
+            console.log(this.pwd);
+            console.log(data[0].password);
+            if(data[0].password == this.pwd ){
+              console.log('登陆成功');
+              this.app.getRootNav().setRoot(TabsPage);
+            }else{
+              this.alert();
+            }
+          }
+        })
+    }
   }
 
+  alert(){
+    const alert = this.alertCtrl.create({
+      title: '错误',
+      subTitle: '请输入正确的用户名和密码',
+      buttons: ['好']
+    });
+    alert.present(); 
+  }
   //ionic当退出页面的时候触发的方法
   ionViewWillLeave() {
     let elements = document.querySelectorAll(".tabbar");
