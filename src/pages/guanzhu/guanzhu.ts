@@ -55,17 +55,15 @@ export class GuanzhuPage {
     this.navCtrl.pop();
   }
    show1(){
-    var aTrue = document.getElementsByClassName('true');
-    var aFalse = document.getElementsByClassName('false');
-    for(var x=0;x<1;x++){
-    if ( aTrue[x].style.display!="none"){
-        aTrue[x].style.display="none";
-        aFalse[x].style.display="inline";
+    var aTrue = document.getElementById('true');
+    var aFalse = document.getElementById('false');
+    if ( aTrue.style.display!="none"){
+        aTrue.style.display="none";
+        aFalse.style.display="inline";
     }else{
-        aTrue[x].style.display="inline";
-        aFalse[x].style.display="none";
+        aTrue.style.display="inline";
+        aFalse.style.display="none";
     }
-  }
-} 
+  } 
 
 }
