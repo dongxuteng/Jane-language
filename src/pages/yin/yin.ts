@@ -14,7 +14,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'yin.html',
 })
 export class YinPage {
-
+  
+  asseys=[
+    {
+      imgSrc:'../../assets/imgs/6.jpg',
+      title:'杨宗纬、张碧晨——凉凉',
+      music:'../../assets/imgs/liangliang.mp3'
+    },
+    {
+      imgSrc:'../../assets/imgs/aiqing.jpg',
+      title:'Adele - Make You Feel My Love',
+      music:'../../assets/imgs/Adele - Make You Feel My Love.mp3'
+    },
+    {
+      imgSrc:'../../assets/imgs/fj.jpg',
+      title:'Adele - Make You Feel My Love',
+      music:'../../assets/imgs/Adele - Rolling in the Deep.mp3'
+    }
+  ]
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

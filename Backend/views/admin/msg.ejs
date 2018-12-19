@@ -1,0 +1,38 @@
+<div class="container">
+    <h2><%= title %></h2>
+
+    <table class="table table-bordered table-condensed mastertable table-hover"   style="overflow-y:auto;">
+        <thead>
+            <tr>
+                <td>用户Id</td>
+                <td>用户名</td>
+                <td>内容</td>
+                <td>反馈时间</td>
+                <td>名称</td>
+                <td>权限</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(function(item){ %>                
+                <tr>    
+                    <td><%= item.Uid %></td>                
+                    <td><%= item.username %></td>    
+                    <td><%= item.backContent %></td>
+                    <td><%= item.backDate.format("yyyy-MM-dd hh:mm:ss") %></td>
+                    <td><%= item.name %></td>   
+                    <td>
+                        <form action="/admin/all/delFeedback" id="<%= item.Uid %>" method="post" style="display: none">
+                            <input type="hidden" name="d_feed" value="<%= item.Uid %>">
+                        </form>
+                        <button onclick="if(confirm('你确定彻底删除吗？')){
+                            document.getElementById('<%= item.Uid %>').submit();
+                            event.preventDefault();
+                        }" class="btn btn-sm btn-danger">删除</button>
+                    </td>
+                   
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+     
+</div>

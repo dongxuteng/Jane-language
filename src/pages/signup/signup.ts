@@ -68,7 +68,7 @@ export class SignupPage {
     else if(this.username != undefined && this.password == this.repassword){
       $.ajax({
         type: "post",
-        url: "http://localhost:8080/#/signup",
+        url: "/api/signup",
         data: {
           phonenumber: this.phonenum,
           phonepwd: this.phonepwd,

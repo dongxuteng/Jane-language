@@ -66,9 +66,6 @@ export class SightPage {
   goTravel() {
     this.navCtrl.push('TravelPage');
   }
-  goSight(){
-    this.navCtrl.push('SightPage');
-  }
   goMusic(){
     this.navCtrl.push('MusicPage');
   }

@@ -14,7 +14,7 @@
 
 <ion-content>
   <ion-card class="card" *ngFor="let arr of arr">
-    <img src="{{arr.img}}"/>
+    <img src="{{arr.img}}" >
     <ion-card-content>
       <ion-card-title class="title">
         {{arr.title}}
@@ -22,9 +22,22 @@
       <p class="pp">
         {{arr.p}}
       </p>
-      <audio id="myAudio" src="../../assets/imgs/liangliang.mp3" controls="controls"  loop="false">
+      <audio id="myAudio" src="{{arr.music}}" controls="controls"  loop="false">
       </audio>
-        
+      <ion-row no-padding>
+        <ion-col>
+          <button ion-button clear small color="blue" icon-start>
+            <ion-icon name='star'></ion-icon>
+            Favorite
+          </button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button clear small color="blue" icon-start>
+            <ion-icon md="md-chatboxes"></ion-icon>
+            comment
+          </button>
+        </ion-col>
+        </ion-row>
     </ion-card-content>
     </ion-card>
 

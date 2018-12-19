@@ -25,7 +25,7 @@
     <img src="{{arr.img}}">
     <div padding>
       <h2>{{arr.title}}</h2>
-      <p>&nbsp;&nbsp;&nbsp;&nbsp;作者/{{arr.username}}</p>
+      <p>作者/{{arr.username}}</p>
       <p style="text-indent: 2em;">{{arr.msg}}</p>
       <p class="date">{{arr.date}}</p>
     </div>
@@ -33,20 +33,20 @@
     <p></p>
     <!-- 底部-->
     <ion-row>
-      <ion-col col-7>
+      <ion-col col-5 class="left">
         <div class="img">
           <img src="{{ arr.tx }}">
         </div>
         <a class="username">{{ arr.username }}</a>
       </ion-col>
-      <ion-col col-3>
-        <button ion-button block outline class="guanz">
+      <ion-col col-3 class="guanz">
+        <button ion-button block outline >
           关注
         </button>
       </ion-col>
-      <ion-col col-2>
+      <ion-col col-4 class="likes">
         <i class="iconfont icon-xihuan" id="like"></i>
-        <span class="likes">{{arr.likes}}</span>
+        <span>{{arr.likes}}</span>
       </ion-col>
     </ion-row>
   </div>

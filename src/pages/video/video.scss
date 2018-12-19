@@ -5,17 +5,38 @@ ion-title{
 }
 ion-content{
     background-image: url("../../assets/imgs/4.jpg");
-video{
-    width:100%;
-}
-ion-card{
-    border: 1px solid darkgray;
-    .card-content{
+    p{
+        text-indent: 2em;
+        text-align: left;
+        max-height: 8.5em;
+        overflow: hidden;
+    }
+    .slide-zoom{
+        position: absolute;
+        top:2em;
+    }
+    ion-row{
+        position: absolute;
+        bottom:1em;
+    }
+    ion-card{
+        height: 30em!important;
+        border-color: 1px solid pink;
+        ion-card-content{
+            text-align: left;
+        }
+    }
+    .item{
         padding: 0;
     }
-}
-.col{
-    line-height: 2.5em;
-}   
+    vg-player{
+        height:15em;
+        width: 100%;
+        overflow: hidden;
+        video{
+            height: 100%;
+            width: 100%;
+        }
     }
+}
 }

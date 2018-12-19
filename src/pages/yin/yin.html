@@ -12,12 +12,12 @@
 
 </ion-header>
 <ion-content>
-  <div class="music">
+  <div class="music"  *ngFor = "let assey of asseys">
   <ion-card>
-      <img src="../../assets/imgs/6.jpg">
       <ion-card-content id="audio">
-          <ion-card-title>杨宗纬、张碧晨——凉凉</ion-card-title>
-          <audio id="myAudio" src="../../assets/imgs/liangliang.mp3" controls="controls"  loop="false">
+          <img src="{{ assey.imgSrc }}">
+          <ion-card-title>{{assey.title}}</ion-card-title>
+          <audio id="myAudio" src="{{assey.music}}" controls="controls"  loop="false">
           </audio>
       </ion-card-content>
   </ion-card>

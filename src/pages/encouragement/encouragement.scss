@@ -14,27 +14,59 @@ page-encouragement {
             }
         }
         .left{
-            width: 150px;
-            height: 150px;
+            width: 45%;
+            height: 100%;
             float: left;
             padding: 3px;
+            overflow: hidden;
+            img{
+                height: 100%;
+            }
         }
         .right{
             float: right;
-            width:250px;
+            width:55%;
+            height: 50%;
             text-align:left;
             padding: 5px;
+            .tx{
+                width: 100%;
+                padding-top: 1em;
+                img{
+                border-radius: 50% 50%;
+                width: 3em;
+                height: 3em;
+                float: left;
+                }
+                span{
+                    float: left;
+                    position: absolute;
+                    bottom: 1em;
+                    width: 2em;
+                    height: 1.5em;
+                    overflow: hidden;
+                }
+                i{
+                    font-size:1.5em;
+                    color: red; 
+                    position: absolute;
+                    bottom: 0.8em;
+                    right: 1em;
+                }
+            }
         }
         .card-title {
-            height:26px;
-            font-size:16px;
+            height:1.5em;
+            width: 100%;
+            font-size:1em;
             font-weight: bold;
-            color: black;
+            color: rgb(41, 23, 23);
+            text-align: center;
+            overflow: hidden;
         }
         .card-inner{
-            padding-top:5px;
             overflow: hidden;
-            height: 80px;
+            height: 100%;
         }
          .card-subtitle {
              font-size: 14px;
