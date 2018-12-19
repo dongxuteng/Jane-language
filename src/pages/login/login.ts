@@ -64,14 +64,10 @@ export class LoginPage {
     }
     else {
         this.http.post('/api/login',{"username":this.username,"password":this.pwd},{headers:this.headers}).subscribe((data)=>{
-          console.log(data);
           if(!data[0]) {
             this.alert();
           }
           else{
-            console.log(data[0]);
-            console.log(this.pwd);
-            console.log(data[0].password);
             if(data[0].password == this.pwd ){
               console.log('登陆成功');
               this.app.getRootNav().setRoot(TabsPage);

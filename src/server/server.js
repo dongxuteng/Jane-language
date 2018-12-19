@@ -33,16 +33,17 @@ app.post('/api/login', function(req,res){
         loginData = JSON.parse(data);
     })
     req.on('end',function(data){
-    con.query(sql,[loginData.username],(err,results)=>{
-        if(results == []){
-            console.log('账号或密码错误');
-            res.end('1');
-        }
-        else{
-            console.log(results);
-            res.send(results);
-        }
-    })
+        con.query(sql,[loginData.username],(err,results)=>{
+            if(results == '') {
+                console.log('没有这个用户');
+                res.end('1');
+            }
+            else{
+                console.log('找到用户');
+                res.send(results);
+                res.end('0');
+            }
+        })
     })
 });
 
