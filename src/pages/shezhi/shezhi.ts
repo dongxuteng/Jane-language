@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,App } from 'ionic-angular';
 import { MePage } from '../me/me';
 import { LoginPage } from '../login/login';
 import { HelpPage } from '../help/help';
@@ -20,7 +20,7 @@ import { SwitchAccountPage } from '../switch-account/switch-account';
 })
 export class ShezhiPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public app:App, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -42,7 +42,7 @@ export class ShezhiPage {
     this.navCtrl.push('TongyongPage');
   }
   tuichu(){
-    this.navCtrl.push(LoginPage);
+    this.app.getRootNavs()[0].setRoot(LoginPage);
   }
   help(){
     this.navCtrl.push(HelpPage);
