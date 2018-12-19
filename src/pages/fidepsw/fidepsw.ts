@@ -1,22 +1,28 @@
-import { Component, ViewChild, ElementRef } from "@angular/core";
-import { IonicPage, NavController, NavParams,AlertController } from "ionic-angular";
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
 import $ from "jquery";
+
+/**
+ * Generated class for the FidepswPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
 @IonicPage()
 @Component({
-  selector: "page-signup",
-  templateUrl: "signup.html"
+  selector: 'page-fidepsw',
+  templateUrl: 'fidepsw.html',
 })
-export class SignupPage {
-
+export class FidepswPage {
   username: string;
   phonenum: number;
   phonepwd: number;
   password: string;
   repassword: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {}
-
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  }
   ionViewDidLoad() {
     console.log("ionViewDidLoad SignupPage");
     let elements = document.querySelectorAll(".tabbar");
@@ -65,7 +71,7 @@ export class SignupPage {
         },
         success: function(data) {
           if (data.status == 1) {
-            console.log("注册成功！");
+            console.log("重置成功！");
           }
         }
       });
@@ -84,3 +90,4 @@ export class SignupPage {
     }
   }
 }
+
