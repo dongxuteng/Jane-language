@@ -1,22 +1,55 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>123</ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content>
-  <div class="icon">
-    <img src="{{ person.iconSrc }}" alt="">
-  </div>
-  <div class="btns">
-    <button class="btn-gray">
-      关注
-    </button>
-    <button class="btn-gray">
-      私信
-    </button>
-  </div>
-  <div class="username">
-    <h3> {{ person.username }}</h3>
-  </div>
-</ion-content>
+<ion-header>
+    <i class="iconfont icon-left1" (click)="goMePage()"></i>
+    <i class="iconfont icon-more"></i>
+  </ion-header>
+  
+  <ion-content>
+    <div class="icon">
+      <img src="{{ person.iconSrc }}" alt="">
+    </div>
+    <div class="username">
+      <h3> {{ person.username }}</h3>
+    </div>
+    <div class="info">
+      关注： {{ person.focus }}
+      |
+      粉丝： {{ person.fans }}
+    </div>
+    <div class="labels">
+      <span class="female"> ♀{{ ageLabels[1]}}</span>
+      <span> Lv.{{ level }}</span>
+      <span>{{ location }}</span>
+      <span>{{ constellation[2] }}</span>
+    </div>
+    <div class="dynamic">
+      <ul class="list">
+        <li (click)='change1()' id="yellow1">文章</li>
+        <li class="checked" (click)='change2()' id="yellow2">动态<sup> &nbsp; {{ person.arcticleTimes }}</sup></li>
+        <li>TA的关注</li>
+      </ul>
+    </div>
+    <div class="main" [ngSwitch]="dynamic">
+        <div *ngSwitchCase="1">
+            <ion-card *ngFor = "let assey of asseys">
+              <ion-card-content>
+                <ion-card-title>{{ assey.title }}</ion-card-title>
+                <p class="inner">{{ assey.inner }}</p>
+              </ion-card-content>
+            </ion-card>
+        </div>
+        <div *ngSwitchCase="2">
+            <ion-card *ngFor = "let item of items">
+                <ion-card-content id="audio">
+                    <img src="{{ item.imgSrc }}">
+                    <ion-card-title>{{item.title}}</ion-card-title>
+                    <audio id="myAudio" src="{{item.music}}" controls="controls"  loop="false">
+                    </audio>
+                </ion-card-content>
+            </ion-card>
+        </div>
+        <div *ngSwitchCase="3">
+
+        </div>
+    </div>
+  </ion-content>

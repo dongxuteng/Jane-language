@@ -72,7 +72,7 @@ export class LoginPage {
         error: function(err) {
           console.error(err);
         }
-      })
+      });
       this.app.getRootNav().setRoot(TabsPage);
     }
         else {
