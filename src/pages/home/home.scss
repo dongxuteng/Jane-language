@@ -4,21 +4,22 @@ page-home {
   ion-header {
     height: 50px;
     line-height: 50px;
-
+    
     .rightFloat {
       float: right;
     }
 
     .temp {
-      font-size: 15px;
+      
+      font-size: 14px;
     }
 
     .city {
-      font-size: 20px;
+      font-size: 17px;
     }
 
     .floatleft {
-      font-size: 25px;
+      font-size: 17px;
       float: left;
     }
   }
