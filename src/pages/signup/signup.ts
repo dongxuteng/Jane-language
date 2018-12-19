@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { IonicPage, NavController, NavParams, AlertController } from "ionic-angular";
 import $ from "jquery";
 
 @IonicPage()
@@ -10,12 +10,12 @@ import $ from "jquery";
 export class SignupPage {
 
   username: string;
-  phonenum: number;
+  phonenum: string;
   phonepwd: number;
   password: string;
   repassword: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {}
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad SignupPage");
@@ -29,10 +29,46 @@ export class SignupPage {
 
   // 点击注册触发
   goLogin() {
-    if(this.username != undefined && this.password == this.repassword){
+    // username需要大于6位
+     if(this.username == undefined || this.username.length < 6){
+      const alert = this.alertCtrl.create({
+        title: '错误',
+        subTitle: '用户名需要大于6位',
+        buttons: ['好']
+      });
+      alert.present();
+    }
+    // password需要大于6位
+    else if(this.password == undefined || this.password.length < 6){
+      const alert = this.alertCtrl.create({
+        title: '错误',
+        subTitle: '密码需要大于6位',
+        buttons: ['好']
+      });
+      alert.present();
+    }
+    // repassword需要与password相同
+    else if(this.repassword !== this.password){
+      const alert = this.alertCtrl.create({
+        title: '错误',
+        subTitle: '两次输入的密码不相同',
+        buttons: ['好']
+      });
+      alert.present();
+    }
+    // phonenum需要符合手机号格式
+    else if(!(/^1(3|4|5|7|8)\d{9}$/.test(this.phonenum))){
+      const alert = this.alertCtrl.create({
+        title: '错误',
+        subTitle: '手机号输入有误',
+        buttons: ['好']
+      });
+      alert.present();
+    }
+    else if(this.username != undefined && this.password == this.repassword){
       $.ajax({
         type: "post",
-        url: "http://localhost:8100/api/signup",
+        url: "http://localhost:8080/#/signup",
         data: {
           phonenumber: this.phonenum,
           phonepwd: this.phonepwd,
@@ -40,13 +76,16 @@ export class SignupPage {
           repassword: this.repassword
         },
         success: function(data) {
-          if (data.status == 1) {
-            alert("注册成功！");
+          console.log(1);
+          if(data == 1){
+            this.navCtrl.pop();
           }
+        },
+        error: function(error){
+          console.error(error);
         }
       });
     }
-    this.navCtrl.pop();
   }
 
   ionViewDidEnter() {}

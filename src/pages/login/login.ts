@@ -64,7 +64,7 @@ export class LoginPage {
     else if (this.pwd.length > 6 && this.username.length > 6) {
       $.ajax({
         type: 'post',
-        url: 'localhost:8100/api/login',
+        url: '/api/login',
         data: {
           username: this.username,
           password: this.pwd
@@ -74,6 +74,10 @@ export class LoginPage {
           if (data == 0) {
             this.validateErr();
           } else if (localStorage.getItem("user") == this.username) {
+            this.navCtrl.push(TabsPage);
+            this.app.getRootNavs()[0].setRoot(TabsPage);
+          } else{
+            localStorage.setItem("user",this.username);
             this.navCtrl.push(TabsPage);
             this.app.getRootNavs()[0].setRoot(TabsPage);
           }
