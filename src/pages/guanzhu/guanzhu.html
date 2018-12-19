@@ -29,7 +29,13 @@
       </ion-avatar>     
         <h2>{{guanzhu.title}}</h2>
         <p>{{guanzhu.lastMessage}}</p>
-      <button class="guanzhu">{{guanzhu.zhuangtai}}</button>
+      <!-- <button class="guanzhu">{{guanzhu.zhuangtai}}</button> -->
+      <button id="follow" (click)="show1()">
+        <span class="true">关注</span>
+        <span class="false">已关注</span>
+   </button>
     </ion-item>
+    
   </ion-list>
 </ion-content>
+

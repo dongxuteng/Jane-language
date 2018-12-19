@@ -1,6 +1,6 @@
 page-mypage {
     ion-content {
-        background-image: url("../../assets/imgs/7.jpg");
+        background-image: url("../../assets/imgs/6.jpg");
       }
     
       ion-header {
@@ -76,7 +76,6 @@ page-mypage {
         bottom: 0;
         width: 100%;
         height: auto;
-        background-color: white;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         overflow: scroll;
@@ -89,6 +88,7 @@ page-mypage {
           width: 30%;
           height: 30px;
           float: left;
+          font-size: 14px;
           line-height: 30px;
           text-align: center;
           sup{
@@ -99,4 +99,26 @@ page-mypage {
           border-bottom: 1px solid blue;
         }
       }
+    .main{
+      margin-top: 25%;
+    }
+    .block{
+      width: 90%;
+      margin-left: 5%;
+      margin-bottom :3%;
+      h2{
+          color: rgb(65, 125, 238)
+      }
+      p{
+          font-size: 14px;
+      }
+  }
+
+  .guanzhu{
+      border: 0.5px solid black;
+      height: 20px;
+      width: 65px;
+      float: right;
+      background-color: rgb(248, 248, 248);
+  }
 }

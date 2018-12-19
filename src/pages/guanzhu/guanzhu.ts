@@ -27,21 +27,20 @@ export class GuanzhuPage {
     imageUrl:"../assets/imgs/icon.png",
     title: '简小语',
     lastMessage: '简语官方客服',
-    zhuangtai:'取消关注'
+    
   },
     {
       id: '002',
       imageUrl:"../assets/imgs/icon.png",
       title: 'Tony',
       lastMessage: '一个写手',
-      zhuangtai:'关注',
     },
     {
       id: '003',
       imageUrl: "../assets/imgs/icon.png",
       title: 'Steve',
       lastMessage: '666',
-      zhuangtai:'互相关注',
+      
     }];
 
      //下拉刷新
@@ -55,5 +54,18 @@ export class GuanzhuPage {
   function1(){
     this.navCtrl.pop();
   }
+   show1(){
+    var aTrue = document.getElementsByClassName('true');
+    var aFalse = document.getElementsByClassName('false');
+    for(var x=0;x<1;x++){
+    if ( aTrue[x].style.display!="none"){
+        aTrue[x].style.display="none";
+        aFalse[x].style.display="inline";
+    }else{
+        aTrue[x].style.display="inline";
+        aFalse[x].style.display="none";
+    }
+  }
+} 
 
 }

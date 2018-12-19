@@ -7,7 +7,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'mypage.html',
 })
 export class MypagePage {
-  dynamic: number;
+  dynamic: number=1;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -59,6 +59,27 @@ export class MypagePage {
       music:'../../assets/imgs/Adele - Make You Feel My Love.mp3'
     }
   ]
+  guanzhus = [{
+    id: '001',
+    imageUrl:"../assets/imgs/icon.png",
+    title: '简小语',
+    lastMessage: '简语官方客服',
+    zhuangtai:'取消关注'
+  },
+    {
+      id: '002',
+      imageUrl:"../assets/imgs/icon.png",
+      title: 'Tony',
+      lastMessage: '一个写手',
+      zhuangtai:'关注',
+    },
+    {
+      id: '003',
+      imageUrl: "../assets/imgs/icon.png",
+      title: 'Steve',
+      lastMessage: '666',
+      zhuangtai:'互相关注',
+    }];
   goMePage() {
     this.navCtrl.pop();
   }
@@ -82,17 +103,30 @@ export class MypagePage {
   }
   change2(){
     this.dynamic=2;
+    var yellow3=document.getElementById('yellow3');
     var yellow2=document.getElementById('yellow2');
     var yellow1=document.getElementById('yellow1');
+    yellow3.style.borderBottom='2px solid #fff';
     yellow2.style.borderBottom='2px solid #ffdb2c';
     yellow1.style.borderBottom='2px solid #fff';
   }
   change1(){
     this.dynamic=1;
+    var yellow3=document.getElementById('yellow3');
     var yellow2=document.getElementById('yellow2');
     var yellow1=document.getElementById('yellow1');
+    yellow3.style.borderBottom='2px solid #fff';
     yellow1.style.borderBottom='2px solid #ffdb2c';
     yellow2.style.borderBottom='2px solid #fff';
+  }
+  change3(){
+    this.dynamic=3;
+    var yellow3=document.getElementById('yellow3');
+    var yellow2=document.getElementById('yellow2');
+    var yellow1=document.getElementById('yellow1');
+    yellow3.style.borderBottom='2px solid #ffdb2c';
+    yellow2.style.borderBottom='2px solid #fff';
+    yellow1.style.borderBottom='2px solid #fff';
   }
 
 }
