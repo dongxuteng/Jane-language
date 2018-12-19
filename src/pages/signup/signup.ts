@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { IonicPage, NavController, NavParams,AlertController } from "ionic-angular";
 import $ from "jquery";
 
 @IonicPage()
@@ -15,7 +15,7 @@ export class SignupPage {
   password: string;
   repassword: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {}
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad SignupPage");
@@ -29,7 +29,31 @@ export class SignupPage {
 
   // 点击注册触发
   goLogin() {
-    if(this.username != undefined && this.password == this.repassword){
+    if(this.username == undefined || this.password == undefined){
+      const alert = this.alertCtrl.create({
+          title: '错误',
+          subTitle: '请输入用户名或密码',
+          buttons: ['好']
+        });
+        alert.present();
+      }
+    else if(this.username.length<6 || this.password.length<6){
+      const alert = this.alertCtrl.create({
+        title: '错误',
+        subTitle: '用户名或密码长度小于6位',
+        buttons: ['好']
+        });
+        alert.present();
+      }
+    else if(this.password != this.repassword){
+      const alert = this.alertCtrl.create({
+        title: '错误',
+        subTitle: '两次密码不一致',
+        buttons: ['好']
+      });
+      alert.present();
+    }
+    else{
       $.ajax({
         type: "post",
         url: "http://localhost:8100/api/signup",
@@ -41,7 +65,7 @@ export class SignupPage {
         },
         success: function(data) {
           if (data.status == 1) {
-            alert("注册成功！");
+            console.log("注册成功！");
           }
         }
       });
