@@ -24,7 +24,6 @@ import { SwicityPage } from '../pages/swicity/swicity';
 import { OpagePage } from '../pages/opage/opage';
 import { UpdatePage } from '../pages/update/update';
 import { HttpClientModule } from '@angular/common/http';
-import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -73,7 +72,6 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     UpdatePage
   ],
   providers: [
-    Camera,
     StatusBar,
     SplashScreen,
     Storage,

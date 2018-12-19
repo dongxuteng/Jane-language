@@ -25,22 +25,21 @@
       <p>{{arr.msg}}</p>
       <p class="date">{{arr.date}}</p>
     </div>
-    <!-- 底部-->
-    <ion-row>
-      <ion-col col-5 class="left">
+    <ion-row style="margin-top: 20px;">
+      <ion-col col-7>
         <div class="img">
           <img src="{{ arr.tx }}">
         </div>
         <a class="username">{{ arr.name }}</a>
       </ion-col>
-      <ion-col col-3 class="guanz">
-        <button ion-button block outline >
+      <ion-col col-3>
+        <button ion-button block outline class="guanz">
           关注
         </button>
       </ion-col>
-      <ion-col col-4 class="likes">
+      <ion-col col-2>
         <i class="iconfont icon-xihuan" id="like"></i>
-        <span>{{arr.likes}}</span>
+        <span class="likes">{{arr.likes}}</span>
       </ion-col>
     </ion-row>
   </div>

@@ -20,25 +20,15 @@ page-encouragemore {
     
       .date {
         float: right;
-        margin: 0;
       }
     
       .div {
         border-bottom: 1px solid gray;
       }
-    .row{
-      margin: 0;
-      width: 100%;
-    }
-    .left{
-      overflow: hidden;
-    }
+    
       .username {
         position: relative;
         top: 1.6em;
-        width: 3em;
-        height: 0.7em;
-        overflow: hidden;
       }
     
       .img {
@@ -50,24 +40,24 @@ page-encouragemore {
       }
     
       .guanz {
-        width: 3em;
-        button{
+        width: 3m;
+        height: 1.7em;
         position: relative;
         top: 1.2em;
-        width: 3em;
-        height: 1.7em;
-        }
+        right: 3em;
       }
     
       #like {
-        line-height: 2em;
         font-size: 2em;
-        float: left;
+        position: relative;
+        top: 0.6em;
+        left: 2em;
         color: red;
       }
     
       .likes {
-      line-height: 5em;
-      float: left;
+        position: relative;
+        left: 7em;
+        font-size: 0.8em;
       }
 }

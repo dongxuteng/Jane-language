@@ -8,12 +8,7 @@ import $ from "jquery";
   templateUrl: "signup.html"
 })
 export class SignupPage {
-
-  username: string;
-  phonenum: number;
-  phonepwd: number;
-  password: string;
-  repassword: string;
+  @ViewChild("#username") username;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
@@ -29,23 +24,22 @@ export class SignupPage {
 
   // 点击注册触发
   goLogin() {
-    if(this.username != undefined && this.password == this.repassword){
-      $.ajax({
-        type: "post",
-        url: "http://localhost:8100/api/signup",
-        data: {
-          phonenumber: this.phonenum,
-          phonepwd: this.phonepwd,
-          username: this.username,
-          repassword: this.repassword
-        },
-        success: function(data) {
-          if (data.status == 1) {
-            alert("注册成功！");
-          }
+    console.log(this.username);
+    $.ajax({
+      type: "post",
+      url: "http://localhost:8100/#/signup",
+      data: {
+        phonenumber: $("#phonenumber").val(),
+        phonepwd: $("#phonepwd").val(),
+        username: $("#username").val(),
+        password: $("#password").val()
+      },
+      success: function(data) {
+        if (data.status == 1) {
+          alert("注册成功！");
         }
-      });
-    }
+      }
+    });
     this.navCtrl.pop();
   }
 
