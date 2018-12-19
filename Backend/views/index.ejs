@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">  
+    
+    <title><%= title %></title>    
+    <link rel="stylesheet" type="text/css" href="/stylesheets/home.css" /> 
+    <link rel="stylesheet" type="text/css" href="/stylesheets/head.css" /> 
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css" />   
+    <link rel="stylesheet" type="text/css" href="/stylesheets/navbar-static-top.css" /> 
+    
+  </head>
+  <body>
+      <% include ./comp/header %> 
+      <div class="container-fluid">
+          <div class="row maintxtrow">
+              <div class="navleft col-sm-2 col-md-2 col-xm-2">
+                  <div class="row">
+                      <% include ./comp/nav %>                       
+                  </div>    
+              </div>
+          
+              <div class="maintxt col-md-10">
+                <div class="row" >
+                    <% if (locals.page == 'home') { %>
+                      <%include ./admin/home %>
+                    <% } %>
+                   
+                    <% if (locals.page == 'article') { %>
+                      <%include ./admin/article %>
+                    <% } %>
+
+                    <% if (locals.page == 'master') { %>
+                      <%include ./admin/master %>
+                    <% } %>
+
+                    <% if (locals.page == 'file') { %>
+                      <%include ./admin/file %>
+                    <% } %>
+
+                    <% if (locals.page == 'SearchUser') { %>
+                      <%include ./admin/SearchUser %>
+                    <% } %>
+
+                    <% if (locals.page == 'recommend') { %>
+                      <%include ./admin/recommend %>
+                    <% } %>
+
+                    <% if (locals.page == 'msg') { %>
+                      <%include ./admin/msg %>
+                    <% } %>
+
+                    <% if (locals.page == 'edit') { %>
+                      <% include ./admin/edit %>
+                    <% } %>
+
+                    <% if (locals.page == 'addmaster') { %>
+                      <% include ./admin/addmaster %>
+                    <% } %>
+
+                    <% if (locals.page == 'detail') { %>
+                      <% include ./admin/detail %>
+                    <% } %>
+
+                    <% if (locals.page == 'addarticle') { %>
+                      <% include ./admin/addarticle %>
+                    <% } %>
+
+                    <% if (locals.page == 'updatearticle') { %>
+                      <% include ./admin/updatearticle %>
+                    <% } %>
+
+                    <% if (locals.page == 'rec_addarticle') { %>
+                      <% include ./admin/rec_addarticle %>
+                    <% } %>
+
+                    <% if (locals.page == 'rec_updatearticle') { %>
+                      <% include ./admin/rec_updatearticle %>
+                    <% } %>
+
+                    <% if (locals.page == 'searchdata') { %>
+                      <% include ./admin/searchdata %>
+                    <% } %>
+
+
+                  
+                </div>
+              </div>
+      
+            </div>     
+      </div>     
+  </body>
+  <script src="/javascripts/jquery.js"></script>    
+  <script src="/javascripts/bootstrap.min.js"></script> 
+  <script type="text/javascript" src="/javascripts/page.js"></script>
+</html>
