@@ -25,7 +25,7 @@ export class MoviePage {
   constructor(public navCtrl: NavController, public navParams: NavParams,public http:HttpClient) {
     this.http.get(this.url).subscribe((data)=>{
       this.title=data['result'][0]['data']['text'];
-      this.des=data['result'][2]['data']['content']['data']['description'];
+      this.des=data['result'][5]['data']['content']['data']['description'];
       this.des2=data['result'][3]['data']['content']['data']['description'];
       this.video=data['result'][2]['data']['content']['data']['playUrl'];
       this.video2=data['result'][3]['data']['content']['data']['playUrl'];
