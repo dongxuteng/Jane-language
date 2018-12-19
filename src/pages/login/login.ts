@@ -73,7 +73,6 @@ export class LoginPage {
           console.error(err);
         }
       });
-      this.app.getRootNav().setRoot(TabsPage);
     }
         else {
           const alert = this.alertCtrl.create({
@@ -81,8 +80,9 @@ export class LoginPage {
             subTitle: '请输入正确的用户名和密码',
             buttons: ['好']
           });
-          alert.present();
+          alert.present(); 
         }
+        this.app.getRootNav().setRoot(TabsPage);
   }
 
   //ionic当退出页面的时候触发的方法
@@ -93,6 +93,9 @@ export class LoginPage {
         elements[key].style.display = 'flex';
       });
     }
+  }
+  Findpsw(){
+    this.navCtrl.push('FidepswPage')
   }
 
 }
