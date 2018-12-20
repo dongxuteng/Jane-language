@@ -17,13 +17,13 @@ page-neirong {
   .div {
     border-bottom: 1px solid gray;
   }
-.row{
-  margin: 0;
-  width: 100%;
-}
-.left{
-  overflow: hidden;
-}
+  .row{
+    margin: 0;
+    width: 100%;
+  }
+  .left{
+    overflow: hidden;
+  }
   .username {
     position: relative;
     top: 1.6em;
@@ -40,25 +40,58 @@ page-neirong {
     overflow: hidden;
   }
 
-  .guanz {
-    width: 3em;
-    button{
-    position: relative;
-    top: 1.2em;
-    width: 3em;
-    height: 1.7em;
-    }
-  }
+  // .guanz {
+  //   width: 3em;
+  //   button{
+  //   position: relative;
+  //   top: 1.2em;
+  //   width: 3em;
+  //   height: 1.7em;
+  //   }
+  // }
 
   #like {
     line-height: 2em;
     font-size: 2em;
     float: left;
-    color: red;
   }
 
   .likes {
   line-height: 5em;
   float: left;
+  }
+  #star{
+    font-size: 2.2em;
+  }
+  .collected{
+    color:red;
+  }
+  .like{
+  font-size:2em;
+  }
+  .liked{
+  color:red !important;
+  }
+  #follow{
+  display: block;
+  width: 5em;
+  height: 30px;
+  margin: 0;
+  background: rgb(247, 247, 247);
+  border: 1px solid red;
+  border-radius: 5px;
+  color: red;
+  outline: none;
+  position: relative;
+  top:1em;
+  }
+  #follow:hover{  
+  background: rgba(233, 7, 7, 0.2);
+  }
+  #true{
+  display: inline;
+  }
+  #false{
+  display: none;
   }
 }
