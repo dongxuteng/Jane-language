@@ -54,6 +54,7 @@ export class LoginPage {
   // 登录验证,返回首页
   headers = new HttpHeaders({ 'Content-Type':'application/x-www-form-urlencoded' });
   login() {
+    // 用户名或密码不能为空
     if(this.username == undefined || this.pwd == undefined){
       const alert = this.alertCtrl.create({
         title: '错误',
@@ -62,13 +63,15 @@ export class LoginPage {
       });
       alert.present();
     }
+    // 输入用户名密码后,post发送请求
     else {
         this.http.post('/api/login',{"username":this.username,"password":this.pwd},{headers:this.headers}).subscribe((data)=>{
-          if(!data[0]) {
+          // console.log(data);
+          if( data == 1 ) {
             this.alert();
           }
           else{
-            if(data[0].password == this.pwd ){
+            if( data == 0 ){
               console.log('登陆成功');
               this.app.getRootNav().setRoot(TabsPage);
             }else{

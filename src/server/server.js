@@ -34,13 +34,20 @@ app.post('/api/login', function(req,res){
     })
     req.on('end',function(data){
         con.query(sql,[loginData.username],(err,results)=>{
-            if(results == '') {
+            results = JSON.stringify(results);
+            results = JSON.parse(results);
+            if(results[0] == undefined) {
                 console.log('没有这个用户');
                 res.end('1');
             }
+            else if(results[0].password != loginData.password){
+                console.log(results[0].password);
+                console.log('账号或密码错误');
+                res.end('1');
+            }
             else{
+                console.log(results.password);
                 console.log('找到用户');
-                res.send(results);
                 res.end('0');
             }
         })
