@@ -67,14 +67,10 @@ export class SignupPage {
       alert.present();
     }
     else if(this.username != undefined && this.password == this.repassword){
-      this.http.post('/api/signup',
-      {
-        "username": this.username, 
-        "password": this.password, 
-        "phonenum": this.phonenum,
-        "phonepwd": this.phonepwd
-      },
-      )
+      console.log(11);
+      this.http.post('/api/signup',{"username":this.username,"password":this.password,"phonenum":this.phonenum,"phonepwd":this.phonepwd},{headers:this.headers}).subscribe((data)=>{
+        console.log(1);
+      })
     }
   }
 
