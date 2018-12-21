@@ -49,11 +49,14 @@ show1(){
         console.log(islike);
         if(islike === -1){  // 未收藏->已收藏
           document.querySelectorAll('.like')[0].className += ' liked';
-          console.log('未收藏->已收藏： ',document.querySelectorAll('.like')[0].className);
+          this.arr[0].likes++;
+          console.log(this.arr[0].likes)
+          // console.log('未收藏->已收藏： ',document.querySelectorAll('.like')[0].className);
         }
         else{  // 已收藏->未收藏
+          this.arr[0].likes--;
           document.querySelectorAll('.like')[0].className = document.querySelectorAll('.like')[0].className.slice(0,38);
-          console.log('已收藏->未收藏： ',document.querySelectorAll('.like')[0].className);
+          // console.log('已收藏->未收藏： ',document.querySelectorAll('.like')[0].className);
         }
       }
     
@@ -62,9 +65,9 @@ show1(){
     msg:'她早该知道的，儿子有了女友，并且住在了一起，可还是自我麻烦，装傻充愣，在儿子的公寓赖了大半个月，看他心不在焉地陪自己。她装起胆，编造种种理由去看他，其实为的是暂时躲避另一个男人。她早该知道的，儿子有了女友，并且住在了一起，可还是自我麻烦，装傻充愣，在儿子的公寓赖了大半个月，看他心不在焉地陪自己。她装起胆，编造种种理由去看他，其实为的是暂时躲避另一个男人',
      img:'assets/imgs/2.jpg',
      tx:'assets/imgs/icon.png',
-     num:'50',
+     num:50,
      date:'2018/11/11',
-     likes:'999'
+     likes:999
    }]
 
    ionViewDidEnter(){

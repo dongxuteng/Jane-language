@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef } from "@angular/core";
 import { IonicPage, NavController, NavParams, AlertController } from "ionic-angular";
 import $ from "jquery";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @IonicPage()
 @Component({
@@ -14,8 +15,8 @@ export class SignupPage {
   phonepwd: number;
   password: string;
   repassword: string;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {}
+  headers = new HttpHeaders({ 'Content-Type':'application/x-www-form-urlencoded'});
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public http: HttpClient) {}
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad SignupPage");
@@ -66,25 +67,10 @@ export class SignupPage {
       alert.present();
     }
     else if(this.username != undefined && this.password == this.repassword){
-      $.ajax({
-        type: "post",
-        url: "/api/signup",
-        data: {
-          phonenumber: this.phonenum,
-          phonepwd: this.phonepwd,
-          username: this.username,
-          repassword: this.repassword
-        },
-        success: function(data) {
-          console.log(1);
-          if(data == 1){
-            this.navCtrl.pop();
-          }
-        },
-        error: function(error){
-          console.error(error);
-        }
-      });
+      console.log(11);
+      this.http.post('/api/signup',{"username":this.username,"password":this.password,"phonenum":this.phonenum,"phonepwd":this.phonepwd},{headers:this.headers}).subscribe((data)=>{
+        console.log(1);
+      })
     }
   }
 
