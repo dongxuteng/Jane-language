@@ -2,6 +2,8 @@ const mysql = require('mysql'),
       express = require('express'),
       qs = require('querystring'),
       app = express();
+      const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 app.all('*',function(req,res,next){
     res.header('Access-Control-Allow-Origin','*');
     res.header('Access-Control-Allow-Headers','Origin,X-Requested-With');
@@ -16,36 +18,40 @@ const con = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'CuiYiMing_wm717',
-    database: 'abc'
+    database: 'jane'
 });
 // 链接数据库
 // con.connect();
 
 // 登录验证
 
-var loginData;
-var loginDataJSON;
 
 app.post('/api/login', function(req,res){
+    var loginData = '';
+    const sql = 'select password from user where username=? ';
     req.on('data',function(data){
-        loginData = data.toString('utf8');
-        loginDataJSON = JSON.parse(loginData);
-    });
-    req.on('end',function(){
-        con.query({
-        sql: 'SELECT password from `user` where `username`=? ',
-        values: [loginDataJSON.username]},
-        function(error,results){
-            var pwd = results.toString('UTF8');
-            if(pwd === loginDataJSON){
-                console.log('验证成功');
-                res.send(results);
+        loginData = JSON.parse(data);
+    })
+    req.on('end',function(data){
+        con.query(sql,[loginData.username],(err,results)=>{
+            results = JSON.stringify(results);
+            results = JSON.parse(results);
+            if(results[0] == undefined) {
+                console.log('没有这个用户');
+                res.end('1');
+            }
+            else if(results[0].password != loginData.password){
+                console.log(results[0].password);
+                console.log('账号或密码错误');
+                res.end('1');
             }
             else{
+                console.log(results.password);
+                console.log('找到用户');
                 res.end('0');
             }
         })
-    });
+    })
 });
 
 

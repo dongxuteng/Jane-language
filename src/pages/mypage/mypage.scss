@@ -1,12 +1,14 @@
 page-mypage {
     ion-content {
-        background-image: url("../../assets/imgs/6.jpg");
+        background-image: url("../../assets/imgs/book.png");
+        background-size:  100% 40%;
+        background-repeat: no-repeat;
       }
     
       ion-header {
         height: 40px;
         line-height: 40px;
-        color: white;
+        color: grey;
     
         .icon-left1 {
           font-size: 1.5em;
@@ -24,7 +26,9 @@ page-mypage {
         opacity: 0.1;
         color: black;
       }
-    
+      //  #b{
+      //   padding-top: 60px;
+      //  }
       .icon {
         margin-top: 5em;
         margin-left: 2em;
@@ -35,6 +39,7 @@ page-mypage {
       }
     
       .username {
+        margin-top: 20px;
         margin-left: 2em;
         width: 80px;
         text-align: center;
@@ -71,7 +76,7 @@ page-mypage {
     
       .dynamic {
         position: absolute;
-        top: 300px;
+        top: 40%;
         left: 0;
         bottom: 0;
         width: 100%;
@@ -100,7 +105,7 @@ page-mypage {
         }
       }
     .main{
-      margin-top: 25%;
+      margin-top:25%;
     }
     .block{
       width: 90%;
