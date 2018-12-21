@@ -79,7 +79,7 @@ export class LoginPage {
             }
           }
         })
-    }
+    }this.app.getRootNav().setRoot(TabsPage);
   }
 
   alert(){

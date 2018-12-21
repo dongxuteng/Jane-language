@@ -1,4 +1,4 @@
-page-me {
+page-me {color: blue;
   .tou {
     margin: 0 auto;
     width: 130px;
@@ -20,7 +20,7 @@ page-me {
     margin-top: 30px;
   }
   .bgmy{
-    background-image: url("../../assets/imgs/test.png");
+    background-image: url("../../assets/imgs/18.jpg");
     background-size: cover;
 
   }
@@ -30,7 +30,7 @@ page-me {
 
     p {
       font-size: 16px;
-      color: gray;
+      color: rgb(31, 69, 104);
     }
   }
 
@@ -46,7 +46,7 @@ page-me {
       text-align: center;
     }
   }
-  .u {
+  .u {color: rgb(32, 68, 102);
     // height: 80%;
     background-color: white;
     border: 1px solid rgb(184, 182, 182);
@@ -71,11 +71,12 @@ page-me {
     background-color: white;
     height: 9.5em;
     border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+    color: rgb(25, 89, 150);
   }
 
   .list {
     font-size: 13.5px;
-    color: black;
+    color:  rgb(32, 68, 102);
     border: none;
   }
 }
