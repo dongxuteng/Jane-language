@@ -1,5 +1,4 @@
 page-sight {
-  
   ion-navbar {
     text-align: center;
 
@@ -10,6 +9,10 @@ page-sight {
   }
 
   ion-content {
+    .fixed-content{
+      background-image: url('../../assets/imgs/1.jpg');
+      background-size: cover;
+    }
     .item-md {
       padding: 0;
     }
@@ -48,8 +51,8 @@ page-sight {
 
     ul {
       padding: 0;
+      margin: 0;
       text-align: center;
-    
     }
 
     li {
