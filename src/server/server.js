@@ -18,7 +18,7 @@ const con = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'CuiYiMing_wm717',
-    database: 'abc'
+    database: 'jane'
 });
 // 链接数据库
 // con.connect();
