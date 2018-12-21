@@ -14,7 +14,7 @@ app.all('*',function(req,res,next){
     
 });
 
-const con = mysql.createConnection({
+const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: 'CuiYiMing_wm717',
@@ -33,7 +33,7 @@ app.post('/api/login', function(req,res){
         loginData = JSON.parse(data);
     })
     req.on('end',function(data){
-        con.query(sql,[loginData.username],(err,results)=>{
+        pool.query(sql,[loginData.username],(err,results)=>{
             results = JSON.stringify(results);
             results = JSON.parse(results);
             if(results[0] == undefined) {
@@ -57,43 +57,36 @@ app.post('/api/login', function(req,res){
 
 // 注册验证
 
-var signupData;
-var signupDataJSON;
 
 app.post('/api/signup', function(req,res){
-    res.on('data', function(data){
-        console.log(1);
-        signupData = data.toString('utf8');
-        signupDataJSON =JSON.parse(signupData);
-        var username = signupDataJSON.username;
-        var password = signupDataJSON.password;
-        var phonenum = signupDataJSON.phonenum;
+    console.log(1);
+    var signupData = '';
+    const sqlUid = 'select Uid from user where username=? ';
+    const sqlInsert = 'insert into user values=? ';
+    req.on('data', function(data){
+        signupData = JSON.parse(data);
+        console.log(signupData);
     });
     
-    res.on('end', function(){
+    req.on('end', function(data){
         // 查询username是否存在
-        con.query({
-            sql: 'select Uid from `user` where username=? ',
-            values: [signupDataJSON.username],
-            function(error,results){
-                var uid = results.toString('utf8');
-                if(uid === ''){
-                    console.log('用户名可以注册');
-                    con.query({
-                        // username不存在,可以注册,执行插入语句
-                        sql: 'insert into user set? ',
-                        values: [{username: username, password: password}],
-                        function(error,results){
-                            if (error) throw error;
-                            else {
-                                console.log('注册成功');
-                                res.end('1');
-                            }
-                        }
-                    })
+        pool.query(
+            sqlUid, [signupData.username],(err,results)=>{
+                results = JSON.stringify(results);
+                results = JSON.parse(results);
+                console.log(results);
+                if(results[0] == undefined){
+                    console.log('没有这个用户，可以注册');
+                    con.query(
+                        sqlInsert,
+                        [{username: signupData.username, password: signupData.password, phoneNumber: signupData.phonenum, }]
+                    )
+                }else{
+                    console.log('用户名已存在，无法注册');
+                    res.end('1');
                 }
             }
-        })
+        )
     })
 });
 
