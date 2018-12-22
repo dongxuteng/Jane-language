@@ -1,10 +1,15 @@
 page-signup {
+    ion-content{
+        background-image: url('../../assets/imgs/15.jpg');
+        background-size: cover;
+    }
     .main{
         text-align: center;
         ion-item{
+            background: transparent;
             margin: 0 auto;
             width: 80%;
-            background-color: rgb(247,247,247);
+            // background-color: rgb(247,247,247);
             ion-icon{
                 color: #8E8E8E;
             }
