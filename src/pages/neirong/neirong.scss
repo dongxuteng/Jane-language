@@ -16,11 +16,16 @@ page-neirong {
 
   .div {
     border-bottom: 1px solid gray;
+    .img{
+      height: 18em;
+      width: 100%;
+    }
   }
   .row{
     margin: 0;
     width: 100%;
   }
+
   .left{
     overflow: hidden;
   }
@@ -32,23 +37,13 @@ page-neirong {
     overflow: hidden;
   }
 
-  .img {
+  .tx {
     float: left;
     width: 50px;
     height: 50px;
     border-radius: 50% 50%;
     overflow: hidden;
   }
-
-  // .guanz {
-  //   width: 3em;
-  //   button{
-  //   position: relative;
-  //   top: 1.2em;
-  //   width: 3em;
-  //   height: 1.7em;
-  //   }
-  // }
 
   #like {
     line-height: 2em;
