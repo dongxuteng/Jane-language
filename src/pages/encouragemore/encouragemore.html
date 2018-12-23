@@ -10,45 +10,50 @@
       <ion-col col-8>
         <h5 class="title">{{ arr.title }}</h5>
       </ion-col>
-      <ion-col col-3>
-        <i class="iconfont icon-shoucang" style="font-size:1.5em;"></i>
+      <ion-col col-2>
+        <!-- 收藏、取消收藏 -->
+        <ion-icon name="star-outline" (click)="isCollect()" id="star"></ion-icon>
       </ion-col>
-      <ion-col col-1>
-        <i class="iconfont icon-share" style="font-size:1.5em;"></i>
+      <ion-col col-2>
+        <!-- 分享 -->
+      <ion-icon name="share" style="font-size:1.5em;float:right;padding-top:0.2em;"></ion-icon>
       </ion-col>
     </ion-row>
   </ion-navbar>
 </ion-header>
 
 <ion-content *ngFor='let arr of arr'>
-  <div class="div">
+  <div class="neirong">
     <img src="{{arr.img}}">
     <div padding>
       <h2>{{arr.title}}</h2>
-      <p>&nbsp;&nbsp;&nbsp;&nbsp;作者/{{arr.username}}</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;作者/{{arr.name}}</p>
       <p style="text-indent: 2em;">{{arr.msg}}</p>
       <p class="date">{{arr.date}}</p>
     </div>
 
     <!-- 底部-->
     <ion-row>
-      <ion-col col-5 class="left">
-        <div class="img">
+      <ion-col class="left">
+        <div class="tx" (click)="goPersonal()">
           <img src="{{ arr.tx }}">
         </div>
-        <a class="username">{{ arr.username }}</a>
+        <a class="username" (click)="goPersonal()">{{ arr.name }}</a>
       </ion-col>
-      <ion-col col-3 class="guanz">
-        <button ion-button block outline >
-          关注
+      <ion-col  class="guanz">
+        <button id="follow" (click)="show1()">
+          <span id="true">关注</span>
+          <span id="false">已关注</span>
         </button>
       </ion-col>
-      <ion-col col-4 class="likes">
-        <i class="iconfont icon-xihuan" id="like"></i>
+      <ion-col class="likes">
+        <!-- <ion-icon name="star-outline" class="like" (click)="isLike()"></ion-icon> -->
+         <ion-icon name="heart-outline" class="like"  (click)="isLike()"></ion-icon>
         <span>{{arr.likes}}</span>
       </ion-col>
     </ion-row>
-  </div>
+    </div>
+
   <!--评论-->
   <div>
     <span>评论</span>

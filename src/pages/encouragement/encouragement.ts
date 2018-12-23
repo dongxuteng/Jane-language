@@ -17,6 +17,7 @@ export class EncouragementPage {
 
   articles = [
     {
+      num:666,
       tx:'../../assets/imgs/1.jpg',
       name:'赫赫',
       title: '年少有为',
@@ -24,13 +25,15 @@ export class EncouragementPage {
       inner:'谁都想年少有为，可现实却很多人一生碌碌无为。每个人在年少时，都对未来有个美好的憧憬，以为等到长大后，这些憧憬就能一一实现，但真正等到年老那时，却发现梦想一个都未曾实现。',
     },
     {
+      num:888,
       tx:'../../assets/imgs/2.jpg',
       name:'花颜',
       title: '与其碌碌无为，不如兴风作浪',
       imgSrc: '../../assets/imgs/11.jpg',
       inner:'“世间谤我、欺我、辱我、笑我、轻我、贱我、恶我、骗我、如何处治乎?只是忍他、让他、由他、避他、耐他、敬他、不要理他、再待几年你且看他。”愿你成全这个世界给予你的欢喜，也成全当年兴风作浪的自己。...',
     },
-    { tx:'assets/imgs/fj.jpg',
+    { num:88,
+      tx:'assets/imgs/fj.jpg',
       name:'就不告诉你',
       title: '不同的选择不一样的人生',
       imgSrc: '../../assets/imgs/two.png',
@@ -39,10 +42,9 @@ export class EncouragementPage {
   ]
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EncouragementPage');
-  }
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad EncouragementPage');
+  // }
   goEncourage(){
     this.navCtrl.push('EncouragemorePage')
   }

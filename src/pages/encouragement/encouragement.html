@@ -14,18 +14,19 @@
 
 
 <ion-content padding>
-    <ion-card *ngFor="let item of articles" (click)="goEncourage()">
+    <ion-card *ngFor="let item of articles; let i = index" (click)="goEncourage()">
       
-        <div class="left"><img src="{{ item.imgSrc }}" alt=""></div>
-        <div class="right">
+      <div class="left" ><img src="{{ item.imgSrc }}" alt=""></div>
+        <div class="right" >
           <div class="card-title"> {{ item.title }} </div>
           <div class="card-inner"> {{ item.inner }}</div>
           <div class="tx">
             <img src="{{ item.tx }}">
-            <span>{{ item.name }}</span>
-            <i class="iconfont icon-xihuan" style="font-size:1.5em;color: red; float:right"></i>
           </div>
-
+            <span class="name">{{ item.name }}</span>
+            <!-- 收藏、取消收藏 -->
+            <span style="float:right;line-height:3em;">{{item.num}}</span>
+            <i class="iconfont icon-xihuan" id="like"></i>
         </div>
      
     </ion-card>

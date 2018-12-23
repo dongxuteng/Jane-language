@@ -26,33 +26,39 @@ page-encouragement {
         .right{
             float: right;
             width:55%;
-            height: 50%;
             text-align:left;
             padding: 5px;
+            .card-inner{
+                max-height:100%;
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+	            -webkit-line-clamp: 4; 
+	            -webkit-box-orient: vertical;
+            }
             .tx{
                 width: 100%;
                 padding-top: 1em;
                 img{
                 border-radius: 50% 50%;
-                width: 3em;
-                height: 3em;
+                width: 2em;
+                height: 2em;
                 float: left;
-                }
-                span{
-                    float: left;
-                    position: absolute;
-                    bottom: 1em;
-                    width: 2em;
-                    height: 1.5em;
-                    overflow: hidden;
-                }
-                i{
-                    font-size:1.5em;
-                    color: red; 
-                    position: absolute;
-                    bottom: 0.8em;
-                    right: 1em;
-                }
+                }   
+            }
+            .name{
+                // float: left;
+                position: absolute;
+                bottom: 1em;
+                width: 2em;
+                height: 1.5em;
+                overflow: hidden;
+            }
+            #like{
+                font-size: 2em;
+                float: right;
+                color: red;
             }
         }
         .card-title {
