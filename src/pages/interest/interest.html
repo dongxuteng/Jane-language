@@ -7,39 +7,22 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>我的兴趣</ion-title>
+    <ion-title>草稿箱</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <ion-card>
-    <ion-card-header>
-      <button ion-button block color="secondary" (click)="showCheckbox()">选择你的兴趣</button> 
-    </ion-card-header>
-          <ion-list>
-            <button ion-item>
-                <ion-icon name="cafe" item-start></ion-icon>
-              美食
-            </button>
-        
-            <button ion-item>
-              <ion-icon name="medical" item-start></ion-icon>
-              随笔
-            </button>
-        
-            <button ion-item>
-              <ion-icon name="planet" item-start></ion-icon>
-              旅行
-            </button>
-        
-            <button ion-item>
-              <ion-icon name="paw" item-start></ion-icon>
-              情感
-            </button>
-        
-          </ion-list>
-        </ion-card>
+    <ion-list>
+        <ion-item (click)="Gofabu()">
+          <ion-thumbnail item-start>
+            <img src="assets/imgs/0.jpg">
+          </ion-thumbnail>
+          <h2>My Neighbor Totoro</h2>
+          <p class="msg">Hayao Miyazaki • 1988</p>
+          <p class="date">2018/12/12</p>
+        </ion-item>
+      </ion-list>
         
 </ion-content>

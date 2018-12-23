@@ -1,3 +1,12 @@
 page-interest {
     ion-title{ text-align: center}
+    .msg{
+        max-width: 10em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .date{
+        float: right;
+    }
 }
