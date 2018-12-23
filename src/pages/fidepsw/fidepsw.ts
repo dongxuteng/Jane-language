@@ -21,6 +21,10 @@ export class FidepswPage {
   password: string;
   repassword: string;
 
+  back(){
+    this.navCtrl.pop();
+  }
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
   ionViewDidLoad() {

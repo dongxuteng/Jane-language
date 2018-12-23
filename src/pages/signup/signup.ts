@@ -27,7 +27,10 @@ export class SignupPage {
       });
     }
   }
-
+  back(){
+      this.navCtrl.pop();
+    }
+  
   // 点击注册触发
   goLogin() {
     // username需要大于6位
