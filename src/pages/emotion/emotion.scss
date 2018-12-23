@@ -3,6 +3,7 @@ page-emotion {
         ion-title{
         background-color: rgb(247,247,247);
         text-align: center;
+        padding-right: 3em;
     }
 }
 ion-content{
@@ -17,12 +18,49 @@ ion-content{
     .card{ margin-top: 20px; }
     ion-card{
         .card-title-md{ margin: 4px 0; }
-        .col{
-            height: 66px;
-            line-height: 44px;
+        .inner{
+            max-height:100%;
+            width: 100%;
             overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 4; 
+            -webkit-box-orient: vertical;
         }
         p{ text-indent: 2em; }
-    }
+        .bottom{
+            width: 100%;
+          }
+          .col{
+            ion-label{
+              height: 2em;
+              h3{
+                  text-align: left;
+                position: relative;
+                top:1em;
+              }
+            }
+            #like{
+                font-size: 2em;
+                float: right;
+                color: red;
+            }
+              ion-col{
+                  padding: 0;
+                  margin: 0;
+              }
+              ion-label{
+                  margin: 0;
+              }
+              ion-item{
+                  padding: 0;
+              }
+              .num{
+                  text-align: left;
+                  position: relative;
+                  top:1em;
+              }
+          }
+}
 }
 }

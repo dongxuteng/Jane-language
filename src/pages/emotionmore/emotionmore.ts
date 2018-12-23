@@ -33,5 +33,53 @@ export class EmotionmorePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad EmotionmorePage');
   }
+//收藏
+isCollect(){
+
+  var iscollect = document.querySelectorAll('#star')[0].className.indexOf(' collected');
+  // console.log(iscollect);
+  if(iscollect === -1){  // 未收藏->已收藏
+    document.querySelectorAll('#star')[0].className += ' collected';
+    // console.log('未收藏->已收藏： ',document.querySelectorAll('.star')[0].className);
+  }
+  else{  // 已收藏->未收藏
+    document.querySelectorAll('#star')[0].className = document.querySelectorAll('#star')[0].className.slice(0,37);
+    // console.log('已收藏->未收藏： ',document.querySelectorAll('.star')[0].className);
+  }
+}
+//喜欢
+  isLike(){
+      // document.querySelectorAll('.star')[0].className += ' collected';
+      var islike = document.querySelectorAll('.like')[0].className.indexOf(' liked');
+      console.log(islike);
+      if(islike === -1){  // 未收藏->已收藏
+        document.querySelectorAll('.like')[0].className += ' liked';
+        this.arr[0].likes++;
+        console.log(this.arr[0].likes)
+        // console.log('未收藏->已收藏： ',document.querySelectorAll('.like')[0].className);
+      }
+      else{  // 已收藏->未收藏
+        this.arr[0].likes--;
+        document.querySelectorAll('.like')[0].className = document.querySelectorAll('.like')[0].className.slice(0,38);
+        // console.log('已收藏->未收藏： ',document.querySelectorAll('.like')[0].className);
+      }
+    }
+    //关注
+  show1(){
+    var aTrue = document.getElementById('true');
+    var aFalse = document.getElementById('false');
+    if ( aTrue.style.display!="none"){
+        aTrue.style.display="none";
+        aFalse.style.display="inline";
+    }else{
+        aTrue.style.display="inline";
+        aFalse.style.display="none";
+    }
+  } 
+    // ionViewDidLoad() {
+    // }
+  goPersonal(){
+    this.navCtrl.push('PersonalPage')
+  }  
 
 }

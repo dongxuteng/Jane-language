@@ -45,11 +45,25 @@ page-home {
     p{
       margin-top: 10px!important;
       text-indent: 2em;
+        max-height:100%;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 4; 
+        -webkit-box-orient: vertical;
     }
     .bottom{
       width: 100%;
     }
     .col{
+      ion-label{
+        height: 2em;
+        h3{
+          position: relative;
+          top:1em;
+        }
+      }
         ion-col{
             padding: 0;
             margin: 0;
