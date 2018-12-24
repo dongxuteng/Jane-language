@@ -34,6 +34,9 @@ export class FidepswPage {
       });
     }
   }
+  back(){
+    this.navCtrl.pop();
+  }
 
   // 点击注册触发
   goLogin() {

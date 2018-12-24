@@ -1,6 +1,5 @@
 import { Component, ViewChild, ElementRef } from "@angular/core";
 import { IonicPage, NavController, NavParams, AlertController } from "ionic-angular";
-import $ from "jquery";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @IonicPage()
