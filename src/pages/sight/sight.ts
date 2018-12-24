@@ -12,6 +12,8 @@ export class SightPage {
 
   srcs = [
     "../../assets/imgs/1.jpg",
+    "../../assets/imgs/7.jpg",
+    "../../assets/imgs/6.jpg",
     "../../assets/imgs/3.jpg",
   ];
 

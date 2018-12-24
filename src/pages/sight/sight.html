@@ -1,14 +1,12 @@
 <!-- 侧边菜单 -->
 <ion-menu [content]="content" class="menu">
-  <!-- <ion-header>
+  <ion-header>
     <ion-toolbar>
-      <ion-title style="text-align:center;">分类</ion-title>
+      <ion-title>分类</ion-title>
     </ion-toolbar>
-  </ion-header> -->
+  </ion-header>
   <ion-content>
     <ul>
-      <li style="text-align:left;margin-left:30px ">
-        <i class="iconfont icon-radiobutton2"></i>分类</li>
       <li (click)="goEssays()">
         <i class="iconfont icon-pencil"></i>
         随笔
@@ -18,7 +16,7 @@
         美食
       </li>
       <li (click)="goEmotions()">
-        <i class="iconfont icon-zuanshi"></i>
+        <i class="iconfont icon-heart"></i>
         情感
       </li>
       <li (click)="goEncouragements()">
@@ -54,13 +52,13 @@
 
 <ion-content>
   <!-- 轮播图 -->
-  <ion-slides pager="true" autoplay="1000" loop="true" class="sli">
+  <!-- <ion-slides pager="true" autoplay="1000" loop="true" class="sli">
     <ion-slide *ngFor="let src of srcs">
       <img src="{{ src }}" alt="">
     </ion-slide>
   </ion-slides>
 
-  <!-- 卡片 -->
+   卡片 
   <ion-card *ngFor="let assey of asseys">
     <img src="{{ assey.imgSrc }}" (click)="goSightmore()">
     <ion-card-content (click)="goSightmore()">
@@ -90,9 +88,60 @@
         </button>
       </ion-col>
     </ion-row>
-  </ion-card>
+  </ion-card> -->
 
+  <ion-content>
+    <ion-slides pager="true" autoplay="1000" loop="true" class="sli">
+      <ion-slide>
+          <div class="wenzi">
+            <p>【生活感悟】与其碌碌无为，不如兴风作浪</p>
+            <img src="../../assets/imgs/coffee.jpg"/>
+          </div>
+      </ion-slide>
+      <ion-slide>
+          <div class="wenzi">
+            <p>【生活感悟】与其碌碌无为，不如兴风作浪</p>
+            <img src="../../assets/imgs/book.png" alt="">
+          </div>
+      </ion-slide>
+      <ion-slide>
+          <div class="wenzi">
+              <p>【生活感悟】与其碌碌无为，不如兴风作浪</p>
+              <img src="../../assets/imgs/coffee.jpg" alt="">
+          </div>
+      </ion-slide>
+    </ion-slides>
+    <div class="subtitle">
+      <h3 text-center>热|门|精|选</h3>
+      <p text-center>RECOMMENDATION</p>
+  </div>
+  <div class="a">
+    <div class="b">
+        <img src="../../assets/imgs/icon.png"  (click)="goPersonal()">
+        <span>花颜</span>
+        <i class="iconfont icon-xihuan" (click)="like()"></i>
+    </div>
+    <div class="c">
+      <img src="../../assets/imgs/12.jpg">
+      <p>To see a world in a grain of sand. And a heaven in a wild flower.
+        Hold infinity in the palm of your hand. And eternity in an hour.</p>
+    </div>
+  </div>
+  <div class="a">
+      <div class="b">
+          <img src="../../assets/imgs/dog.jpg" (click)="goPersonal()">
+          <span>花颜</span>
+          <i class="iconfont icon-xihuan"  (click)="like()"></i>
+      </div>
+      <div class="c">
+        <img src="../../assets/imgs/lizhi.jpg">
+        <p>Do not linger to gather flowers to keep them， 
+          but walk on，for flowers will keep themselves blooming all your way.</p>
+      </div>
+    </div>
+  
   <!-- 下拉刷新 -->
+
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
