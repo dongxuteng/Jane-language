@@ -16,11 +16,12 @@ page-fidepsw {
     .main{
         text-align: center;
         ion-item{
+            span{ color: rgb(231, 231, 231);}
             background: transparent;
             margin: 0 auto;
             width: 80%;
             ion-icon{
-                color: rgb(182, 207, 207);
+                color: rgb(164, 197, 197);
             }
         }
     }
@@ -37,11 +38,12 @@ page-fidepsw {
         justify-content: center
     }
     .login{
+        font-size: 17px;
         width: 80%;
         margin: 0 auto;
         margin-top: 10%;
         border: 1px solid darkgray;
-        background-color:rgb(182, 207, 207);
+        background-color:rgb(164, 197, 197);
         color: rgb(231, 231, 231);
     }
 }
