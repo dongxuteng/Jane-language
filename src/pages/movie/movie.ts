@@ -38,7 +38,8 @@ export class MoviePage {
     url:this.video,
     name:'赫赫',
     talk:44,
-    text:this.des
+    text:this.des,
+    like:36
   }
 ]
 
@@ -65,6 +66,22 @@ ionViewWillLeave() {
 
   goPersonal(){
     this.navCtrl.push("PersonalPage")
+  }
+  //喜欢
+  isLiked(){
+    // document.querySelectorAll('.star')[0].className += ' collected';
+    var islike = document.querySelectorAll('.like')[0].className.indexOf(' love');
+    console.log(islike);
+    if(islike === -1){  // 未收藏->已收藏
+      document.querySelectorAll('.like')[0].className += ' love';
+      this.arr[0].like++
+      console.log('未收藏->已收藏： ',document.querySelectorAll('.like')[0].className);
+    }
+    else{  // 已收藏->未收藏
+      document.querySelectorAll('.like')[0].className = document.querySelectorAll('.like')[0].className.slice(0,37);
+      console.log('已收藏->未收藏： ',document.querySelectorAll('.like')[0].className);
+      this.arr[0].like--;
+    }
   }
 
 }
