@@ -31,12 +31,41 @@
   </div>
   <div class="dynamic">
     <ul class="list">
-      <li>文章</li>
-      <li class="checked">动态<sup> &nbsp; {{ person.arcticleTimes }}</sup></li>
-      <li>TA的关注</li>
+      <li (click)='change1()' id="yellow1">文章</li>
+      <li (click)='change2()' class="checked" id="yellow2">动态<sup> &nbsp; {{ person.arcticleTimes }}</sup></li>
+      <li (click)='change3()' id="yellow3">TA的关注</li>
     </ul>
   </div>
   <div class="main" [ngSwitch]="dynamic">
-
+    <div *ngSwitchCase="1">
+      <ion-card *ngFor = "let assey of asseys">
+        <ion-card-content>
+          <ion-card-title>{{ assey.title }}</ion-card-title>
+          <p class="inner">{{ assey.inner }}</p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <div *ngSwitchCase="2">
+      <ion-card *ngFor = "let item of items">
+          <ion-card-content id="audio">
+              <img src="{{ item.imgSrc }}">
+              <ion-card-title>{{item.title}}</ion-card-title>
+              <audio id="myAudio" src="{{item.music}}" controls="controls"  loop="false">
+              </audio>
+          </ion-card-content>
+      </ion-card>
+    </div>
+    <div *ngSwitchCase="3">
+      <ion-list>
+        <ion-item *ngFor="let guanzhu of guanzhus" class="block">
+          <ion-avatar item-start style="margin-bottom:10%">
+            <img [src]="guanzhu.imageUrl">
+          </ion-avatar>     
+            <h2>{{guanzhu.title}}</h2>
+            <p>{{guanzhu.lastMessage}}</p>
+          <button class="guanzhu">{{guanzhu.zhuangtai}}</button>
+        </ion-item>
+      </ion-list>
+    </div>
   </div>
 </ion-content>
