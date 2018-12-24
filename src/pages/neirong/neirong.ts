@@ -14,7 +14,14 @@ export class NeirongPage {
             public http:HttpClient) {
   }
 
-  ionViewDidLoad() {}
+  ionViewDidLoad() {
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+       Object.keys(elements).map((key) => {
+          elements[key].style.display = 'none';
+         });
+       }   
+  }
 //关注
 show1(){
   var aTrue = document.getElementById('true');
@@ -70,14 +77,7 @@ show1(){
      likes:999
    }]
 
-   ionViewDidEnter(){
-    let elements = document.querySelectorAll(".tabbar");
-    if (elements != null) {
-       Object.keys(elements).map((key) => {
-          elements[key].style.display = 'none';
-         });
-       }   
-  }
+   ionViewDidEnter(){ }
   //ionic当退出页面的时候触发的方法
   ionViewWillLeave() {
     let elements = document.querySelectorAll(".tabbar");
