@@ -57,35 +57,16 @@ export class HomePage {
    }
 
   
-  test=[
-    {
-     title:'闯入者',name:'赫恩曼尼',
-     msg:'她早该知道的，儿子有了女友，并且住在了一起，可还是自我麻烦，装傻充愣，在儿子的公寓赖了大半个月，看他心不在焉地陪自己。她装起胆，编造种种理由去看他，其实为的是暂时躲避另一个男人。',
-     img:'assets/imgs/home.jpeg',
-     tx:'../../assets/imgs/home.jpeg',
-     num:50,
-     like:30
-    },
-    {
-      title:'闯入者2',name:'赫恩曼尼',
-      msg:'她早该知道的，儿子有了女友，并且住在了一起，可还是自我麻烦，装傻充愣，在儿子的公寓赖了大半个月，看他心不在焉地陪自己。她装起胆，编造种种理由去看他，其实为的是暂时躲避另一个男人。',
-      img:'assets/imgs/home2.jpg',
-      tx:'assets/imgs/icon.png',
-      num:50,
-      like:30
-    }
-   
-  ]
 
-Go_nr(){
-    this.navCtrl.push('NeirongPage') ;
-}
-Go_fb(){
-  this.navCtrl.push('FabuPage');
-}
-Goperson(){
-  this.navCtrl.push('PersonalPage')
-}
+  Go_nr(){
+      this.navCtrl.push('NeirongPage') ;
+  }
+  Go_fb(){
+    this.navCtrl.push('FabuPage');
+  }
+  Goperson(){
+    this.navCtrl.push('PersonalPage')
+  }
   //喜欢
   isLiked(arr){
     // document.querySelectorAll('.star')[0].className += ' collected';
