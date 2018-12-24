@@ -1,26 +1,12 @@
 page-fidepsw {
-    ion-content{
-        background-image: url('../../assets/imgs/15.jpg');
-        background-size: cover;
-    }
-    .header{
-        height: 50px;      
-        padding-top:3%;
-        color: rgb(231, 231, 231);
-        font-size:1.2em;
-        p{
-        display: inline;
-        margin-left: 25%;                
-        }
-    }  
     .main{
         text-align: center;
         ion-item{
-            background: transparent;
             margin: 0 auto;
             width: 80%;
+            background-color: rgb(247,247,247);
             ion-icon{
-                color: rgb(182, 207, 207);
+                color: #8E8E8E;
             }
         }
     }
@@ -29,8 +15,6 @@ page-fidepsw {
         width: 120px;
         height: 120px;
         margin: 3em auto;
-        margin-bottom: 0;
-        margin-top: 1.5em;
         // border-radius: 50%;
         // border: 1px solid #bbbbbb;
         align-items: center;
@@ -41,7 +25,7 @@ page-fidepsw {
         margin: 0 auto;
         margin-top: 10%;
         border: 1px solid darkgray;
-        background-color:rgb(182, 207, 207);
-        color: rgb(231, 231, 231);
+        background-color:rgb(247,247,247);
+        color: gray;
     }
 }
