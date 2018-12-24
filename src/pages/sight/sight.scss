@@ -1,4 +1,5 @@
 page-sight {
+  
   ion-navbar {
     text-align: center;
 
@@ -9,10 +10,6 @@ page-sight {
   }
 
   ion-content {
-    .fixed-content{
-      background-image: url('../../assets/imgs/14.jpg');
-      background-size: cover;
-    }
     .item-md {
       padding: 0;
     }
@@ -51,8 +48,8 @@ page-sight {
 
     ul {
       padding: 0;
-      margin: 0;
       text-align: center;
+    
     }
 
     li {
@@ -63,39 +60,116 @@ page-sight {
       
     }
 
-    .item-inner {
-      padding-left: 0;
-      line-height: 50px;
-      font-size: 1.1em;
-      text-align: center;
-      border: none;
+    // .item-inner {
+    //   padding-left: 0;
+    //   line-height: 50px;
+    //   font-size: 1.1em;
+    //   text-align: center;
+    //   border: none;
+    // }
+
+  //   .sli {
+  //     margin-top: 2px;
+  //     margin-bottom: 3px;
+  //     height: 200px;
+  //     width: 100%;
+  //   }
+
+  //   .card {
+  //     border: 1px solid darkgray;
+  //     margin-top: 20px;
+  //   }
+
+  //   ion-card {
+  //     .card-title-md {
+  //       margin: 4px 0;
+  //     }
+
+  //     .col {
+  //       height: 66px;
+  //       line-height: 44px;
+  //     }
+
+  //     p {
+  //       text-indent: 2em;
+  //     }
+  //   }
+  // }
+  .sli{
+    margin-top: 3%;
+    height:40%;
+    img{
+        width: 100%;
     }
-
-    .sli {
-      margin-top: 2px;
-      margin-bottom: 3px;
-      height: 200px;
-      width: 100%;
+}
+.subtitle{
+    letter-spacing: 3px;
+    margin-top: -10px;
+    clear: both;
+    p{
+        margin-top: -5px;
     }
-
-    .card {
-      border: 1px solid darkgray;
-      margin-top: 20px;
+}
+.a{
+    background-color: rgb(247, 247, 247)
+}
+.wenzi{
+  float:left; 
+  width:100%;
+}
+.wenzi p{ 
+  top:70%; 
+  font-size:1.2em; 
+  text-align:left; 
+  color:white; 
+  position: absolute; 
+}
+// .b{
+//     img{
+//         height: 60px;
+//         width: 60px;
+//         margin-left: 5%
+//     }
+//     span{
+//         padding-left: 5px;
+//         padding-top: 5px;
+//     }
+// }
+.c{
+    margin-top: 10%;
+    margin-left: 5%;
+    width: 90%;
+       
+}
+.b{
+    margin-left: 5%;
+    width: 100%;
+    padding-top: 1em;
+    img{
+    border-radius: 50% 50%;
+    width: 3em;
+    height: 3em;
+    float: left;
     }
+    span{
+        padding-left: 5px;
+        float: left;
+        position: absolute;
+        padding-top: 1em;
+    }
+    p{
+      width: 95%;
 
-    ion-card {
-      .card-title-md {
-        margin: 4px 0;
-      }
+    }
+    i{
+        font-size:1.5em;
+        color: red; 
+        position: absolute;
+        right: 2em;
+        padding-top: 0.8em;
 
-      .col {
-        height: 66px;
-        line-height: 44px;
-      }
-
-      p {
-        text-indent: 2em;
-      }
     }
   }
+}
+
 }
