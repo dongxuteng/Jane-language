@@ -13,32 +13,63 @@
 </ion-header>
 
 
-<ion-content padding>
-    <ion-card *ngFor = "let arr of asseys">
-        <ion-card-content >
-          <ion-card-title>{{ arr.title }}</ion-card-title>
-          <p class="inner" (click)='emotionmore()'>{{ arr.inner }}</p>
-
-          <ion-row class="bottom">
-            <ion-col col-6>
-              <ion-item>
-                <ion-avatar item-start style="margin:0" (click)="Goperson()">
-                  <img src="{{ arr.tx }}">
-                </ion-avatar>
-                <h3>{{ arr.name }}</h3>
-              </ion-item>
-            </ion-col>
-            <ion-col col-3 class="xiaoxi">
-              <i class="iconfont icon-xiaoxi" style="font-size:2.1em;float:left;color: #0066CC;"></i>
-              <h3 class="num">{{arr.comments}}</h3>
-            </ion-col>
-            <ion-col col-3>
-              <span style="float:right; position:relative;top:1em;">{{arr.likes}}</span>
-              <i class="iconfont icon-xihuan" id="like"></i>
-            </ion-col>
-          </ion-row>
-        </ion-card-content>
-    </ion-card>
+<ion-content >
+    <ion-slides pager="true" autoplay="1000" loop="true" class="sli">
+        <ion-slide>
+          <img src="../../assets/imgs/aiqing.jpg" alt="">
+        </ion-slide>
+        <ion-slide>
+          <img src="../../assets/imgs/qinqing.jpg" alt="">
+        </ion-slide>
+        <ion-slide>
+          <img src="../../assets/imgs/youqing.jpg" alt="">
+        </ion-slide>
+      </ion-slides>
+      <div class="subtitle">
+          <h3 text-center>亲情&爱情&友情</h3>
+          <p text-center>EMOTION</p>
+      </div>
+    <div class="main clearfix" class="main">
+        <div class="box">
+          <div class="pic"><img src="../../assets/imgs/aiqing.jpg"></div>             
+          <div class="tx">
+            <p>【爱情感悟】那些以玩笑说出口的话，往往是最真的表达</p>
+            <img src="../../assets/imgs/icon.png">
+            <span>花颜</span>
+            <i class="iconfont icon-xihuan" style="font-size:1.5em;color: red; float:right"></i>
+          </div>
+        </div>      
+        <div class="box">
+          <div class="pic"><img src="../../assets/imgs/dog.jpg"></div>
+          <div class="tx">
+              <p>【爱情感悟】那些以玩笑说出口的话，往往是最真的表达</p>
+              <img src="../../assets/imgs/icon.png">
+              <span>花颜</span>
+              <i class="iconfont icon-xihuan" style="font-size:1.5em;color: red; float:right"></i>
+            </div>
+        </div>
+        
+        <div class="box">
+          <div class="pic"><img src="../../assets/imgs/dog.jpg"></div>
+          <div class="tx">
+              <p>【爱情感悟】那些以玩笑说出口的话，往往是最真的表达</p>
+              <img src="../../assets/imgs/icon.png">
+              <span>花颜</span>
+              <i class="iconfont icon-xihuan" style="font-size:1.5em;color: red; float:right"></i>
+            </div>
+        </div>      
+        <div class="box">
+          <div class="pic"><img src="../../assets/imgs/qinqing.jpg"></div>
+          <div class="tx">
+              <p>【爱情感悟】那些以玩笑说出口的话，往往是最真的表达</p>
+              <img src="../../assets/imgs/icon.png">
+              <span>花颜</span>
+              <i class="iconfont icon-xihuan" style="font-size:1.5em;color: red; float:right"></i>
+            </div>
+        </div>
+      </div>
+    
+    
       <!-- 下拉刷新 -->
       <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
