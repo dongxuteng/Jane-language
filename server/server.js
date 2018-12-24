@@ -59,10 +59,9 @@ app.post('/api/login', function(req,res){
 
 
 app.post('/api/signup', function(req,res){
-    console.log(1);
     var signupData = '';
     const sqlUid = 'select Uid from user where username=? ';
-    const sqlInsert = 'insert into user values=? ';
+    const sqlInsert = 'insert into user(username,password,phoneNumber) values(?,?,?) ';
     req.on('data', function(data){
         signupData = JSON.parse(data);
         console.log(signupData);
@@ -74,12 +73,19 @@ app.post('/api/signup', function(req,res){
             sqlUid, [signupData.username],(err,results)=>{
                 results = JSON.stringify(results);
                 results = JSON.parse(results);
-                console.log(results);
+                // 用户名不存在，注册
                 if(results[0] == undefined){
                     console.log('没有这个用户，可以注册');
-                    con.query(
+                    pool.query(
                         sqlInsert,
-                        [{username: signupData.username, password: signupData.password, phoneNumber: signupData.phonenum, }]
+                        [signupData.username, signupData.password, signupData.phonenum],
+                        (err,results)=>{
+                            if(err){
+                                console.log(err);
+                            }else{
+                                res.end('0');
+                            }
+                        }
                     )
                 }else{
                     console.log('用户名已存在，无法注册');
@@ -89,6 +95,36 @@ app.post('/api/signup', function(req,res){
         )
     })
 });
+
+
+// get请求
+
+function get(path,sql){
+    app.get('/api/' + path, (req,res)=>{
+        pool.query(
+            sql,
+            function(err,results){
+                results = JSON.stringify(results);
+                results = JSON.parse(results);
+                if(err){
+                    console.error(err);
+                    res.send('1');
+                }else{
+                    console.log(results);
+                    res.send(results);
+                }
+            }
+        )
+    })
+}
+
+
+// 主页请求推荐文章
+get('home','select * from rec_article');
+
+
+
+
 
 // 发布
 
