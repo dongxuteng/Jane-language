@@ -22,6 +22,7 @@
   <ion-slides>
     <ion-slide *ngFor='let arr of arr'>
       <ion-card>
+        <!--vg-player视频播放-->
         <vg-player>
           <vg-overlay-play></vg-overlay-play>
           <vg-buffering></vg-buffering>
@@ -35,10 +36,11 @@
               <vg-time-display [vgProperty]="'total'"></vg-time-display>
             <vg-fullscreen></vg-fullscreen>
           </vg-controls>
-          <video #media [vgMedia]="media" poster="你的poster" src="{{this.video}}" autoplay></video>
+          <video #media [vgMedia]="media" poster="" src="{{this.video}}" autoplay></video>
         </vg-player>
-        <ion-row>
+        <!---->
           <p>{{this.des}}</p>
+          <ion-row>
             <ion-col col-6>
               <ion-item (click)="goPersonal()">
                 <ion-avatar item-start>
@@ -48,16 +50,12 @@
               </ion-item>
             </ion-col>
             <ion-col col-3>
-              <button ion-button icon-start clear small>
-                <ion-icon name="thumbs-up"></ion-icon>
-                <div>{{arr.talk}}</div>
-              </button>
+              <i class="iconfont icon-xiaoxi"id="xiaoxi"></i>
+              <h3 class="num">{{arr.talk}}</h3>
             </ion-col>
             <ion-col col-3>
-              <button ion-button icon-start clear small>
-                <ion-icon name="text"></ion-icon>
-                <div>{{arr.talk}}</div>
-              </button>
+              <ion-icon name="star-outline" (click)="isLiked()" class="like"></ion-icon>
+              <!-- <i class="iconfont icon-xihuan" id="like" (click)="isLiked()" style="font-size:2.1em;float:right;"></i> -->
             </ion-col>
           </ion-row>
         </ion-card>
@@ -77,31 +75,27 @@
                   <vg-time-display [vgProperty]="'total'"></vg-time-display>
                 <vg-fullscreen></vg-fullscreen>
               </vg-controls>
-              <video #media [vgMedia]="media" poster="你的poster" src="{{this.video2}}" ></video>
+              <video #media [vgMedia]="media" poster="你的poster" src="{{this.video}}" ></video>
             </vg-player>
-            <ion-row>
-              <p>{{this.des2}}</p>
-                <ion-col col-6>
-                  <ion-item (click)="goPersonal()">
-                    <ion-avatar item-start>
-                      <img src="{{arr.tx}}">
-                    </ion-avatar>
-                    <h2 style="text-align: left;">{{arr.name}}</h2>
-                  </ion-item>
-                </ion-col>
-                <ion-col col-3>
-                  <button ion-button icon-start clear small>
-                    <ion-icon name="thumbs-up"></ion-icon>
-                    <div>{{arr.talk}}</div>
-                  </button>
-                </ion-col>
-                <ion-col col-3>
-                  <button ion-button icon-start clear small>
-                    <ion-icon name="text"></ion-icon>
-                    <div>{{arr.talk}}</div>
-                  </button>
-                </ion-col>
-              </ion-row>
+                <p>{{this.des2}}</p>
+                <ion-row>
+                  <ion-col col-6>
+                    <ion-item (click)="goPersonal()">
+                      <ion-avatar item-start>
+                        <img src="{{arr.tx}}">
+                      </ion-avatar>
+                      <h2 style="text-align: left;">{{arr.name}}</h2>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col col-3>
+                    <i class="iconfont icon-xiaoxi"id="xiaoxi"></i>
+                    <h3 class="num">{{arr.talk}}</h3>
+                  </ion-col>
+                  <ion-col col-3>
+                    <ion-icon name="star-outline" (click)="isLiked()" class="like"></ion-icon>
+                    <!-- <i class="iconfont icon-xihuan" id="like" (click)="isLiked()" style="font-size:2.1em;float:right;"></i> -->
+                  </ion-col>
+                </ion-row>
             </ion-card>
         </ion-slide>
   </ion-slides>
