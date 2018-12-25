@@ -1,6 +1,60 @@
 page-travel {
-    ion-title{
+    ion-navbar {
         text-align: center;
+        ion-title {
+          background-color: rgb(247,247,247);
+          padding-right: 54px;
+        }
+      }
+    #container {
+        position: relative;
+        .box {
+            padding: 5px;
+            float: left;
+            .box_img {
+                padding: 5px;
+                border: 1px solid #cccccc;
+                box-shadow: 0 0 5px #ccc;
+                border-radius: 5px;
+                img {
+                    width: 150px!important;
+                    height: auto;
+                }
+                p{
+                    width: 150px;
+                    max-height:100%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+	                -webkit-line-clamp: 3; 
+	                -webkit-box-orient: vertical;
+                }
+                .tx{
+                    width: 100%;
+                    img{
+                    width: 1.5em !important;
+                    height: 1.5em !important;
+                    border-radius: 50% 50%;
+                    float: left;
+                    }
+                }
+                .name{
+                    float: left;
+                    max-width: 3em;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    margin: 0;
+                }
+                #like{
+                    font-size: 1.5em;
+                    padding-left: 3em;
+                }
+            }
+        }
+    }
+    .love{
+        color: red;
     }
     .sli{
         height:auto;
@@ -12,17 +66,17 @@ page-travel {
     h3{
         text-align: center;
     }
-    .title{
-        max-width: 12em;
-        overflow: hidden;
-        white-space: nowrap;
-        margin: 0;  
-    }
-    .card{
-        border: 1px solid gray;
-        img{
-            height: 7em;
-            width: 100%;
-        }
-    }
+    // .title{
+    //     max-width: 12em;
+    //     overflow: hidden;
+    //     white-space: nowrap;
+    //     margin: 0;  
+    // }
+    // .card{
+    //     border: 1px solid gray;
+    //     img{
+    //         height: 7em;
+    //         width: 100%;
+    //     }
+    // }
 }
