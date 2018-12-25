@@ -14,7 +14,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'settings.html',
 })
 export class SettingsPage {
-
+  back(){
+    this.navCtrl.pop();
+  }
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -22,4 +24,10 @@ export class SettingsPage {
     console.log('ionViewDidLoad SettingsPage');
   }
 
+  arr=[{
+    id:'',
+    sex:'',
+    constellation:'',
+    p:''
+  }]
 }
