@@ -94,8 +94,8 @@ export class NeirongPage {
 
   ionViewDidEnter() {
     // 获取内容
-    this.http.get('/api/neirong').subscribe((data)=>{
-      
+    this.http.get('/api/home/neirong').subscribe((data)=>{
+      console.log(data);
     })
   }
   //ionic当退出页面的时候触发的方法

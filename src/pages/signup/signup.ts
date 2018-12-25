@@ -51,6 +51,7 @@ export class SignupPage {
         }
         else if(data['code'] == 0){
           this.alert('注册成功');
+          this.navCtrl.pop();
         }
       })
     }
