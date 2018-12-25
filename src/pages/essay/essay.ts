@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SightPage } from '../sight/sight';
 
 /**
  * Generated class for the EssayPage page.
@@ -49,5 +50,13 @@ export class EssayPage {
   goEssaymore(){
     this.navCtrl.push('EssaymorePage')
   }
-
+  goSight(){
+    this.navCtrl.pop();
+  }
+  doRefresh(refresher) {//请求数据的请求方法可以写在这个函数里面
+    console.log('Begin async operation', refresher);
+    setTimeout(() => {
+      console.log('刷新成功');
+      refresher.complete();
+    }, 2000);}
 }

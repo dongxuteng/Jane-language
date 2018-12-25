@@ -4,17 +4,54 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>随笔</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-  <ion-card *ngFor = "let assey of asseys" (click)='goEssaymore()'>
+  <!-- <ion-header no-border style="background-image: url(../../assets/imgs/bg.jpg);">
+    <ion-navbar>
+      <title>随笔</title>
+    </ion-navbar>
+  </ion-header>  -->
+  <!-- <ion-header no-border  class="header">
+      <i class="iconfont icon-zuojiantou1" (click)="goSight()"></i>
+      <p>随笔</p>
+  </ion-header> -->
+  <ion-content>
+    <div id="header">
+      <button clear no-boder (click)="goSight()" style="font-size:22px;padding-top:0.3em;">
+        <ion-icon name="arrow-back" style="float:left"></ion-icon>
+      </button>
+    <span>随笔</span>
+    </div>
+    <!-- <div id="content"> -->
+      <!-- <ion-card *ngFor = "let assey of asseys" (click)='goEssaymore()'>
+          <ion-card-content>
+              <ion-card-title>{{ assey.title }}</ion-card-title>
+              <p class="inner">{{ assey.inner }}</p>
+          </ion-card-content>
+            <ion-row>
+              <ion-col col-2>
+                  <div id="img">
+                      <img src="{{ assey.iconSrc }}">
+                  </div>
+              </ion-col>
+              <ion-col >
+                <div id="comments">
+                  <button ion-button icon-start clear small>
+                      <ion-icon name="text"></ion-icon>
+                      <div>{{ assey.comments }}</div>
+                  </button>
+                </div>
+              </ion-col>
+              <ion-col >
+                <div id="likes">
+                  <button ion-button icon-start clear small>
+                      <ion-icon name="heart-outline"></ion-icon>
+                      <div>{{ assey.likes }}</div>
+                  </button>
+                </div>
+              </ion-col>
+            </ion-row>
+      </ion-card>
+    </div> -->
+  <!-- <ion-card *ngFor = "let assey of asseys" (click)='goEssaymore()'>
     <ion-card-content>
       <ion-card-title>{{ assey.title }}</ion-card-title>
       <p class="inner">{{ assey.inner }}</p>
@@ -42,8 +79,55 @@
         </button>
       </ion-col>
     </ion-row>
-  </ion-card>
-
+  </ion-card> -->
+  <div class="main clearfix" class="main">
+      <div class="box" (click)="goEssaymore()">
+        <div class="pic"><img src="../../assets/imgs/1.jpg"></div>             
+        <div class="tx">
+          <p>【生活感悟】时间面前，一切终将释怀,时间是一味良药</p>
+          <img src="../../assets/imgs/icon.png">
+          <!-- <ion-icon name="text" clear></ion-icon> -->
+          <button id="comments" style="font-size:18px;">
+            <ion-icon name="text" color="primary"></ion-icon>
+          </button>
+          <i class="iconfont icon-xihuan" style="font-size:1.5em;color: red; float:right"></i>
+        </div>
+      </div>      
+      <div class="box" (click)="goEssaymore()">
+        <div class="pic"><img src="../../assets/imgs/11.jpg"></div>
+        <div class="tx">
+            <p>【爱情感悟】那些以玩笑说出口的话，往往是最真的表达</p>
+            <img src="../../assets/imgs/dog.jpg">
+            <button id="comments" style="font-size:18px;">
+                <ion-icon name="text" color="primary"></ion-icon>
+            </button>
+            <i class="iconfont icon-xihuan" style="font-size:1.5em;color: red; float:right"></i>
+          </div>
+      </div>
+      
+      <div class="box" (click)="goEssaymore()">
+        <div class="pic"><img src="../../assets/imgs/17.jpg"></div>
+        <div class="tx">
+            <p>【故乡感悟】乡愁，是心灵深处最美的花朵</p>
+            <img src="../../assets/imgs/home2.jpg">
+            <button id="comments" style="font-size:18px;">
+                <ion-icon name="text" color="primary"></ion-icon>
+            </button>
+            <i class="iconfont icon-xihuan" style="font-size:1.5em;color: red; float:right"></i>
+          </div>
+      </div>      
+      <div class="box" (click)="goEssaymore()">
+        <div class="pic"><img src="../../assets/imgs/e2.jpg"></div>
+        <div class="tx">
+            <p>【心灵感悟】Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+            <img src="../../assets/imgs/icon.png">
+            <button id="comments" style="font-size:18px;">
+                <ion-icon name="text" color="primary"></ion-icon>
+            </button>
+            <i class="iconfont icon-xihuan" style="font-size:1.5em;color: red; float:right"></i>
+          </div>
+      </div>
+    </div>
   <!-- 下拉刷新 -->
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
