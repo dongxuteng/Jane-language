@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController,  NavParams,  App,  AlertController} from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
-import $ from 'jquery'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
@@ -60,17 +59,18 @@ export class LoginPage {
     else {
         this.http.post('/api/login',{"username":this.username,"password":this.pwd},{headers:this.headers}).subscribe((data)=>{
           // console.log(data);
-          if( data == 1 ) {
-            this.alert();
+          if( data['code'] == 1 ) {
+            this.Alert(data['message']);
             console.log('用户名或者密码错误！')
           }
           else{
-            if( data == 0 ){
+            if( data['code'] == 0 ){
               console.log('登陆成功');
               console.log(data);
-              this.app.getRootNav().setRoot(TabsPage);
-            }else{
-              this.alert();
+              window.localStorage.setItem('username',data['result'].username);
+              window.localStorage.setItem('password',data['result'].password);
+              console.log(window.localStorage.getItem('username'));
+              this.app.getRootNavs()[0].setRoot(TabsPage);
             }
           }
         })

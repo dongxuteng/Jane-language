@@ -73,6 +73,7 @@ show1(){
       date:'2018.12.5',
       msg:'她早该知道的，儿子有了女友，并且住在了一起，可还是自我麻烦，装傻充愣，在儿子的公寓赖了大半个月，看他心不在焉地陪自己。她装起胆，编造种种理由去看他，其实为的是暂时躲避另一个男人。她早该知道的，儿子有了女友，并且住在了一起，可还是自我麻烦，装傻充愣，在儿子的公寓赖了大半个月，看他心不在焉地陪自己。她装起胆，编造种种理由去看他，其实为的是暂时躲避另一个男人'
     }]
+
    ionViewDidload(){
     let elements = document.querySelectorAll(".tabbar");
     if (elements != null) {
@@ -87,10 +88,56 @@ show1(){
     if (elements != null) {
 	   Object.keys(elements).map((key) => {
     		elements[key].style.display = 'flex';
-	});
+	    });
     }
   }
   goPersonal(){
     this.navCtrl.push("PersonalPage")
   }
+  Fabu(){
+    var oTxt = document.getElementById("txt");
+    var oBtn = document.getElementById("btn1");
+    var oUl1 = document.getElementById("ul1");
+    var oBox = document.createElement("div");
+    oBox.className = "box";
+                
+    //创建头像
+    var oDiv = document.createElement("div");
+    oDiv.className = "touxiang";
+    oBox.appendChild(oDiv);
+    
+    var oDiv = document.createElement("div");
+    oDiv.className = "nicheng";
+    oDiv.innerHTML = "赫恩曼尼";
+    oBox.appendChild(oDiv);
+    
+    var oDiv = document.createElement("div");
+    oDiv.className = "pinglun";
+    oDiv.innerHTML = oTxt['value'];
+    oTxt['value']=null;
+    oBox.appendChild(oDiv);
+    
+    var oDiv = document.createElement("div");
+    oDiv.className = "shijian";
+    var oDate = new Date();
+    //oDate.getFullYear
+    
+    oDiv.innerHTML =oDate.getFullYear()+"/"+(oDate.getMonth()+1)+"/"+oDate.getDate()+"<a class='clean' href='javascript:;'>删除</a>";
+    
+    oBox.appendChild(oDiv);
+    
+    oUl1.appendChild(oBox);
+    
+    /*oBox.insertBefore(oUl1,oDiv[0]);*/
+    
+    var aA = oDiv.getElementsByTagName("a");
+    
+    for(var i = 0;i<aA.length;i++){
+        aA[i].onclick=function(){
+          // console.log(oDiv.parentNode)
+            var x=oDiv.parentNode.parentNode.removeChild(oDiv.parentNode);
+            x=null;
+        }
+    }
+}
 }

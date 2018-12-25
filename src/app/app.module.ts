@@ -14,6 +14,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SightPage } from '../pages/sight/sight';
 import { InfoPage } from '../pages/info/info';
 import { MePage } from '../pages/me/me';
+import { LoginPage } from '../pages/login/login';
 import { ChatPage } from '../pages/chat/chat';
 import {WelcomePage} from '../pages/welcome/welcome';
 import { HelpPage } from '../pages/help/help';
@@ -44,7 +45,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     OpenclosePage,
     SwicityPage,
     OpagePage,
-    UpdatePage
+    UpdatePage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -70,7 +72,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     OpenclosePage,
     SwicityPage,
     OpagePage,
-    UpdatePage
+    UpdatePage,
+    LoginPage
   ],
   providers: [
     Camera,

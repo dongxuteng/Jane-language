@@ -28,7 +28,7 @@ console.log(1);
 
 app.post('/api/login', function(req,res){
     var loginData = '';
-    const sql = 'select password from user where username=? ';
+    const sql = 'select * from user where username=? ';
     req.on('data',function(data){
         loginData = JSON.parse(data);
     })
@@ -37,18 +37,37 @@ app.post('/api/login', function(req,res){
             //results = JSON.stringify(results);
             //results = JSON.parse(results);
             console.log(2);
-            
-            if(results[0] == undefined) {
+            if(err){
+                res.send({
+                    code:1,
+                    status:'error',
+                    message:'连接数据库失败！'
+                })
+            }
+            else if(results[0] == undefined) {
                 console.log('没有这个用户');
-                res.end('1');
+                res.send({
+                    code:1,
+                    status:'error',
+                    message:'此用户不存在！'
+                })
             }
             else if(results[0].password != loginData.password){
                 console.log('账号或密码错误');
-                res.end('1');
+                res.send({
+                    code:1,
+                    status:'error',
+                    message:'帐号或密码错误'
+                })
             }
             else{
-                console.log('找到用户');
-                res.end('0');
+                console.log('用户存在');
+                res.send({
+                    code:0,
+                    status:'error',
+                    result:results[0],
+                    message:'登录成功！'
+                })
             }
         })
     })
