@@ -33,4 +33,53 @@ page-info {
         margin-top:-20px;
         margin-right:10px;
     }
+    ion-content{
+      ion-card {
+          position: relative;
+          text-align: center;
+          border-radius: 3px;
+          ion-item{
+              text-align: center;
+          }
+      }
+      .title {
+        height:1.5em;
+        width: 100%;
+        font-size:1.3em;
+        font-weight: bold;
+        color: rgb(41, 23, 23);
+        text-align: left;
+        overflow: hidden;
+        margin-top: 8px;
+        margin-left: 8px;
+    }
+      .left{
+          width: 45%;
+          height: 100%;
+          float: left;
+          padding: 3px;
+          overflow: hidden;
+          img{
+              height: 150px;
+              width: 150px;
+          }
+      }
+      .right{
+          float: right;
+          width:55%;
+          text-align:left;
+          padding: 5px;
+          .card-inner{
+              padding-top: 15%;
+              max-height:100%;
+              width: 100%;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+            -webkit-line-clamp: 4; 
+            -webkit-box-orient: vertical;
+          }
+      }
+      
+  }
 }

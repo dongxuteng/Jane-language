@@ -29,20 +29,15 @@
   </ion-refresher>
 
 
-  <div id="bottom" class="bottom" [ngSwitch]="info">
+  <div id="bottom" class="bottom" [ngSwitch]="info" >
     <ion-list *ngSwitchCase="'通知'">
-      <ion-item>
-        <!--通过ion-avatar 来设置头像,可以将方形的，设置成为圆形的头像-->
-        <ion-avatar item-start>
-          <img src="../assets/imgs/icon.png">
-        </ion-avatar>
-        <h2>简小语</h2>
-        <p>欢迎！</p>
-        <p>欢迎使用简语！这里有帮助哦！</p><br />
-        <p style="font-size:12px; ">slide for more</p>
-        <!--表示在列表的后面-->
-        <p item-end class="time">{{this.hour}}:{{this.minute}}</p>
-      </ion-item>
+      <ion-card *ngFor="let item of tongzhis;" (click)="goTongzhi()">
+        <div class="title"> {{ item.title }} </div>
+        <div class="left" ><img src="{{ item.imgSrc }}" alt=""></div>
+          <div class="right" >
+            <div class="card-inner"> {{ item.inner }}</div>
+          </div>   
+      </ion-card>
     </ion-list>
     <!-- 私信 -->
     <!-- <ion-list *ngSwitchCase="'私信'">

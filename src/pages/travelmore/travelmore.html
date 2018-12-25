@@ -10,11 +10,13 @@
         <ion-col col-8>
           <h5 class="title">旅行</h5>
         </ion-col>
-        <ion-col col-3>
-          <i class="iconfont icon-shoucang" style="font-size:1.5em;"></i>
+        <ion-col col-2>
+          <!-- 收藏、取消收藏 -->
+          <ion-icon name="star-outline" (click)="isCollect()" id="star"></ion-icon>
         </ion-col>
-        <ion-col col-1>
-          <i class="iconfont icon-share" style="font-size:1.5em;"></i>
+        <ion-col col-2>
+          <!-- 分享 -->
+        <ion-icon name="share" style="font-size:1.5em;float:right;padding-top:0.2em;"></ion-icon>
         </ion-col>
       </ion-row>
     </ion-navbar>
@@ -28,24 +30,26 @@
       <div padding>
         <!-- <h2>{{arr.title}}</h2> -->
         <p>&nbsp;&nbsp;&nbsp;&nbsp;作者/{{arr.name}}</p>
-        <p>{{arr.msg}}</p>
+        <p style="text-indent:2em">{{arr.msg}}</p>
         <p class="date">{{arr.date}}</p>
       </div>
-      <ion-row style="margin-top: 20px;">
-        <ion-col col-7>
-          <div class="img">
+
+      <ion-row>
+        <ion-col class="left">
+          <div class="tx" (click)="goPersonal()">
             <img src="{{ arr.tx }}">
           </div>
-          <a class="username">{{ arr.name }}</a>
+          <a class="username" (click)="goPersonal()">{{ arr.name }}</a>
         </ion-col>
-        <ion-col col-3>
-          <button ion-button block outline class="guanz">
-            关注
+        <ion-col  class="guanz">
+          <button id="follow" (click)="show1()">
+            <span id="true">关注</span>
+            <span id="false">已关注</span>
           </button>
         </ion-col>
-        <ion-col col-2>
-          <i class="iconfont icon-xihuan" id="like"></i>
-          <span class="likes">{{arr.likes}}</span>
+        <ion-col class="likes">
+           <ion-icon name="heart-outline" class="like"  (click)="isLike()"></ion-icon>
+          <span>{{arr.likes}}</span>
         </ion-col>
       </ion-row>
     </div>

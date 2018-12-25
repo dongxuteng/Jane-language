@@ -43,11 +43,26 @@ export class EmotionPage {
   // ]
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EmotionPage');
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map((key) => {
+        elements[key].style.display = 'none';
+      });
+    }
   }
-  emotionmore(){
+  ionViewDidEnter() {
+  }
+  //ionic当退出页面的时候触发的方法
+  ionViewWillLeave() {
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map((key) => {
+        elements[key].style.display = 'flex';
+      });
+    }
+  }
+  goEmotionmore(){
     this.navCtrl.push('EmotionmorePage')
   }
 }

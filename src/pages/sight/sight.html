@@ -1,12 +1,8 @@
 <!-- 侧边菜单 -->
 <ion-menu [content]="content" class="menu">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>分类</ion-title>
-    </ion-toolbar>
-  </ion-header>
   <ion-content>
     <ul>
+      <ion-title style="text-align:left">分类</ion-title>
       <li (click)="goEssays()">
         <i class="iconfont icon-pencil"></i>
         随笔
@@ -16,7 +12,7 @@
         美食
       </li>
       <li (click)="goEmotions()">
-        <i class="iconfont icon-heart"></i>
+        <i class="iconfont icon-qinggan"></i>
         情感
       </li>
       <li (click)="goEncouragements()">
@@ -50,45 +46,6 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <!-- 轮播图 -->
-  <!-- <ion-slides pager="true" autoplay="1000" loop="true" class="sli">
-    <ion-slide *ngFor="let src of srcs">
-      <img src="{{ src }}" alt="">
-    </ion-slide>
-  </ion-slides>
-
-   卡片 
-  <ion-card *ngFor="let assey of asseys">
-    <img src="{{ assey.imgSrc }}" (click)="goSightmore()">
-    <ion-card-content (click)="goSightmore()">
-      <ion-card-title>{{ assey.title }}</ion-card-title>
-      <p>{{ assey.inner }}</p>
-    </ion-card-content>
-    <ion-row>
-      <ion-col col-8>
-        <ion-item (click)="goPersonal()">
-          <ion-avatar item-start>
-            <img src="{{ assey.iconSrc }}">
-          </ion-avatar>
-          <h2 style="text-align: left;">{{ assey.name }}</h2>
-          <p style="text-align: left">{{ assey.talk }}</p>
-        </ion-item>
-      </ion-col>
-      <ion-col col-2>
-        <button ion-button icon-start clear small>
-          <ion-icon name="thumbs-up"></ion-icon>
-          <div (click)="like()">{{ assey.likes }}</div>
-        </button>
-      </ion-col>
-      <ion-col col-2>
-        <button ion-button icon-start clear small>
-          <ion-icon name="text"></ion-icon>
-          <div>{{ assey.comments }}</div>
-        </button>
-      </ion-col>
-    </ion-row>
-  </ion-card> -->
 
   <ion-content>
     <ion-slides pager="true" autoplay="1000" loop="true" class="sli">
@@ -115,32 +72,17 @@
       <h3 text-center>热|门|精|选</h3>
       <p text-center>RECOMMENDATION</p>
   </div>
-  <div class="a">
+  <div class="a" *ngFor="let arr of asseys;let i = index">
     <div class="b">
-        <img src="../../assets/imgs/icon.png"  (click)="goPersonal()">
-        <span>花颜</span>
-        <i class="iconfont icon-xihuan" (click)="like()"></i>
+        <img src="{{ arr.iconSrc }}"  (click)="goPersonal()">
+        <span>{{ arr.name }}</span>
+        <i class="iconfont icon-xihuan" id='like' (click)="like(i)"></i>
     </div>
     <div class="c">
-      <img src="../../assets/imgs/12.jpg">
-      <p>To see a world in a grain of sand. And a heaven in a wild flower.
-        Hold infinity in the palm of your hand. And eternity in an hour.</p>
+      <img src="{{ arr.imgSrc }}">
+      <p>{{ arr.inner }}</p>
     </div>
   </div>
-  <div class="a">
-      <div class="b">
-          <img src="../../assets/imgs/dog.jpg" (click)="goPersonal()">
-          <span>花颜</span>
-          <i class="iconfont icon-xihuan"  (click)="like()"></i>
-      </div>
-      <div class="c">
-        <img src="../../assets/imgs/lizhi.jpg">
-        <p>Do not linger to gather flowers to keep them， 
-          but walk on，for flowers will keep themselves blooming all your way.</p>
-      </div>
-    </div>
-  
-  <!-- 下拉刷新 -->
 
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>

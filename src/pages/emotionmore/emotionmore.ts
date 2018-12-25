@@ -29,10 +29,6 @@ export class EmotionmorePage {
   ]
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EmotionmorePage');
-  }
 //收藏
 isCollect(){
 
@@ -76,8 +72,23 @@ isCollect(){
         aFalse.style.display="none";
     }
   } 
-    // ionViewDidLoad() {
-    // }
+  ionViewDidLoad() {
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map((key) => {
+        elements[key].style.display = 'none';
+      });
+    }
+  }
+  //ionic当退出页面的时候触发的方法
+  ionViewWillLeave() {
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map((key) => {
+        elements[key].style.display = 'flex';
+      });
+    }
+  }
   goPersonal(){
     this.navCtrl.push('PersonalPage')
   }  

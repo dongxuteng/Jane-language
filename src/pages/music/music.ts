@@ -18,9 +18,6 @@ export class MusicPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MusicPage');
-  }
 
   arr=[{
     img:'../../assets/imgs/12.jpg',
@@ -28,5 +25,21 @@ export class MusicPage {
     p:'“先冲我笑的人是你 先伸出手的人是你 可为什么 后退一万步的人是你 急于抽身离开的人也是你”',
     music:'../../assets/imgs/liangliang.mp3'
   }]
-
+  ionViewDidLoad() {
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map((key) => {
+        elements[key].style.display = 'none';
+      });
+    }
+  }
+  //ionic当退出页面的时候触发的方法
+  ionViewWillLeave() {
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map((key) => {
+        elements[key].style.display = 'flex';
+      });
+    }
+  }
 }

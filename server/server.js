@@ -1,5 +1,6 @@
 const mysql = require('mysql'),
       express = require('express'),
+      request = require('request'),
       qs = require('querystring'),
       app = express();
       const bodyParser = require('body-parser');
@@ -21,8 +22,8 @@ const pool = mysql.createPool({
     database: 'jane'
 });
 
-// 登录验证
 
+// 登录验证
 
 app.post('/api/login', function(req,res){
     var loginData = '';
@@ -32,8 +33,10 @@ app.post('/api/login', function(req,res){
     })
     req.on('end',function(data){
         pool.query(sql,[loginData.username],(err,results)=>{
-            results = JSON.stringify(results);
-            results = JSON.parse(results);
+            //results = JSON.stringify(results);
+            //results = JSON.parse(results);
+            console.log(2);
+            
             if(results[0] == undefined) {
                 console.log('没有这个用户');
                 res.end('1');
@@ -50,42 +53,120 @@ app.post('/api/login', function(req,res){
     })
 });
 
+function identify(req,res){
+    var phonenum = req.body.phonenum;
+
+    // 产生验证码随机的6位数
+    var range=function(start,end){
+        var array=[];
+        for(var i=start;i<end;++i){
+            array.push(i);
+        } 
+        return array;
+    };
+    var randomstr = range(0,6).map(function(x){
+        return Math.floor(Math.random()*10);
+    }).join('');
+    console.log(randomstr);
+
+    pool.query('select * from user where phoneNumber=?', [phonenum], (err, result) => {
+        if (err) {
+            res.send({
+                code: 1,
+                status: 'error',
+                message: '数据库错误'
+            })
+        }else{
+            if(result.length!=0){
+                res.send({
+                    code: 2,
+                    status: 'error',
+                    message: '此手机号已经被注册！'
+                })
+            }else{
+                var queryData = querystring.stringify({
+                    "mobile": phonenum,  // 接受短信的用户手机号码
+                    "tpl_id": 117425,  // 申请的短信模板ID，根据实际情况修改
+                    "tpl_value": "#code#=" + randomstr,  // 设置的模板变量，根据实际情况修改
+                    "key": "1a95babdb961c0c98862aec3ed9c2c92",  // 自己申请的APPKEY
+                });
+                
+                var queryUrl = 'http://v.juhe.cn/sms/send?'+queryData;
+                
+                request(queryUrl, function (error, response, body) {
+                    if (!error && response.statusCode == 200) {
+                        console.log(body) // 打印接口返回内容
+                        
+                        var jsonObj = JSON.parse(body); // 解析接口返回的JSON内容
+                        console.log(jsonObj);
+                        if(jsonObj.error_code != 0){
+                            res.send({
+                                code:1,
+                                status:'error',
+                                message:jsonObj.reason
+                            });
+                        }else{
+                            res.send({
+                                code:0,
+                                phonepwd:randomstr,
+                                message:jsonObj.reason
+                            });
+                        }
+                    } else {
+                        console.log('请求异常');
+                        res.end({
+                            code:1,
+                            message:"请求异常"
+                        })
+                    }
+                }) 
+            }
+        }
+    })
+}
+
 
 // 注册验证
 
 
 app.post('/api/signup', function(req,res){
-    var signupData = '';
+    var signupData;
     const sqlUid = 'select Uid from user where username=? ';
     const sqlInsert = 'insert into user(username,password,phoneNumber) values(?,?,?) ';
     req.on('data', function(data){
         signupData = JSON.parse(data);
-        console.log(signupData);
     });
     
     req.on('end', function(data){
         // 查询username是否存在
-        pool.query(
-            sqlUid, [signupData.username],(err,results)=>{
-                results = JSON.stringify(results);
-                results = JSON.parse(results);
+        pool.query(sqlUid, [signupData.username],(err,results)=>{
                 // 用户名不存在，注册
                 if(results[0] == undefined){
                     console.log('没有这个用户，可以注册');
-                    pool.query(
-                        sqlInsert,
-                        [signupData.username, signupData.password, signupData.phonenum],
-                        (err,results)=>{
-                            if(err){
-                                console.log(err);
-                            }else{
-                                res.end('0');
-                            }
+                    pool.query(sqlInsert,[signupData.username, signupData.password, signupData.phonenum],(err,results)=>{
+                        if(err){
+                            console.error(err);
+                            res.send({
+                                code:1,
+                                status:'error',
+                                message:'注册失败'
+                            })
+                        }else{
+                            console.log('注册成功');
+                            res.send({
+                                code:0,
+                                status:'success',
+                                message:'注册成功'
+                            });
                         }
-                    )
+                    })
                 }else{
-                    console.log('用户名已存在，无法注册');
-                    res.end('1');
+                    console.log('用户名已存在');
+                    res.send({
+                        code:2,
+                        status:'error',
+                        message:'用户名已存在，无法注册'
+                    });
                 }
             }
         )
@@ -117,6 +198,9 @@ function get(path,sql){
 // 主页请求推荐文章
 get('home','select * from rec_article');
 
+
+// 内容页获取文章
+get('home/neirong','select * from rec_article');
 
 
 
@@ -159,7 +243,7 @@ app.post('/api/home/fabu', function(req,res) {
 
 
 
-
+    
 
 
 
