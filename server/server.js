@@ -16,13 +16,12 @@ app.all('*',function(req,res,next){
 });
 
 const pool = mysql.createPool({
-    host: '192.168.46.144',
+    host: 'localhost',
     user: 'root',
-    password: 'dxt980927',
+    password: 'CuiYiMing_wm717',
     database: 'jane'
 });
 
-console.log(1);
 
 // 登录验证
 
@@ -136,7 +135,6 @@ app.post('/api/signup', function(req,res){
     const sqlInsert = 'insert into user(username,password,phoneNumber) values(?,?,?) ';
     req.on('data', function(data){
         signupData = JSON.parse(data);
-        console.log(signupData);
     });
     
     req.on('end', function(data){
@@ -147,12 +145,14 @@ app.post('/api/signup', function(req,res){
                     console.log('没有这个用户，可以注册');
                     pool.query(sqlInsert,[signupData.username, signupData.password, signupData.phonenum],(err,results)=>{
                         if(err){
+                            console.error(err);
                             res.send({
                                 code:1,
                                 status:'error',
                                 message:'注册失败'
                             })
                         }else{
+                            console.log('注册成功');
                             res.send({
                                 code:0,
                                 status:'success',
@@ -161,8 +161,9 @@ app.post('/api/signup', function(req,res){
                         }
                     })
                 }else{
+                    console.log('用户名已存在');
                     res.send({
-                        code:1,
+                        code:2,
                         status:'error',
                         message:'用户名已存在，无法注册'
                     });
@@ -197,6 +198,9 @@ function get(path,sql){
 // 主页请求推荐文章
 get('home','select * from rec_article');
 
+
+// 内容页获取文章
+get('home/neirong','select * from rec_article');
 
 
 
