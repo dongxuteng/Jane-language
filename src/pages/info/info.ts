@@ -16,6 +16,13 @@ import { ChatPage } from '../chat/chat';
 export class InfoPage {
   chatPage;
   info:string = '通知';
+  tongzhis = [
+    {
+      title: '欢迎新用户，这里是《简语》~',
+      imgSrc: '../../assets/imgs/jianyu.png',
+      inner:'这里有一份使用指南，待您领取！《简语》 是一款极简风格的集阅读，交流，分享为一体的轻文学阅读APP.旨在让读者在疲惫忙碌的生活中通过阅读获得快乐与温暖，让阅读成为一种生活方式.',
+    },
+  ]
   chats = [{
     id: '001',
     imageUrl:"../assets/imgs/icon.png",
@@ -73,5 +80,7 @@ export class InfoPage {
     //跳转到指定页面， 后面的集合是一个参数
     this.navCtrl.push(ChatPage);
   }
-
+  goTongzhi(){
+    this.navCtrl.push('TongzhiPage');
+  }
 }

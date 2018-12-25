@@ -21,8 +21,6 @@ const pool = mysql.createPool({
     password: 'dxt980927',
     database: 'jane'
 });
-// 链接数据库
-// con.connect();
 
 console.log(1);
 
@@ -45,12 +43,10 @@ app.post('/api/login', function(req,res){
                 res.end('1');
             }
             else if(results[0].password != loginData.password){
-                console.log(results[0].password);
                 console.log('账号或密码错误');
                 res.end('1');
             }
             else{
-                console.log(results.password);
                 console.log('找到用户');
                 res.end('0');
             }
@@ -190,7 +186,6 @@ function get(path,sql){
                     console.error(err);
                     res.send('1');
                 }else{
-                    console.log(results);
                     res.send(results);
                 }
             }
@@ -212,7 +207,7 @@ var fabuData;
 var fabuDataJSON;
 
 app.post('/api/home/fabu', function(req,res) {
-    res.on('data', function(data){
+    req.on('data', function(data){
         fabuData = data.toString('utf8');
         fabuDataJSON = JSON.parse(fabuData);
         var author;
@@ -234,7 +229,7 @@ app.post('/api/home/fabu', function(req,res) {
             }
         })
     });
-    res.on('end', function(error,results){
+    req.on('end', function(error,results){
         con.query({
             sql: 'insert into article set? ',
             values: [{ title: title, sort: sort, author: author, Uid: uid, content: content,}]
@@ -248,6 +243,5 @@ app.post('/api/home/fabu', function(req,res) {
 
 
 
-// con.end();
 
 app.listen(8080,'localhost');
