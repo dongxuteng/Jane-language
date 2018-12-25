@@ -89,7 +89,7 @@ app.post('/api/identify',function(req,res){
                     "mobile": phonenum,  // 接受短信的用户手机号码
                     "tpl_id": "117425",  // 申请的短信模板ID，根据实际情况修改
                     "tpl_value": "#code#=" + randomstr,  // 设置的模板变量，根据实际情况修改
-                    "key": "1a95babdb961c0c98862aec3ed9c2c92",  // 自己申请的APPKEY
+                    "key": "1a95babdb961c0c98862aec3ed9c2c92",  // 自己申请的 APPKEY
                 });
                 
                 var queryUrl = 'http://v.juhe.cn/sms/send?'+queryData;
