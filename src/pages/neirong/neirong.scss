@@ -85,4 +85,56 @@ page-neirong {
   #false{
   display: none;
   }
+  textarea{
+    width: 90%;
+    border: none;
+    float: left;
+    background-color: rgb(247, 247, 247);
+  }
+   .icon-fabu:before{
+    font-size: 1.7em;
+    color: red;
+    float:left;
+   }
+   ul{
+    list-style-type: none;
+    padding:0;
+  }
+  .box{
+    width: 100%;
+    height: 7em;;
+    background-color:rgb(247, 247, 247);
+    border-bottom: 1px darkgray solid;
+    .touxiang{
+      width: 2em;
+      height: 2em;
+      background-image: url("../../assets/imgs/10.jpg");
+      background-size: cover;
+      margin: 0;
+      border-radius: 50% 50%;
+    }
+    .nicheng{
+      width: 5em;
+      height:2em;
+      font-size: 12px;
+      // float: left;
+      position: relative;
+      left: 2.5em;
+      bottom: 1em;
+    }
+    .pinglun{
+      width: 100%;
+      height: auto;
+      text-align: left;
+      float: left;
+      position: relative;
+      bottom: 1em;
+    }
+   .shijian{
+      float: right;
+    }
+    .clean{
+      color: red;
+    }
+  }
 }
