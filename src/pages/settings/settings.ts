@@ -30,4 +30,7 @@ export class SettingsPage {
     constellation:'',
     p:''
   }]
+  
+
+  
 }

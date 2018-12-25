@@ -14,15 +14,32 @@
     <div class="head">
       <i class="iconfont icon-smile" style="font-size: 1.5em;"></i>
     </div>
-    <div class="gerenxinxi">
-      <p>昵称:</p>
-      <p>个签:</p>
-      <p>性别:
-      <select><option value="男">男</option>
-        <option value="女">女</option> </select></p>
-      <
-      <p>星座:</p>
-    </div>
-    <button ion-button class="login" (click)="goLogin()">更改</button>
+    
+      <ion-item>
+        <ion-label><span>昵称</span></ion-label>
+        <ion-input placeholder=""></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label><span>个签</span></ion-label>
+          <ion-input placeholder=""></ion-input>
+        </ion-item>
+           
+      <!-- 年月日 -->
+      <ion-item>
+      <ion-label><span>生日</span></ion-label>
+        <ion-datetime displayFormat="YYYY/MM/DD" min='1960' doneText="确定" cancelText="取消" 
+        [(ngModel)]="myDate"></ion-datetime>
+      </ion-item>   
+      <!-- 性别 -->
+      <ion-item>
+        <ion-label><span>性别</span></ion-label>
+        <ion-select [(ngModel)]="gender">
+          <ion-option value="f">Boy</ion-option>
+          <ion-option value="m">Girl</ion-option>
+          <ion-option value="a">All</ion-option>
+        </ion-select>
+      </ion-item>
+    
+    <button ion-button class="login" (click)="change()">更改</button>
   </div>
 </ion-content>
