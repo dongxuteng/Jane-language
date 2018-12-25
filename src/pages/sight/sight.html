@@ -1,12 +1,13 @@
 <!-- 侧边菜单 -->
 <ion-menu [content]="content" class="menu">
-  <ion-header>
+  <!-- <ion-header>
     <ion-toolbar>
       <ion-title>分类</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
   <ion-content>
     <ul>
+      <ion-title style="text-align:left">分类</ion-title>
       <li (click)="goEssays()">
         <i class="iconfont icon-pencil"></i>
         随笔
@@ -115,19 +116,18 @@
       <h3 text-center>热|门|精|选</h3>
       <p text-center>RECOMMENDATION</p>
   </div>
-  <div class="a">
+  <div class="a" *ngFor="let arr of asseys;let i = index">
     <div class="b">
-        <img src="../../assets/imgs/icon.png"  (click)="goPersonal()">
-        <span>花颜</span>
-        <i class="iconfont icon-xihuan" (click)="like()"></i>
+        <img src="{{ arr.iconSrc }}"  (click)="goPersonal()">
+        <span>{{ arr.name }}</span>
+        <i class="iconfont icon-xihuan" id='like' (click)="like(i)"></i>
     </div>
     <div class="c">
-      <img src="../../assets/imgs/12.jpg">
-      <p>To see a world in a grain of sand. And a heaven in a wild flower.
-        Hold infinity in the palm of your hand. And eternity in an hour.</p>
+      <img src="{{ arr.imgSrc }}">
+      <p>{{ arr.inner }}</p>
     </div>
   </div>
-  <div class="a">
+  <!-- <div class="a">
       <div class="b">
           <img src="../../assets/imgs/dog.jpg" (click)="goPersonal()">
           <span>花颜</span>
@@ -138,7 +138,7 @@
         <p>Do not linger to gather flowers to keep them， 
           but walk on，for flowers will keep themselves blooming all your way.</p>
       </div>
-    </div>
+    </div> -->
   
   <!-- 下拉刷新 -->
 

@@ -20,17 +20,16 @@ export class SightPage {
   asseys = [
     {
       name: "Ezreal",
-      title: "一段话",
-      inner: "Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.",
+      inner: "To see a world in a grain of sand. And a heaven in a wild flowerHold infinity in the palm of your hand. And eternity in an hour.",
       iconSrc: "../../assets/imgs/4.jpg",
+      imgSrc:'../../assets/imgs/12.jpg',
       likes: 11,
       comments: 25
     },
     {
       name: "Weapon",
-      title: "一段话",
       inner: "Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.",
-      imgSrc: "../../assets/imgs/3.jpg",
+      imgSrc: "../../assets/imgs/lizhi.jpg",
       iconSrc: "../../assets/imgs/1.jpg",
       likes: 56,
       comments: 87
@@ -73,9 +72,21 @@ export class SightPage {
     this.navCtrl.push("MoviePage");
   }
   // 点赞计数
-  like() {
-
+  like(i) {
+    var islike = document.querySelectorAll('#like')[i].className.indexOf(' love');
+    // console.log(islike);
+    if(islike === -1){  // 未收藏->已收藏
+      document.querySelectorAll('#like')[i].className += ' love';
+      // this.arr[0].like++
+      // console.log('未收藏->已收藏： ',document.querySelectorAll('#like')[0].className);
+    }
+    else{  // 已收藏->未收藏
+      document.querySelectorAll('#like')[i].className = document.querySelectorAll('#like')[i].className.slice(0,20);
+      // console.log('已收藏->未收藏： ',document.querySelectorAll('#like')[0].className);
+      // this.arr[0].like--;
+    }
   }
+
 
   // 下拉刷新
   doRefresh(refresher) {
