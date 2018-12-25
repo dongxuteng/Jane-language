@@ -1,7 +1,7 @@
 page-settings {
     ion-content{
-        // background-image: url('../../assets/imgs/15.jpg');
-        // background-size: cover;
+         background-image: url('../../assets/imgs/15.jpg');
+         background-size: cover;
     }
     .header{
         height: 50px;      
@@ -16,16 +16,13 @@ page-settings {
     .main{
         text-align: center;
         ion-item{
+            span{
+                color: white;
+            }         
             background: transparent;
             margin: 0 auto;
             width: 80%;
-            span{
-                color:rgb(231, 231, 231);
-            }
             // background-color: rgb(247,247,247);
-            ion-icon{
-                color:rgb(164, 197, 197);
-            }
         }
     }
     .head{
