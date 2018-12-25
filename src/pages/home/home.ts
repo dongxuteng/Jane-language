@@ -20,7 +20,6 @@ export class HomePage {
     //温度
     this.http.get(this.url).subscribe((data)=>{
     this.Temp=parseInt(data['main'].temp)-273
-    console.log(this.Temp);
     return this.Temp;
     })
   }
@@ -59,7 +58,11 @@ export class HomePage {
   
 
   Go_nr(){
-      this.navCtrl.push('NeirongPage') ;
+      this.navCtrl.push('NeirongPage',{
+        id: this.arr.id
+      }) ;
+      console.log(this.arr.id);
+      // undefined
   }
   Go_fb(){
     this.navCtrl.push('FabuPage');
@@ -68,19 +71,19 @@ export class HomePage {
     this.navCtrl.push('PersonalPage')
   }
   //喜欢
-  isLiked(arr){
+  isLiked(i){
     // document.querySelectorAll('.star')[0].className += ' collected';
-    var islike = document.querySelectorAll('#like')[0].className.indexOf(' love');
+    var islike = document.querySelectorAll('#like')[i].className.indexOf(' love');
     // console.log(islike);
     if(islike === -1){  // 未收藏->已收藏
-      document.querySelectorAll('#like')[0].className += ' love';
-      this.arr[0].like++
+      document.querySelectorAll('#like')[i].className += ' love';
+      this.arr[i].like++
       // console.log('未收藏->已收藏： ',document.querySelectorAll('#like')[0].className);
     }
     else{  // 已收藏->未收藏
-      document.querySelectorAll('#like')[0].className = document.querySelectorAll('#like')[0].className.slice(0,20);
+      document.querySelectorAll('#like')[i].className = document.querySelectorAll('#like')[i].className.slice(0,20);
       // console.log('已收藏->未收藏： ',document.querySelectorAll('#like')[0].className);
-      this.arr[0].like--;
+      this.arr[i].like--;
     }
   }
 }
