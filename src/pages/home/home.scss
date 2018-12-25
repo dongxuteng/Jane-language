@@ -1,6 +1,6 @@
 page-home {
   ion-content{
-    // background-image: url("../../assets/imgs/hmbg.jpeg");
+    // background-image: url("../../assets/imgs/18.jpg");
   }
 
 
@@ -64,20 +64,21 @@ page-home {
           top:1em;
         }
       }
-        
+        ion-col{
+            padding: 0;
+            margin: 0;
+        }
+        ion-label{
+            margin: 0;
+        }
         ion-item{
             padding: 0;
         }
-        .xiaoxi{
-          height: 100px;
-          line-height: 100px;
+        .num{
+            float: left;
+            position: relative;
+            top:1em;
         }
-    }
-    ion-col{
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
   }
   .love{
