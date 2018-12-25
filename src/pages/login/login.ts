@@ -1,16 +1,6 @@
-import {
-  Component
-} from '@angular/core';
-import {
-  IonicPage,
-  NavController,
-  NavParams,
-  App,
-  AlertController
-} from 'ionic-angular';
-import {
-  TabsPage
-} from '../tabs/tabs';
+import { Component } from '@angular/core';
+import { IonicPage, NavController,  NavParams,  App,  AlertController} from 'ionic-angular';
+import { TabsPage } from '../tabs/tabs';
 import $ from 'jquery'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -40,28 +30,31 @@ export class LoginPage {
   goSignup() {
     this.navCtrl.push('SignupPage');
   }
-  
-  // 账号密码错误弹窗
-  validateErr(){
+  Alert(data){
     const alert = this.alertCtrl.create({
       title: '错误',
-      subTitle: '用户名或密码错误',
-      buttons:['好']
+      subTitle: data,
+      buttons: ['OK']
     });
     alert.present();
   }
-  
   // 登录验证,返回首页
   headers = new HttpHeaders({ 'Content-Type':'application/x-www-form-urlencoded' });
+  alert(){
+    const alert = this.alertCtrl.create({
+      title: '错误',
+      subTitle: '用户名或密码输入有误，请重新输入！',
+      buttons: ['OK']
+    });
+    alert.present(); 
+  }
   login() {
     // 用户名或密码不能为空
-    if(this.username == undefined || this.pwd == undefined){
-      const alert = this.alertCtrl.create({
-        title: '错误',
-        subTitle: '请输入用户名或密码',
-        buttons: ['好']
-      });
-      alert.present();
+    if(this.username == undefined || this.username.length < 6){
+      this.Alert('用户名需要大于6位');
+    }
+    else if(this.pwd == undefined || this.pwd.length < 6){
+      this.Alert('密码需要大于6位');
     }
     // 输入用户名密码后,post发送请求
     else {
@@ -69,27 +62,22 @@ export class LoginPage {
           // console.log(data);
           if( data == 1 ) {
             this.alert();
+            console.log('用户名或者密码错误！')
           }
           else{
             if( data == 0 ){
               console.log('登陆成功');
+              console.log(data);
               this.app.getRootNav().setRoot(TabsPage);
             }else{
               this.alert();
             }
           }
         })
-    }this.app.getRootNav().setRoot(TabsPage);
+    }
   }
 
-  alert(){
-    const alert = this.alertCtrl.create({
-      title: '错误',
-      subTitle: '请输入正确的用户名和密码',
-      buttons: ['好']
-    });
-    alert.present(); 
-  }
+  
   //ionic当退出页面的时候触发的方法
   ionViewWillLeave() {
     let elements = document.querySelectorAll(".tabbar");
