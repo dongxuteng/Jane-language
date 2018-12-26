@@ -51,4 +51,13 @@ export class MePage {
   function5() {
     this.navCtrl.push("ShezhiPage")
   }
+  arr=[{
+  name:"赫恩曼尼",
+  icon:"../../assets/imgs/icon.png",
+  geqian:"666 skr skr"
+  }]
+
+  change(){
+    this.navCtrl.push('SettingsPage')
+  }
 }

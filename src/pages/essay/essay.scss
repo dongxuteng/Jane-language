@@ -1,28 +1,141 @@
 page-essay {
-    ion-navbar{
-        ion-title{
-        background-color: rgb(247,247,247);
-        text-align: center;
-    }
-}
-ion-content{
-    .item-md{ padding: 0; }
-    .item-inner{
-        padding-left: 0;
-        line-height: 50px;
-        font-size: 1.1em;
-        text-align: center;
-        border: none;
-    }
-    .card{ margin-top: 20px; }
-    ion-card{
-        .card-title-md{ margin: 4px 0; }
-        .col{
-            height: 66px;
-            line-height: 44px;
-            overflow: hidden;
+   
+    // ion-navbar{
+
+    //     ion-title{
+    //         padding-left:30%;
+    //         //text-align: center;
+         
+    //     }
+    // }
+    ion-content{
+        *{
+            //background-image: url('../../assets/imgs/bg.jpg');
+            // background-size:cover;
+           background-color:oldlace;
+            //background-repeat: no-repeat;
+            //opacity: 0.9;
         }
-        p{ text-indent: 2em; }
+      }
+      #header{
+        height: 35px;      
+        // padding-top:3%;
+        // color:black;
+        // font-size:1.5em;
+        // p{
+        // display: inline;
+        // margin-left: 40%;     
+        padding:0px;  
+        margin: 0px;         
+        // }
+    }  
+    span{
+         padding-left: 140px;
+         font-size: 21px;
+         //margin-top:0.3em;
+         //line-height: 15px;
+         //vertical-align:middle;
     }
+    .tx{
+        width: 100%;
+        margin-top: 1em;
+        height:6em;
+        img{
+        border-radius: 50% 50%;
+        width: 3em;
+        height: 3em;
+        float: left;
+        }
+        .ion-md-text{
+            width:1.5em;
+            height:1.5em;
+        }
+        #comments{
+            //float: left;
+            position:absolute;
+            margin-top: 0.6em;
+            //padding-bottom:1em;
+            width: 6em;
+            height: 2em;
+            padding-left: 5%;
+            overflow: hidden;
+            //font-size:1em;
+            text-align: center;
+          
+        }
+        i{
+            font-size:0.5em;
+            color: red; 
+            position: relative;
+            margin-right: 0.3em;
+            padding-top: 0.5em;
+        }
+    }
+        .box {
+            float: left;
+            padding: 2.5px 0 0 2.5px;
+            }
+            .box .pic {
+            width:100%;
+            height: auto;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #cccccc;
+            border: 1px solid #cccccc;
+            }
+            .box .pic img {
+            display: block;
+            width: 100%;
+            }
+                *{padding:0;margin:0;}
+                .clearfix:before //清除浮动
+                {
+                content: " ";
+                display: table;
+                }
+                .clearfix:after {
+                clear: both;
+                }
+                .main {
+                position: absolute;
+                width: 100%;
+                column-width: 50%;//列宽
+                -moz-column-width: 50%;
+                column-count: 2; //列数
+                gap: 2.5px; //列间距
+                column-gap: 2.5px;
+                }
+    // #img{
+    //     border-radius: 50% 50%;
+    //     width:3em;
+    //     height:3em;
+    //     overflow: hidden;
+    // }
+    // #comments{
+    //     width:3em;
+    //     height:3em;
+    // }
+    // #likes{
+    //     width:3em;
+    //     height:3em;
+    // }
+    // .item-md{ padding: 0; }
+    // .item-inner{
+    //     padding-left: 0;
+    //     line-height: 50px;
+    //     font-size: 1.1em;
+    //     text-align: center;
+    //     border: none;
+    // }
+    // .card{ margin-top: 20px; }
+    // ion-card{
+    //     .card-title-md{ margin: 4px 0; }
+    //     .col{
+    //         height: 66px;
+    //         line-height: 44px;
+    //         overflow: hidden;
+    //     }
+    //     p{ text-indent: 2em; }
+    // }
 }
-}
+

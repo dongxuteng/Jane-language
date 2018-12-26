@@ -5,7 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header no-border  class="header">
-  <i class="iconfont icon-zuojiantou1" (click)="back()">Back</i>
+  <i class="iconfont icon-zuojiantou1" (click)="back()">返回</i>
   <p>找回密码</p>
 </ion-header>
 
@@ -17,41 +17,38 @@
     <ion-item>
       <ion-label floating>
         <ion-icon ios="ios-person-outline" md="md-person"></ion-icon>
-        <span>请输入用户名</span>
+        <span style="color:white;">请输入用户名</span>
       </ion-label>
       <ion-input type="text" [(ngModel)]="username"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>
-        <ion-icon
-          ios="ios-phone-portrait-outline"
-          md="md-phone-portrait"
-        ></ion-icon>
-        <span>请输入手机号</span>
-      </ion-label>
-      <ion-input type="text" [(ngModel)]="phonenum"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>
-        <ion-icon ios="ios-alert-outline" md="md-alert"></ion-icon>
-        <span>请输入验证码</span>
-      </ion-label>
-      <ion-input type="password" [(ngModel)]="phonepwd"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>
-        <ion-icon ios="ios-lock-outline" md="md-lock"></ion-icon>
-        <span>请输入新密码</span>
-      </ion-label>
-      <ion-input type="password" [(ngModel)]="password"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>
-        <ion-icon ios="ios-lock-outline" md="md-lock"></ion-icon>
-        <span>请确认密码</span>
-      </ion-label>
-      <ion-input type="password" [(ngModel)]="repassword"></ion-input>
-    </ion-item>
+        <ion-label floating>
+          <ion-icon ios="ios-lock-outline" md="md-lock"></ion-icon>
+          <span style="color:white;">新密码</span>
+        </ion-label>
+        <ion-input type="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>
+          <ion-icon ios="ios-lock-outline" md="md-lock"></ion-icon>
+          <span style="color:white;">请确认密码</span>
+        </ion-label>
+        <ion-input type="password" [(ngModel)]="repassword"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>
+          <ion-icon ios="ios-phone-portrait-outline" md="md-phone-portrait"></ion-icon>
+          <span style="color:white;">请输入手机号</span>
+        </ion-label>
+        <ion-input type="tel" [(ngModel)]="phonenum" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary">
+          <ion-icon  ios="ios-alert-outline" md="md-alert"></ion-icon>
+        </ion-label>
+        <ion-input class="text-input" type="password" placeholder="验证码" [(ngModel)]="phonepwd" required></ion-input> 
+      </ion-item>
+      <button ion-button   id="a" round  [disabled]="identifyCode.disable" (click)="yanzheng()" style="positon:absolute;bottom:45px;right:-90px;">{{identifyCode.identifyCodeTips}}</button>
     <button ion-button class="login" (click)="goLogin()">重置密码</button>
   </div>
 </ion-content>

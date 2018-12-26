@@ -8,9 +8,13 @@
 <ion-content>
   <div class="header" no-border>
     <div class="bgmy">
-        <div class="tou">
-          <img src="assets/imgs/icon.png" class="my" (click)="goMy()">
-          <p>赫恩曼尼</p>
+        <div class="tou" *ngFor='let arr of arr'>
+          <img src="{{arr.icon}}" class="my" (click)="goMy()">
+          <p>{{arr.name}}</p>
+          <span class="geqian">
+          <i class="iconfont icon-pencil" (click)="change()"></i>
+          {{arr.geqian}}
+          </span>
         </div>
       </div>
   </div>

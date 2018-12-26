@@ -4,15 +4,42 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>settings</ion-title>
-  </ion-navbar>
-
+<ion-header no-border  class="header">
+  <i class="iconfont icon-zuojiantou1" (click)="back()">Back</i>
+  <p>个人信息</p>
 </ion-header>
 
-
-<ion-content padding>
-
+<ion-content *ngFor="let arr of arr">
+  <div class="main">
+    <div class="head">
+      <i class="iconfont icon-smile" style="font-size: 1.5em;"></i>
+    </div>
+    
+      <ion-item>
+        <ion-label><span>昵称</span></ion-label>
+        <ion-input placeholder=""></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label><span>个签</span></ion-label>
+          <ion-input placeholder=""></ion-input>
+        </ion-item>
+           
+      <!-- 年月日 -->
+      <ion-item>
+      <ion-label><span>生日</span></ion-label>
+        <ion-datetime displayFormat="YYYY/MM/DD" min='1960' doneText="确定" cancelText="取消" 
+        [(ngModel)]="myDate"></ion-datetime>
+      </ion-item>   
+      <!-- 性别 -->
+      <ion-item>
+        <ion-label><span>性别</span></ion-label>
+        <ion-select [(ngModel)]="gender">
+          <ion-option value="f">Boy</ion-option>
+          <ion-option value="m">Girl</ion-option>
+          <ion-option value="a">All</ion-option>
+        </ion-select>
+      </ion-item>
+    
+    <button ion-button class="login" (click)="change()">更改</button>
+  </div>
 </ion-content>

@@ -6,7 +6,7 @@ page-fidepsw {
     .header{
         height: 50px;      
         padding-top:3%;
-        color: rgb(231, 231, 231);
+        //color: rgb(231, 231, 231);
         font-size:1.2em;
         p{
         display: inline;
@@ -21,7 +21,7 @@ page-fidepsw {
             margin: 0 auto;
             width: 80%;
             ion-icon{
-                color: rgb(164, 197, 197);
+                color:rgb(231, 240, 240);
             }
         }
     }
@@ -44,7 +44,22 @@ page-fidepsw {
         margin: 0 auto;
         margin-top: 10%;
         border: 1px solid darkgray;
-        background-color:rgb(164, 197, 197);
+        
         color: rgb(231, 231, 231);
+    }
+    .text-input::-webkit-input-placeholder {
+        color: white;
+    }
+
+    .text-input:-ms-input-placeholder {
+        color: white;
+    }
+
+    .text-input::-moz-placeholder {
+        color: white;
+    }
+
+    .text-input:-moz-placeholder {
+        color: white;
     }
 }

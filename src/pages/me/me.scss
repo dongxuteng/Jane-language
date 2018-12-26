@@ -19,18 +19,22 @@ page-me {color: blue;
     border-radius: 50% 50%;
     margin-top: 30px;
   }
-  .bgmy{
-    background-image: url("../../assets/imgs/18.jpg");
+  .bgmy{ 
     background-size: cover;
-
+    background-image: url("../../assets/imgs/18.jpg");
   }
   .bgmy {
     height: 16em;
     text-align: center;
 
     p {
-      font-size: 16px;
+      font-size: 17px;
       color: rgb(31, 69, 104);
+      margin-bottom: 10px;
+    }
+    .geqian{
+      font-size: 13px;
+      color: rgb(47, 105, 160)
     }
   }
 

@@ -28,9 +28,10 @@ page-login {
             margin-top: 1em;
             ion-col{
                 font-size: 13px;
+                color: black;
                 ion-note{
-                    color: black;
                     padding-right: 1em; 
+                    color: black;
                 }
             }
         }
@@ -40,7 +41,7 @@ page-login {
             margin-top: 10%;
             border: 1px solid darkgray;
             background-color:rgb(247,247,247);
-            color: gray;
+            color:black;
         }
     }
     .footer{

@@ -29,10 +29,6 @@ export class EmotionmorePage {
   ]
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EmotionmorePage');
-  }
 //收藏
 isCollect(){
 
@@ -76,10 +72,71 @@ isCollect(){
         aFalse.style.display="none";
     }
   } 
-    // ionViewDidLoad() {
-    // }
+  ionViewDidLoad() {
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map((key) => {
+        elements[key].style.display = 'none';
+      });
+    }
+  }
+  //ionic当退出页面的时候触发的方法
+  ionViewWillLeave() {
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map((key) => {
+        elements[key].style.display = 'flex';
+      });
+    }
+  }
   goPersonal(){
     this.navCtrl.push('PersonalPage')
-  }  
+  }
+  Fabu(){
+    var oTxt = document.getElementById("txt");
+    var oBtn = document.getElementById("btn1");
+    var oUl1 = document.getElementById("ul1");
+    var oBox = document.createElement("div");
+    oBox.className = "box";
+                
+    //创建头像
+    var oDiv = document.createElement("div");
+    oDiv.className = "touxiang";
+    oBox.appendChild(oDiv);
+    
+    var oDiv = document.createElement("div");
+    oDiv.className = "nicheng";
+    oDiv.innerHTML = "赫恩曼尼";
+    oBox.appendChild(oDiv);
+    
+    var oDiv = document.createElement("div");
+    oDiv.className = "pinglun";
+    oDiv.innerHTML = oTxt['value'];
+    oTxt['value']=null;
+    oBox.appendChild(oDiv);
+    
+    var oDiv = document.createElement("div");
+    oDiv.className = "shijian";
+    var oDate = new Date();
+    //oDate.getFullYear
+    
+    oDiv.innerHTML =oDate.getFullYear()+"/"+(oDate.getMonth()+1)+"/"+oDate.getDate()+"<a class='clean' href='javascript:;'>删除</a>";
+    
+    oBox.appendChild(oDiv);
+    
+    oUl1.appendChild(oBox);
+    
+    /*oBox.insertBefore(oUl1,oDiv[0]);*/
+    
+    var aA = oDiv.getElementsByTagName("a");
+    
+    for(var i = 0;i<aA.length;i++){
+        aA[i].onclick=function(){
+          // console.log(oDiv.parentNode)
+            var x=oDiv.parentNode.parentNode.removeChild(oDiv.parentNode);
+            x=null;
+        }
+    }
+}  
 
 }
