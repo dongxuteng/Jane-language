@@ -12,26 +12,17 @@
 
 
 <ion-content padding>
-  <ion-card *ngFor="let item of articles">
-    <img src="{{ item.imgSrc }}" alt="">
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-item>
-            <ion-avatar item-start style="margin:0" (click)="Goperson()">
-              <img src="{{ item.iconSrc }}">
-            </ion-avatar>
-            <h3>{{ item.username }}</h3>
-          </ion-item>
-        </ion-col>
-        <ion-col>
-          <i class="iconfont icon-iconset0425" id="xiazai"></i>
-        </ion-col>
-        <ion-col>
-          <i class="iconfont icon-dianji" id="like"></i>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
+    <div id="container">
+        <div class="box" *ngFor="let arr of arr;let i=index">
+            <div class="box_img">
+                <img src="{{arr.img}}">
+                <!-- <p>{{arr.msg}}</p> -->
+                <div class="tx" (click)="Goperson()"><img src="{{arr.tx}}">
+                  <span class="name">{{arr.name}}</span>
+                  <ion-icon name="star-outline" id="star"></ion-icon>
+                </div> 
+            </div> 
+        </div>
+    </div>
 </ion-content>
 

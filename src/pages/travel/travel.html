@@ -31,17 +31,16 @@
         <i class="iconfont icon-lvhang1" style="font-size:1.2em"></i>~
       </h3>
       <div id="container">
-        <div class="box" *ngFor="let arr of arr;let i=index" >
+        <div class="box" *ngFor="let arr of arr;let i=index">
             <div class="box_img">
                 <img src="{{arr.img}}" (click)="goTravelmore()">
                 <p (click)="goTravelmore()">{{arr.msg}}</p>
                 <div class="tx"><img src="{{arr.tx}}">
                   <span class="name">{{arr.name}}</span>
-                  <i class="iconfont icon-xihuan" id="like" (click)="isLiked(i)"></i>
-                </div>
-                
-            </div>
-            
+                  <ion-icon name="heart-outline" class="like"  (click)="isLiked(i)"></ion-icon>
+                  <!-- <i class="iconfont icon-xihuan" id="like" (click)="isLiked(i)"></i> -->
+                </div> 
+            </div> 
         </div>
     </div>
     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">

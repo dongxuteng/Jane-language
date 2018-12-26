@@ -4,24 +4,56 @@ page-image {
         text-align: center;
     }
     ion-content{
-        background-image: url("../../assets/imgs/4.jpg");
-        ion-card {
+        #container {
             position: relative;
-            text-align: center;
-            border-radius: 3px;
-            ion-item{
-                text-align: center;
+            .box {
+                padding: 5px;
+                float: left;
+                .box_img {
+                    padding: 5px;
+                    border: 1px solid #cccccc;
+                    box-shadow: 0 0 5px #ccc;
+                    border-radius: 5px;
+                    img {
+                        width: 150px!important;
+                        height: auto;
+                    }
+                    // p{
+                    //     width: 150px;
+                    //     max-height:100%;
+                    //     overflow: hidden;
+                    //     text-overflow: ellipsis;
+                    //     display: -webkit-box;
+                    //     -webkit-line-clamp: 3; 
+                    //     -webkit-box-orient: vertical;
+                    // }
+                    .tx{
+                        width: 100%;
+                        img{
+                        width: 1.5em !important;
+                        height: 1.5em !important;
+                        border-radius: 50% 50%;
+                        float: left;
+                        }
+                    }
+                    .name{
+                        float: left;
+                        max-width: 3em;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        margin: 0;
+                    }
+                    #star{
+                        font-size: 1.5em;
+                        padding-left: 3em;
+                        color: red;
+                    }
+                }
             }
-            i{
-                line-height: 2em;
-            }
-            #xiazai{
-                font-size: 2em;
-            }
-            #like{
-                font-size:2em;
-                color:red;
-            }
+        }
+        .love{
+            color: red;
         }
     }
 }
