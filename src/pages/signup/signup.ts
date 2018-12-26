@@ -60,7 +60,7 @@ export class SignupPage {
         }
         
       },error =>{
-        this.Alert('服务器内部错误');
+        this.Alert('服务器内部的错误');
         console.log('Error:',error);
       })
     }
