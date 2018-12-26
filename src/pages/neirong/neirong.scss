@@ -1,12 +1,17 @@
 page-neirong {
   //
 
+  ion-col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .title {
     max-width: 15em;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    padding-left: 4.5em;
+    padding-left: 2.5em;
     margin: 0;
   }
   .date {
@@ -84,6 +89,9 @@ page-neirong {
   }
   #false{
   display: none;
+  }
+  btn-return{
+    float: left;
   }
   textarea{
     width: 90%;
