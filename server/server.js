@@ -16,13 +16,13 @@ app.all('*',function(req,res,next){
 });
 
 const pool = mysql.createPool({
-    host: 'localhost',
+    host: '192.168.46.144',
     user: 'root',
-    password: 'CuiYiMing_wm717',
+    password: 'dxt980927',
     database: 'jane'
 });
 
-
+console.log(1);
 // 登录验证
 
 app.post('/api/login', function(req,res){
@@ -147,6 +147,7 @@ app.post('/api/identify',function(req,res){
 //修改密码页面验证码接口
 app.post('/api/findidentify',function(req,res){
     var phonenum = req.body.phonenum;
+    var username = req.body.username;
     console.log(phonenum);
     // 产生验证码随机的6位数
     var range=function(start,end){
@@ -161,7 +162,7 @@ app.post('/api/findidentify',function(req,res){
     }).join('');
     console.log(randomstr);
 
-    pool.query('select * from user where phoneNumber=?', [phonenum], (err, result) => {
+    pool.query('select * from user where phoneNumber=? and username=?', [phonenum,username], (err, result) => {
         if (err) {
             res.send({
                 code: 1,

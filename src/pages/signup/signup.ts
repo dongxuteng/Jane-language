@@ -50,8 +50,14 @@ export class SignupPage {
       console.log(this.phonenum);
       this.http.post('/api/identify',{"phonenum":this.phonenum}).subscribe((data) =>{
         console.log(data);
-        this.getTime();
-        this.phoneCode=data['phoneCode'];
+        if(data['code'] !== 0){
+          console.log(data['message']);
+          this.Alert(data['message']);
+        }else{
+          this.getTime();
+          this.phoneCode=data['phoneCode'];
+        }
+        
       },error =>{
         this.Alert('服务器内部错误');
         console.log('Error:',error);
