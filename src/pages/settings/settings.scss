@@ -1,12 +1,12 @@
 page-settings {
     ion-content{
-         background-image: url('../../assets/imgs/15.jpg');
+         background-image: url('../../assets/imgs/timg (13).jpg');
          background-size: cover;
     }
     .header{
         height: 50px;      
         padding-top:3%;
-        color: rgb(231, 231, 231);
+        color: white;
         font-size:1.2em;
         p{
         display: inline;
@@ -24,6 +24,9 @@ page-settings {
             width: 80%;
             // background-color: rgb(247,247,247);
         }
+        ion-input{
+            color: white
+        }
     }
     .head{
         display: flex;
@@ -31,20 +34,19 @@ page-settings {
         height: 120px;
         margin-top: 1.5em;
         margin: 3em auto;
-        margin-bottom: 0;
-        margin-top: 1.5em;
+        margin-bottom: 1.5em;
         border-radius: 50%;
-        border: 1px solid #bbbbbb;
+        border: 1px solid rgb(133, 132, 132);
         align-items: center;
         justify-content: center
     }
     .login{
         font-size: 17px;
-        width: 80%;
+        width: 75%;
         margin: 0 auto;
-        margin-top: 10%;
-        border: 1px solid darkgray;
-        background-color:rgb(164, 197, 197);
-        color: rgb(231, 231, 231);
+        margin-top: 25%;
+        border: 1px solid rgb(133, 132, 132);
+        background-color:rgb(14,41,60);
+        color: white;
     }
 }
