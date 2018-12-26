@@ -15,7 +15,7 @@ import { SightPage } from '../sight/sight';
   templateUrl: 'essay.html',
 })
 export class EssayPage {
-  asseys = [
+  asseys1 = [
     {
       name: "春暖花开",
       title: "【生活感悟】时间面前，一切终将释怀",
@@ -23,22 +23,37 @@ export class EssayPage {
       iconSrc: "../../assets/imgs/icon.png",
       comments: 256,
       likes: 999,
-    },
+      bgSrc:"../../assets/imgs/1.jpg"
+    }]
+  asseys2=[
     {
       name: "黄天健",
       title: "【故乡感悟】乡愁，是心灵深处最美的花朵",
       inner: "乡愁是一份沉重的爱。离开故土的游子，默默将爱收藏在心底。在异乡打拼，心里异常孤独，对着城市的钢筋水泥，对着那些永远都不可能与之说心里话的人，心中充满惆怅。在寂寞的时候，对着荷塘月色，想起故乡的袅袅炊烟，想起脸上堆满皱纹的阿爸阿妈，想起故乡的那条清澈",
-      iconSrc: "../../assets/imgs/1.jpg",
+      iconSrc: "../../assets/imgs/home2.jpg",
       comments: 256,
       likes: 999,
-    },
+      bgSrc:"../../assets/imgs/17.jpg",
+    }]
+  asseys3=[
     {
       name: "简小语",
       title: "一段话",
-      inner: "Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.",
-      iconSrc: "../../assets/imgs/icon.png",
+      inner: "【心灵感悟】Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine...",
+      iconSrc:"../../assets/imgs/home.jpeg",
       comments: 187,
       likes: 45,
+      bgSrc:"../../assets/imgs/e2.jpg",
+    }]
+  asseys4=[
+    {
+      name:"花颜",
+      title:"【爱情感悟】那些以玩笑说出口的话，往往是最真的表达",
+      inner:"那些以玩笑说出口的话，往往是最真的表达",
+      iconSrc:"../../assets/imgs/dog.jpg",
+      bgSrc:"../../assets/imgs/11.jpg",
+      comments:150,
+      likes:45,
     }
   ]
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -48,15 +63,24 @@ export class EssayPage {
     console.log('ionViewDidLoad EssayPage');
   }
   goEssaymore(){
-    this.navCtrl.push('EssaymorePage')
+    this.navCtrl.push('EssaymorePage');
   }
   goSight(){
     this.navCtrl.pop();
+  }
+  goPerson(){
+    this.navCtrl.push('PersonalPage');
   }
   doRefresh(refresher) {//请求数据的请求方法可以写在这个函数里面
     console.log('Begin async operation', refresher);
     setTimeout(() => {
       console.log('刷新成功');
       refresher.complete();
-    }, 2000);}
+    }, 1000);}
+  doInfinite(loader){
+      console.log('Begin async operation',loader);
+      setTimeout(() => {
+        console.log('加载成功');
+        loader.complete();
+      }, 1000);}
 }

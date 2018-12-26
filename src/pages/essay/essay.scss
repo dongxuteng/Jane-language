@@ -1,41 +1,41 @@
 page-essay {
    
-    // ion-navbar{
+    ion-header{
 
-    //     ion-title{
-    //         padding-left:30%;
-    //         //text-align: center;
+        ion-title{
+            padding-left:30%;
+            //text-align: center;
          
-    //     }
-    // }
+        }
+    }
     ion-content{
         *{
-            //background-image: url('../../assets/imgs/bg.jpg');
-            // background-size:cover;
-           background-color:oldlace;
+            //background-image: url('../../assets/imgs/bg1.jpeg');
+            //background-size:cover;
+            background-color:rgb(245,245,245);
             //background-repeat: no-repeat;
             //opacity: 0.9;
         }
       }
-      #header{
-        height: 35px;      
-        // padding-top:3%;
-        // color:black;
-        // font-size:1.5em;
-        // p{
-        // display: inline;
-        // margin-left: 40%;     
-        padding:0px;  
-        margin: 0px;         
-        // }
-    }  
-    span{
-         padding-left: 140px;
-         font-size: 21px;
-         //margin-top:0.3em;
-         //line-height: 15px;
-         //vertical-align:middle;
-    }
+    //   #header{
+    //     height:8%;      
+    //     // padding-top:3%;
+    //     // color:black;
+    //     // font-size:1.5em;
+    //     // p{
+    //     // display: inline;
+    //     // margin-left: 40%;     
+    //     padding:0px;  
+    //     margin: 0px;         
+    //     // }
+    // }  
+    // span{
+    //      padding-left: 140px;
+    //      font-size: 22px;
+    //      //margin-top:0.3em;
+    //      //line-height: 15px;
+    //      //vertical-align:middle;
+    // }
     .tx{
         width: 100%;
         margin-top: 1em;
