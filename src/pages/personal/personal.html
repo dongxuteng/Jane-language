@@ -1,15 +1,17 @@
-<ion-header>
+<!-- <ion-header>
   <i class="iconfont icon-left1" (click)="goMePage()"></i>
   <i class="iconfont icon-more"></i>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
+  <i class="iconfont icon-left1" style="font-size:1.5em;position:absolute;top:0.5em;" (click)="goMePage()"></i>
   <div class="icon">
     <img src="{{ person.iconSrc }}" alt="">
   </div>
   <div class="btns">
-    <button class="btn-gray">
-      关注
+      <button id="follow" (click)="show1()">
+          <span id="true">关注</span>
+          <span id="false">已关注</span>
     </button>
     <button class="btn-gray">
       私信
