@@ -12,28 +12,35 @@
 <ion-content *ngFor="let arr of arr">
   <div class="main">
     <div class="head">
-      <i class="iconfont icon-smile" style="font-size: 1.5em;"></i>
+      <i class="iconfont icon-smile" style="font-size: 1.5em;color:darkgray"></i>
     </div>
     
       <ion-item>
         <ion-label><span>昵称</span></ion-label>
-        <ion-input placeholder=""></ion-input>
+        <ion-input placeholder="{{arr.id}}"></ion-input>
       </ion-item>
       <ion-item>
           <ion-label><span>个签</span></ion-label>
-          <ion-input placeholder=""></ion-input>
+          <ion-input placeholder="{{arr.p}}"></ion-input>
         </ion-item>
            
       <!-- 年月日 -->
       <ion-item>
       <ion-label><span>生日</span></ion-label>
-        <ion-datetime displayFormat="YYYY/MM/DD" min='1960' doneText="确定" cancelText="取消" 
-        [(ngModel)]="myDate"></ion-datetime>
-      </ion-item>   
+        <ion-datetime displayFormat="YYYY/MM/DD" min='1960' doneText="OK" placeholder="{{arr.birthday}}" 
+        [(ngModel)]="myDate" style="color:white"></ion-datetime>
+      </ion-item> 
+      <!-- 星座 -->
+      <ion-item>
+        <ion-label><span>星座</span></ion-label>
+        <ion-select [(ngModel)]="gender" style="color:white" placeholder="{{arr.constellation}}">
+          <ion-option value="{{item}}" *ngFor="let item of items">{{item}}</ion-option>
+        </ion-select>
+      </ion-item>
       <!-- 性别 -->
       <ion-item>
         <ion-label><span>性别</span></ion-label>
-        <ion-select [(ngModel)]="gender">
+        <ion-select [(ngModel)]="gender" style="color:white" placeholder="{{arr.sex}}">
           <ion-option value="f">Boy</ion-option>
           <ion-option value="m">Girl</ion-option>
           <ion-option value="a">All</ion-option>
