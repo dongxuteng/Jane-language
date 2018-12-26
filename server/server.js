@@ -16,13 +16,12 @@ app.all('*',function(req,res,next){
 });
 
 const pool = mysql.createPool({
-    host: '192.168.46.144',
+    host: 'localhost',
     user: 'root',
-    password: 'dxt980927',
+    password: 'CuiYiMing_wm717',
     database: 'jane'
 });
 
-console.log(1);
 
 // 登录验证
 
@@ -36,7 +35,7 @@ app.post('/api/login', function(req,res){
         pool.query(sql,[loginData.username],(err,results)=>{
             //results = JSON.stringify(results);
             //results = JSON.parse(results);
-            console.log(2);
+            console.log(results);
             if(err){
                 res.send({
                     code:1,
@@ -329,7 +328,15 @@ function get(path,sql){
 // 主页请求推荐文章
 get('home','select * from rec_article');
 
+// 内容页请求主页文章内容
+get('home/neirong','select * from rec_article');
 
+// 内容页请求精选文章内容
+get('sight/neirong','select * from article');
+
+// 精选页获取热门文章
+// TODO: 选取点赞多的作为热门文章
+get('sight','select * from article');
 
 
 
