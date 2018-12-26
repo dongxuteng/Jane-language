@@ -224,7 +224,7 @@ app.post('/api/findidentify',function(req,res){
 app.post('/api/signup', function(req,res){
     var signupData;
     const sqlUid = 'select Uid from user where username=? ';
-    const sqlInsert = 'insert into user(username,password,phoneNumber) values(?,?,?) ';
+    const sqlInsert = 'insert into user(username,password,phoneNumber,regtime) values(?,?,?,?) ';
     req.on('data', function(data){
         signupData = JSON.parse(data);
         console.log(signupData);
@@ -236,7 +236,7 @@ app.post('/api/signup', function(req,res){
                 // 用户名不存在，注册
                 if(results[0] == undefined){
                     console.log('没有这个用户，可以注册');
-                    pool.query(sqlInsert,[signupData.username, signupData.password, signupData.phonenum],(err,results)=>{
+                    pool.query(sqlInsert,[signupData.username, signupData.password, signupData.phonenum,signupData.regtime],(err,results)=>{
                         if(err){
                             res.send({
                                 code:1,
