@@ -31,22 +31,20 @@
     </div>
     <!-- 底部-->
     <ion-row>
-      <ion-col class="left">
+      <ion-col class="left" col-8>
         <div class="tx" (click)="goPersonal()">
           <img src="assets/imgs/home.jpeg">
         </div>
         <a class="username" (click)="goPersonal()">{{ arr.author }}</a>
-      </ion-col>
-      <ion-col  class="guanz">
         <button id="follow" (click)="show1()">
           <span id="true">关注</span>
           <span id="false">已关注</span>
         </button>
       </ion-col>
-      <ion-col class="likes">
+      <ion-col class="likes" col-2>
         <!-- <ion-icon name="star-outline" class="like" (click)="isLike()"></ion-icon> -->
          <ion-icon name="heart-outline" class="like"  (click)="isLike()"></ion-icon>
-        <span>{{arr.likes}}</span>
+        <span>{{arr.star}} {{arr.star1}}</span>
       </ion-col>
     </ion-row>
   </div>
