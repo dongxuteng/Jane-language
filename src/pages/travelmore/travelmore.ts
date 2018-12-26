@@ -29,7 +29,7 @@ export class TravelmorePage {
      likes:99
    }]
 
-   ionViewDidLoad(){
+   ionViewDidEnter(){
     let elements = document.querySelectorAll(".tabbar");
     if (elements != null) {
        Object.keys(elements).map((key) => {

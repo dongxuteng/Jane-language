@@ -72,7 +72,7 @@ isCollect(){
         aFalse.style.display="none";
     }
   } 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     let elements = document.querySelectorAll(".tabbar");
     if (elements != null) {
       Object.keys(elements).map((key) => {
