@@ -1,30 +1,39 @@
 page-welcome {
+      // .bg{
+      //   background-image: url(../../assets/imgs/w1.png) ;
+      //   background-size: 100% 100%;
+      // }
+      //   .bg1{
+      //       position: absolute;
+      //       display:block;
+      //       bottom: 20%;
+      //       left:40%;
+                
+                
+      //   }
+      //    button{
+      //        opacity: 1;
+      //        width: 100px;
+      //        height: 30px;
+      //        font-size: 20px;
+      //        font-weight: bold;
+      //    }
     ion-slide {
-        background-color: #eeeeee;
-      }
-    
-      ion-slide img {
-        max-height:100%;
-        max-width: 100%;
-      }
-      .bg{
-        background-image: url(../../assets/imgs/welcome4.png) ;
-        width:460px;
-        height:793px;
-      }
-        .bg1{
-                position: absolute;
-                display:block;
-                bottom: 80px;
-                left:180px;
-                
-                
-        }
-        button{
-            opacity: 1;
-            width: 100px;
-            height: 30px;
-            font-size: 20px;
-            font-weight: bold;
-        }
-    }
+      background-color: #eeeeee;
+  }
+   
+  ion-slide img{
+      height: 100%;
+      width: 100%
+  }
+  .img{
+    position:relative;
+  }
+  .but{
+    position:absolute;
+    top:90%;
+    left: 40%;
+    height:3em;
+  }
+  
+     }
