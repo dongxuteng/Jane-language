@@ -12,7 +12,7 @@
 
 </ion-header>
 
-<ion-content>
+<!-- <ion-content>
   <ion-card class="card" *ngFor="let arr of arr">
     <img src="{{arr.img}}" >
     <ion-card-content>
@@ -40,9 +40,17 @@
         </ion-row>
     </ion-card-content>
     </ion-card>
-    <!-- <img src="{{item.noteimg}}" ngClass="{{imgs}} {{rotation}}">
-    <img src="{{isPlaying?displaysrc:playsrc}}" (click)="play()" ngClass="{{item.notemusic?player:displayer}}">
-    <audio src="http://192.168.25.144:3000/mp3/581.mp3" type="audio/mp3" id='audios'></audio> -->
+ 
+</ion-content> -->
+<ion-content>
 
-   
+  <ion-card class="card">
+  <div class="block">
+  <img src="../../assets/imgs/dog.jpg" ngClass=" {{rotation}} " class="imgsplay">
+  <img src="{{isPlaying?displaysrc:playsrc}}" (click)="play()"
+   ngClass="{{notemusic?player:displayer}}" class="control">
+  </div>
+  <audio src="../../assets/imgs/Adele - Rolling in the Deep.mp3"
+   type="audio/mp3" id='audios'></audio>
+</ion-card>
 </ion-content>
