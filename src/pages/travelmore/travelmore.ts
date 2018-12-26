@@ -82,23 +82,20 @@ export class TravelmorePage {
   //喜欢
   isLike() {
     // document.querySelectorAll('.star')[0].className += ' collected';
-    var islike = document
-      .querySelectorAll(".like")[0]
-      .className.indexOf(" liked");
+    var islike = document.querySelectorAll(".likelike")[0].className.indexOf(" liked");
     console.log(islike);
     if (islike === -1) {
       // 未收藏->已收藏
-      document.querySelectorAll(".like")[0].className += " liked";
+      document.querySelectorAll(".likelike")[0].className += " liked";
       this.arr[0].likes++;
-      console.log(this.arr[0].likes);
-      // console.log('未收藏->已收藏： ',document.querySelectorAll('.like')[0].className);
+      console.log('未收藏->已收藏： ',document.querySelectorAll('.likelike')[0].className);
     } else {
       // 已收藏->未收藏
-      this.arr[0].likes--;
-      document.querySelectorAll(".like")[0].className = document
-        .querySelectorAll(".like")[0]
-        .className.slice(0, 38);
-      // console.log('已收藏->未收藏： ',document.querySelectorAll('.like')[0].className);
+      document.querySelectorAll(".likelike")[0].className = document
+        .querySelectorAll(".likelike")[0]
+        .className.slice(0, 20);
+        this.arr[0].likes--;
+      console.log('已收藏->未收藏： ',document.querySelectorAll('.likelike')[0].className);
     }
   }
   goPersonal(){

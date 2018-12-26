@@ -67,14 +67,14 @@ export class TravelPage {
   //喜欢
   isLiked(i){
     // document.querySelectorAll('.star')[0].className += ' collected';
-    var islike = document.querySelectorAll('#like')[i].className.indexOf(' love');
-    // console.log(islike);
+    var islike = document.querySelectorAll('.like')[i].className.indexOf(' love');
+    console.log(islike);
     if(islike === -1){  // 未收藏->已收藏
-      document.querySelectorAll('#like')[i].className += ' love';
+      document.querySelectorAll('.like')[i].className += ' love';
       // console.log('未收藏->已收藏： ',document.querySelectorAll('#like')[0].className);
     }
     else{  // 已收藏->未收藏
-      document.querySelectorAll('#like')[i].className = document.querySelectorAll('#like')[i].className.slice(0,20);
+      document.querySelectorAll('.like')[i].className = document.querySelectorAll('.like')[i].className.slice(0,38);
       // console.log('已收藏->未收藏： ',document.querySelectorAll('#like')[0].className);
     }
   }
@@ -127,10 +127,13 @@ export class TravelPage {
       divNode.appendChild(subDivNode);//添加根元素
       var img = document.createElement("img");//创建节点
       var msg = document.createElement("p");
+      var name = document.createElement("name");
+      name.innerHTML=this.arr[i].name;
       msg.innerHTML=this.arr[i].msg;
       img.src = this.arr[i].img;//图片加载路径
       subDivNode.appendChild(img);//添加根元素
       subDivNode.appendChild(msg);//添加根元素
+      subDivNode.appendChild(name);//添加根元素
     }
     this.getNode();
     setTimeout(() => { infiniteScroll.complete() }, 1000);
