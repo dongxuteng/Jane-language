@@ -79,7 +79,7 @@ export class SignupPage {
     else if(this.repassword !== this.password){
       this.Alert('两次输入的密码不相同');
     }
-    // phonenum需要符合手机号格式
+    // phonenum需要符合手机号的格式
     else if(!(/^[1][3,4,5,7,8][0-9]{9}$/.test(this.phonenum))){
       this.Alert('手机号输入有误');
     }
