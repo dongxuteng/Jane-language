@@ -1,7 +1,7 @@
 page-neirong {
   //
 
-  ion-col{
+  ion-col {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,99 +21,106 @@ page-neirong {
 
   .div {
     border-bottom: 1px solid gray;
-    .img{
+    p {
+      text-align: left;
+      text-indent: 2em;
+    }
+    .img {
       height: 18em;
       width: 100%;
     }
   }
-  .row{
+  .row {
     margin: 0;
     width: 100%;
   }
 
-  .left{
+  .left {
     overflow: hidden;
+    display: flex;
   }
   .username {
+    margin-left: 1em;
+    float: left;
     max-width: 4em;
+    height: 45px;
+    line-height: 45px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    margin: 0;
-    float: left;
-    position: relative;
-    top: 1.5em;
+    font-size: 1.1em;
   }
 
   .tx {
     float: left;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50% 50%;
     overflow: hidden;
   }
   .likes {
-  line-height: 5em;
-  float: left;
+    line-height: 5em;
+    span{
+      font-size: 1.2em;
+    }
   }
-  #star{
+  #star {
     font-size: 2.2em;
   }
-  .collected{
-    color:red;
+  .collected {
+    color: red;
   }
-  .like{
-  font-size:2em;
+  .like {
+    font-size: 1.8em;
+    padding-right: 0;
   }
-  .liked{
-  color:red !important;
+  .liked {
+    color: red !important;
   }
-  #follow{
-  display: block;
-  width: 5em;
-  height: 30px;
-  margin: 0;
-  background: rgb(247, 247, 247);
-  border: 1px solid red;
-  border-radius: 5px;
-  color: red;
-  outline: none;
-  position: relative;
-  top:1em;
+  #follow {
+    display: block;
+    width: 4em;
+    height: 1.6em;
+    margin-left: 10px;
+    background: rgb(247, 247, 247);
+    border: 1px solid red;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #ccc;
+    color: red;
   }
-  #follow:hover{  
-  background: rgba(233, 7, 7, 0.2);
+  #follow:hover {
+    background: rgba(233, 7, 7, 0.2);
   }
-  #true{
-  display: inline;
+  #true {
+    display: inline;
   }
-  #false{
-  display: none;
+  #false {
+    display: none;
   }
-  btn-return{
+  btn-return {
     float: left;
   }
-  textarea{
+  textarea {
     width: 90%;
     border: none;
     float: left;
     background-color: rgb(247, 247, 247);
   }
-   .icon-fabu:before{
+  .icon-fabu:before {
     font-size: 1.7em;
     color: red;
-    float:left;
-   }
-   ul{
-    list-style-type: none;
-    padding:0;
+    float: left;
   }
-  .box{
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .box {
     width: 100%;
-    height: 7em;;
-    background-color:rgb(247, 247, 247);
+    height: 7em;
+    background-color: rgb(247, 247, 247);
     border-bottom: 1px darkgray solid;
-    .touxiang{
+    .touxiang {
       width: 2em;
       height: 2em;
       background-image: url("../../assets/imgs/10.jpg");
@@ -121,16 +128,16 @@ page-neirong {
       margin: 0;
       border-radius: 50% 50%;
     }
-    .nicheng{
+    .nicheng {
       width: 5em;
-      height:2em;
+      height: 2em;
       font-size: 12px;
       // float: left;
       position: relative;
       left: 2.5em;
       bottom: 1em;
     }
-    .pinglun{
+    .pinglun {
       width: 100%;
       height: auto;
       text-align: left;
@@ -138,10 +145,10 @@ page-neirong {
       position: relative;
       bottom: 1em;
     }
-   .shijian{
+    .shijian {
       float: right;
     }
-    .clean{
+    .clean {
       color: red;
     }
   }

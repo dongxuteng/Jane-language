@@ -11,11 +11,11 @@ declare var BMap;
 export class HomePage {
   url="http://api.openweathermap.org/data/2.5/weather?q="+localStorage.getItem('currentCity')+"&appid=d9d89c7f2152ca0906eb224667788da8";
   Mon:string;
-  Dat:Number;
-  Year:Number;
+  Dat: number;
+  Year: number;
   localCityName: string;
-  Temp:number;
-  arr
+  Temp: number;
+  arr;
     constructor(public navCtrl: NavController,public http:HttpClient) {
     //温度
     this.http.get(this.url).subscribe((data)=>{
@@ -60,7 +60,8 @@ export class HomePage {
   // 跳转内容页
   Go_nr(i){
     this.navCtrl.push('NeirongPage',{
-      id: this.arr[i].id
+      id: this.arr[i].id,
+      value: 'rec_article'
     }) ;
   }
 

@@ -72,15 +72,15 @@
       <h3 text-center>热|门|精|选</h3>
       <p text-center>RECOMMENDATION</p>
   </div>
-  <div class="a" *ngFor="let arr of asseys;let i = index">
+  <div class="a" *ngFor="let arr of articles;let i = index">
     <div class="b">
-        <img src="{{ arr.iconSrc }}"  (click)="goPersonal()">
-        <span>{{ arr.name }}</span>
+        <img src="../../assets/imgs/4.jpg"  (click)="goPersonal()">
+        <span>{{ arr.author }}</span>
         <i class="iconfont icon-xihuan" id='like' (click)="like(i)"></i>
     </div>
-    <div class="c">
-      <img src="{{ arr.imgSrc }}">
-      <p>{{ arr.inner }}</p>
+    <div class="c" (click)="goNeirong(i)">
+      <img src="../../assets/imgs/12.jpg">
+      <p>{{ arr.content }}</p>
     </div>
   </div>
 

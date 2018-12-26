@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HttpClient } from '@angular/common/http';
 
 
 @IonicPage()
@@ -9,34 +10,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SightPage {
 
+  articles;
+  ionViewDidEnter() {
+    this.http.get('/api/sight').subscribe((data)=>{
+      this.articles = data;
+    })
+  }
 
-  srcs = [
-    "../../assets/imgs/1.jpg",
-    "../../assets/imgs/7.jpg",
-    "../../assets/imgs/6.jpg",
-    "../../assets/imgs/3.jpg",
-  ];
 
-  asseys = [
-    {
-      name: "Ezreal",
-      inner: "To see a world in a grain of sand. And a heaven in a wild flowerHold infinity in the palm of your hand. And eternity in an hour.",
-      iconSrc: "../../assets/imgs/4.jpg",
-      imgSrc:'../../assets/imgs/12.jpg',
-      likes: 11,
-      comments: 25
-    },
-    {
-      name: "Weapon",
-      inner: "Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.",
-      imgSrc: "../../assets/imgs/lizhi.jpg",
-      iconSrc: "../../assets/imgs/1.jpg",
-      likes: 56,
-      comments: 87
-    }
-  ]
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http:HttpClient) {
   }
 
   ionViewDidLoad() {
@@ -55,7 +39,6 @@ export class SightPage {
   goEncouragements(){
     this.navCtrl.push("EncouragementPage");
   }
-
   goSightmore() {
     this.navCtrl.push('SightmorePage')
   }
@@ -70,6 +53,13 @@ export class SightPage {
   }
   goMovie(){
     this.navCtrl.push("MoviePage");
+  }
+
+  goNeirong(i) {
+    this.navCtrl.push('NeirongPage',{
+      id: this.articles[i].id,
+      value: 'sight'
+    })
   }
   // 点赞计数
   like(i) {

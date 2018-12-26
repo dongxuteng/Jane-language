@@ -10,17 +10,28 @@ import { HttpClient } from "@angular/common/http";
 export class NeirongPage {
   
   id: number;
+  value: string;
   arr: Array<1> = [1];
+
   constructor(public navCtrl: NavController,public navParams: NavParams,public http: HttpClient) {
-    // 获取主页传的内容id
+    // 获取主页传的内容id和value
     this.id = navParams.get('id');
+    this.value = navParams.get('value');
   }
   ionViewDidEnter() {
     // 获取内容
-    this.http.get('/api/home/neirong').subscribe((data)=>{
-      this.arr[0] = data[this.id-1];
-      console.log(this.arr[0]);
-    })
+    if(this.value == 'rec_article'){
+      this.http.get('/api/home/neirong').subscribe((data)=>{
+        this.arr[0] = data[this.id-1];
+        console.log(this.arr[0]);
+      })
+    }
+    else if(this.value == 'sight') {
+      this.http.get('/api/sight/neirong').subscribe((data)=>{
+        this.arr[0] = data[this.id-1];
+        console.log(this.arr[0]);
+      })
+    }
   }
 
   return() {
@@ -104,50 +115,50 @@ export class NeirongPage {
   goPersonal() {
     this.navCtrl.push("PersonalPage");
   }
-  Fabu(){
-    var oTxt = document.getElementById("txt");
-    var oBtn = document.getElementById("btn1");
-    var oUl1 = document.getElementById("ul1");
-    var oBox = document.createElement("div");
-    oBox.className = "box";
+//   Fabu(){
+//     var oTxt = document.getElementById("txt");
+//     var oBtn = document.getElementById("btn1");
+//     var oUl1 = document.getElementById("ul1");
+//     var oBox = document.createElement("div");
+//     oBox.className = "box";
                 
-    //创建头像
-    var oDiv = document.createElement("div");
-    oDiv.className = "touxiang";
-    oBox.appendChild(oDiv);
+//     //创建头像
+//     var oDiv = document.createElement("div");
+//     oDiv.className = "touxiang";
+//     oBox.appendChild(oDiv);
     
-    var oDiv = document.createElement("div");
-    oDiv.className = "nicheng";
-    oDiv.innerHTML = "赫恩曼尼";
-    oBox.appendChild(oDiv);
+//     var oDiv = document.createElement("div");
+//     oDiv.className = "nicheng";
+//     oDiv.innerHTML = "赫恩曼尼";
+//     oBox.appendChild(oDiv);
     
-    var oDiv = document.createElement("div");
-    oDiv.className = "pinglun";
-    oDiv.innerHTML = oTxt['value'];
-    oTxt['value']=null;
-    oBox.appendChild(oDiv);
+//     var oDiv = document.createElement("div");
+//     oDiv.className = "pinglun";
+//     oDiv.innerHTML = oTxt['value'];
+//     oTxt['value']=null;
+//     oBox.appendChild(oDiv);
     
-    var oDiv = document.createElement("div");
-    oDiv.className = "shijian";
-    var oDate = new Date();
-    //oDate.getFullYear
+//     var oDiv = document.createElement("div");
+//     oDiv.className = "shijian";
+//     var oDate = new Date();
+//     //oDate.getFullYear
     
-    oDiv.innerHTML =oDate.getFullYear()+"/"+(oDate.getMonth()+1)+"/"+oDate.getDate()+"<a class='clean' href='javascript:;'>删除</a>";
+//     oDiv.innerHTML =oDate.getFullYear()+"/"+(oDate.getMonth()+1)+"/"+oDate.getDate()+"<a class='clean' href='javascript:;'>删除</a>";
     
-    oBox.appendChild(oDiv);
+//     oBox.appendChild(oDiv);
     
-    oUl1.appendChild(oBox);
+//     oUl1.appendChild(oBox);
     
-    /*oBox.insertBefore(oUl1,oDiv[0]);*/
+//     /*oBox.insertBefore(oUl1,oDiv[0]);*/
     
-    var aA = oDiv.getElementsByTagName("a");
+//     var aA = oDiv.getElementsByTagName("a");
     
-    for(var i = 0;i<aA.length;i++){
-        aA[i].onclick=function(){
-          // console.log(oDiv.parentNode)
-            var x=oDiv.parentNode.parentNode.removeChild(oDiv.parentNode);
-            x=null;
-        }
-    }
-}
+//     for(var i = 0;i<aA.length;i++){
+//         aA[i].onclick=function(){
+//           // console.log(oDiv.parentNode)
+//             var x=oDiv.parentNode.parentNode.removeChild(oDiv.parentNode);
+//             x=null;
+//         }
+//     }
+// }
 }
