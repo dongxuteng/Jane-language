@@ -23,7 +23,7 @@ export class OpagePage {
     console.log('ionViewDidLoad OpagePage');
   }
   goToFeedback(){
-    this.navCtrl.push(FeedbackPage);
+    this.navCtrl.push('FeedbackPage');
   }
 
 }

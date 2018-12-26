@@ -23,7 +23,7 @@ export class OpenclosePage {
     console.log('ionViewDidLoad OpenclosePage');
   }
   goToFeedback(){
-    this.navCtrl.push(FeedbackPage);
+    this.navCtrl.push('FeedbackPage');
   }
 
 }

@@ -97,8 +97,8 @@ export class SignupPage {
         if(data['code'] == 0){
           this.Alert('注册成功！');
           setTimeout(()=>{
-            //this.navCtrl.push(LoginPage);
-            this.app.getRootNavs()[0].setRoot(LoginPage);
+            this.navCtrl.push('LoginPage');
+            //this.app.getRootNavs()[0].setRoot('LoginPage');
           },1500)
           
         }else{

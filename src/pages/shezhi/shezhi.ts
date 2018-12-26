@@ -43,7 +43,7 @@ export class ShezhiPage {
   }
   tuichu(){
     window.localStorage.removeItem('username');
-    this.app.getRootNavs()[0].setRoot(LoginPage);
+    this.app.getRootNavs()[0].setRoot('LoginPage');
   }
   help(){
     this.navCtrl.push(HelpPage);

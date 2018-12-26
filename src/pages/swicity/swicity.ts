@@ -23,7 +23,7 @@ export class SwicityPage {
     console.log('ionViewDidLoad SwicityPage');
   }
   goToFeedback(){
-    this.navCtrl.push(FeedbackPage);
+    this.navCtrl.push('FeedbackPage');
   }
 
 }
