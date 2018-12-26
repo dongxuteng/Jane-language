@@ -24,52 +24,56 @@ export class HomePage {
     })
   }
 
+  
+  ionViewDidLoad() { 
+    
+    //地点
+    var myCity = new BMap.LocalCity();
+    myCity.get(function (result) {
+      var cityName = result.name; 
+      localStorage.setItem('currentCity', cityName);
+      return cityName;
+    });
+    // 延迟500毫秒取存储在localStorage中的 cityName 
+    setTimeout(() => {
+      this.localCityName = localStorage.getItem('currentCity'); 
+    }, 500); 
+  }
+  ngOnInit(){
+    // 日期
+    var arr=["Jan","Feb","Mar","Apr","May","Jun",,"Jul","Aug","Sept","Oct","Nov","Dec"];
+    var d=new Date();
+    this.Year=d.getFullYear();
+    this.Dat=d.getDate();
+    this.Mon= arr[d.getMonth()+1];
+    return this.Dat+this.Mon+this.Year;
+  }
+  
+  // 获取推荐文章内容
   headers = new HttpHeaders({ 'Content-Type':'application/x-www-form-urlencoded'});
   ionViewDidEnter() {
     this.http.get('/api/home').subscribe((data)=>{
       this.arr = data;
     })
   }
-
-  ionViewDidLoad() { 
-
-//地点
-    var myCity = new BMap.LocalCity();
-    myCity.get(function (result) {
-    var cityName = result.name; 
-    localStorage.setItem('currentCity', cityName);
-    return cityName;
-  });
-  // 延迟500毫秒取存储在localStorage中的 cityName 
-    setTimeout(() => {
-    this.localCityName = localStorage.getItem('currentCity'); 
- }, 500); 
- }
-    ngOnInit(){
-  // 日期
-      var arr=["Jan","Feb","Mar","Apr","May","Jun",,"Jul","Aug","Sept","Oct","Nov","Dec"];
-      var d=new Date();
-      this.Year=d.getFullYear();
-      this.Dat=d.getDate();
-      this.Mon= arr[d.getMonth()+1];
-      return this.Dat+this.Mon+this.Year;
-   }
-
   
-
-  Go_nr(){
-      this.navCtrl.push('NeirongPage',{
-        id: this.arr.id
-      }) ;
-      console.log(this.arr.id);
-      // undefined
+  // 跳转内容页
+  Go_nr(i){
+    this.navCtrl.push('NeirongPage',{
+      id: this.arr[i].id
+    }) ;
   }
+
+  // 跳转发布页
   Go_fb(){
     this.navCtrl.push('FabuPage');
   }
+
+  // 跳转个人主页
   Goperson(){
     this.navCtrl.push('PersonalPage')
   }
+
   //喜欢
   isLiked(i){
     // document.querySelectorAll('.star')[0].className += ' collected';
