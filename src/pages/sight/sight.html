@@ -73,15 +73,31 @@
       <p text-center>RECOMMENDATION</p>
   </div>
   <div class="a" *ngFor="let arr of articles;let i = index">
-    <div class="b">
-        <img src="../../assets/imgs/4.jpg"  (click)="goPersonal()">
-        <span>{{ arr.author }}</span>
-        <i class="iconfont icon-xihuan" id='like' (click)="like(i)"></i>
-    </div>
+      <ion-item>
+          <ion-avatar item-start (click)="goPersonal()">
+            <img src="../../assets/imgs/4.jpg">
+          </ion-avatar>
+          <h2>{{ arr.author }}</h2>
+          <p>{{ arr.date}}</p>
+        </ion-item>
+        <img src="../../assets/imgs/12.jpg">
     <div class="c" (click)="goNeirong(i)">
-      <img src="../../assets/imgs/12.jpg">
       <p>{{ arr.content }}</p>
     </div>
+    <ion-row text-center class="card-bottom">
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div (click)="like(i)">{{ arr.star1 }}</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>{{ arr.comments }}</div>
+        </button>
+      </ion-col>
+    </ion-row>
   </div>
 
   <ion-refresher (ionRefresh)="doRefresh($event)">

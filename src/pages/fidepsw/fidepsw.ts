@@ -105,7 +105,6 @@ export class FidepswPage {
           this.Alert('修改成功！');
           setTimeout(()=>{
             this.navCtrl.push('LoginPage');
-            //this.app.getRootNavs()[0].setRoot('LoginPage');
           },1500)
           
         }else{
