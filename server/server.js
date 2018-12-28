@@ -16,13 +16,12 @@ app.all('*',function(req,res,next){
 });
 
 const pool = mysql.createPool({
-    host: '192.168.46.144',
+    host: 'localhost',
     user: 'root',
-    password: 'dxt980927',
+    password: 'CuiYiMing_wm717',
     database: 'jane'
 });
 
-console.log(1);
 // 登录验证
 
 app.post('/api/login', function(req,res){
