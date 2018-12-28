@@ -23,7 +23,6 @@ export class NeirongPage {
     if(this.value == 'rec_article'){
       this.http.get('/api/home/neirong').subscribe((data)=>{
         this.arr[0] = data[this.id-1];
-        console.log(this.arr[0]);
       })
     }
     else if(this.value == 'sight') {

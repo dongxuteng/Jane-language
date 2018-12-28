@@ -84,6 +84,7 @@ page-sight {
     border: 1px solid #cccccc;
     box-shadow: 0 0 5px #ccc;
     border-radius: 5px;
+    text-align: center;
 }
 .wenzi{
   float:left; 
@@ -98,9 +99,6 @@ page-sight {
 }
 
 .c{
-    margin-top: 10%;
-    margin-left: 5%;
-    width: 90%;
     p{
       text-indent: 2em;
       // 超过五行显示省略号
@@ -138,6 +136,10 @@ page-sight {
         // padding-top: 0.8em;
 
     }
+  }
+
+  .card-bottom {
+    font-size: 2em;
   }
 }
 .love{
