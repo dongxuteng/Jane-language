@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 /**
  * Generated class for the MePage page.
@@ -15,11 +16,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  username;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public http: HttpClient) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MePage');
+  ionViewDidEnter() {
+    this.username = window.localStorage.getItem('username');
+    console.log(this.username);
+    this.http.post('/api/me', {"username":this.username}).subscribe((data)=>{
+      console.log(data);
+    })
   }
 
   goMy() {

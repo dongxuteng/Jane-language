@@ -24,7 +24,7 @@ import {WelcomePage} from '../pages/welcome/welcome';
 // import { SwicityPage } from '../pages/swicity/swicity';
 // import { OpagePage } from '../pages/opage/opage';
 // import { UpdatePage } from '../pages/update/update';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @NgModule({
@@ -52,7 +52,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
