@@ -1,49 +1,52 @@
 page-music {
-    .card{
-        height: 30rem
+  // .block{
+  //   width: 50%
+  // }  
+  // .card{
+  //       height: 30rem
+  //   }
+  //   // .block{
+  //   //     width: 110px;
+  //   // }
+  //   .player{
+  //       position: absolute;
+  //       top: 7.5rem;
+  //       left: 7.5rem;
+  //       width: 4rem;
+  //       height: 4rem;
+  //     }
+  //     .displayer{
+  //       display: none;
+  //     }
+  //     .imgsplay{
+  //       margin: 2rem 1rem 1rem 2rem;
+  //       width: 13rem;
+  //       height: 13rem;
+  //       border-radius: 50% 50%;
+  //     }
+  //     .rotation{
+  //       -webkit-transform: rotate(360deg);
+  //       animation: rotation 12s linear infinite;
+  //       -moz-animation: rotation 12s linear infinite;
+  //       -webkit-animation: rotation 12s linear infinite;
+  //       -o-animation: rotation 12s linear infinite;
+  //     }
+      
+  //     @-webkit-keyframes rotation{
+  //       from {
+  //         -webkit-transform: rotate(0deg);
+  //       }
+      
+  //       to{
+  //         -webkit-transform: rotate(360deg);
+  //       }
+  //     }
+    
+    
+    .title{
+        font-size: 18px;
     }
-    // .block{
-    //     width: 110px;
-    // }
-    .player{
-        position: absolute;
-        top: 7.5rem;
-        left: 7.5rem;
-        width: 4rem;
-        height: 4rem;
-      }
-      .displayer{
-        display: none;
-      }
-      .imgsplay{
-        margin: 2rem 0 0 2rem;
-        width: 13rem;
-        height: 13rem;
-        border-radius: 50% 50%;
-      }
-      .rotation{
-        -webkit-transform: rotate(360deg);
-        animation: rotation 12s linear infinite;
-        -moz-animation: rotation 12s linear infinite;
-        -webkit-animation: rotation 12s linear infinite;
-        -o-animation: rotation 12s linear infinite;
-      }
-      
-      @-webkit-keyframes rotation{
-        from {
-          -webkit-transform: rotate(0deg);
-        }
-      
-        to{
-          -webkit-transform: rotate(360deg);
-        }
-      }
-    
-    
-    // .title{
-    //     font-size: 18px;
-    // }
-    // .pp{
-    //     font-size: 13px
-    // }
+    .pp{
+        font-size: 13px
+    }
 }
