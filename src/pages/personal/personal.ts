@@ -95,6 +95,18 @@ export class PersonalPage {
   goMePage() {
     this.navCtrl.pop();
   }
+  //关注
+  show1(){
+    var aTrue = document.getElementById('true');
+    var aFalse = document.getElementById('false');
+    if ( aTrue.style.display!="none"){
+        aTrue.style.display="none";
+        aFalse.style.display="inline";
+    }else{
+        aTrue.style.display="inline";
+        aFalse.style.display="none";
+    }
+  } 
 
   ionViewDidLoad() {
     let elements = document.querySelectorAll(".tabbar");

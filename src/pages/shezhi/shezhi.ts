@@ -42,7 +42,8 @@ export class ShezhiPage {
     this.navCtrl.push('TongyongPage');
   }
   tuichu(){
-    this.app.getRootNavs()[0].setRoot(LoginPage);
+    window.localStorage.removeItem('username');
+    this.app.getRootNavs()[0].setRoot('LoginPage');
   }
   help(){
     this.navCtrl.push(HelpPage);

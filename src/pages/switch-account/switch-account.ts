@@ -23,6 +23,6 @@ export class SwitchAccountPage {
     console.log('ionViewDidLoad SwitchAccountPage');
   }
   goToLogin(){
-    this.navCtrl.push(LoginPage);
+    this.navCtrl.push('LoginPage');
   }
 }

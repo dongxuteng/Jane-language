@@ -101,7 +101,15 @@ page-sight {
     margin-top: 10%;
     margin-left: 5%;
     width: 90%;
-       
+    p{
+      text-indent: 2em;
+      // 超过五行显示省略号
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+    }
 }
 .b{
     margin-left: 5%;

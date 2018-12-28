@@ -23,7 +23,6 @@ const pool = mysql.createPool({
 });
 
 console.log(1);
-
 // 登录验证
 
 app.post('/api/login', function(req,res){
@@ -36,7 +35,7 @@ app.post('/api/login', function(req,res){
         pool.query(sql,[loginData.username],(err,results)=>{
             //results = JSON.stringify(results);
             //results = JSON.parse(results);
-            console.log(2);
+            console.log(results);
             if(err){
                 res.send({
                     code:1,
@@ -148,6 +147,7 @@ app.post('/api/identify',function(req,res){
 //修改密码页面验证码接口
 app.post('/api/findidentify',function(req,res){
     var phonenum = req.body.phonenum;
+    var username = req.body.username;
     console.log(phonenum);
     // 产生验证码随机的6位数
     var range=function(start,end){
@@ -162,7 +162,7 @@ app.post('/api/findidentify',function(req,res){
     }).join('');
     console.log(randomstr);
 
-    pool.query('select * from user where phoneNumber=?', [phonenum], (err, result) => {
+    pool.query('select * from user where phoneNumber=? and username=?', [phonenum,username], (err, result) => {
         if (err) {
             res.send({
                 code: 1,
@@ -224,7 +224,7 @@ app.post('/api/findidentify',function(req,res){
 app.post('/api/signup', function(req,res){
     var signupData;
     const sqlUid = 'select Uid from user where username=? ';
-    const sqlInsert = 'insert into user(username,password,phoneNumber) values(?,?,?) ';
+    const sqlInsert = 'insert into user(username,password,phoneNumber,regtime) values(?,?,?,?) ';
     req.on('data', function(data){
         signupData = JSON.parse(data);
         console.log(signupData);
@@ -236,7 +236,7 @@ app.post('/api/signup', function(req,res){
                 // 用户名不存在，注册
                 if(results[0] == undefined){
                     console.log('没有这个用户，可以注册');
-                    pool.query(sqlInsert,[signupData.username, signupData.password, signupData.phonenum],(err,results)=>{
+                    pool.query(sqlInsert,[signupData.username, signupData.password, signupData.phonenum,signupData.regtime],(err,results)=>{
                         if(err){
                             res.send({
                                 code:1,
@@ -329,7 +329,15 @@ function get(path,sql){
 // 主页请求推荐文章
 get('home','select * from rec_article');
 
+// 内容页请求主页文章内容
+get('home/neirong','select * from rec_article');
 
+// 内容页请求精选文章内容
+get('sight/neirong','select * from article');
+
+// 精选页获取热门文章
+// TODO: 选取点赞多的作为热门文章
+get('sight','select * from article');
 
 
 

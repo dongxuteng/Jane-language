@@ -17,6 +17,7 @@ export class SignupPage {
   password: string;
   repassword: string;
   time:any;
+  regDate=new Date(+new Date() + 8 * 3600 * 1000).toISOString().slice(0,10)+" "+new Date(+new Date() + 8 * 3600 * 1000).toISOString().slice(11,19);;
   headers = new HttpHeaders({ 'Content-Type':'application/x-www-form-urlencoded'});
   constructor(public navCtrl: NavController, public app:App ,public navParams: NavParams, public alertCtrl: AlertController, public http: HttpClient,private camera: Camera) {}
 
@@ -69,10 +70,16 @@ export class SignupPage {
       console.log(this.phonenum);
       this.http.post('/api/identify',{"phonenum":this.phonenum}).subscribe((data) =>{
         console.log(data);
-        this.getTime();
-        this.phoneCode=data['phoneCode'];
+        if(data['code'] !== 0){
+          console.log(data['message']);
+          this.Alert(data['message']);
+        }else{
+          this.getTime();
+          this.phoneCode=data['phoneCode'];
+        }
+        
       },error =>{
-        this.Alert('服务器内部错误');
+        this.Alert('服务器内部的错误');
         console.log('Error:',error);
       })
     }
@@ -91,7 +98,7 @@ export class SignupPage {
     else if(this.repassword !== this.password){
       this.Alert('两次输入的密码不相同');
     }
-    // phonenum需要符合手机号格式
+    // phonenum需要符合手机号的格式
     else if(!(/^[1][3,4,5,7,8][0-9]{9}$/.test(this.phonenum))){
       this.Alert('手机号输入有误');
     }
@@ -102,13 +109,15 @@ export class SignupPage {
     
     else if(this.username != undefined && this.password == this.repassword ){
       console.log(11);
-      this.http.post('/api/signup',{"username":this.username,"password":this.password,"phonenum":this.phonenum,"phonepwd":this.phonepwd},{headers:this.headers}).subscribe((data)=>{
+      
+      this.http.post('/api/signup',{"username":this.username,"password":this.password,"phonenum":this.phonenum,"phonepwd":this.phonepwd,"regtime":this.regDate},{headers:this.headers}).subscribe((data)=>{
         console.log(data);
+        console.log(this.regDate);
         if(data['code'] == 0){
           this.Alert('注册成功！');
           setTimeout(()=>{
-            //this.navCtrl.push(LoginPage);
-            this.app.getRootNavs()[0].setRoot(LoginPage);
+            this.navCtrl.push('LoginPage');
+            //this.app.getRootNavs()[0].setRoot('LoginPage');
           },1500)
           
         }else{

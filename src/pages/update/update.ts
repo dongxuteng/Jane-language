@@ -23,7 +23,7 @@ export class UpdatePage {
     console.log('ionViewDidLoad UpdatePage');
   }
   goToFeedback(){
-    this.navCtrl.push(FeedbackPage);
+    this.navCtrl.push('FeedbackPage');
   }
 
 }

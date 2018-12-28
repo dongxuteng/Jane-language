@@ -71,6 +71,8 @@ export class LoginPage {
               window.localStorage.setItem('password',data['result'].password);
               console.log(window.localStorage.getItem('username'));
               this.app.getRootNavs()[0].setRoot(TabsPage);
+              console.log(1);
+              
             }
           }
         })

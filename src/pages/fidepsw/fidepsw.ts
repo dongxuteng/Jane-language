@@ -56,9 +56,9 @@ export class FidepswPage {
       this.Alert('手机号输入有误');
     }else{
       console.log(this.phonenum);
-      this.http.post('/api/findidentify',{"phonenum":this.phonenum}).subscribe((data) =>{
+      this.http.post('/api/findidentify',{"phonenum":this.phonenum,"username":this.username}).subscribe((data) =>{
         console.log(data);
-        if(data['code'] == 2){
+        if(data['code'] == 2 || data['code'] == 1){
           console.log(data['message']);
           this.Alert(data['message']);
         }
@@ -104,7 +104,8 @@ export class FidepswPage {
         if(data['code'] == 0){
           this.Alert('修改成功！');
           setTimeout(()=>{
-            this.app.getRootNavs()[0].setRoot(LoginPage);
+            this.navCtrl.push('LoginPage');
+            //this.app.getRootNavs()[0].setRoot('LoginPage');
           },1500)
           
         }else{
