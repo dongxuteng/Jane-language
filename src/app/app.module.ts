@@ -14,17 +14,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SightPage } from '../pages/sight/sight';
 import { InfoPage } from '../pages/info/info';
 import { MePage } from '../pages/me/me';
-// import { LoginPage } from '../pages/login/login';
-// import { ChatPage } from '../pages/chat/chat';
 import {WelcomePage} from '../pages/welcome/welcome';
-// import { HelpPage } from '../pages/help/help';
-// import { SwitchAccountPage } from '../pages/switch-account/switch-account';
-// import { FeedbackPage } from '../pages/feedback/feedback';
-// import { OpenclosePage } from '../pages/openclose/openclose';
-// import { SwicityPage } from '../pages/swicity/swicity';
-// import { OpagePage } from '../pages/opage/opage';
-// import { UpdatePage } from '../pages/update/update';
-import { HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @NgModule({
@@ -37,16 +28,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     SightPage,
     InfoPage,
     MePage,
-    // ChatPage,
     WelcomePage,
-    // HelpPage,
-    // SwitchAccountPage,
-    // FeedbackPage,
-    // OpenclosePage,
-    // SwicityPage,
-    // OpagePage,
-    // UpdatePage,
-    // LoginPage
+   
   ],
   imports: [
     BrowserModule,
@@ -64,16 +47,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     SightPage,
     InfoPage,
     MePage,
-    // ChatPage,
     WelcomePage,
-    // HelpPage,
-    // SwitchAccountPage,
-    // FeedbackPage,
-    // OpenclosePage,
-    // SwicityPage,
-    // OpagePage,
-    // UpdatePage,
-    // LoginPage
   ],
   providers: [
     Camera,
