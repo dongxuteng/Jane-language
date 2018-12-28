@@ -2,7 +2,7 @@ import { Component, ViewChild, ElementRef } from "@angular/core";
 import { IonicPage, NavController, NavParams, AlertController,App } from "ionic-angular";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { LoginPage } from "../login/login";
-
+import { Camera, CameraOptions } from '@ionic-native/camera';
 @IonicPage()
 @Component({
   selector: "page-signup",
@@ -19,7 +19,7 @@ export class SignupPage {
   time:any;
   regDate=new Date(+new Date() + 8 * 3600 * 1000).toISOString().slice(0,10)+" "+new Date(+new Date() + 8 * 3600 * 1000).toISOString().slice(11,19);;
   headers = new HttpHeaders({ 'Content-Type':'application/x-www-form-urlencoded'});
-  constructor(public navCtrl: NavController, public app:App ,public navParams: NavParams, public alertCtrl: AlertController, public http: HttpClient) {}
+  constructor(public navCtrl: NavController, public app:App ,public navParams: NavParams, public alertCtrl: AlertController, public http: HttpClient,private camera: Camera) {}
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad SignupPage");
@@ -30,6 +30,25 @@ export class SignupPage {
       });
     }
   }
+  touxiang(){
+    // 设置选项
+    const options: CameraOptions = {
+      quality: 100,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+  }
+  
+  // 获取图片
+    this.camera.getPicture(options).then((imageData) => {
+  // 获取成功
+    let base64Image = 'data:image/jpeg;base64,' + imageData;
+  
+    },(err) => {
+    console.log('获取图片失败');
+    });
+}
   back(){
       this.navCtrl.pop();
   }
