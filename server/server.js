@@ -62,7 +62,7 @@ app.post('/api/login', function(req,res){
                 console.log('用户存在');
                 res.send({
                     code:0,
-                    status:'error',
+                    status:'success',
                     result:results[0],
                     message:'登录成功！'
                 })
@@ -337,6 +337,21 @@ get('sight/neirong','select * from article');
 // 精选页获取热门文章
 // TODO: 选取点赞多的作为热门文章
 get('sight','select * from article');
+
+// 我的页面请求个性签名
+app.post('/api/me', function(req,res) {
+    var username = req.body.username;
+    const sql = 'select trendsTitle from user where username=?';
+    pool.query(
+        sql,
+        username,
+        (err,results)=>{
+            console.log(results);
+            res.send(results);
+        }
+
+    )
+})
 
 
 
