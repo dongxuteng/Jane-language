@@ -24,7 +24,7 @@ export class MePage {
     this.username = window.localStorage.getItem('username');
     console.log(this.username);
     this.http.post('/api/me', {"username":this.username}).subscribe((data)=>{
-      console.log(data);
+      console.log(data[0]);
     })
   }
 
