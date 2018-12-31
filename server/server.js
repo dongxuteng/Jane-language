@@ -16,12 +16,13 @@ app.all('*',function(req,res,next){
 });
 
 const pool = mysql.createPool({
-    host: 'localhost',
+    host: '192.168.46.144',
     user: 'root',
-    password: 'CuiYiMing_wm717',
+    password: 'dxt980927',
     database: 'jane'
 });
 
+console.log(1);
 // 登录验证
 
 app.post('/api/login', function(req,res){
@@ -62,7 +63,7 @@ app.post('/api/login', function(req,res){
                 console.log('用户存在');
                 res.send({
                     code:0,
-                    status:'success',
+                    status:'sucess',
                     result:results[0],
                     message:'登录成功！'
                 })
@@ -223,7 +224,7 @@ app.post('/api/findidentify',function(req,res){
 app.post('/api/signup', function(req,res){
     var signupData;
     const sqlUid = 'select Uid from user where username=? ';
-    const sqlInsert = 'insert into user(username,password,phoneNumber,regtime) values(?,?,?,?) ';
+    const sqlInsert = 'insert into user(username,password,phoneNumber,regtime,name,trendsTitle) values(?,?,?,?,?,?) ';
     req.on('data', function(data){
         signupData = JSON.parse(data);
         console.log(signupData);
@@ -235,7 +236,7 @@ app.post('/api/signup', function(req,res){
                 // 用户名不存在，注册
                 if(results[0] == undefined){
                     console.log('没有这个用户，可以注册');
-                    pool.query(sqlInsert,[signupData.username, signupData.password, signupData.phonenum,signupData.regtime],(err,results)=>{
+                    pool.query(sqlInsert,[signupData.username, signupData.password, signupData.phonenum,signupData.regtime,signupData.name,signupData.trendsTitle],(err,results)=>{
                         if(err){
                             res.send({
                                 code:1,
@@ -341,18 +342,22 @@ get('sight','select * from article');
 // 我的页面请求个性签名
 app.post('/api/me', function(req,res) {
     var username = req.body.username;
-    const sql = 'select trendsTitle from user where username=?';
-    pool.query(
-        sql,
-        username,
-        (err,results)=>{
-            console.log(results);
+    const sql = 'select * from user where username=?';
+    pool.query(sql,username,(err,results)=>{
+        console.log(results);
+        if(results[0] === undefined){
+            res.send({
+                code:1,
+                status:'error',
+                message:"查询失败"
+            })
+        }else{
             res.send(results);
         }
-
-    )
+        
+        
+    })
 })
-
 
 
 // 发布

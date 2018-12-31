@@ -14,7 +14,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SightPage } from '../pages/sight/sight';
 import { InfoPage } from '../pages/info/info';
 import { MePage } from '../pages/me/me';
-import {WelcomePage} from '../pages/welcome/welcome';
 import { HttpClientModule } from '@angular/common/http';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
@@ -28,7 +27,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     SightPage,
     InfoPage,
     MePage,
-    WelcomePage,
+
    
   ],
   imports: [
@@ -47,7 +46,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     SightPage,
     InfoPage,
     MePage,
-    WelcomePage,
+    
   ],
   providers: [
     Camera,

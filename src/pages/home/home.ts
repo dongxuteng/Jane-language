@@ -54,6 +54,7 @@ export class HomePage {
   ionViewDidEnter() {
     this.http.get('/api/home').subscribe((data)=>{
       this.arr = data;
+      console.log(this.arr);
     })
   }
   
