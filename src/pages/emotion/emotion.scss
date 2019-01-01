@@ -1,102 +1,101 @@
 page-emotion {
-    ion-navbar{
-        ion-title{
-        background-color: rgb(247,247,247);
-        text-align: center;
+  ion-navbar {
+    ion-title {
+      background-color: rgb(247, 247, 247);
+      text-align: center;
+      padding-right: 54px;
     }
-}
-.sli{
+  }
+  .sli {
     margin-top: 2%;
-    height:40%;
-    img{
-        width: 100%;
+    height: 40%;
+    img {
+      width: 100%;
     }
-}
-.subtitle{
+  }
+  .subtitle {
     letter-spacing: 3px;
     margin-top: 10px;
     clear: both;
-    p{
-        margin-top: 5px;
+    p {
+      margin-top: 5px;
+      margin-bottom: 10px;
     }
-}
-.tx{
+  }
+  .tx {
+      text-align: center;
     width: 100%;
+    height: 100%;
     padding-top: 1em;
-    img{
-    border-radius: 50% 50%;
-    width: 3em;
-    height: 3em;
+    img {
+      border-radius: 50% 50%;
+      width: 3em;
+      height: 3em;
+      float: left;
+    }
+    p {
+        margin-top: 5px;
+        margin-bottom: 10px;
+      }
+    // i {
+    //   font-size: 1.5em;
+    //   color: red;
+    //   position: absolute;
+    //   padding-left: 5em;
+    //   padding-top: 0.5em;
+    // }
+  }
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  .clearfix:before //清除浮动
+ {
+    content: " ";
+    display: table;
+  }
+  .clearfix:after {
+    clear: both;
+  }
+  .main {
+    position: absolute;
+    width: 100%;
+    column-width: 50%; //列宽
+    -moz-column-width: 50%;
+    column-count: 2; //列数
+    gap: 2.5px; //列间距
+    column-gap: 2.5px;
+  }
+  .box {
     float: left;
-    }
-    span{
-        float: left;
-        position: absolute;
-        padding-top: 0.8em;
-        width: 2em;
-        height: 2em;
-        overflow: hidden;
-    }
-    i{
-        font-size:1.5em;
-        color: red; 
-        position: absolute;
-        padding-left: 5em;
-        padding-top: 0.5em;
-    }
-}
-// ion-content{
-//     .item-md{ padding: 0; }
-//     .item-inner{
-//         padding-left: 0;
-//         line-height: 50px;
-//         font-size: 1.1em;
-//         text-align: center;
-//         border: none;
-//     }
-//     .card{ margin-top: 20px; }
-//     ion-card{
-//         .card-title-md{ margin: 4px 0; }
-//         .col{
-//             height: 66px;
-//             line-height: 44px;
-//             overflow: hidden;
-//         }
-//         p{ text-indent: 2em; }
-//     }
-// }
-*{padding:0;margin:0;}
-.clearfix:before //清除浮动
-{
-content: " ";
-display: table;
-}
-.clearfix:after {
-clear: both;
-}
-.main {
-position: absolute;
-width: 100%;
-column-width: 50%;//列宽
--moz-column-width: 50%;
-column-count: 2; //列数
-gap: 2.5px; //列间距
-column-gap: 2.5px;
-}
-.box {
-float: left;
-padding: 2.5px 0 0 2.5px;
-}
-.box .pic {
-width:100%;
-height: auto;
-padding: 5px;
-border-radius: 5px;
-box-shadow: 0 0 5px #cccccc;
-border: 1px solid #cccccc;
-}
-.box .pic img {
-display: block;
-width: 100%;
-}
+    padding: 2.5px 0 0 2.5px;
+    width: 50%;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #cccccc;
+    border: 1px solid #cccccc;
+  }
+  .box .pic {
+    width: 100%;
+    height: auto;
+    padding: 5px;
+  }
+  .box .pic img {
+    display: block;
+    width: 100%;
+  }
+  .avatar{
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+  }
+  .icon{
+      width:20%;
+      float: left;
+      border-radius: 50% 50%;
+      overflow: hidden;
+  }
+  span {
+    float: left;
+    color: #0099CC;
+  }
 }

@@ -16,13 +16,12 @@ app.all('*',function(req,res,next){
 });
 
 const pool = mysql.createPool({
-    host: '192.168.46.144',
+    host: 'localhost',
     user: 'root',
-    password: 'dxt980927',
+    password: 'CuiYiMing_wm717',
     database: 'jane'
 });
 
-console.log(1);
 // 登录验证
 
 app.post('/api/login', function(req,res){
@@ -338,6 +337,49 @@ get('sight/neirong','select * from article');
 // 精选页获取热门文章
 // TODO: 选取点赞多的作为热门文章
 get('sight','select * from article');
+
+// 根据标签选择内容页
+function getContent(path,value){
+    app.get('/api/'+path,(req,res)=>{
+        pool.query(
+            'select * from article where sort=?',
+            value,
+            function(err,results){
+                results = JSON.stringify(results);
+                results = JSON.parse(results);
+                if(err){
+                    console.log(err);
+                    res.end('1');
+                }else{
+                    console.log(results);
+                    res.send(results);
+                }
+            }
+        )
+    })
+}
+
+// 获取随笔内容
+getContent('essay','随笔');
+
+// 获取美食内容
+getContent('foods','美食');
+
+//获取情感内容
+getContent('emotions','情感');
+
+// 获取励志内容
+getContent('encouragements','励志');
+
+// 获取旅行内容
+getContent('travel','旅行');
+
+// 获取音乐内容
+getContent('music','音乐');
+
+// 获取影视内容
+getContent('movie','影视');
+
 
 // 我的页面请求个性签名
 app.post('/api/me', function(req,res) {
