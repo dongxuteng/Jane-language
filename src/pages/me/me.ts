@@ -65,7 +65,6 @@ export class MePage {
   function5() {
     this.navCtrl.push("ShezhiPage")
   }
-  
 
   change(){
     this.navCtrl.push('SettingsPage')
