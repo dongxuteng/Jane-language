@@ -341,11 +341,13 @@ get('sight','select * from article');
 // 我的页面请求个性签名
 app.post('/api/me', function(req,res) {
     var username = req.body.username;
-    const sql = 'select trendsTitle from user where username=?';
+    const sql = 'select * from user where username=?';
     pool.query(
         sql,
         username,
         (err,results)=>{
+            results = JSON.stringify(results);
+            results = JSON.parse(results);
             console.log(results);
             res.send(results);
         }
