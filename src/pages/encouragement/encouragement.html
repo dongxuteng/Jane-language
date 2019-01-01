@@ -12,23 +12,65 @@
 
 </ion-header>
 
-
-<ion-content padding>
-    <ion-card *ngFor="let item of articles; let i = index" (click)="goEncourage()">
-      
-      <div class="left" ><img src="{{ item.imgSrc }}" alt=""></div>
-        <div class="right" >
-          <div class="card-title"> {{ item.title }} </div>
-          <div class="card-inner"> {{ item.inner }}</div>
-          <div class="tx">
-            <img src="{{ item.tx }}">
-          </div>
-            <span class="name">{{ item.name }}</span>
-            <!-- 收藏、取消收藏 -->
-            <span style="float:right;line-height:3em;">{{item.num}}</span>
-            <i class="iconfont icon-xihuan" id="like"></i>
+ <ion-content >
+  <ion-slides pager="true" autoplay="1000" loop="true" class="sli">
+      <ion-slide>
+        <img src="../../assets/imgs/lizhi4.jpg" alt="">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/imgs/lizhi3.jpeg" alt="">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/imgs/lizhi.jpg" alt="">
+      </ion-slide>
+    </ion-slides>
+    <div class="subtitle">
+        <h3 text-center>每|日|励|志</h3>
+        <p text-center>ENCOURAGEMENT</p>
+    </div>
+  <div class="main clearfix" class="main" >
+      <div class="box" *ngFor="let article of article1">
+        <div class="pic" (click)="goEncouesgemore()"><img src="{{article.src}}"></div>             
+        <div class="tx">
+          <p (click)="goEncouesgemore()">{{article.title}}</p>
+          <img src="{{article.imgSrc}}" (click)="goPersonal()">
+          <span>{{article.name}}</span>
+          <i class="iconfont icon-xihuan" style="font-size:1.5em;color: red; float:right"></i>
         </div>
-     
-    </ion-card>
+      </div>      
+      <div class="box" *ngFor="let article of article2">
+        <div class="pic" (click)="goEncouesgemore()"><img src="{{article.src}}"></div>
+        <div class="tx">
+            <p (click)="goEncouesgemore()">{{article.title}}</p>
+            <img src="{{article.imgSrc}}" (click)="goPersonal()">
+            <span>{{article.name}}</span>
+            <i class="iconfont icon-xihuan" style="font-size:1.5em;color: red; float:right"></i>
+          </div>
+      </div>
+      
+      <div class="box" *ngFor="let article of article3">
+        <div class="pic" (click)="goEncouesgemore()"><img src="{{article.src}}"></div>
+        <div class="tx">
+            <p (click)="goEncouesgemore()">{{article.title}}</p>
+            <img src="{{article.imgSrc}}" (click)="goPersonal()">
+            <span>{{article.name}}</span>
+            <i class="iconfont icon-xihuan" style="font-size:1.5em;color: red; float:right"></i>
+          </div>
+      </div>      
+      <div class="box" *ngFor="let article of article4">
+        <div class="pic" (click)="goEncouesgemore()"><img src="{{article.src}}"></div>
+        <div class="tx">
+            <p (click)="goEncouesgemore()">{{article.title}}</p>
+            <img src="{{article.imgSrc}}" (click)="goPersonal()">
+            <span>{{article.name}}</span>
+            <i class="iconfont icon-xihuan" style="font-size:1.5em;color: red; float:right"></i>
+          </div>
+      </div>
+    </div>
   
-</ion-content>
+  
+    <!-- 下拉刷新 -->
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+</ion-content> 

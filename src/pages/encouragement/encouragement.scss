@@ -1,84 +1,105 @@
 page-encouragement {
-    ion-title{
+    ion-navbar{
+        ion-title{
         padding-right: 54px;
         text-align: center;
     }
-    ion-content{
-        ion-card {
+}
+
+    ion-content {
+        #container {
             position: relative;
-            text-align: center;
-            border-radius: 3px;
-            height: 160px;
-            ion-item{
-                text-align: center;
-            }
-        }
-        .left{
-            width: 45%;
-            height: 100%;
-            float: left;
-            padding: 3px;
-            overflow: hidden;
-            img{
-                height: 100%;
-            }
-        }
-        .right{
-            float: right;
-            width:55%;
-            text-align:left;
-            padding: 5px;
-            .card-inner{
-                max-height:100%;
-                width: 100%;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                display: -webkit-box;
-	            -webkit-line-clamp: 4; 
-	            -webkit-box-orient: vertical;
-            }
-            .tx{
-                width: 100%;
-                padding-top: 1em;
-                img{
-                border-radius: 50% 50%;
-                width: 2em;
-                height: 2em;
+            .box {
+                padding: 5px;
                 float: left;
-                }   
-            }
-            .name{
-                // float: left;
-                position: absolute;
-                bottom: 1em;
-                width: 2em;
-                height: 1.5em;
-                overflow: hidden;
-            }
-            #like{
-                font-size: 2em;
-                float: right;
-                color: red;
+                .box_img {
+                    padding: 5px;
+                    border: 1px solid #cccccc;
+                    box-shadow: 0 0 5px #ccc;
+                    border-radius: 5px;
+                    img {
+                        width: 100px!important;
+                        height: auto;
+                    }
+                }
             }
         }
-        .card-title {
-            height:1.5em;
-            width: 100%;
-            font-size:1em;
-            font-weight: bold;
-            color: rgb(41, 23, 23);
-            text-align: center;
-            overflow: hidden;
-        }
-        .card-inner{
-            overflow: hidden;
-            height: 100%;
-        }
-         .card-subtitle {
-             font-size: 14px;
-             color:red;
-             margin-top: 10px;
-             margin-left: 170px;
-         }
     }
 }
+ .sli{
+     margin-top: 2%;
+     height:40%;
+     img{
+         width: 100%;
+     }
+ }
+ .subtitle{
+     letter-spacing: 3px;
+     margin-top: 10px;
+     clear: both;
+     p{
+         margin-top: 5px;
+     }
+ }
+ .tx{
+     width: 100%;
+     padding-top: 1em;
+     img{
+     border-radius: 50% 50%;
+     width: 3em;
+     height: 3em;
+     float: left;
+     }
+     span{
+         float: left;
+         position: absolute;
+         padding-top: 0.8em;
+         width: 2em;
+         height: 2em;
+         overflow: hidden;
+     }
+     i{
+         font-size:1.5em;
+         color: red; 
+         position: absolute;
+         padding-left: 6em;
+         padding-top: 0.5em;
+     }
+     p{
+         margin-left: 5px;
+     }
+ }
+ *{padding:0;margin:0;}
+ .clearfix:before //清除浮动
+ {
+ content: " ";
+ display: table;
+ }
+ .clearfix:after {
+ clear: both;
+ }
+ .main {
+ position: absolute;
+ width: 100%;
+ column-width: 50%;//列宽
+ -moz-column-width: 50%;
+ column-count: 2; //列数
+ gap: 2.5px; //列间距
+ column-gap: 2.5px;
+ }
+ .box {
+ float: left;
+ padding: 2.5px 0 0 2.5px;
+ }
+ .box .pic {
+ width:100%;
+ height: auto;
+ padding: 5px;
+ border-radius: 5px;
+ box-shadow: 0 0 5px #cccccc;
+ border: 1px solid #cccccc;
+ }
+ .box .pic img {
+ display: block// width: 100%;
+ }
+ 
