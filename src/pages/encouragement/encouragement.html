@@ -28,47 +28,22 @@
         <h3 text-center>每|日|励|志</h3>
         <p text-center>ENCOURAGEMENT</p>
     </div>
-  <div class="main clearfix" class="main" >
-      <div class="box" *ngFor="let article of article1">
-        <div class="pic" (click)="goEncouesgemore()"><img src="{{article.src}}"></div>             
-        <div class="tx">
-          <p (click)="goEncouesgemore()">{{article.title}}</p>
-          <img src="{{article.imgSrc}}" (click)="goPersonal()">
-          <span>{{article.name}}</span>
-          <i class="iconfont icon-xihuan" style="font-size:1.5em;color: red; float:right"></i>
+    <div class="box" *ngFor='let arr of assey,let i = index'>
+        <div class="pic" (click)="goNeirong(i);"><img src="../../assets/imgs/e1.jpeg" /></div>
+        <div class="tx" (click)="goNeirong(i)">
+          <p>{{ arr.title }}</p>
         </div>
-      </div>      
-      <div class="box" *ngFor="let article of article2">
-        <div class="pic" (click)="goEncouesgemore()"><img src="{{article.src}}"></div>
-        <div class="tx">
-            <p (click)="goEncouesgemore()">{{article.title}}</p>
-            <img src="{{article.imgSrc}}" (click)="goPersonal()">
-            <span>{{article.name}}</span>
-            <i class="iconfont icon-xihuan" style="font-size:1.5em;color: red; float:right"></i>
+          <div class="avatar">
+            <div class="icon">
+              <img src="../../assets/imgs/icon.png" /> 
+            </div>
+            <span>{{ arr.author }}</span>
+            <i
+            class="iconfont icon-xihuan"
+            style="font-size:1.5em;color: red; float:right"
+            ></i>
           </div>
-      </div>
-      
-      <div class="box" *ngFor="let article of article3">
-        <div class="pic" (click)="goEncouesgemore()"><img src="{{article.src}}"></div>
-        <div class="tx">
-            <p (click)="goEncouesgemore()">{{article.title}}</p>
-            <img src="{{article.imgSrc}}" (click)="goPersonal()">
-            <span>{{article.name}}</span>
-            <i class="iconfont icon-xihuan" style="font-size:1.5em;color: red; float:right"></i>
-          </div>
-      </div>      
-      <div class="box" *ngFor="let article of article4">
-        <div class="pic" (click)="goEncouesgemore()"><img src="{{article.src}}"></div>
-        <div class="tx">
-            <p (click)="goEncouesgemore()">{{article.title}}</p>
-            <img src="{{article.imgSrc}}" (click)="goPersonal()">
-            <span>{{article.name}}</span>
-            <i class="iconfont icon-xihuan" style="font-size:1.5em;color: red; float:right"></i>
-          </div>
-      </div>
-    </div>
-  
-  
+        </div>
     <!-- 下拉刷新 -->
     <ion-refresher (ionRefresh)="doRefresh($event)">
       <ion-refresher-content></ion-refresher-content>

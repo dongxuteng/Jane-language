@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HttpClient } from '@angular/common/http';
 
 @IonicPage()
 @Component({
@@ -8,16 +9,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class FoodsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  arr;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public http: HttpClient) {
   }
 
-  ionViewDidLoad(){
+  ionViewDidEnter(){
     let elements = document.querySelectorAll(".tabbar");
     if (elements != null) {
        Object.keys(elements).map((key) => {
           elements[key].style.display = 'none';
       });
     }
+
+    // 请求数据
+    this.http.get('/api/foods').subscribe((data)=>{
+      this.arr = data;
+    })
   }
   //ionic当退出页面的时候触发的方法
   ionViewWillLeave() {
@@ -29,30 +37,10 @@ export class FoodsPage {
     }
   }
 
-  articles = [
-    {
-      title: '制作传统的法国羊角面包',
-      imgSrc: '../../assets/imgs/3.jpg',
-      iconSrc: '../../assets/imgs/icon.png',
-      username: 'Kika Kong',
-      likes: '222 Likes'
-    },
-    {
-      title: '草莓味甜点',
-      imgSrc: '../../assets/imgs/2.jpg',
-      iconSrc: '../../assets/imgs/icon.png',
-      username: 'Kika Kong',
-      likes: '334 Likes'
-    },
-    {
-      title: '好看又好吃的马卡龙',
-      imgSrc: '../../assets/imgs/6.jpg',
-      iconSrc: '../../assets/imgs/icon.png',
-      username: 'Kika Kong',
-      likes: '877 Likes'
-    }
-  ]
-  foodsmore(){
-    this.navCtrl.push('FoodmorePage')
+  foodsmore(i){
+    this.navCtrl.push('NeirongPage',{
+      id: i,
+      value: 'foods'
+    })
   }
 }

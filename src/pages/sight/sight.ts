@@ -14,7 +14,6 @@ export class SightPage {
   ionViewDidEnter() {
     this.http.get('/api/sight').subscribe((data)=>{
       this.articles = data;
-      console.log(data);
     })
   }
 

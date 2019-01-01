@@ -1,135 +1,32 @@
-<!--
-  Generated template for the EssayPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-  <ion-header no-border >
-    <ion-navbar>
-      <ion-title>随笔</ion-title>
-    </ion-navbar>
-  </ion-header> 
-  <!-- <ion-header no-border  class="header">
-      <i class="iconfont icon-zuojiantou1" (click)="goSight()"></i>
-      <p>随笔</p>
-  </ion-header> -->
-  <ion-content>
-    <!-- <div id="header">
-      <button clear no-boder (click)="goSight()" style="font-size:22px;padding-top:0.5em;">
-        <ion-icon name="arrow-back" style="float:left"></ion-icon>
-      </button>
-    <span>随笔</span>
-    </div> -->
-    <!-- <div id="content"> -->
-      <!-- <ion-card *ngFor = "let assey of asseys" (click)='goEssaymore()'>
-          <ion-card-content>
-              <ion-card-title>{{ assey.title }}</ion-card-title>
-              <p class="inner">{{ assey.inner }}</p>
-          </ion-card-content>
-            <ion-row>
-              <ion-col col-2>
-                  <div id="img">
-                      <img src="{{ assey.iconSrc }}">
-                  </div>
-              </ion-col>
-              <ion-col >
-                <div id="comments">
-                  <button ion-button icon-start clear small>
-                      <ion-icon name="text"></ion-icon>
-                      <div>{{ assey.comments }}</div>
-                  </button>
-                </div>
-              </ion-col>
-              <ion-col >
-                <div id="likes">
-                  <button ion-button icon-start clear small>
-                      <ion-icon name="heart-outline"></ion-icon>
-                      <div>{{ assey.likes }}</div>
-                  </button>
-                </div>
-              </ion-col>
-            </ion-row>
-      </ion-card>
-    </div> -->
-  <!-- <ion-card *ngFor = "let assey of asseys" (click)='goEssaymore()'>
-    <ion-card-content>
-      <ion-card-title>{{ assey.title }}</ion-card-title>
-      <p class="inner">{{ assey.inner }}</p>
-    </ion-card-content>
-    <ion-row >
-      <ion-col col-6>
-        <ion-item>
-          <ion-avatar item-start>
-            <img src="{{ assey.iconSrc }}">
-          </ion-avatar>
-          <h2 style="text-align: left;">{{ assey.name }}</h2>
-          <p style="text-align: left">{{ assey.talk }}</p>
-        </ion-item>
-      </ion-col>
-      <ion-col col-3>
-        <button ion-button icon-start clear small>
-            <ion-icon name="text"></ion-icon>
-            <div>{{ assey.comments }}</div>
-        </button>
-      </ion-col>
-      <ion-col col-3>
-        <button ion-button icon-start clear small>
-            <ion-icon name="heart-outline"></ion-icon>
-            <div>{{ assey.likes }}</div>
-        </button>
-      </ion-col>
-    </ion-row>
-  </ion-card> -->
-    <div class="main clearfix" class="main" >
-      <div class="box" *ngFor="let assey of asseys1">
-        <div class="pic" (click)="goEssaymore()" no-boder ><img src="{{assey.bgSrc}}"></div>             
-        <div class="tx" >
-          <p (click)="goEssaymore()" >{{assey.title}}</p>
-          <img src="{{assey.iconSrc}}"(click)="goPerson()" >
-          <!-- <ion-icon name="text" clear></ion-icon> -->
-          <button id="comments" style="font-size:18px;" >
-            <ion-icon name="text" color="primary"></ion-icon>
-          </button>
-          <i class="iconfont icon-xihuan" style="font-size:1.5em;color: red; float:right"></i>
-        </div>
-      </div>      
-      <div class="box" *ngFor="let assey of asseys4">
-        <div class="pic" (click)="goEssaymore()"><img src="{{assey.bgSrc}}"></div>
-        <div class="tx">
-            <p (click)="goEssaymore()">{{assey.title}}</p>
-            <img src="{{assey.iconSrc}}" (click)="goPerson()">
-            <button id="comments" style="font-size:18px;">
-                <ion-icon name="text" color="primary"></ion-icon>
-            </button>
-            <i class="iconfont icon-xihuan" style="font-size:1.5em;color: red; float:right"></i>
-          </div>
-      </div>
-      
-      <div class="box" *ngFor="let assey of asseys2" >
-        <div class="pic" (click)="goEssaymore()"><img src="{{assey.bgSrc}}"></div>
-        <div class="tx">
-            <p (click)="goEssaymore()">{{assey.title}}</p>
-            <img src="{{assey.iconSrc}}" (click)="goPerson()">
-            <button id="comments" style="font-size:18px;">
-                <ion-icon name="text" color="primary"></ion-icon>
-            </button>
-            <!-- <button id="likes"> -->
-              <i class="iconfont icon-xihuan" style="font-size:1.5em;color: red; float:right"></i>
-            <!-- </button> -->
-          </div>
-      </div>      
-      <div class="box" *ngFor="let assey of asseys3" >
-        <div class="pic" (click)="goEssaymore()"><img src="{{assey.bgSrc}}"></div>
-        <div class="tx">
-            <p (click)="goEssaymore()">{{assey.inner}} </p>
-            <img src="{{assey.iconSrc}}" (click)="goPerson()">
-            <button id="comments" style="font-size:18px;">
-                <ion-icon name="text" color="primary"></ion-icon>
-            </button>
-            <i class="iconfont icon-xihuan" style="font-size:1.5em;color: red; float:right"></i>
-        </div>
-      </div>
+<ion-header>
+    <ion-navbar> <ion-title>随笔</ion-title> </ion-navbar>
+  </ion-header>
+<ion-content>
+    <ion-slides pager="true" autoplay="1000" loop="true" class="sli">
+      <ion-slide> <img src="../../assets/imgs/aiqing.jpg" alt="" /> </ion-slide>
+      <ion-slide> <img src="../../assets/imgs/qinqing.jpg" alt="" /> </ion-slide>
+      <ion-slide> <img src="../../assets/imgs/youqing.jpg" alt="" /> </ion-slide>
+    </ion-slides>
+    <div class="subtitle">
+      <h3 text-center>随笔</h3>
+      <p text-center>ESSAYS</p>
     </div>
+      <div class="box" *ngFor='let arr of assey,let i = index'>
+        <div class="pic" (click)="goNeirong(i);"><img src="../../assets/imgs/e1.jpeg" /></div>
+        <div class="tx" (click)="goNeirong(i)">
+          <p>{{ arr.title }}</p>
+        </div>
+          <div class="avatar">
+            <div class="icon">
+              <img src="../../assets/imgs/icon.png" /> 
+            </div>
+            <span>{{ arr.author }}</span>
+            <i
+            class="iconfont icon-xihuan"
+            style="font-size:1.5em;color: red; float:right"
+            ></i>
+          </div>
+        </div>
   <!-- 下拉刷新 -->
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
