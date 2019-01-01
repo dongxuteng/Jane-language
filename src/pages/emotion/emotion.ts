@@ -21,15 +21,15 @@ export class EmotionPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,public http: HttpClient) {
   }
   ionViewDidLoad() {
+    
+  }
+  ionViewDidEnter() {
     let elements = document.querySelectorAll(".tabbar");
     if (elements != null) {
       Object.keys(elements).map((key) => {
         elements[key].style.display = 'none';
       });
     }
-
-  }
-  ionViewDidEnter() {
     // 请求数据
     this.http.get('/api/emotions').subscribe((data)=>{
       this.assey = data;
