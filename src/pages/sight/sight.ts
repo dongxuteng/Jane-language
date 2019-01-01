@@ -14,6 +14,7 @@ export class SightPage {
   ionViewDidEnter() {
     this.http.get('/api/sight').subscribe((data)=>{
       this.articles = data;
+      console.log(data);
     })
   }
 
@@ -24,7 +25,6 @@ export class SightPage {
   }
 
   ionViewDidLoad() {
-    console.log(this.articles)
   }
 
   // 页面跳转

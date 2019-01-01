@@ -30,11 +30,6 @@ export class NeirongPage {
         this.arr[0] = data[this.id-1];
       })
     }
-    else if(this.value == 'emotion'){
-      this.http.get('/api/emotions').subscribe((data)=>{
-        this.arr[0] = data[this.id];
-      })
-    }
   }
 
   return() {
