@@ -17,17 +17,20 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class MePage {
   arr;
   username;
+  avatar;
   constructor(public navCtrl: NavController, public navParams: NavParams,public http: HttpClient) {
   }
 
   ionViewDidEnter() {
     this.username = window.localStorage.getItem('username');
+    console.log(this.username);
     this.http.post('/api/me', {"username":this.username}).subscribe((data)=>{
       console.log(data[0]);
       if(data['code'] === 1){
         console.log(data['message']);
       }else{
         this.arr=data;
+        this.avatar = './assets/imguser/'+data[0].avatar;
         console.log(this.arr);
       }
       
