@@ -22,6 +22,7 @@ export class MePage {
 
   ionViewDidEnter() {
     this.username = window.localStorage.getItem('username');
+    console.log(this.username);
     this.http.post('/api/me', {"username":this.username}).subscribe((data)=>{
       console.log(data[0]);
       if(data['code'] === 1){
@@ -64,11 +65,6 @@ export class MePage {
   function5() {
     this.navCtrl.push("ShezhiPage")
   }
-  // arr=[{
-  // name:"赫恩曼尼",
-  // icon:"../../assets/imgs/icon.png",
-  // geqian:"666 skr skr"
-  // }]
 
   change(){
     this.navCtrl.push('SettingsPage')
