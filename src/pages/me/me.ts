@@ -30,7 +30,7 @@ export class MePage {
         console.log(data['message']);
       }else{
         this.arr=data;
-        this.avatar = './assets/imguser/'+data[0].avatar;
+        this.avatar = './assets/imguser/'+data[0].img;
         console.log(this.arr);
       }
       
