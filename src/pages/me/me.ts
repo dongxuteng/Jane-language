@@ -16,16 +16,19 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class MePage {
 
-  username;
+  userInfo: Array<1> = [1];
+  username:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public http: HttpClient) {
   }
 
   ionViewDidEnter() {
     this.username = window.localStorage.getItem('username');
-    console.log(this.username);
     this.http.post('/api/me', {"username":this.username}).subscribe((data)=>{
-      console.log(data[0]);
+      this.userInfo[0] = data[0];
+      console.log(this.userInfo);
     })
+    
+    
   }
 
   goMy() {
