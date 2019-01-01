@@ -18,12 +18,16 @@ page-neirong {
     float: right;
     margin: 0;
   }
+  b{
+    font-size: 1.2em;
+  }
 
   .div {
     border-bottom: 1px solid gray;
     p {
       text-align: left;
       text-indent: 2em;
+      font-size: 16px;
     }
     .img {
       height: 18em;

@@ -15,20 +15,24 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   templateUrl: 'me.html',
 })
 export class MePage {
-
-  userInfo: Array<1> = [1];
-  username:any;
+  arr;
+  username;
   constructor(public navCtrl: NavController, public navParams: NavParams,public http: HttpClient) {
   }
 
   ionViewDidEnter() {
     this.username = window.localStorage.getItem('username');
     this.http.post('/api/me', {"username":this.username}).subscribe((data)=>{
-      this.userInfo[0] = data[0];
-      console.log(this.userInfo);
+      console.log(data[0]);
+      if(data['code'] === 1){
+        console.log(data['message']);
+      }else{
+        this.arr=data;
+        console.log(this.arr);
+      }
+      
     })
-    
-    
+    console.log(this.arr);
   }
 
   goMy() {
@@ -60,11 +64,11 @@ export class MePage {
   function5() {
     this.navCtrl.push("ShezhiPage")
   }
-  arr=[{
-  name:"赫恩曼尼",
-  icon:"../../assets/imgs/icon.png",
-  geqian:"666 skr skr"
-  }]
+  // arr=[{
+  // name:"赫恩曼尼",
+  // icon:"../../assets/imgs/icon.png",
+  // geqian:"666 skr skr"
+  // }]
 
   change(){
     this.navCtrl.push('SettingsPage')

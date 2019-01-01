@@ -17,6 +17,8 @@ export class SignupPage {
   password: string;
   repassword: string;
   time:any;
+  name:string = "熊大";
+  trendsTtile:any = "今天是咱们相识的日子。";
   regDate=new Date(+new Date() + 8 * 3600 * 1000).toISOString().slice(0,10)+" "+new Date(+new Date() + 8 * 3600 * 1000).toISOString().slice(11,19);;
   headers = new HttpHeaders({ 'Content-Type':'application/x-www-form-urlencoded'});
   constructor(public navCtrl: NavController, public app:App ,public navParams: NavParams, public alertCtrl: AlertController, public http: HttpClient) {}
@@ -91,7 +93,7 @@ export class SignupPage {
     else if(this.username != undefined && this.password == this.repassword ){
       console.log(11);
       
-      this.http.post('/api/signup',{"username":this.username,"password":this.password,"phonenum":this.phonenum,"phonepwd":this.phonepwd,"regtime":this.regDate},{headers:this.headers}).subscribe((data)=>{
+      this.http.post('/api/signup',{"username":this.username,"password":this.password,"phonenum":this.phonenum,"phonepwd":this.phonepwd,"regtime":this.regDate,"name":this.name,"trendsTitle":this.trendsTtile},{headers:this.headers}).subscribe((data)=>{
         console.log(data);
         console.log(this.regDate);
         if(data['code'] == 0){

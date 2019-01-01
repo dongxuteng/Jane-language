@@ -20,7 +20,7 @@ export class MyApp {
      if(window.localStorage.getItem('username')) {
        this.rootPage = TabsPage;
      } else {
-       this.rootPage = WelcomePage;
+       this.rootPage = 'WelcomePage';
      }
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
