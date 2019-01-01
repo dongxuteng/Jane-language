@@ -12,13 +12,19 @@ export class NeirongPage {
   id: number;
   value: string;
   arr: Array<1> = [1];
-
+  
   constructor(public navCtrl: NavController,public navParams: NavParams,public http: HttpClient) {
     // 获取主页传的内容id和value
     this.id = navParams.get('id');
     this.value = navParams.get('value');
   }
   ionViewDidEnter() {
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map(key => {
+        elements[key].style.display = "none";
+      });
+    }
     // 获取内容
     if(this.value == 'rec_article'){
       this.http.get('/api/home/neirong').subscribe((data)=>{
@@ -99,12 +105,6 @@ export class NeirongPage {
   
   
   ionViewDidLoad() {
-    let elements = document.querySelectorAll(".tabbar");
-    if (elements != null) {
-      Object.keys(elements).map(key => {
-        elements[key].style.display = "none";
-      });
-    }
   }
   //ionic当退出页面的时候触发的方法
   ionViewWillLeave() {
