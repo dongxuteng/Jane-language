@@ -24,6 +24,7 @@ export class SightPage {
   }
 
   ionViewDidLoad() {
+    console.log(this.articles)
   }
 
   // 页面跳转

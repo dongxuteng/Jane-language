@@ -28,13 +28,19 @@ export class EmotionPage {
       });
     }
 
+  }
+  ionViewDidEnter() {
     // 请求数据
     this.http.get('/api/emotions').subscribe((data)=>{
       this.assey = data;
-      console.log(this.assey);
     })
   }
-  ionViewDidEnter() {
+
+  goNeirong(i){
+    this.navCtrl.push('NeirongPage',{
+      id: i,
+      value: 'emotion'
+    })
   }
   //ionic当退出页面的时候触发的方法
   ionViewWillLeave() {
@@ -44,8 +50,5 @@ export class EmotionPage {
         elements[key].style.display = 'flex';
       });
     }
-  }
-  goEmotionmore(){
-    this.navCtrl.push('EmotionmorePage')
   }
 }

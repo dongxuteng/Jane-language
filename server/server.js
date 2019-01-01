@@ -351,6 +351,7 @@ function getContent(path,value){
                     console.log(err);
                     res.end('1');
                 }else{
+                    console.log(results);
                     res.send(results);
                 }
             }

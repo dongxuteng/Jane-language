@@ -13,14 +13,15 @@
     <p text-center>EMOTION</p>
   </div>
   <!-- <div class="main clearfix" class="main" > -->
-    <div class="box" (click)="goEmotionmore()" *ngFor='let arr of assey'>
-      <div class="pic"><img src="../../assets/imgs/e1.jpeg" /></div>
-      <div class="tx">
+    <div class="box" *ngFor='let arr of assey,let i = index'>
+      <div class="pic" (click)="goNeirong(i);"><img src="../../assets/imgs/e1.jpeg" /></div>
+      <div class="tx" (click)="goNeirong(i)">
         <p>{{ arr.title }}</p>
+      </div>
         <div class="avatar">
           <div class="icon">
             <img src="../../assets/imgs/icon.png" /> 
-            </div>
+          </div>
           <span>{{ arr.author }}</span>
           <i
           class="iconfont icon-xihuan"
@@ -28,7 +29,6 @@
           ></i>
         </div>
       </div>
-    </div>
     <!-- <div class="box" (click)="goEmotionmore()">
       <div class="pic"><img src="../../assets/imgs/e3.jpg" /></div>
       <div class="tx">
