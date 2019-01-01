@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SightPage } from '../sight/sight';
+import { HttpClient } from '@angular/common/http';
 
 /**
  * Generated class for the EssayPage page.
@@ -56,11 +57,28 @@ export class EssayPage {
       likes:45,
     }
   ]
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public http: HttpClient) {
   }
 
+  //ionic当退出页面的时候触发的方法
+  ionViewWillLeave() {
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map((key) => {
+        elements[key].style.display = 'flex';
+	    });
+    }
+  }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EssayPage');
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+       Object.keys(elements).map((key) => {
+          elements[key].style.display = 'none';
+      });
+    }
+    this.http.get('/api/essay').subscribe((data)=>{
+      console.log(data);
+    })
   }
   goEssaymore(){
     this.navCtrl.push('EssaymorePage');
