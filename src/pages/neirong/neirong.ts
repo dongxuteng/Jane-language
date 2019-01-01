@@ -19,6 +19,12 @@ export class NeirongPage {
     this.value = navParams.get('value');
   }
   ionViewDidEnter() {
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map(key => {
+        elements[key].style.display = "none";
+      });
+    }
     // 获取内容
     if(this.value == 'rec_article'){
       this.http.get('/api/home/neirong').subscribe((data)=>{
@@ -35,6 +41,16 @@ export class NeirongPage {
         this.arr[0] = data[this.id];
       })
     }
+    else if(this.value == 'encouragements'){
+      this.http.get('/api/encouragements').subscribe((data)=>{
+        this.arr[0] = data[this.id];
+      })
+    }
+    else if(this.value == 'foods') {
+      this.http.get('/api/foods').subscribe((data)=>{
+        this.arr[0] = data[this.id];
+      })
+    }
   }
 
   return() {
@@ -43,6 +59,7 @@ export class NeirongPage {
   
   //关注
   show1() {
+    var btn = document.getElementById("follow");
     var aTrue = document.getElementById("true");
     var aFalse = document.getElementById("false");
     if (aTrue.style.display != "none") {
@@ -99,12 +116,6 @@ export class NeirongPage {
   
   
   ionViewDidLoad() {
-    let elements = document.querySelectorAll(".tabbar");
-    if (elements != null) {
-      Object.keys(elements).map(key => {
-        elements[key].style.display = "none";
-      });
-    }
   }
   //ionic当退出页面的时候触发的方法
   ionViewWillLeave() {

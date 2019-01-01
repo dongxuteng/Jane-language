@@ -83,18 +83,18 @@ page-neirong {
   }
   #follow {
     display: block;
-    width: 4em;
+    width: 5em;
     height: 1.6em;
     margin-left: 10px;
     background: rgb(247, 247, 247);
-    border: 1px solid red;
+    border: 1px solid #0099FF;
     border-radius: 5px;
     box-shadow: 2px 2px 2px #ccc;
-    color: red;
+    color: #0099FF;
   }
-  #follow:hover {
-    background: rgba(233, 7, 7, 0.2);
-  }
+  // #follow:hover {
+  //   background: rgba(233, 7, 7, 0.2);
+  // }
   #true {
     display: inline;
   }

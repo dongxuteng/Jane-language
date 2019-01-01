@@ -12,7 +12,6 @@
     <h3 text-center>亲情&爱情&友情</h3>
     <p text-center>EMOTION</p>
   </div>
-  <!-- <div class="main clearfix" class="main" > -->
     <div class="box" *ngFor='let arr of assey,let i = index'>
       <div class="pic" (click)="goNeirong(i);"><img src="../../assets/imgs/e1.jpeg" /></div>
       <div class="tx" (click)="goNeirong(i)">
@@ -29,42 +28,6 @@
           ></i>
         </div>
       </div>
-    <!-- <div class="box" (click)="goEmotionmore()">
-      <div class="pic"><img src="../../assets/imgs/e3.jpg" /></div>
-      <div class="tx">
-        <p>【爱情感悟】那些以玩笑说出口的话，往往是最真的表达</p>
-        <img src="../../assets/imgs/icon.png" /> <span>花颜</span>
-        <i
-          class="iconfont icon-xihuan"
-          style="font-size:1.5em;color: red; float:right"
-        ></i>
-      </div>
-    </div> -->
-
-    <!-- <div class="box" (click)="goEmotionmore()">
-      <div class="pic"><img src="../../assets/imgs/home.jpeg" /></div>
-      <div class="tx">
-        <p>【爱情感悟】那些以玩笑说出口的话，往往是最真的表达</p>
-        <img src="../../assets/imgs/icon.png" /> <span>花颜</span>
-        <i
-          class="iconfont icon-xihuan"
-          style="font-size:1.5em;color: red; float:right"
-        ></i>
-      </div>
-    </div>
-    <div class="box" (click)="goEmotionmore()">
-      <div class="pic"><img src="../../assets/imgs/e2.jpg" /></div>
-      <div class="tx">
-        <p>【爱情感悟】那些以玩笑说出口的话，往往是最真的表达</p>
-        <img src="../../assets/imgs/icon.png" /> <span>花颜</span>
-        <i
-          class="iconfont icon-xihuan"
-          style="font-size:1.5em;color: red; float:right"
-        ></i>
-      </div>
-    </div> -->
-  <!-- </div> -->
-
   <!-- 下拉刷新 -->
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>

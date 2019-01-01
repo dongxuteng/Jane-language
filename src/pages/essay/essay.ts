@@ -1,20 +1,16 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SightPage } from '../sight/sight';
-
-/**
- * Generated class for the EssayPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
+import { HttpClient } from '@angular/common/http';
 @IonicPage()
 @Component({
   selector: 'page-essay',
   templateUrl: 'essay.html',
 })
 export class EssayPage {
+
+  assey;
+
   asseys1 = [
     {
       name: "春暖花开",
@@ -56,11 +52,24 @@ export class EssayPage {
       likes:45,
     }
   ]
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public http: HttpClient) {
   }
-
+  
+  ionViewDidEnter() {
+  }
+  
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EssayPage');
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map(key => {
+        elements[key].style.display = "none";
+      });
+    }
+    // 获取数据
+    this.http.get('/api/essay').subscribe((data)=>{
+      this.assey = data;
+      console.log(this.assey);
+    })
   }
   goEssaymore(){
     this.navCtrl.push('EssaymorePage');
@@ -72,6 +81,8 @@ export class EssayPage {
     this.navCtrl.push('PersonalPage');
   }
   doRefresh(refresher) {//请求数据的请求方法可以写在这个函数里面
+    
+
     console.log('Begin async operation', refresher);
     setTimeout(() => {
       console.log('刷新成功');
@@ -83,4 +94,13 @@ export class EssayPage {
         console.log('加载成功');
         loader.complete();
       }, 1000);}
+
+      ionViewWillLeave() {
+        let elements = document.querySelectorAll(".tabbar");
+        if (elements != null) {
+          Object.keys(elements).map(key => {
+            elements[key].style.display = "flex";
+          });
+        }
+      }
 }
