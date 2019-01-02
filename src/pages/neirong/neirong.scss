@@ -125,26 +125,26 @@ page-neirong {
     background-color: rgb(247, 247, 247);
     border-bottom: 1px darkgray solid;
     .touxiang {
-      width: 2em;
-      height: 2em;
+      width: 3em;
+      height: 3em;
       background-image: url("../../assets/imgs/10.jpg");
       background-size: cover;
       margin: 0;
       border-radius: 50% 50%;
     }
     .nicheng {
-      width: 5em;
-      height: 2em;
-      font-size: 12px;
-      // float: left;
-      position: relative;
-      left: 2.5em;
-      bottom: 1em;
+      width: 10em;
+      height: 3em;
+      font-size: 16px;
+      float: left;
+      // position: relative;
+      // left: 4em;
+      // bottom: 1em;
     }
     .pinglun {
       width: 100%;
       height: auto;
-      text-align: left;
+      text-align: center;
       float: left;
       position: relative;
       bottom: 1em;
@@ -154,6 +154,23 @@ page-neirong {
     }
     .clean {
       color: red;
+    }
+  }
+  .comment{
+    .icon{
+      width: 100%;
+      height: 60px;
+      line-height: 60px;
+      span{
+        font-size: 1.2em;
+        position: relative;
+        bottom: 20px;
+      }
+    }
+    img{
+      border-radius: 50%;
+      width: 3.5em;
+      height: 3.5em;
     }
   }
 }

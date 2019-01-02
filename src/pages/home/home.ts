@@ -16,6 +16,7 @@ export class HomePage {
   localCityName: string;
   Temp: number;
   arr;
+  avatar;
     constructor(public navCtrl: NavController,public http:HttpClient) {
     //温度
     this.http.get(this.url).subscribe((data)=>{
@@ -54,6 +55,8 @@ export class HomePage {
   ionViewDidEnter() {
     this.http.get('/api/home').subscribe((data)=>{
       this.arr = data;
+      this.avatar = '../assets' + data[0].img;
+      console.log(this.arr);
     })
   }
   
@@ -77,6 +80,7 @@ export class HomePage {
 
   //喜欢
   isLiked(i){
+    console.log(this.arr[i]);
     // document.querySelectorAll('.star')[0].className += ' collected';
     var islike = document.querySelectorAll('#like')[i].className.indexOf(' love');
     // console.log(islike);

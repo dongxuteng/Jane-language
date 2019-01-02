@@ -53,8 +53,16 @@
     <p></p>
     <p></p>
     <ul id="ul1">
+      <!-- <div class="comment">
+        <div class="icon">
+          <img src="../../assets/imgs/10.jpg" alt="">
+          <span>{{ username }}</span>
+        </div>
+        <div class="content"> {{ comments }} </div>
+        <div class="time"> {{ time }} </div>
+      </div> -->
     </ul>
-    <textarea placeholder="有什么感想？快来评论吧" id='txt'></textarea>
-    <i class="iconfont icon-fabu" id="btn1" (click)="Fabu()"></i>
+    <textarea placeholder="有什么感想？快来评论吧" id='txt' [(ngModel)]="comments"></textarea>
+    <i class="iconfont icon-fabu" id="btn1" (click)="release()"></i>
   </div>
 </ion-content>

@@ -237,6 +237,7 @@ app.post('/api/signup', function(req,res){
                     console.log('没有这个用户，可以注册');
                     pool.query(sqlInsert,[signupData.username, signupData.password, signupData.phonenum,signupData.regtime,signupData.name,signupData.trendsTitle],(err,results)=>{
                         if(err){
+                            console.log(err);
                             res.send({
                                 code:1,
                                 status:'error',
@@ -378,6 +379,43 @@ getContent('music','音乐');
 
 // 获取影视内容
 getContent('movie','影视');
+
+// 发布评论
+
+app.post('/api/release',function(req,res) {
+    var name; // 评论人昵称
+    var username = req.body.username; // 评论人的用户名
+    var id = req.body.id;  // 评论的文章id
+    var time = req.body.time; // 评论时间
+    var comments = req.body.comments; // 评论内容
+    var value = req.body.value; // 评论的文章类型
+    console.log(id,username,time,comments,value);
+    pool.query(
+        'select name from user where username=?',
+        username,
+        // 查询name
+        (err,results)=>{
+            results = JSON.stringify(results);
+            results = JSON.parse(results);
+            name = results[0].name;
+            // 文章类型为推荐文章
+            if(value == 'rec_article'){
+                pool.query(
+                    'insert into trendsReply(Uid,username,replyContent,name) values(?,?,?,?)',
+                    [id,username,comments,name],
+                (err,results)=>{
+                    if(err){
+                        console.log(err);
+                        res.end('1');
+                    }else{
+                        console.log('评论成功');
+                    }
+                }
+                )
+            }
+        }
+        )
+})
 
 
 // 我的页面请求个性签名

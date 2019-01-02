@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { HttpClient } from "@angular/common/http";
+import { getUnpackedSettings } from "http2";
 
 @IonicPage()
 @Component({
@@ -9,6 +10,9 @@ import { HttpClient } from "@angular/common/http";
 })
 export class NeirongPage {
   
+  comments;
+  username;
+  time;
   id: number;
   value: string;
   arr: Array<1> = [1];
@@ -19,6 +23,10 @@ export class NeirongPage {
     this.value = navParams.get('value');
   }
   ionViewDidEnter() {
+    var date = new Date();
+    this.time = date.getMonth()+1 + '月' + date.getDate() + '日';
+    //获取用户信息
+    this.username = window.localStorage.getItem('username');
     let elements = document.querySelectorAll(".tabbar");
     if (elements != null) {
       Object.keys(elements).map(key => {
@@ -52,11 +60,60 @@ export class NeirongPage {
       })
     }
   }
-
+  
   return() {
     this.navCtrl.pop();
   }
   
+  // 发布评论
+  release() {
+    var date = new Date();
+    var time = date.getMonth()+1 + '月' + date.getDate() + '日';
+    this.http.post('/api/release',{"username": this.username, "value": this.value, "time":time, "comments": this.comments, "id":this.id}).subscribe((data)=>{
+      console.log(data);
+    })
+        var oTxt = document.getElementById("txt");
+        var oBtn = document.getElementById("btn1");
+        var oUl1 = document.getElementById("ul1");
+        var oBox = document.createElement("div");
+        oBox.className = "box";
+                    
+        //创建头像
+        var oDivTouxiang = document.createElement("div");
+        oDivTouxiang.className = "touxiang";
+        oBox.appendChild(oDivTouxiang);
+        
+        var oDivName = document.createElement("div");
+        oDivName.className = "nicheng";
+        oDivName.innerHTML = this.username;
+        var oDivTime = document.createElement("div");
+        oDivTime.className = "shijian";
+        oDivTime.innerHTML = time;
+        oBox.appendChild(oDivTime);
+        oBox.appendChild(oDivName);
+        
+        var oDivComment = document.createElement("div");
+        oDivComment.className = "pinglun";
+        oDivComment.innerHTML = this.comments;
+        oTxt['value']=null;
+        oBox.appendChild(oDivComment);
+        
+        
+        oUl1.appendChild(oBox);
+        
+        /*oBox.insertBefore(oUl1,oDiv[0]);*/
+        
+        // var aA = oDiv.getElementsByTagName("a");
+        
+        // for(var i = 0;i<aA.length;i++){
+        //     aA[i].onclick=function(){
+        //       // console.log(oDiv.parentNode)
+        //         var x=oDiv.parentNode.parentNode.removeChild(oDiv.parentNode);
+        //         x=null;
+        //     }
+        // }
+    }
+
   //关注
   show1() {
     var btn = document.getElementById("follow");
@@ -129,50 +186,4 @@ export class NeirongPage {
   goPersonal() {
     this.navCtrl.push("PersonalPage");
   }
-//   Fabu(){
-//     var oTxt = document.getElementById("txt");
-//     var oBtn = document.getElementById("btn1");
-//     var oUl1 = document.getElementById("ul1");
-//     var oBox = document.createElement("div");
-//     oBox.className = "box";
-                
-//     //创建头像
-//     var oDiv = document.createElement("div");
-//     oDiv.className = "touxiang";
-//     oBox.appendChild(oDiv);
-    
-//     var oDiv = document.createElement("div");
-//     oDiv.className = "nicheng";
-//     oDiv.innerHTML = "赫恩曼尼";
-//     oBox.appendChild(oDiv);
-    
-//     var oDiv = document.createElement("div");
-//     oDiv.className = "pinglun";
-//     oDiv.innerHTML = oTxt['value'];
-//     oTxt['value']=null;
-//     oBox.appendChild(oDiv);
-    
-//     var oDiv = document.createElement("div");
-//     oDiv.className = "shijian";
-//     var oDate = new Date();
-//     //oDate.getFullYear
-    
-//     oDiv.innerHTML =oDate.getFullYear()+"/"+(oDate.getMonth()+1)+"/"+oDate.getDate()+"<a class='clean' href='javascript:;'>删除</a>";
-    
-//     oBox.appendChild(oDiv);
-    
-//     oUl1.appendChild(oBox);
-    
-//     /*oBox.insertBefore(oUl1,oDiv[0]);*/
-    
-//     var aA = oDiv.getElementsByTagName("a");
-    
-//     for(var i = 0;i<aA.length;i++){
-//         aA[i].onclick=function(){
-//           // console.log(oDiv.parentNode)
-//             var x=oDiv.parentNode.parentNode.removeChild(oDiv.parentNode);
-//             x=null;
-//         }
-//     }
-// }
 }
