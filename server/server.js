@@ -392,7 +392,7 @@ app.post('/api/release',function(req,res) {
     var value = req.body.value; // 评论的文章类型
     console.log(id,username,time,comments,value);
     pool.query(
-        'select name from user where username=?',
+        'select * from user where username=?',
         username,
         // 查询name
         (err,results)=>{
@@ -402,8 +402,8 @@ app.post('/api/release',function(req,res) {
             // 文章类型为推荐文章
             if(value == 'rec_article'){
                 pool.query(
-                    'insert into trendsReply(Uid,username,trendsReplyId,replyContent,name) values(?,?,?,?,?)',
-                    [id,username,userId,comments,name],
+                    'insert into trendsReply(id,username,replyContent,name) values(?,?,?,?) ',
+                    [id,username,comments,name],
                 (err,results)=>{
                     if(err){
                         console.log(err);
