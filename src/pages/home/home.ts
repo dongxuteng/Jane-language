@@ -94,5 +94,8 @@ export class HomePage {
       // console.log('已收藏->未收藏： ',document.querySelectorAll('#like')[0].className);
       this.arr[i].star--;
     }
+    this.http.post('/api/star',{"star": this.arr[i].star, "id":this.arr[i].id}).subscribe((data)=>{
+      console.log(data);
+    })
   }
 }

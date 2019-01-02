@@ -419,6 +419,20 @@ app.post('/api/release',function(req,res) {
 })
 
 
+// 获取点赞数
+app.post('/api/star',function(req,res){
+    var count = req.body.star;
+    var id = req.body.id;
+    console.log(count);
+    pool.query(
+        'update rec_article set star=? where id=?',
+        [count,id],
+        (err,results)=>{
+            console.log(results);
+        }
+    )
+})
+
 // 我的页面请求个性签名
 app.post('/api/me', function(req,res) {
     var username = req.body.username;
