@@ -370,7 +370,7 @@ DROP TABLE IF EXISTS `trendsReply`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `trendsReply` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `username` varchar(24) DEFAULT NULL,
   `trendsReplyId` int(11) DEFAULT NULL,
   `replyDate` datetime DEFAULT NULL,
@@ -380,7 +380,7 @@ CREATE TABLE `trendsReply` (
   PRIMARY KEY (`id`),
   KEY `trendsReplyId` (`trendsReplyId`),
   CONSTRAINT `trendsReply_ibfk_1` FOREIGN KEY (`trendsReplyId`) REFERENCES `article` (`Uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -453,7 +453,7 @@ CREATE TABLE `user` (
   `name` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`Uid`),
   KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -462,7 +462,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'hy',18,'水瓶座',10,'1234567','女','/imguser/1.jpg','石家庄','15336525986','很喜欢你',2,5,'减肥，那时光进来的地方','http://pic.sogou.com/d?query=%B1%B3%BE%B0%CD%BC%C6%AC%CE%DE%CB%AE%D3%A1&mode=1&did=84#did83','花颜','花颜','花颜','2018-03-08 14:48:44','花颜'),(2,'lx',30,'射手座',30,'1314258','男','/imguser/2.jpg','北京','15669852364','支持你',14,8000,'一些能能吃掉黑眼圈的最佳食物','http://pic.sogou.com/d?query=%B1%B3%BE%B0%CD%BC%C6%AC%CE%DE%CB%AE%D3%A1&mode=1&did=84#did104','林夕','林夕','林夕','2017-10-12 14:48:58','林夕'),(3,'ly',20,'白羊座',20,'1658947','女','/imguser/3.jpg','上海','15698241539','一起去玩',3,4,'上班族如何在30分钟内做出丰富的便当早餐','http://pic.sogou.com/d?query=%B1%B3%BE%B0%CD%BC%C6%AC%CE%DE%CB%AE%D3%A1&mode=1&did=11#did10','林一','林一','林一','2018-10-03 19:45:10','林一'),(4,'zy',22,'双子座',60,'a1b2c3d','男','/imguser/4.jpg','厦门','15528964532','吃饭',5,8,'不评论就是最大的善意','http://pic.sogou.com/d?query=%B1%B3%BE%B0%CD%BC%C6%AC%CE%DE%CB%AE%D3%A1&mode=1&did=45#did44','左一','左一','左一','2018-10-11 08:49:22','左一'),(5,'lm',36,'金牛座',50,'ebscfd','女','/imguser/5.jpg','成都','16952384765','旅游',20,6,'这个世界很大，愿你们都去看看','http://pic.sogou.com/d?query=%B1%B3%BE%B0%CD%BC%C6%AC%CE%DE%CB%AE%D3%A1&mode=1&did=591#did590','李梅','李梅','李梅','2016-12-15 11:49:35','李梅'),(6,'mx',20,'处女座',40,'dxt123456','男','/imguser/6.jpg','石家庄','15226591928','挺不错的',5,10,'今天又是美好的一天',NULL,'熊大','熊大','熊大','2018-12-18 09:32:26','熊三'),(7,'lv',20,NULL,0,'','男','/imguser/7.jpg','北京','15226591888',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-19 09:50:52','熊二'),(8,'ab',19,'处女座',5,'1528964','男','/imguser/8.jpg','石家庄','18330105321',NULL,1,NULL,NULL,NULL,'光头强','光头强','光头强','2018-12-24 15:50:39','光头强'),(21,'dxtdxt',20,'水瓶座',5,'123123','男','/imguser/3.jpg','石家庄','15226591929',NULL,0,4,'今天是咱们相识的日子。',NULL,NULL,NULL,NULL,'2018-12-31 21:09:03','熊大');
+INSERT INTO `user` VALUES (1,'hy',18,'水瓶座',10,'1234567','女','/imguser/1.jpg','石家庄','15336525986','很喜欢你',2,5,'减肥，那时光进来的地方','http://pic.sogou.com/d?query=%B1%B3%BE%B0%CD%BC%C6%AC%CE%DE%CB%AE%D3%A1&mode=1&did=84#did83','花颜','花颜','花颜','2018-03-08 14:48:44','花颜'),(2,'lx',30,'射手座',30,'1314258','男','/imguser/2.jpg','北京','15669852364','支持你',14,8000,'一些能能吃掉黑眼圈的最佳食物','http://pic.sogou.com/d?query=%B1%B3%BE%B0%CD%BC%C6%AC%CE%DE%CB%AE%D3%A1&mode=1&did=84#did104','林夕','林夕','林夕','2017-10-12 14:48:58','林夕'),(3,'ly',20,'白羊座',20,'1658947','女','/imguser/3.jpg','上海','15698241539','一起去玩',3,4,'上班族如何在30分钟内做出丰富的便当早餐','http://pic.sogou.com/d?query=%B1%B3%BE%B0%CD%BC%C6%AC%CE%DE%CB%AE%D3%A1&mode=1&did=11#did10','林一','林一','林一','2018-10-03 19:45:10','林一'),(4,'zy',22,'双子座',60,'a1b2c3d','男','/imguser/4.jpg','厦门','15528964532','吃饭',5,8,'不评论就是最大的善意','http://pic.sogou.com/d?query=%B1%B3%BE%B0%CD%BC%C6%AC%CE%DE%CB%AE%D3%A1&mode=1&did=45#did44','左一','左一','左一','2018-10-11 08:49:22','左一'),(5,'lm',36,'金牛座',50,'ebscfd','女','/imguser/5.jpg','成都','16952384765','旅游',20,6,'这个世界很大，愿你们都去看看','http://pic.sogou.com/d?query=%B1%B3%BE%B0%CD%BC%C6%AC%CE%DE%CB%AE%D3%A1&mode=1&did=591#did590','李梅','李梅','李梅','2016-12-15 11:49:35','李梅'),(6,'mx',20,'处女座',40,'dxt123456','男','/imguser/6.jpg','石家庄','15226591928','挺不错的',5,10,'今天又是美好的一天',NULL,'熊大','熊大','熊大','2018-12-18 09:32:26','熊三'),(7,'lv',20,NULL,0,'','男','/imguser/7.jpg','北京','15226591888',NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,'2018-12-19 09:50:52','熊二'),(8,'ab',19,'处女座',5,'1528964','男','/imguser/8.jpg','石家庄','18330105321',NULL,1,NULL,NULL,NULL,'光头强','光头强','光头强','2018-12-24 15:50:39','光头强'),(21,'dxtdxt',20,'水瓶座',5,'123123','男','/imguser/3.jpg','石家庄','15226591929',NULL,0,4,'今天是咱们相识的日子。',NULL,NULL,NULL,NULL,'2018-12-31 21:09:03','熊大'),(22,'cymcymcym',NULL,NULL,NULL,'1234567','男','/imguser/3.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-01-02 12:56:47','熊四');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -475,4 +475,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-01-02 12:42:41
+-- Dump completed on 2019-01-02 13:15:14
