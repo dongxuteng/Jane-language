@@ -86,13 +86,13 @@ export class HomePage {
     // console.log(islike);
     if(islike === -1){  // 未收藏->已收藏
       document.querySelectorAll('#like')[i].className += ' love';
-      this.arr[i].like++
+      this.arr[i].star++
       // console.log('未收藏->已收藏： ',document.querySelectorAll('#like')[0].className);
     }
     else{  // 已收藏->未收藏
       document.querySelectorAll('#like')[i].className = document.querySelectorAll('#like')[i].className.slice(0,20);
       // console.log('已收藏->未收藏： ',document.querySelectorAll('#like')[0].className);
-      this.arr[i].like--;
+      this.arr[i].star--;
     }
   }
 }
