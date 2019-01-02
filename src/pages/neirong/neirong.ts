@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { HttpClient } from "@angular/common/http";
-import { getUnpackedSettings } from "http2";
 
 @IonicPage()
 @Component({
@@ -58,6 +57,11 @@ export class NeirongPage {
     }
     else if(this.value == 'foods') {
       this.http.get('/api/foods').subscribe((data)=>{
+        this.arr[0] = data[this.id];
+      })
+    }
+    else if(this.value == 'essay'){
+      this.http.get('/api/essay').subscribe((data)=>{
         this.arr[0] = data[this.id];
       })
     }

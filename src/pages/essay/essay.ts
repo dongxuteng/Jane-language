@@ -56,15 +56,21 @@ export class EssayPage {
   }
   
   ionViewDidEnter() {
-  }
-  
-  ionViewDidLoad() {
     let elements = document.querySelectorAll(".tabbar");
     if (elements != null) {
       Object.keys(elements).map(key => {
         elements[key].style.display = "none";
       });
     }
+  }
+  
+  goNeirong(i){
+    this.navCtrl.push('NeirongPage',{
+      id: i,
+      value: 'essay'
+    })
+  }
+  ionViewDidLoad() {
     // 获取数据
     this.http.get('/api/essay').subscribe((data)=>{
       this.assey = data;
