@@ -1,7 +1,7 @@
 <ion-content>
   <div class="headImg">
     <div class="header">
-      <i class="iconfont icon-left1" (click)="return()"></i>
+      <i class="iconfont icon-left1" (click)="fanhui()"></i>
     </div>
     <div class="centerImg" (click)="shangchuan()">
       <i class="iconfont icon-tupianshangchuan" style="font-size:3em;"></i>
@@ -12,11 +12,25 @@
     <div class="textHead">
       <i class="iconfont icon-ditu"></i>
       {{localCityName}}
-      <span class="name">{{arr.name}}</span>
+      <!-- <span class="name">{{ name }}</span> -->
     </div>
-      <ion-label color="black" stacked>选择音乐</ion-label>
-    <textarea class="textInput">
-    </textarea>
+    <ion-item >
+      <ion-label  floating style="height:25px;">文章题目</ion-label>
+      <ion-input type="text" [(ngModel)]="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>分类</ion-label>
+      <ion-select [(ngModel)]="txt"  (ngModelChange)="switchType()"  style="height:45px;width:100%" placeholder="请选择">
+        <ion-option value="情感">情感</ion-option>
+        <ion-option value="旅行">旅行</ion-option>
+        <ion-option value="励志">励志</ion-option>
+        <ion-option value="随笔">随笔</ion-option>
+        <ion-option value="美食">美食</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="textInput">
+      <ion-textarea placeholder="记录你想写的事物..." [(ngModel)]="content"></ion-textarea>
+    </ion-item>
   </div>
   <div class="buttons">
     <div class="buttons-float">
@@ -26,7 +40,7 @@
         </button>
         <span style="font-size:1.3em;">保存</span>
       </div>
-      <div class="btn-release">
+      <div class="btn-release"  (click)="fabu()">
         <button ion-button full class="btnShadow" color='light'>
           <i class="iconfont icon-fabu" style="font-size:2em;"></i>
         </button>

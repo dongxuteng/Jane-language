@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {HttpClient} from '@angular/common/http'
+import { IonicPage, NavController, NavParams,ActionSheetController, AlertController } from 'ionic-angular';
+import {HttpClient, HttpHeaders } from '@angular/common/http'
+import {ImagePicker, ImagePickerOptions} from "@ionic-native/image-picker";
 /**
  * Generated class for the FabuPage page.
  *
@@ -15,11 +16,17 @@ declare var BMap;
   templateUrl: 'fabu.html',
 })
 export class FabuPage {
+  img;
+  arr;
+  name;
+  username;
+  txt;
+  title;
+  content;
+  fabuDate=new Date(+new Date() + 8 * 3600 * 1000).toISOString().slice(0,10)+" "+new Date(+new Date() + 8 * 3600 * 1000).toISOString().slice(11,19);
   localCityName: string;
-  arr = {
-    name: '赫恩曼尼'
-  }
-  constructor(public navCtrl: NavController, public navParams: NavParams,private camera: Camera) {
+  headers = new HttpHeaders({ 'Content-Type':'application/x-www-form-urlencoded'});
+  constructor(public navCtrl: NavController, public http: HttpClient,public navParams: NavParams,public actionSheetCtrl: ActionSheetController, public alertCtrl: AlertController, public imagePicker: ImagePicker, public camera: Camera) {
   }
 
 
@@ -45,6 +52,36 @@ export class FabuPage {
   }
 
   ionViewDidEnter() {
+
+  }
+  alert(){
+    const alert = this.alertCtrl.create({
+      title: '提示',
+      subTitle: '发布成功！',
+      buttons: ['OK']
+    });
+    alert.present(); 
+  }
+  fabu(){
+    this.username = window.localStorage.getItem('username');
+    console.log(this.username);
+    // console.log(this.title);
+    // console.log(this.txt);
+    // console.log(this.fabuDate);
+    // console.log(this.content);
+    this.http.post('/api/home/fabu', {"username":this.username,"title":this.title,"sort":this.txt,"content":this.content,"date":this.fabuDate},{headers:this.headers}).subscribe((data)=>{
+      console.log("1",data[0]);
+      if(data['code'] === 1){
+        console.log("2",data['message']);
+      }else{
+        this.arr=data;
+        // this.name=data[0].name;
+        console.log("3",this.arr);
+        this.alert();
+      }
+      
+    })
+    console.log(this.arr);
   }
   //ionic当退出页面的时候触发的方法
   ionViewWillLeave() {
@@ -55,28 +92,82 @@ export class FabuPage {
       });
     }
   }
-shangchuan(){
-    // 设置选项
-    const options: CameraOptions = {
-      quality: 100,
-      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-      destinationType: this.camera.DestinationType.DATA_URL,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+  switchType() {
+    console.log(this.txt);
   }
-  
-  // 获取图片
-    this.camera.getPicture(options).then((imageData) => {
-  // 获取成功
-    let base64Image = 'data:image/jpeg;base64,' + imageData;
-  
-    },(err) => {
-    console.log('获取图片失败');
-    });
+shangchuan(){
+  let actionSheet = this.actionSheetCtrl.create({
+    buttons: [{
+      text: '拍照',
+      role: 'takePhoto',
+      handler: () => {
+        this.takePhoto();
+      }
+    }, {
+      text: '从相册选择',
+      role: 'chooseFromAlbum',
+      handler: () => {
+        this.chooseFromAlbum();
+      }
+    }, {
+      text: '取消',
+      role: 'cancel',
+      handler: () => {
+        console.log("cancel");
+      }
+    }]
+  });
+
+  actionSheet.present().then(value => {
+    return value;
+  });
+}
+takePhoto() {
+  const options: CameraOptions = {
+    quality: 100,
+    allowEdit: true,
+    targetWidth: 200,
+    targetHeight: 200,
+    saveToPhotoAlbum: true,
+  };
+
+  this.camera.getPicture(options).then(image => {
+    console.log('Image URI: ' + image);
+    this.img = image.slice(7);
+  }, error => {
+    console.log('Error: ' + error);
+  });
 }
 
+chooseFromAlbum() {
+  const options: ImagePickerOptions = {
+    maximumImagesCount: 1,
+    width: 200,
+    height: 200
+  };
+  this.imagePicker.getPictures(options).then(images => {
+    if (images.length > 1) {
+      this.presentAlert();
+    } else if (images.length === 1) {
+      console.log('Image URI: ' + images[0]);
+      this.img = images[0].slice(7);
+    }
+  }, error => {
+    console.log('Error: ' + error);
+  });
+}
+
+presentAlert() {
+  let alert = this.alertCtrl.create({title: "上传失败", message: "只能选择一张图片作为头像哦", buttons: ["确定"]});
+  alert.present().then(value => {
+    return value;
+  });
+}
   //返回主页
-  return() {
+  fanhui() {
     this.navCtrl.pop();
   }
 }
+
+  
+
