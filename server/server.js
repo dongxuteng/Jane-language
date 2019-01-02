@@ -384,6 +384,7 @@ getContent('movie','影视');
 
 app.post('/api/release',function(req,res) {
     var name; // 评论人昵称
+    var userId = req.body.userId; // 评论人的Id
     var username = req.body.username; // 评论人的用户名
     var id = req.body.id;  // 评论的文章id
     var time = req.body.time; // 评论时间
@@ -401,8 +402,8 @@ app.post('/api/release',function(req,res) {
             // 文章类型为推荐文章
             if(value == 'rec_article'){
                 pool.query(
-                    'insert into trendsReply(Uid,username,replyContent,name) values(?,?,?,?)',
-                    [id,username,comments,name],
+                    'insert into trendsReply(Uid,username,trendsReplyId,replyContent,name) values(?,?,?,?,?)',
+                    [id,username,userId,comments,name],
                 (err,results)=>{
                     if(err){
                         console.log(err);

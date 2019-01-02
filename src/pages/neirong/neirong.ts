@@ -13,6 +13,7 @@ export class NeirongPage {
   comments;
   username;
   time;
+  userId;
   id: number;
   value: string;
   arr: Array<1> = [1];
@@ -27,6 +28,7 @@ export class NeirongPage {
     this.time = date.getMonth()+1 + '月' + date.getDate() + '日';
     //获取用户信息
     this.username = window.localStorage.getItem('username');
+    this.userId = window.localStorage.getItem('userId');
     let elements = document.querySelectorAll(".tabbar");
     if (elements != null) {
       Object.keys(elements).map(key => {
@@ -69,7 +71,7 @@ export class NeirongPage {
   release() {
     var date = new Date();
     var time = date.getMonth()+1 + '月' + date.getDate() + '日';
-    this.http.post('/api/release',{"username": this.username, "value": this.value, "time":time, "comments": this.comments, "id":this.id}).subscribe((data)=>{
+    this.http.post('/api/release',{"username": this.username, "value": this.value, "time":time, "comments": this.comments, "id":this.id, "userId":this.userId}).subscribe((data)=>{
       console.log(data);
     })
         var oTxt = document.getElementById("txt");
