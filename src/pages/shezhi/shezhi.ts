@@ -47,7 +47,7 @@ export class ShezhiPage {
     this.app.getRootNavs()[0].setRoot('LoginPage');
   }
   help(){
-    this.navCtrl.push(HelpPage);
+    this.navCtrl.push('HelpPage');
   }
   about(){
     this.navCtrl.push(AboutPage);
