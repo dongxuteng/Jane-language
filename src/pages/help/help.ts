@@ -25,9 +25,6 @@ export class HelpPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HelpPage');
-  }
   goToFeedBack(){
     this.navCtrl.push(FeedbackPage)
   }
@@ -42,6 +39,24 @@ export class HelpPage {
   }
   fun4(){
     this.navCtrl.push(UpdatePage)
+  }
+
+  ionViewDidLoad() {
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map(key => {
+        elements[key].style.display = "none";
+      });
+    }
+  }
+ 
+  ionViewWillLeave() {
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map(key => {
+        elements[key].style.display = "flex";
+      });
+    }
   }
 
 }

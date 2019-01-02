@@ -18,8 +18,22 @@ export class YinsiPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad YinsiPage');
-  }
 
+  ionViewDidLoad() {
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map(key => {
+        elements[key].style.display = "none";
+      });
+    }
+  }
+ 
+  ionViewWillLeave() {
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map(key => {
+        elements[key].style.display = "flex";
+      });
+    }
+  }
 }

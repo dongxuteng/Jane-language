@@ -24,8 +24,21 @@ export class ZhanghaoPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ZhanghaoPage');
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map(key => {
+        elements[key].style.display = "none";
+      });
+    }
   }
  
+  ionViewWillLeave() {
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+      Object.keys(elements).map(key => {
+        elements[key].style.display = "flex";
+      });
+    }
+  }
 
 }
