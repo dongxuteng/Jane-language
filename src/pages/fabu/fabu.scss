@@ -44,6 +44,11 @@ page-fabu {
     .icon-ditu:before {
       font-size: 1.5em;
     }
+    ion-item{
+      background: transparent;
+      // margin: 0 auto;
+      width: 80%;
+    }
   }
 
   .textHead {
@@ -60,8 +65,9 @@ page-fabu {
   }
   .textInput {
     background-color: rgb(247,247,247);
-    border: none;
-    height: 15rem;
+    border-left:1px solid rgb(247,247,247);
+    border-right:1px solid rgb(247,247,247);
+    height: 14rem;
     width: 100%;
   }
 
