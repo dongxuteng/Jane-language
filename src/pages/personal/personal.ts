@@ -19,6 +19,7 @@ export class PersonalPage {
   title;
   content;
   img;
+  name;
   constellation;
   dynamic: number=2;
   public anyList:any;
@@ -34,6 +35,7 @@ export class PersonalPage {
         console.log(data['message']);
       }else{
         this.arr=data;
+        this.name=data[0].name;
         this.target=data[0].target;
         this.followers=data[0].followers;
         this.gender=data[0].gender;

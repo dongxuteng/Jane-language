@@ -2,6 +2,7 @@ const mysql = require('mysql'),
       express = require('express'),
       request = require('request'),
       qs = require('querystring'),
+      fs = require('fs'),
       app = express();
       const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -16,12 +17,13 @@ app.all('*',function(req,res,next){
 });
 
 const pool = mysql.createPool({
-    host: 'localhost',
+    host: '192.168.46.144',
     user: 'root',
-    password: 'CuiYiMing_wm717',
+    password: 'dxt980927',
     database: 'jane'
 });
 
+console.log(1);
 // 登录验证
 
 app.post('/api/login', function(req,res){
@@ -223,7 +225,7 @@ app.post('/api/findidentify',function(req,res){
 app.post('/api/signup', function(req,res){
     var signupData;
     const sqlUid = 'select Uid from user where username=? ';
-    const sqlInsert = 'insert into user(username,password,phoneNumber,regtime,name,trendsTitle) values(?,?,?,?,?,?) ';
+    const sqlInsert = 'insert into user(username,password,phoneNumber,regtime,name,trendsTitle,target,followers,grade) values(?,?,?,?,?,?,?,?,?) ';
     req.on('data', function(data){
         signupData = JSON.parse(data);
         console.log(signupData);
@@ -235,9 +237,8 @@ app.post('/api/signup', function(req,res){
                 // 用户名不存在，注册
                 if(results[0] == undefined){
                     console.log('没有这个用户，可以注册');
-                    pool.query(sqlInsert,[signupData.username, signupData.password, signupData.phonenum,signupData.regtime,signupData.name,signupData.trendsTitle],(err,results)=>{
+                    pool.query(sqlInsert,[signupData.username, signupData.password, signupData.phonenum,signupData.regtime,signupData.name,signupData.trendsTitle,signupData.target,signupData.followers,signupData.grade],(err,results)=>{
                         if(err){
-                            console.log(err);
                             res.send({
                                 code:1,
                                 status:'error',
@@ -312,8 +313,8 @@ function get(path,sql){
         pool.query(
             sql,
             function(err,results){
-                results = JSON.stringify(results);
-                results = JSON.parse(results);
+                // results = JSON.stringify(results);
+                // results = JSON.parse(results);
                 if(err){
                     console.error(err);
                     res.send('1');
@@ -337,7 +338,146 @@ get('sight/neirong','select * from article');
 
 // 精选页获取热门文章
 // TODO: 选取点赞多的作为热门文章
-get('sight','select * from article');
+get('sight','select * from article,user where article.Uid=user.Uid');
+
+// 我的页面请求个性签名
+app.post('/api/me', function(req,res) {
+    var username = req.body.username;
+    const sql = 'select * from user where username=?';
+    pool.query(sql,username,(err,results)=>{
+        console.log(results);
+        if(results[0] === undefined){
+            res.send({
+                code:1,
+                status:'error',
+                message:"查询失败"
+            })
+        }else{
+            res.send(results);
+        }
+        
+        
+    })
+})
+
+//精选页点赞更新数据
+app.post('/api/star',function(req,res){
+    var star1 = req.body.star1;
+    var id = req.body.id;
+    var flag=req.body.flag;
+    const sql = 'update article set star1= ?,flag=? where id= ? ';
+    pool.query(sql,[star1,flag,id],function(err,results){
+        if(err){
+            res.send({
+                code:1,
+                status:'error',
+                message:'修改失败'
+            })
+        }else{
+            res.send({
+                code:0,
+                status:'success',
+                message:'修改成功'
+            });
+        }
+    })
+       
+})
+//首页点赞更新数据
+app.post('/api/star1',function(req,res){
+var star1 = req.body.star1;
+var id = req.body.id;
+var flag=req.body.flag;
+const sql = 'update rec_article set star= ?,flag=? where id= ? ';
+pool.query(sql,[star1,flag,id],function(err,results){
+    if(err){
+        res.send({
+            code:1,
+            status:'error',
+            message:'修改失败'
+        })
+    }else{
+        res.send({
+            code:0,
+            status:'success',
+            message:'修改成功'
+        });
+    }
+})
+app.post('/api/star2',function(req,res){
+    var count = req.body.star;
+    var id = req.body.id;
+    console.log(count);
+    pool.query(
+        'update rec_article set star=? where id=?',
+        [count,id],
+        (err,results)=>{
+            console.log(results);
+        }
+    )
+})
+})
+//编辑个人信息
+app.post('/api/change',function(req,res){
+var sex=req.body.sex;
+var username=req.body.username;
+var constellation=req.body.constellation;
+var geqian=req.body.geqian;
+var nicheng=req.body.nicheng;
+var myDate=req.body.myDate;
+var Uid=req.body.Uid;
+const sql='update user set gender=?,constellation=?,birthday=?,trendsTitle=?,name=? where username=?';
+pool.query(sql,[sex,constellation,myDate,geqian,nicheng,username],function(err,results){
+    if(err){
+        res.send({
+            code:1,
+            status:'error',
+            message:'修改失败'
+        })
+    }else{
+        res.send({
+            code:0,
+            status:'success',
+            message:'修改成功'
+        });
+    }
+})
+})
+
+app.post('/api/personal',(req,res)=>{
+    var username = req.body.username;
+    const sql = 'select * from user,article where username = ? and user.Uid=article.Uid';
+    pool.query(sql,[username],(err,results)=>{
+        console.log(results);
+        if(results[0] === undefined){
+            res.send({
+                code:1,
+                status:'error',
+                message:"查询失败"
+            })
+        }else{
+            res.send(results);
+        } 
+    })
+})
+
+//上传头像
+app.post('/api/avatar', (req, res) => {
+    var file = req.body.avatar;
+    var buf = new Buffer(file, 'base64');
+    // log(buf);
+    fs.writeFile('./avatar.jpg', buf, err => {
+        if (err) {
+            log(err);
+            res.send(err);
+        } else {
+            log("save success");
+            res.send("save success");
+        }
+    });
+});
+
+
 
 // 根据标签选择内容页
 function getContent(path,value){
@@ -352,6 +492,7 @@ function getContent(path,value){
                     console.log(err);
                     res.end('1');
                 }else{
+                    console.log(results);
                     res.send(results);
                 }
             }
@@ -380,7 +521,8 @@ getContent('music','音乐');
 // 获取影视内容
 getContent('movie','影视');
 
-// 发布评论
+
+
 
 app.post('/api/release',function(req,res) {
     var name; // 评论人昵称
@@ -419,74 +561,41 @@ app.post('/api/release',function(req,res) {
 })
 
 
-// 获取点赞数
-app.post('/api/star',function(req,res){
-    var count = req.body.star;
-    var id = req.body.id;
-    console.log(count);
-    pool.query(
-        'update rec_article set star=? where id=?',
-        [count,id],
-        (err,results)=>{
-            console.log(results);
-        }
-    )
-})
-
-// 我的页面请求个性签名
-app.post('/api/me', function(req,res) {
-    var username = req.body.username;
-    const sql = 'select * from user where username=?';
-    pool.query(sql,username,(err,results)=>{
-        console.log(results);
-        if(results[0] === undefined){
-            res.send({
-                code:1,
-                status:'error',
-                message:"查询失败"
-            })
-        }else{
-            res.send(results);
-        }
-        
-        
-    })
-})
-
-
 // 发布
 
-var fabuData;
-var fabuDataJSON;
-
 app.post('/api/home/fabu', function(req,res) {
+    var fabuData;
+    var author;
+    var uid;
+    const sql1='select * from user where username=?';    
+    const sqlInsert = 'insert into article(title,sort,content,date) values(?,?,?,?)';
     req.on('data', function(data){
-        fabuData = data.toString('utf8');
-        fabuDataJSON = JSON.parse(fabuData);
-        var author;
-        var uid;
-        var title = fabuDataJSON.title;
-        var sort = fabuDataJSON.sort;
-        var content = fabuDataJSON.content;
-        var username = localStorage.getItem('username');
-        var date = fabuDataJSON.date;
-        con.query({
-            sql: 'select uid,name from user where `username=? `',
-            values: [username],
-            function(error,results) {
-                if (error) throw error;
-                else {
-                    author = results.name;
-                    uid = results.Uid;
-                }
-            }
-        })
+        console.log("1",data);
+        fabuData = JSON.parse(data)
+        console.log("2",fabuData);
     });
     req.on('end', function(error,results){
-        con.query({
-            sql: 'insert into article set? ',
-            values: [{ title: title, sort: sort, author: author, Uid: uid, content: content,}]
+        pool.query(sql1,[fabuData.username],(err,results)=>{
+            console.log("3",results);
+            if(results[0] === undefined){
+                res.send({
+                    code:1,
+                    status:'error',
+                    message:"查询失败"
+                })
+            }else{
+                pool.query(sqlInsert,[fabuData.title,fabuData.sort,fabuData.content,fabuData.date],(err,results)=>{
+                    console.log("4",results);
+                    res.send({
+                        code:0,
+                        status:'success',
+                        message:'发布成功'
+                    })
+                })
+            } 
         })
+        
+        
     })
 })
 

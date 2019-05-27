@@ -7,12 +7,20 @@ page-wen {
 }
 ion-content{
     .item-md{ padding: 0; }
-    .item-inner{
+    .inner{
         padding-left: 0;
         line-height: 50px;
         font-size: 1.1em;
         text-align: center;
         border: none;
+        text-indent: 2em;
+      // 超过五行显示省略号
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+
     }
     .card{ margin-top: 20px; }
     ion-card{

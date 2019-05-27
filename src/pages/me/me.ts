@@ -30,7 +30,7 @@ export class MePage {
         console.log(data['message']);
       }else{
         this.arr=data;
-        this.avatar = './assets/imguser/'+data[0].avatar;
+        this.avatar = './assets'+data[0].imgavatar;
         console.log(this.arr);
       }
       
@@ -39,7 +39,7 @@ export class MePage {
   }
 
   goMy() {
-    this.navCtrl.push('MypagePage')
+    this.navCtrl.push('PersonalPage')
   }
 
   Text() {

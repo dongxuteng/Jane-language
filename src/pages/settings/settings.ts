@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController,AlertController,ActionSheetController ,NavParams } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-// import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
-// import { File } from '@ionic-native/file';
 
+import { HttpClient } from '@angular/common/http';
+import {ImagePicker, ImagePickerOptions} from "@ionic-native/image-picker";
 /**
  * Generated class for the SettingsPage page.
  *
@@ -17,10 +17,18 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
   templateUrl: 'settings.html',
 })
 export class SettingsPage {
+  sex:string;
+  constellation:string;
+  geqian:string;
+  nicheng:string;
+  myDate:string;
+  Uid:number=1;
+  username;
+  img;
   back(){
     this.navCtrl.pop();
   }
-  constructor(public navCtrl: NavController, public navParams: NavParams,private camera: Camera ) {
+  constructor(public navCtrl: NavController,public http: HttpClient,public alertCtrl: AlertController ,public navParams: NavParams,private camera: Camera ,public actionSheetCtrl: ActionSheetController,public imagePicker: ImagePicker) {
   }
 
   ionViewDidLoad() {
@@ -48,27 +56,91 @@ export class SettingsPage {
     '水瓶座',
     '双鱼座',
   ];
+  Alert(){
+    const alert = this.alertCtrl.create({
+      title: '提示',
+      subTitle: "修改成功",
+      buttons: ['OK']
+    });
+    alert.present();
+  }
   change(){
-    this.navCtrl.pop();
+    this.username=window.localStorage.getItem('username');
+    this.http.post('api/change',{'username':this.username,"sex":this.sex,"constellation":this.constellation,"geqian":this.geqian,"nicheng":this.nicheng,"myDate":this.myDate}).subscribe((data)=>{
+      console.log(data);
+      this.Alert();
+    });
+    console.log(1);
   } 
   touxiang(){
-    // 设置选项
+    let actionSheet = this.actionSheetCtrl.create({
+      buttons: [{
+        text: '拍照',
+        role: 'takePhoto',
+        handler: () => {
+          this.takePhoto();
+        }
+      }, {
+        text: '从相册选择',
+        role: 'chooseFromAlbum',
+        handler: () => {
+          this.chooseFromAlbum();
+        }
+      }, {
+        text: '取消',
+        role: 'cancel',
+        handler: () => {
+          console.log("cancel");
+        }
+      }]
+    });
+  
+    actionSheet.present().then(value => {
+      return value;
+    });
+  }
+  takePhoto() {
     const options: CameraOptions = {
       quality: 100,
-      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-      destinationType: this.camera.DestinationType.DATA_URL,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+      allowEdit: true,
+      targetWidth: 200,
+      targetHeight: 200,
+      saveToPhotoAlbum: true,
+    };
+  
+    this.camera.getPicture(options).then(image => {
+      console.log('Image URI: ' + image);
+      this.img = image.slice(7);
+    }, error => {
+      console.log('Error: ' + error);
+    });
   }
   
-  // 获取图片
-    this.camera.getPicture(options).then((imageData) => {
-  // 获取成功
-    let base64Image = 'data:image/jpeg;base64,' + imageData;
-  
-    },(err) => {
-    console.log('获取图片失败');
+  chooseFromAlbum() {
+    const options: ImagePickerOptions = {
+      maximumImagesCount: 1,
+      width: 200,
+      height: 200
+    };
+    this.imagePicker.getPictures(options).then(images => {
+      if (images.length > 1) {
+        this.presentAlert();
+      } else if (images.length === 1) {
+        console.log('Image URI: ' + images[0]);
+        this.img = images[0].slice(7);
+      }
+    }, error => {
+      console.log('Error: ' + error);
     });
+  }
+  
+  presentAlert() {
+    let alert = this.alertCtrl.create({title: "上传失败", message: "只能选择一张图片作为头像哦", buttons: ["确定"]});
+    alert.present().then(value => {
+      return value;
+    });
+  
+  
 }
 
   
@@ -80,6 +152,9 @@ export class SettingsPage {
           elements[key].style.display = 'none';
          });
        }   
+    // this.http.get('/api/setting').subscribe((data)=>{
+    //   this.arr=data[0];
+    // })
   }
   //ionic当退出页面的时候触发的方法
 ionViewWillLeave() {

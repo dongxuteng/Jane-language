@@ -5,7 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header no-border  class="header">
-  <i class="iconfont icon-zuojiantou1" (click)="back()">Back</i>
+  <i class="iconfont icon-zuojiantou1" (click)="back()">返回</i>
   <p>个人信息</p>
 </ion-header>
 
@@ -17,11 +17,11 @@
     
       <ion-item>
         <ion-label><span>昵称</span></ion-label>
-        <ion-input placeholder="{{arr.id}}"></ion-input>
+        <ion-input placeholder="昵称" [(ngModel)]="nicheng"></ion-input>
       </ion-item>
       <ion-item>
           <ion-label><span>个签</span></ion-label>
-          <ion-input placeholder="{{arr.p}}"></ion-input>
+          <ion-input placeholder="个性签名" [(ngModel)]="geqian"></ion-input>
         </ion-item>
            
       <!-- 年月日 -->
@@ -33,7 +33,7 @@
       <!-- 星座 -->
       <ion-item>
         <ion-label><span>星座</span></ion-label>
-        <ion-select [(ngModel)]="gender" style="color:white" placeholder="{{arr.constellation}}">
+        <ion-select [(ngModel)]="constellation" style="color:white" placeholder="{{arr.constellation}}">
           <ion-option value="{{item}}" *ngFor="let item of items">{{item}}</ion-option>
         </ion-select>
       </ion-item>
@@ -41,8 +41,8 @@
       <ion-item>
         <ion-label><span>性别</span></ion-label>
         <ion-select [(ngModel)]="sex" style="color:white" placeholder="{{arr.sex}}">
-          <ion-option value="f">Boy</ion-option>
-          <ion-option value="m">Girl</ion-option>
+          <ion-option value="男">Boy</ion-option>
+          <ion-option value="女">Girl</ion-option>
           <ion-option value="a">All</ion-option>
         </ion-select>
       </ion-item>
