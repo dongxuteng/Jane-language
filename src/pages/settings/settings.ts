@@ -24,6 +24,7 @@ export class SettingsPage {
   myDate:string;
   Uid:number=1;
   username;
+  arr;
   img;
   back(){
     this.navCtrl.pop();
@@ -35,13 +36,13 @@ export class SettingsPage {
     console.log('ionViewDidLoad SettingsPage');
   }
 
-  arr=[{
-    id:'赫恩曼尼',
-    sex:'Boy',
-    p:'666 skr skr',
-    constellation:'狮子座',
-    birthday:'1997/8/21'
-  }]
+  // arr=[{
+  //   id:'赫恩曼尼',
+  //   sex:'Boy',
+  //   p:'666 skr skr',
+  //   constellation:'狮子座',
+  //   birthday:'1997/8/21'
+  // }]
   items = [
     '白羊座',
     '金牛座',
@@ -67,7 +68,8 @@ export class SettingsPage {
   change(){
     this.username=window.localStorage.getItem('username');
     this.http.post('api/change',{'username':this.username,"sex":this.sex,"constellation":this.constellation,"geqian":this.geqian,"nicheng":this.nicheng,"myDate":this.myDate}).subscribe((data)=>{
-      console.log(data);
+      
+      this.arr = data;
       this.Alert();
     });
     console.log(1);

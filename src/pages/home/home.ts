@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController} from 'ionic-angular';
+import { Component,ViewChild } from '@angular/core';
+import { NavController,Slides} from 'ionic-angular';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 declare var BMap;
 @Component({
@@ -16,13 +16,15 @@ export class HomePage {
   localCityName: string;
   Temp: number;
   arr;
+  useravatar;
   avatar;
+  @ViewChild(Slides) slides: Slides;
     constructor(public navCtrl: NavController,public http:HttpClient) {
-    //温度
-    this.http.get(this.url).subscribe((data)=>{
-    this.Temp=parseInt(data['main'].temp)-273
-    return this.Temp;
-    })
+    
+      this.http.get(this.url).subscribe((data)=>{
+      this.Temp=parseInt(data['main'].temp)-273
+      return this.Temp;
+      })
   }
 
   
@@ -55,9 +57,38 @@ export class HomePage {
   ionViewDidEnter() {
     this.http.get('/api/home').subscribe((data)=>{
       this.arr = data;
+      // this.arr.forEach((item) => {
+      //   this.avatar = '../assets' + item.img;
+      // });
       this.avatar = '../assets' + data[0].img;
+      this.useravatar = '../assets' + data[0].imgavatar;
       console.log(this.arr);
     })
+  }
+  swipeleft(e){
+    let currentIndex = this.slides.getActiveIndex();
+    console.log('Current index is', currentIndex);
+    this.avatar = '../assets' + this.arr[currentIndex].img;
+    this.useravatar = '../assets' + this.arr[currentIndex].imgavatar;
+    
+  }
+  swiperight(e){
+    if(this.slides.isBeginning()){
+      console.log('asdasdas');
+      this.avatar = '../assets' + this.arr[0].img;
+      this.useravatar = '../assets' + this.arr[0].imgavatar;
+      e.preventDefault();
+    }else{
+      let currentIndex = this.slides.getActiveIndex();
+      console.log('Current index is', currentIndex);
+      this.avatar = '../assets' + this.arr[currentIndex].img;
+      this.useravatar = '../assets' + this.arr[currentIndex].imgavatar;
+    }
+    
+  }
+  slideChanged(){
+    let currentIndex = this.slides.getActiveIndex();
+    console.log('Current index is asdasd', currentIndex);
   }
   
   // 跳转内容页

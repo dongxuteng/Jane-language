@@ -32,7 +32,10 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{
+      backButtonText: '',
+      tabsHideOnSubPages:true
+    }),
     IonicStorageModule.forRoot(),
     HttpClientModule,
   ],
