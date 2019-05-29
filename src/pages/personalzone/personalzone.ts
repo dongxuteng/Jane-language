@@ -4,10 +4,10 @@ import {HttpClient} from "@angular/common/http";
 
 @IonicPage()
 @Component({
-  selector: 'page-personal',
-  templateUrl: 'personal.html',
+  selector: 'page-personalzone',
+  templateUrl: 'personalzone.html',
 })
-export class PersonalPage {
+export class PersonalzonePage {
   arr;
   username;
   avatar;

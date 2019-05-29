@@ -1,18 +1,12 @@
-<!--
-  Generated template for the SettingsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header no-border  class="header">
   <i class="iconfont icon-zuojiantou1" (click)="back()">返回</i>
   <p>个人信息</p>
 </ion-header>
 
-<ion-content *ngFor="let arr of arr">
+<ion-content>
   <div class="main">
     <div class="head" (click)="touxiang()">
-      <i class="iconfont icon-smile" style="font-size: 1.5em;color:darkgray"></i>
+      <img src="{{useravatar}}" class="head">
     </div>
     
       <ion-item>
@@ -22,28 +16,27 @@
       <ion-item>
           <ion-label><span>个签</span></ion-label>
           <ion-input placeholder="个性签名" [(ngModel)]="geqian"></ion-input>
-        </ion-item>
+      </ion-item>
            
       <!-- 年月日 -->
       <ion-item>
       <ion-label><span>生日</span></ion-label>
-        <ion-datetime displayFormat="YYYY/MM/DD" min='1960' doneText="OK" placeholder="{{arr.birthday}}" 
+        <ion-datetime displayFormat="YYYY/MM/DD" min='1960' cancelText="取消"  doneText="确认" placeholder="生日" 
         [(ngModel)]="myDate" style="color:white"></ion-datetime>
       </ion-item> 
       <!-- 星座 -->
       <ion-item>
         <ion-label><span>星座</span></ion-label>
-        <ion-select [(ngModel)]="constellation" style="color:white" placeholder="{{arr.constellation}}">
+        <ion-select [(ngModel)]="constellation" style="color:white"  cancelText="取消" okText="确认">
           <ion-option value="{{item}}" *ngFor="let item of items">{{item}}</ion-option>
         </ion-select>
       </ion-item>
       <!-- 性别 -->
       <ion-item>
         <ion-label><span>性别</span></ion-label>
-        <ion-select [(ngModel)]="sex" style="color:white" placeholder="{{arr.sex}}">
-          <ion-option value="男">Boy</ion-option>
-          <ion-option value="女">Girl</ion-option>
-          <ion-option value="a">All</ion-option>
+        <ion-select [(ngModel)]="sex" style="color:white" cancelText="取消" okText="确认">
+          <ion-option value="男">男</ion-option>
+          <ion-option value="女">女</ion-option>
         </ion-select>
       </ion-item>
     

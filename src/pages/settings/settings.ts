@@ -22,27 +22,37 @@ export class SettingsPage {
   geqian:string;
   nicheng:string;
   myDate:string;
-  Uid:number=1;
   username;
-  arr;
+  arr1;
+  useravatar;
   img;
+  userId;
+  imgName;
+  
   back(){
     this.navCtrl.pop();
   }
   constructor(public navCtrl: NavController,public http: HttpClient,public alertCtrl: AlertController ,public navParams: NavParams,private camera: Camera ,public actionSheetCtrl: ActionSheetController,public imagePicker: ImagePicker) {
+    this.userId = localStorage.getItem('userId');
+    this.imgName=this.userId +'_'+Math.random()+'.jpg';//头像重命名
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SettingsPage');
+  ionViewDidEnter(){
+    this.username = window.localStorage.getItem('username');
+    console.log(this.username);
+    this.http.post('/api/me', {"username":this.username}).subscribe((data)=>{
+      if(data['code'] === 1){
+        console.log(data['message']);
+      }else{
+        this.arr1=data;
+        this.useravatar = './assets'+data[0].imgavatar;
+        console.log(this.arr1);
+        
+      }
+    })
+   
   }
 
-  // arr=[{
-  //   id:'赫恩曼尼',
-  //   sex:'Boy',
-  //   p:'666 skr skr',
-  //   constellation:'狮子座',
-  //   birthday:'1997/8/21'
-  // }]
   items = [
     '白羊座',
     '金牛座',
@@ -64,14 +74,18 @@ export class SettingsPage {
       buttons: ['OK']
     });
     alert.present();
+    
+    
   }
   change(){
     this.username=window.localStorage.getItem('username');
-    this.http.post('api/change',{'username':this.username,"sex":this.sex,"constellation":this.constellation,"geqian":this.geqian,"nicheng":this.nicheng,"myDate":this.myDate}).subscribe((data)=>{
-      
-      this.arr = data;
+    this.http.post('api/change',{"username":this.username,"sex":this.sex,"constellation":this.constellation,"geqian":this.geqian,"nicheng":this.nicheng,"myDate":this.myDate}).subscribe((data)=>{
+      this.arr1 = data;
       this.Alert();
     });
+    setTimeout(()=>{
+      this.navCtrl.pop();
+    },2000)
     console.log(1);
   } 
   touxiang(){
@@ -112,7 +126,10 @@ export class SettingsPage {
   
     this.camera.getPicture(options).then(image => {
       console.log('Image URI: ' + image);
-      this.img = image.slice(7);
+      let base64Image = 'data:image/jpeg;base64,' + image;
+      this.http.post('/api/avatar',{'imgavatar':image,'name':this.imgName}).subscribe((data)=>{});
+
+      this.useravatar = base64Image;
     }, error => {
       console.log('Error: ' + error);
     });
@@ -146,18 +163,16 @@ export class SettingsPage {
 }
 
   
-  
-  ionViewDidEnter(){
-    let elements = document.querySelectorAll(".tabbar");
-    if (elements != null) {
-       Object.keys(elements).map((key) => {
-          elements[key].style.display = 'none';
-         });
-       }   
-    // this.http.get('/api/setting').subscribe((data)=>{
-    //   this.arr=data[0];
-    // })
+ionViewDidLoad() {
+  console.log("ionViewDidLoad SignupPage");
+  let elements = document.querySelectorAll(".tabbar");
+  if (elements != null) {
+    Object.keys(elements).map(key => {
+      elements[key].style.display = "none";
+    });
   }
+}
+  
   //ionic当退出页面的时候触发的方法
 ionViewWillLeave() {
     let elements = document.querySelectorAll(".tabbar");

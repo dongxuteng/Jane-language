@@ -74,7 +74,7 @@
   </div>
   <div class="a" *ngFor="let arr of articles;let i = index">
       <ion-item>
-          <ion-avatar item-start (click)="goPersonal()">
+          <ion-avatar item-start (click)="goPersonal(i)">
             <img src="../../assets/imgs/4.jpg">
           </ion-avatar>
           <h2>{{ arr.author }}</h2>

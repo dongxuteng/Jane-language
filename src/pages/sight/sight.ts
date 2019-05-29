@@ -46,9 +46,6 @@ export class SightPage {
   goSightmore() {
     this.navCtrl.push('SightmorePage')
   }
-  goPersonal() {
-    this.navCtrl.push('PersonalPage');
-  }
   goTravel() {
     this.navCtrl.push('TravelPage');
   }
@@ -58,13 +55,20 @@ export class SightPage {
   goMovie(){
     this.navCtrl.push("MoviePage");
   }
-
+  
   goNeirong(i) {
     this.navCtrl.push('NeirongPage',{
       id: this.articles[i].id,
       value: 'sight'
     })
   }
+  
+  // 点击进入个人页面
+  goPersonal(i) {
+    this.navCtrl.push('PersonalzonePage')
+  }
+
+
   // 点赞计数
   // like(i) {
   //   var islike = document.querySelectorAll('#like')[i].className.indexOf(' love');
