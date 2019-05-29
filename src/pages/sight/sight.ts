@@ -13,16 +13,12 @@ export class SightPage {
   articles;
   id:number;
   flag:string;
-  //flag:boolean=true;
   ionViewDidEnter() {
     this.http.get('/api/sight').subscribe((data)=>{
-      this.articles = data;
-    })
-  }
-
-
-
-
+    this.articles = data;
+   })
+   
+} 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:HttpClient) {
     //this.id = navParams.get('id');
   }
@@ -46,6 +42,9 @@ export class SightPage {
   goSightmore() {
     this.navCtrl.push('SightmorePage')
   }
+  goPersonal() {
+    this.navCtrl.push('PersonalPage');
+  }
   goTravel() {
     this.navCtrl.push('TravelPage');
   }
@@ -55,20 +54,13 @@ export class SightPage {
   goMovie(){
     this.navCtrl.push("MoviePage");
   }
-  
+
   goNeirong(i) {
     this.navCtrl.push('NeirongPage',{
       id: this.articles[i].id,
       value: 'sight'
     })
   }
-  
-  // 点击进入个人页面
-  goPersonal(i) {
-    this.navCtrl.push('PersonalzonePage')
-  }
-
-
   // 点赞计数
   // like(i) {
   //   var islike = document.querySelectorAll('#like')[i].className.indexOf(' love');
@@ -85,32 +77,41 @@ export class SightPage {
   //   }
   // }
   like(i){
+   
     this.id=this.articles[i].id;
     this.star1=this.articles[i].star1;
     this.flag=this.articles[i].flag;
-    console.log(this.id);
-    var like=document.getElementById('like');
-     if(this.flag=="true"){
-      this.flag ="false";
-      this.star1++;
-      like.innerHTML=this.star1;
-      this.http.post('/api/star',{"star1":this.star1,"id":this.id,"flag":this.flag}).subscribe((data)=>{
-        console.log(data);
-      });
+    if(this.flag===null){
+      this.flag="true";
     }
-      else if(this.flag=="false"){
-        this.flag = "true";
-        this.star1--;
-        like.innerHTML=this.star1;
-        //like.innerHTML=this.star1;
+      console.log(this.id);
+      var like=document.getElementById('like');
+      if(this.flag==="true"){
+        this.flag ="false";
+        this.star1++;
+        
         this.http.post('/api/star',{"star1":this.star1,"id":this.id,"flag":this.flag}).subscribe((data)=>{
           console.log(data);
         });
+        this.http.get('/api/sight').subscribe((data)=>{
+          this.articles = data;
+        });
+        like.innerHTML=this.articles[i].star1;
       }
-    console.log(this.star1);
-    document.location.reload();
+        else if(this.flag==="false"){
+          this.flag = "true";
+          this.star1--;
+          this.http.post('/api/star',{"star1":this.star1,"id":this.id,"flag":this.flag}).subscribe((data)=>{
+            console.log(data);
+          });
+          this.http.get('/api/sight').subscribe((data)=>{
+            this.articles = data;
+          });
+          like.innerHTML=this.articles[i].star1;
+        }
+      console.log(this.star1);
+    //document.location.reload();
   }
-
 
   // 下拉刷新
   doRefresh(refresher) {

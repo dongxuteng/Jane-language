@@ -17,10 +17,10 @@ app.all('*',function(req,res,next){
 });
 
 const pool = mysql.createPool({
-    host: '192.168.46.144',
+    host: '192.168.169.144',
     user: 'root',
-    password: 'dxt980927',
-    database: 'jane'
+    password: 'ddd',
+    database: 'Jane'
 });
 
 console.log(1);
@@ -383,6 +383,7 @@ app.post('/api/star',function(req,res){
     })
        
 })
+
 //首页点赞更新数据
 app.post('/api/star1',function(req,res){
 var star1 = req.body.star1;
@@ -416,6 +417,53 @@ app.post('/api/star2',function(req,res){
         }
     )
 })
+})
+//首页,评论页评论更新
+app.post('/api/release',function(req,res){
+    var comment=req.body.comment;
+    var comments=req.body.comments;
+    var title=req.body.title;
+    var id=req.body.id;
+    var value=req.body.value;
+    //console.log(title);
+    const sql2='update article set comments= ? where id= ?';
+    const sql1='update rec_article set comments= ? where title= ?';
+    
+    if(value==="rec_article"){
+        pool.query(sql1,[comments,title],function(err,results){
+            if(err){
+                res.send({
+                    code:1,
+                    status:'error',
+                    message:'修改失败'
+                })
+            }else{
+                res.send({
+                    code:0,
+                    status:'success',
+                    message:'修改成功'
+                });
+            }
+        })
+    
+    }
+    else if(value==="sight"){
+        pool.query(sql2,[comments,id],function(err,results){
+            if(err){
+                res.send({
+                    code:1,
+                    status:'error',
+                    message:'修改失败'
+                })
+            }else{
+                res.send({
+                    code:0,
+                    status:'success',
+                    message:'修改成功'
+                });
+            }
+        })
+    }
 })
 //编辑个人信息
 app.post('/api/change',function(req,res){
@@ -524,41 +572,41 @@ getContent('movie','影视');
 
 
 
-app.post('/api/release',function(req,res) {
-    var name; // 评论人昵称
-    var userId = req.body.userId; // 评论人的Id
-    var username = req.body.username; // 评论人的用户名
-    var id = req.body.id;  // 评论的文章id
-    var time = req.body.time; // 评论时间
-    var comments = req.body.comments; // 评论内容
-    var value = req.body.value; // 评论的文章类型
-    console.log(id,username,time,comments,value);
-    pool.query(
-        'select * from user where username=?',
-        username,
-        // 查询name
-        (err,results)=>{
-            results = JSON.stringify(results);
-            results = JSON.parse(results);
-            name = results[0].name;
-            // 文章类型为推荐文章
-            if(value == 'rec_article'){
-                pool.query(
-                    'insert into trendsReply(id,username,replyContent,name) values(?,?,?,?) ',
-                    [id,username,comments,name],
-                (err,results)=>{
-                    if(err){
-                        console.log(err);
-                        res.end('1');
-                    }else{
-                        console.log('评论成功');
-                    }
-                }
-                )
-            }
-        }
-        )
-})
+// app.post('/api/release',function(req,res) {
+//     var name; // 评论人昵称
+//     var userId = req.body.userId; // 评论人的Id
+//     var username = req.body.username; // 评论人的用户名
+//     var id = req.body.id;  // 评论的文章id
+//     var time = req.body.time; // 评论时间
+//     var comments = req.body.comments; // 评论内容
+//     var value = req.body.value; // 评论的文章类型
+//     console.log(id,username,time,comments,value);
+//     pool.query(
+//         'select * from user where username=?',
+//         username,
+//         // 查询name
+//         (err,results)=>{
+//             results = JSON.stringify(results);
+//             results = JSON.parse(results);
+//             name = results[0].name;
+//             // 文章类型为推荐文章
+//             if(value == 'rec_article'){
+//                 pool.query(
+//                     'insert into trendsReply(id,username,replyContent,name) values(?,?,?,?) ',
+//                     [id,username,comments,name],
+//                 (err,results)=>{
+//                     if(err){
+//                         console.log(err);
+//                         res.end('1');
+//                     }else{
+//                         console.log('评论成功');
+//                     }
+//                 }
+//                 )
+//             }
+//         }
+//         )
+// })
 
 
 // 发布

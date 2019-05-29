@@ -74,7 +74,7 @@
   </div>
   <div class="a" *ngFor="let arr of articles;let i = index">
       <ion-item>
-          <ion-avatar item-start (click)="goPersonal(i)">
+          <ion-avatar item-start (click)="goPersonal()">
             <img src="../../assets/imgs/4.jpg">
           </ion-avatar>
           <h2>{{ arr.author }}</h2>
@@ -92,7 +92,7 @@
         </button>
       </ion-col>
       <ion-col>
-        <button ion-button icon-start clear small>
+        <button ion-button icon-start clear small (click)="goNeirong(i)">
           <ion-icon name="text"></ion-icon>
           <div>{{ arr.comments }}</div>
         </button>

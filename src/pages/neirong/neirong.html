@@ -20,18 +20,18 @@
 
 
 
-<ion-content *ngFor='let arr of arr'>
+<ion-content *ngFor='let arr of arr; let i=index'>
   <div class="div">
     <img class="img" src="assets/imgs/home.jpeg">
     <div padding>
-      <h2>{{arr.title}}</h2>
+      &nbsp;&nbsp;&nbsp;&nbsp;<h2>{{arr.title}}</h2>
       <b>&nbsp;&nbsp;&nbsp;&nbsp;作者/{{arr.author}}</b>
-      <p>{{arr.content}}</p>
+      <p class="essay">{{arr.content}}</p>
       <p class="date">{{arr.date}}</p>
     </div>
     <!-- 底部-->
     <ion-row>
-      <ion-col class="left" col-8>
+      <ion-col class="left" col-6>
         <div class="tx" (click)="goPersonal()">
           <img src="assets/imgs/home.jpeg">
         </div>
@@ -41,10 +41,10 @@
           <span id="false">已关注</span>
         </button>
       </ion-col>
-      <ion-col class="likes" col-2>
-        <!-- <ion-icon name="star-outline" class="like" (click)="isLike()"></ion-icon> -->
-         <ion-icon name="heart-outline" class="like"  (click)="isLike()"></ion-icon>
-        <span>{{arr.star}} {{arr.star1}}</span>
+      <ion-col class="likes" col-2 >
+          <!-- <ion-icon name="star-outline" class="like" ></ion-icon> -->
+          <ion-icon name="heart-outline" class="like" (click)="isLike(i)"  ></ion-icon>
+          <span id="likes"> </span>
       </ion-col>
     </ion-row>
   </div>
@@ -60,7 +60,7 @@
         <div class="time"> {{ time }} </div>
       </div> -->
     </ul>
-    <textarea placeholder="有什么感想？快来评论吧" id='txt' [(ngModel)]="comments"></textarea>
-    <i class="iconfont icon-fabu" id="btn1" (click)="release()"></i>
+    <textarea placeholder="有什么感想？快来评论吧" id='txt' ></textarea>
+    <i class="iconfont icon-fabu" id="btn1" (click)="release(i)"></i>
   </div>
 </ion-content>

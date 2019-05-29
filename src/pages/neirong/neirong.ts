@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { IonicPage, NavController, NavParams, AlertController } from "ionic-angular";
 import { HttpClient } from "@angular/common/http";
 
 @IonicPage()
@@ -8,16 +8,20 @@ import { HttpClient } from "@angular/common/http";
   templateUrl: "neirong.html"
 })
 export class NeirongPage {
-  
+  title;
+  articles;
   comments;
+  comment;
   username;
   time;
   userId;
   id: number;
   value: string;
+  star1;
+  flag:string;
   arr: Array<1> = [1];
 
-  constructor(public navCtrl: NavController,public navParams: NavParams,public http: HttpClient) {
+  constructor(public navCtrl: NavController,public navParams: NavParams,public alertCtrl: AlertController, public http: HttpClient) {
     // 获取主页传的内容id和value
     this.id = navParams.get('id');
     this.value = navParams.get('value');
@@ -29,6 +33,9 @@ export class NeirongPage {
     this.username = window.localStorage.getItem('username');
     this.userId = window.localStorage.getItem('userId');
     let elements = document.querySelectorAll(".tabbar");
+    this.http.get('/api/sight').subscribe((data)=>{
+      this.articles = data;});
+      console.log(this.articles);
     if (elements != null) {
       Object.keys(elements).map(key => {
         elements[key].style.display = "none";
@@ -70,20 +77,31 @@ export class NeirongPage {
   return() {
     this.navCtrl.pop();
   }
-  
+  alert(){
+    const alert = this.alertCtrl.create({
+      title: '错误',
+      subTitle: '评论不能为空，请重新输入！',
+      buttons: ['OK']
+    });
+    alert.present(); 
+  };
   // 发布评论
-  release() {
+  release(i) {
+    this.comments=this.arr[i]['comments'];
+    this.title=this.arr[i]['title'];
+    //this.comment=this.arr[i]['comment'];
     var date = new Date();
     var time = date.getMonth()+1 + '月' + date.getDate() + '日';
-    this.http.post('/api/release',{"username": this.username, "value": this.value, "time":time, "comments": this.comments, "id":this.id, "userId":this.userId}).subscribe((data)=>{
-      console.log(data);
-    })
+    
         var oTxt = document.getElementById("txt");
         var oBtn = document.getElementById("btn1");
         var oUl1 = document.getElementById("ul1");
         var oBox = document.createElement("div");
         oBox.className = "box";
-                    
+        if(oTxt['value']==''){
+          this.alert();
+        }
+        else{    
         //创建头像
         var oDivTouxiang = document.createElement("div");
         oDivTouxiang.className = "touxiang";
@@ -100,13 +118,16 @@ export class NeirongPage {
         
         var oDivComment = document.createElement("div");
         oDivComment.className = "pinglun";
-        oDivComment.innerHTML = this.comments;
+        oDivComment.innerHTML = oTxt['value'];
         oTxt['value']=null;
         oBox.appendChild(oDivComment);
-        
-        
         oUl1.appendChild(oBox);
-        
+        //this.comment=oTxt['value'];
+        this.comments++;
+        this.http.post('/api/release',{"username": this.username,"comment":this.comment, "value": this.value, "time":time, "comments": this.comments, "id":this.id, "userId":this.userId,"title":this.title}).subscribe((data)=>{
+          console.log(data);
+        })
+        }
         /*oBox.insertBefore(oUl1,oDiv[0]);*/
         
         // var aA = oDiv.getElementsByTagName("a");
@@ -176,6 +197,7 @@ export class NeirongPage {
       // console.log('已收藏->未收藏： ',document.querySelectorAll('.like')[0].className);
     }
   }
+ 
   
   
   ionViewDidLoad() {
