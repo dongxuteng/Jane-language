@@ -12,13 +12,26 @@ export class SightPage {
   star1;
   articles;
   id:number;
+  avatar=[];
+  useravatar=[];
   flag:string;
+  //flag:boolean=true;
   ionViewDidEnter() {
     this.http.get('/api/sight').subscribe((data)=>{
-    this.articles = data;
-   })
-   
-} 
+      console.log(111);
+      console.log(data);
+      this.articles = data;
+      this.articles.forEach(e => {
+        this.avatar.push('../assets' + e.img);
+        this.useravatar.push('../assets' + e.imgavatar);
+      });
+      
+    })
+  }
+
+
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:HttpClient) {
     //this.id = navParams.get('id');
   }
@@ -56,62 +69,50 @@ export class SightPage {
   }
 
   goNeirong(i) {
+    console.log(i);
     this.navCtrl.push('NeirongPage',{
       id: this.articles[i].id,
       value: 'sight'
     })
   }
-  // 点赞计数
-  // like(i) {
-  //   var islike = document.querySelectorAll('#like')[i].className.indexOf(' love');
-  //   // console.log(islike);
-  //   if(islike === -1){  // 未收藏->已收藏
-  //     document.querySelectorAll('#like')[i].className += ' love';
-  //     // this.arr[0].like++
-  //     // console.log('未收藏->已收藏： ',document.querySelectorAll('#like')[0].className);
-  //   }
-  //   else{  // 已收藏->未收藏
-  //     document.querySelectorAll('#like')[i].className = document.querySelectorAll('#like')[i].className.slice(0,20);
-  //     // console.log('已收藏->未收藏： ',document.querySelectorAll('#like')[0].className);
-  //     // this.arr[0].like--;
-  //   }
-  // }
   like(i){
    
     this.id=this.articles[i].id;
     this.star1=this.articles[i].star1;
     this.flag=this.articles[i].flag;
+    // console.log(this.id,this.star1,this.flag);
     if(this.flag===null){
       this.flag="true";
     }
-      console.log(this.id);
-      var like=document.getElementById('like');
-      if(this.flag==="true"){
-        this.flag ="false";
-        this.star1++;
-        
-        this.http.post('/api/star',{"star1":this.star1,"id":this.id,"flag":this.flag}).subscribe((data)=>{
-          console.log(data);
-        });
-        this.http.get('/api/sight').subscribe((data)=>{
-          this.articles = data;
-        });
-        like.innerHTML=this.articles[i].star1;
-      }
-        else if(this.flag==="false"){
-          this.flag = "true";
-          this.star1--;
-          this.http.post('/api/star',{"star1":this.star1,"id":this.id,"flag":this.flag}).subscribe((data)=>{
-            console.log(data);
-          });
-          this.http.get('/api/sight').subscribe((data)=>{
-            this.articles = data;
-          });
-          like.innerHTML=this.articles[i].star1;
-        }
+    // console.log(this.id);
+    var like=document.getElementById('like');
+    if(this.flag==="true"){
+      this.flag ="false";
+      this.star1++;
+      
+      this.http.post('/api/star',{"star1":this.star1,"id":this.id,"flag":this.flag}).subscribe((data)=>{
+        console.log(data);
+      });
+      this.http.get('/api/sight').subscribe((data)=>{
+        this.articles = data;
+      });
+      like.innerHTML=this.articles[i].star1;
+    }
+    else if(this.flag==="false"){
+      this.flag = "true";
+      this.star1--;
+      this.http.post('/api/star',{"star1":this.star1,"id":this.id,"flag":this.flag}).subscribe((data)=>{
+        console.log(data);
+      });
+      this.http.get('/api/sight').subscribe((data)=>{
+        this.articles = data;
+      });
+      like.innerHTML=this.articles[i].star1;
+    }
       console.log(this.star1);
     //document.location.reload();
   }
+
 
   // 下拉刷新
   doRefresh(refresher) {

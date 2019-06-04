@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import {HttpClient} from '@angular/common/http'
 /**
  * Generated class for the InterestPage page.
  *
@@ -16,11 +16,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class InterestPage {
   testCheckboxOpen: boolean;
   testCheckboxResult;
+  Uid;
   arr;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  title;
+  imgs=[];
+  constructor(public navCtrl: NavController, public navParams: NavParams,public http: HttpClient) {
   }
   ionViewDidLoad() {
-    // console.log('ionViewDidLoad InterestPage');
+    this.Uid = localStorage.getItem('userId');
+    console.log(this.Uid);
+    this.http.post('/api/me/interest',{"Uid":this.Uid}).subscribe((data)=>{
+      console.log(data);
+      this.arr = data;
+      this.arr.forEach(e => {
+        this.imgs.push('../assets' + e.imgs);
+      });
+    })
   }
   Gofabu(){
     this.navCtrl.push("FabuPage")

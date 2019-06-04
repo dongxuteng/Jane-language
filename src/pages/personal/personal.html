@@ -1,74 +1,54 @@
-<!-- <ion-header>
-  <i class="iconfont icon-left1" (click)="goMePage()"></i>
-  <i class="iconfont icon-more"></i>
-</ion-header> -->
 
-<ion-content>
-  <i class="iconfont icon-left1" style="font-size:1.5em;position:absolute;top:0.5em;" (click)="goMePage()"></i>
-  <div class="icon">
-    <img src="{{ avatar }}" alt="">
+<ion-content >
+  <div [ngStyle]="{'background-image': 'url('+bgimg+')'}" class="top">
+      <i class="iconfont icon-left1" style="font-size:1.5em;position:absolute;top:0.5em;color: white" (click)="goMePage()"></i>
+      <div class="icon">
+        <img src="{{ avatar }}" alt="">
+      </div>
+      <div class="username">
+        <h3> {{ name }}</h3>
+      </div>
+      <div class="info">
+        关注： {{ target }}
+        |
+        粉丝： {{ followers }}
+      </div>
+      <div class="labels">
+        <span class="female"> ♀{{ gender}}</span>
+        <span> Lv.{{ grade }}</span>
+        <span>{{ area }}</span>
+        <span>{{ constellation }}</span>
+      </div>
+
   </div>
-  <div class="btns">
-      <button id="follow" (click)="show1()">
-          <span id="true">关注</span>
-          <span id="false">已关注</span>
-    </button>
-    <button class="btn-gray">
-      私信
-    </button>
-  </div>
-  <div class="username">
-    <h3> {{ name }}</h3>
-  </div>
-  <div class="info">
-    关注： {{ target }}
-    |
-    粉丝： {{ followers }}
-  </div>
-  <div class="labels">
-    <span class="female"> ♀{{ gender}}</span>
-    <span> Lv.{{ grade }}</span>
-    <span>{{ area }}</span>
-    <span>{{ constellation }}</span>
-  </div>
+  
   <div class="dynamic">
     <ul class="list">
-      <li (click)='change1()' id="yellow1">文章</li>
-      <li (click)='change2()' class="checked" id="yellow2">动态</li>
-      <li (click)='change3()' id="yellow3">TA的关注</li>
+      <li (click)='change1()'  id="yellow1">文章</li>
+      <li (click)='change3()' id="yellow3">我的关注</li>
     </ul>
   </div>
   <div class="main" [ngSwitch]="dynamic">
-    <div *ngSwitchCase="1">
-      <ion-card *ngFor = "let arr of arr;let i = index">
+    <div *ngSwitchCase="0">
+      <ion-card *ngFor = "let arr1 of arr;let i = index">
         <ion-card-content>
-          <ion-card-title>{{ arr.title }}</ion-card-title>
-          <img src="{{ img }}">
+          <ion-card-title>{{ arr1.title }} <button class="button button-assertive" id="follow" (click)="del(i)">删除</button></ion-card-title>
+          <img src="{{ img[i] }}">
           <div class="c" (click)="goNeirong(i)">
-            <p>{{ arr.content }}</p>
+            <p>{{ arr1.content }}</p>
           </div>
         </ion-card-content>
       </ion-card>
     </div>
-    <div *ngSwitchCase="2">
-      <ion-card *ngFor = "let arr of arr;let i = index">
-          <ion-card-content id="audio">
-              <img src="{{ img }}">
-              <ion-card-title>{{arr.title}}</ion-card-title>
-              <audio id="myAudio" src="{{arr.content}}" controls="controls"  loop="false">
-              </audio>
-          </ion-card-content>
-      </ion-card>
-    </div>
-    <div *ngSwitchCase="3">
+    <div *ngSwitchCase="1">
       <ion-list>
-        <ion-item *ngFor="let arr of arr;let i = index" class="block">
+        <ion-item *ngFor="let arr1 of arr;let i = index" class="block">
           <ion-avatar item-start style="margin-bottom:10%">
-            <img src="{{img}}">
+            <img src="{{img[i]}}">
           </ion-avatar>     
-            <h2>{{arr.title}}</h2>
-            <p>{{arr.content}}</p>
-          <!-- <button class="guanzhu">{{guanzhu.zhuangtai}}</button> -->
+            <h2>{{arr1.title}}</h2>
+            <p>{{arr1.content}}</p>
+          
         </ion-item>
       </ion-list>
     </div>

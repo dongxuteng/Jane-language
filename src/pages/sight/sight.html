@@ -48,23 +48,23 @@
 
 
   <ion-content>
-    <ion-slides pager="true" autoplay="1000" loop="true" class="sli">
+    <ion-slides pager="true" autoplay="1000" loop="true" class="sli" >
       <ion-slide>
-          <div class="wenzi">
+          <div class="wenzi" (click)="goNeirong(i)">
             <p>【生活感悟】与其碌碌无为，不如兴风作浪</p>
             <img src="../../assets/imgs/coffee.jpg"/>
           </div>
       </ion-slide>
       <ion-slide>
           <div class="wenzi">
-            <p>【生活感悟】与其碌碌无为，不如兴风作浪</p>
+            <p>趁年轻应该多奋斗点</p>
             <img src="../../assets/imgs/book.png" alt="">
           </div>
       </ion-slide>
       <ion-slide>
           <div class="wenzi">
-              <p>【生活感悟】与其碌碌无为，不如兴风作浪</p>
-              <img src="../../assets/imgs/coffee.jpg" alt="">
+              <p>做一个真正心灵自由的人</p>
+              <img src="../../assets/imgs/lizhi1.jpg" alt="">
           </div>
       </ion-slide>
     </ion-slides>
@@ -73,14 +73,17 @@
       <p text-center>RECOMMENDATION</p>
   </div>
   <div class="a" *ngFor="let arr of articles;let i = index">
-      <ion-item>
-          <ion-avatar item-start (click)="goPersonal()">
-            <img src="../../assets/imgs/4.jpg">
-          </ion-avatar>
-          <h2>{{ arr.author }}</h2>
-          <p>{{ arr.date}}</p>
-        </ion-item>
-        <img src="../../assets/imgs/12.jpg">
+    <ion-item>
+      <ion-avatar item-start (click)="goPersonal()">
+        <img src="{{useravatar[i]}}">
+      </ion-avatar>
+      <h2>{{ arr.author }}</h2>
+      <p>{{ arr.date}}</p>
+    </ion-item>
+    <div class="d">
+        <img src="{{avatar[i]}}" class="imgs">
+    </div>
+    
     <div class="c" (click)="goNeirong(i)">
       <p>{{ arr.content }}</p>
     </div>
@@ -92,7 +95,7 @@
         </button>
       </ion-col>
       <ion-col>
-        <button ion-button icon-start clear small (click)="goNeirong(i)">
+        <button ion-button icon-start clear small>
           <ion-icon name="text"></ion-icon>
           <div>{{ arr.comments }}</div>
         </button>

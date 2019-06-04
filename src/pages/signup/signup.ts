@@ -17,6 +17,12 @@ export class SignupPage {
   password: string;
   repassword: string;
   time:any;
+  age=0;
+  constellation='水瓶座';
+  gender='男';
+  area="石家庄"
+  imgs = "/imguser/3.jpg";
+  bgImage = "/imgs/3.jpg"
   target:number=0;
   followers:number=0;
   grade:number=0;
@@ -96,7 +102,7 @@ export class SignupPage {
     else if(this.username != undefined && this.password == this.repassword ){
       console.log(11);
       
-      this.http.post('/api/signup',{"username":this.username,"password":this.password,"phonenum":this.phonenum,"phonepwd":this.phonepwd,"regtime":this.regDate,"name":this.name,"trendsTitle":this.trendsTtile,"target":this.target,"followers":this.followers,"grade":this.grade},{headers:this.headers}).subscribe((data)=>{
+      this.http.post('/api/signup',{"username":this.username,"password":this.password,"phonenum":this.phonenum,"phonepwd":this.phonepwd,"regtime":this.regDate,"name":this.name,"trendsTitle":this.trendsTtile,"target":this.target,"followers":this.followers,"grade":this.grade,"imgavatar":this.imgs,"age":this.age,"constellation":this.constellation,"gender":this.gender,"area":this.area,"bgImage":this.bgImage},{headers:this.headers}).subscribe((data)=>{
         console.log(data);
         console.log(this.regDate);
         if(data['code'] == 0){

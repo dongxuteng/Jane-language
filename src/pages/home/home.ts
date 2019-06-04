@@ -18,19 +18,22 @@ export class HomePage {
   arr;
   useravatar;
   avatar;
+  cityname='石家庄';
+  lPosition: any = "";
+  rPosition: any = "";
+  formattedAddress: string = "";
   @ViewChild(Slides) slides: Slides;
-    constructor(public navCtrl: NavController,public http:HttpClient) {
-    
-      this.http.get(this.url).subscribe((data)=>{
+  constructor(public navCtrl: NavController,public http:HttpClient) {
+    this.http.get(this.url).subscribe((data)=>{
       this.Temp=parseInt(data['main'].temp)-273
       return this.Temp;
-      })
+    })
   }
 
-  
   ionViewDidLoad() { 
-    
+
     //地点
+  
     var myCity = new BMap.LocalCity();
     myCity.get(function (result) {
       var cityName = result.name; 

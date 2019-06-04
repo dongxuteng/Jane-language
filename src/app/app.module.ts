@@ -1,4 +1,5 @@
 import { NgModule, ErrorHandler } from '@angular/core';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -53,6 +54,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
   ],
   providers: [
     Camera,
+    Geolocation,
     StatusBar,
     SplashScreen,
     Storage,

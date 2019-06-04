@@ -24,6 +24,7 @@ export class NeirongPage {
   constructor(public navCtrl: NavController,public navParams: NavParams,public alertCtrl: AlertController, public http: HttpClient) {
     // 获取主页传的内容id和value
     this.id = navParams.get('id');
+    console.log('2412312',this.id);
     this.value = navParams.get('value');
   }
   ionViewDidEnter() {
@@ -34,8 +35,10 @@ export class NeirongPage {
     this.userId = window.localStorage.getItem('userId');
     let elements = document.querySelectorAll(".tabbar");
     this.http.get('/api/sight').subscribe((data)=>{
-      this.articles = data;});
+      this.articles = data;
       console.log(this.articles);
+    });
+      
     if (elements != null) {
       Object.keys(elements).map(key => {
         elements[key].style.display = "none";
@@ -44,12 +47,13 @@ export class NeirongPage {
     // 获取内容
     if(this.value == 'rec_article'){
       this.http.get('/api/home/neirong').subscribe((data)=>{
-        this.arr[0] = data[this.id-1];
+        this.arr[0] = data[this.id];
       })
     }
     else if(this.value == 'sight') {
-      this.http.get('/api/sight/neirong').subscribe((data)=>{
-        this.arr[0] = data[this.id-1];
+      this.http.post('/api/sight/neirong',{"id":this.id}).subscribe((data)=>{
+        console.log('3333',data);
+        this.arr[0] = data[0];
       })
     }
     else if(this.value == 'emotion'){

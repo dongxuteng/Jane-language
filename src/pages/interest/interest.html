@@ -15,13 +15,13 @@
 
 <ion-content padding>
     <ion-list>
-        <ion-item (click)="Gofabu()">
+        <ion-item (click)="Gofabu()" *ngFor="let arr of arr;let i = index">
           <ion-thumbnail item-start>
-            <img src="assets/imgs/0.jpg">
+            <img src="{{imgs[i]}}">
           </ion-thumbnail>
-          <h2>My Neighbor Totoro</h2>
-          <p class="msg">Hayao Miyazaki • 1988</p>
-          <p class="date">2018/12/12</p>
+          <h1>{{arr.title}}</h1>
+          <p class="msg">{{arr.content}}</p>
+          <p class="date">{{arr.date}}</p>
         </ion-item>
       </ion-list>
         

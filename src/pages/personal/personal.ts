@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component,ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient,HttpHeaders} from "@angular/common/http";
 
 @IonicPage()
 @Component({
@@ -9,6 +9,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class PersonalPage {
   arr;
+  id;
   username;
   avatar;
   target;
@@ -18,21 +19,24 @@ export class PersonalPage {
   area;
   title;
   content;
-  img;
+  img=[];
+  bgimg;
   name;
   constellation;
   userId;
-  dynamic: number=2;
+  dynamic: number=0;
+  headers = new HttpHeaders({ 'Content-Type':'application/x-www-form-urlencoded'});
   public anyList:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private http:HttpClient) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private http:HttpClient,public cd: ChangeDetectorRef) {
   }
   ionViewDidEnter() {
     this.username = window.localStorage.getItem('username');
-    this.userId = localStorage.getItem('userId');
+    console.log(333);
     console.log(this.username);
     // 请求数据
-    this.http.post('/api/personal',{"username":this.username,"userId":this.userId}).subscribe((data)=>{
-      console.log(data[0]);
+    this.http.post('/api/personal',{"username":this.username}).subscribe((data)=>{
+      console.log(data);
+      console.log(444);
       if(data['code'] === 1){
         console.log(data['message']);
       }else{
@@ -45,11 +49,57 @@ export class PersonalPage {
         this.area=data[0].area;
         this.constellation=data[0].constellation;
         this.avatar = './assets'+data[0].imgavatar;
-        this.img='./assets'+data[0].img;
-        console.log(this.arr);
+        this.arr.forEach(e => {
+          this.img.push('./assets' + e.img);
+        });
+
+        this.bgimg='./assets'+data[0].bgImage;
+        
       }
     })
   }
+
+  del(i){
+    this.id = this.arr[i].id;
+    this.http.post('/api/personal/del',{"id":this.id},{headers:this.headers}).subscribe((data)=>{
+      console.log(111);
+      if(data['code'] === 1){
+        console.log(data['message']);
+      }else{
+        console.log(data);
+      }
+    })
+    setTimeout(()=>{
+      this.username = window.localStorage.getItem('username');
+      console.log(333);
+      console.log(this.username);
+      // 请求数据
+      this.http.post('/api/personal',{"username":this.username}).subscribe((data)=>{
+        console.log(data);
+        console.log(444);
+        if(data['code'] === 1){
+          console.log(data['message']);
+        }else{
+          this.arr=data;
+          this.name=data[0].name;
+          this.target=data[0].target;
+          this.followers=data[0].followers;
+          this.gender=data[0].gender;
+          this.grade=data[0].grade;
+          this.area=data[0].area;
+          this.constellation=data[0].constellation;
+          this.avatar = './assets'+data[0].imgavatar;
+          this.arr.forEach(e => {
+            this.img.push('./assets' + e.img);
+          });
+          this.bgimg='./assets'+data[0].bgImage;
+          
+        }
+      })
+    },0)
+    this.cd.detectChanges();
+  }
+
   goNeirong(i) {
     this.navCtrl.push('NeirongPage',{
       id: this.arr[i].id,
@@ -60,18 +110,6 @@ export class PersonalPage {
   goMePage() {
     this.navCtrl.pop();
   }
-  //关注
-  show1(){
-    var aTrue = document.getElementById('true');
-    var aFalse = document.getElementById('false');
-    if ( aTrue.style.display!="none"){
-        aTrue.style.display="none";
-        aFalse.style.display="inline";
-    }else{
-        aTrue.style.display="inline";
-        aFalse.style.display="none";
-    }
-  } 
 
   ionViewDidLoad() {
     let elements = document.querySelectorAll(".tabbar");
@@ -80,6 +118,10 @@ export class PersonalPage {
         elements[key].style.display = 'none';
       });
     }
+    var yellow3=document.getElementById('yellow3');
+    var yellow1=document.getElementById('yellow1');
+    yellow3.style.borderBottom='2px solid #fff';
+    yellow1.style.borderBottom='2px solid #808080';
   }
   //ionic当退出页面的时候触发的方法
   ionViewWillLeave() {
@@ -90,32 +132,28 @@ export class PersonalPage {
       });
     }
   }
-  change2(){
-    this.dynamic=2;
-    var yellow3=document.getElementById('yellow3');
-    var yellow2=document.getElementById('yellow2');
-    var yellow1=document.getElementById('yellow1');
-    yellow3.style.borderBottom='2px solid #fff';
-    yellow2.style.borderBottom='2px solid #808080';
-    yellow1.style.borderBottom='2px solid #fff';
-  }
+  
   change1(){
-    this.dynamic=1;
+    this.dynamic=0;
     var yellow3=document.getElementById('yellow3');
-    var yellow2=document.getElementById('yellow2');
     var yellow1=document.getElementById('yellow1');
     yellow3.style.borderBottom='2px solid #fff';
     yellow1.style.borderBottom='2px solid #808080';
-    yellow2.style.borderBottom='2px solid #fff';
   }
   change3(){
-    this.dynamic=3;
+    this.dynamic=1;
     var yellow3=document.getElementById('yellow3');
-    var yellow2=document.getElementById('yellow2');
     var yellow1=document.getElementById('yellow1');
     yellow3.style.borderBottom='2px solid #808080';
-    yellow2.style.borderBottom='2px solid #fff';
     yellow1.style.borderBottom='2px solid #fff';
 
+  }
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
   }
 }

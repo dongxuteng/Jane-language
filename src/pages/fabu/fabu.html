@@ -11,7 +11,7 @@
   <div class="contain" padding>
     <div class="textHead">
       <i class="iconfont icon-ditu"></i>
-      {{localCityName}}
+      {{cityname}}
       <!-- <span class="name">{{ name }}</span> -->
     </div>
     <ion-item >
@@ -20,7 +20,7 @@
     </ion-item>
     <ion-item>
       <ion-label>分类</ion-label>
-      <ion-select [(ngModel)]="txt"  (ngModelChange)="switchType()"  style="height:45px;width:100%" placeholder="请选择">
+      <ion-select [(ngModel)]="txt"  (ngModelChange)="switchType()"  style="height:45px;width:100%" placeholder="请选择" cancelText="取消" okText="确认">
         <ion-option value="情感">情感</ion-option>
         <ion-option value="旅行">旅行</ion-option>
         <ion-option value="励志">励志</ion-option>
@@ -34,7 +34,7 @@
   </div>
   <div class="buttons">
     <div class="buttons-float">
-      <div class="btn-save">
+      <div class="btn-save" (click)="save()">
         <button ion-button full class="btnShadow" color='light'>
           <i class="iconfont icon-baocun1" style="font-size:1.5em;"></i>
         </button>
