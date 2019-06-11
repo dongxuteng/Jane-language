@@ -47,3 +47,44 @@ Github：https://github.com/dongxuteng/software
 
 ## 运行效果
 
+```html
+
+```
+
+<p>
+<img src="./img/启动页 (2).png" width=250 height=400 />
+<img src="./img/登录页.png" width=250 height=400 />
+<img src="./img/注册页面.png" width=250 height=400 />
+</p>
+<p>
+<img src="./img/找回密码.png" width=250 height=400 />
+<img src="./img/首页.png" width=250 height=400 />
+<img src="./img/发布和保存草稿页面.png" width=250 height=400 />
+</p>
+<p>
+<img src="./img/视野页面.png" width=250 height=400 />
+<img src="./img/视野分类页面.png" width=250 height=400 />
+<img src="./img/点赞和评论.png" width=250 height=400 />
+<img src="./img/内容页面、关注和收藏功能.png" width=250 height=400 />
+<img src="./img/用户评论页面.png" width=250 height=400 />
+</p>
+<p>
+<img src="./img/消息通知.png" width=250 height=400 />
+<img src="./img/系统通知的内容页.png" width=250 height=400 />
+</p>
+<p>
+<img src="./img/我的页面.png" width=250 height=400 />
+<img src="./img/我的关注.png" width=250 height=400 />
+<img src="./img/我收藏的文章.png" width=250 height=400 />
+</p>
+
+
+<img src="./img/系统设置页面.png" width=250 height=400 />
+<img src="./img/保存的草稿.png" width=250 height=400 />
+</p>
+
+<p>
+<img src="./img/个人信息编辑.png" width=250 height=400 />
+<img src="./img/个人信息页面.png" width=250 height=400 />
+</p>
+
