@@ -8,37 +8,41 @@ import { HttpClient } from "@angular/common/http";
   templateUrl: "neirong.html"
 })
 export class NeirongPage {
+  pid;
   title;
   articles;
   comments;
+  commentList;
   comment;
   username;
-  time;
+  time:string;
   userId;
   id: number;
   value: string;
   star1;
   flag:string;
+  flag1='true';
   arr: Array<1> = [1];
 
   constructor(public navCtrl: NavController,public navParams: NavParams,public alertCtrl: AlertController, public http: HttpClient) {
     // 获取主页传的内容id和value
     this.id = navParams.get('id');
-    console.log('2412312',this.id);
     this.value = navParams.get('value');
   }
   ionViewDidEnter() {
-    var date = new Date();
-    this.time = date.getMonth()+1 + '月' + date.getDate() + '日';
+   // var date = new Date();
+    //this.time = date.getMonth()+1 + '月' + date.getDate() + '日';
     //获取用户信息
     this.username = window.localStorage.getItem('username');
     this.userId = window.localStorage.getItem('userId');
     let elements = document.querySelectorAll(".tabbar");
-    this.http.get('/api/sight').subscribe((data)=>{
-      this.articles = data;
-      console.log(this.articles);
-    });
-      
+    this.http.post('/api/comment',{"id":this.id,"value":this.value}).subscribe((data)=>{
+      this.commentList=data;
+      console.log(this.commentList);
+    })
+    // this.http.get('/api/sight').subscribe((data)=>{
+    //   this.articles = data;});
+    //   console.log(this.articles);
     if (elements != null) {
       Object.keys(elements).map(key => {
         elements[key].style.display = "none";
@@ -46,14 +50,15 @@ export class NeirongPage {
     }
     // 获取内容
     if(this.value == 'rec_article'){
+      this.value='rec_article';
       this.http.get('/api/home/neirong').subscribe((data)=>{
-        this.arr[0] = data[this.id];
+        this.arr[0] = data[this.id-1];
       })
     }
     else if(this.value == 'sight') {
-      this.http.post('/api/sight/neirong',{"id":this.id}).subscribe((data)=>{
-        console.log('3333',data);
-        this.arr[0] = data[0];
+      this.value='sight';
+      this.http.get('/api/sight/neirong').subscribe((data)=>{
+        this.arr[0] = data[this.id-1];
       })
     }
     else if(this.value == 'emotion'){
@@ -95,7 +100,7 @@ export class NeirongPage {
     this.title=this.arr[i]['title'];
     //this.comment=this.arr[i]['comment'];
     var date = new Date();
-    var time = date.getMonth()+1 + '月' + date.getDate() + '日';
+    this.time = date.getMonth()+1 + '月' + date.getDate() + '日'+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
     
         var oTxt = document.getElementById("txt");
         var oBtn = document.getElementById("btn1");
@@ -116,21 +121,21 @@ export class NeirongPage {
         oDivName.innerHTML = this.username;
         var oDivTime = document.createElement("div");
         oDivTime.className = "shijian";
-        oDivTime.innerHTML = time;
+        oDivTime.innerHTML = this.time;
         oBox.appendChild(oDivTime);
         oBox.appendChild(oDivName);
         
         var oDivComment = document.createElement("div");
         oDivComment.className = "pinglun";
         oDivComment.innerHTML = oTxt['value'];
-        oTxt['value']=null;
         oBox.appendChild(oDivComment);
         oUl1.appendChild(oBox);
-        //this.comment=oTxt['value'];
+        this.comment=oTxt['value'];
+        oTxt['value']=null;
         this.comments++;
-        this.http.post('/api/release',{"username": this.username,"comment":this.comment, "value": this.value, "time":time, "comments": this.comments, "id":this.id, "userId":this.userId,"title":this.title}).subscribe((data)=>{
+        this.http.post('/api/release',{"username": this.username,"comment":this.comment, "value": this.value, "time":this.time, "comments": this.comments, "id":this.id, "userId":this.userId,"title":this.title}).subscribe((data)=>{
           console.log(data);
-        })
+        });
         }
         /*oBox.insertBefore(oUl1,oDiv[0]);*/
         
@@ -159,23 +164,39 @@ export class NeirongPage {
     }
   }
   //收藏
-  isCollect() {
-    var iscollect = document
-    .querySelectorAll("#star")[0]
-    .className.indexOf(" collected");
+  isCollect(i) {
+    // var iscollect = document
+    // .querySelectorAll("#star")[0]
+    // .className.indexOf(" collected");
     // console.log(iscollect);
-    if (iscollect === -1) {
+    var star=document.getElementById('star');
+   // this.flag1='t'
+    if (this.flag1== 'true') {
+      this.pid=this.arr[i]['Uid'];
+      console.log(this.pid);
+      this.flag1='false';
+      star.style.backgroundColor="lightgoldenrodyellow";
       // 未收藏->已收藏
-      document.querySelectorAll("#star")[0].className += " collected";
+      //document.querySelectorAll("#star")[0].className += " collected";
+      this.http.post('/api/collect',{"Uid":this.userId,"id":this.id,"value":this.value,"pid":this.pid,"flag":this.flag1}).subscribe((data)=>{
+        console.log(data);
+      })
       // console.log('未收藏->已收藏： ',document.querySelectorAll('.star')[0].className);
     } else {
       // 已收藏->未收藏
-      document.querySelectorAll(
-        "#star"
-        )[0].className = document
-        .querySelectorAll("#star")[0]
-        .className.slice(0, 37);
+      // document.querySelectorAll(
+      //   "#star"
+      //   )[0].className = document
+      //   .querySelectorAll("#star")[0]
+      //   .className.slice(0, 37);
       // console.log('已收藏->未收藏： ',document.querySelectorAll('.star')[0].className);
+      //this.pid=this.arr[i]['Uid'];
+     // console.log(this.pid);
+      this.flag1='true';
+      star.style.backgroundColor="whitesmoke";
+      this.http.post('/api/unCollect',{"Uid":this.userId,"value":this.value,"id":this.id}).subscribe((data)=>{
+        console.log(data);
+      })
     }
   }
   

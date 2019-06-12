@@ -1,4 +1,4 @@
-<ion-header *ngFor="let arr of arr">
+<ion-header *ngFor="let arr of arr;let i=index">
   <ion-navbar>
     <ion-row>
       <ion-col col-8>
@@ -6,9 +6,9 @@
         <h5 class="title">
           {{ arr.title }}</h5>
       </ion-col>
-      <ion-col col-2>
+      <ion-col col-2 (click)="isCollect(i)" id="star">
         <!-- 收藏、取消收藏 -->
-        <ion-icon name="star-outline" (click)="isCollect()" id="star"></ion-icon>
+        <ion-icon name="star-outline" style="font-size:2.2em" ></ion-icon>
       </ion-col>
       <ion-col col-2>
         <!-- 分享 -->
@@ -24,7 +24,7 @@
   <div class="div">
     <img class="img" src="assets/imgs/home.jpeg">
     <div padding>
-      &nbsp;&nbsp;&nbsp;&nbsp;<h2>{{arr.title}}</h2>
+      <h2>{{arr.title}}</h2>
       <b>&nbsp;&nbsp;&nbsp;&nbsp;作者/{{arr.author}}</b>
       <p class="essay">{{arr.content}}</p>
       <p class="date">{{arr.date}}</p>
@@ -41,11 +41,45 @@
           <span id="false">已关注</span>
         </button>
       </ion-col>
-     
+      <!-- <ion-col class="likes" col-2 > -->
+          <!-- <ion-icon name="star-outline" class="like" ></ion-icon> -->
+          <!-- <ion-icon name="heart-outline" class="like" (click)="isLike(i)"  ></ion-icon>
+          <span id="likes"> </span> -->
+      <!-- </ion-col> -->
     </ion-row>
   </div>
   <div>
-    <span>评论</span>
+    <div *ngFor='let commentList of commentList; let i=index' class="comments">
+            <!-- <div class="comment-wrap">
+                <div class="photo">
+                    <div class="avatar" style="background-image: url('/assets/coolboy.jpg')"></div>
+                </div>
+                <div class="comment-block">
+                    <form action="">
+                        <textarea name="" id="" cols="30" rows="3" placeholder="Say somthing..."></textarea>
+                    </form>
+                </div>
+            </div> -->
+        
+            <div class="comment-wrap">
+                <div class="photo">
+                    <div class="avatar" style="background-color:whitesmoke">{{commentList.commentUsername}}</div>
+                </div>
+                <div class="comment-block">
+                    <blockquote class="comment-text">{{commentList.comment}}</blockquote>
+                    <div class="bottom-comment">
+                        <div class="comment-date">{{commentList.commentTime}}</div>
+                        <ul class="comment-actions">
+                            <li class="complain">Complain</li>
+                            <li class="reply">Reply</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    </div>
+      <!-- <span>{{commentList.commentUsername}}</span>
+      <span>{{commentList.commentTime}}</span>
+      <span>{{commentList.comment}}</span> -->
     <ul id="ul1">
       <!-- <div class="comment">
         <div class="icon">
@@ -58,5 +92,5 @@
     </ul>
     <textarea placeholder="有什么感想？快来评论吧" id='txt' ></textarea>
     <i class="iconfont icon-fabu" id="btn1" (click)="release(i)"></i>
-  </div>
+</div>
 </ion-content>
