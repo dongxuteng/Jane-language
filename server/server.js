@@ -17,14 +17,14 @@ app.all('*',function(req,res,next){
 });
 
 const pool = mysql.createPool({
-    host: '192.168.46.144',
+    host: '192.168.169.144',
     user: 'root',
-    password: 'dxt980927',
-    database: 'jane',
-    dateStrings: true
+    password: 'ddd',
+    database: 'Jane',
+    dateStrings:Date
 });
 
-console.log(111);
+console.log(1);
 // 登录验证
 
 app.post('/api/login', function(req,res){
@@ -35,6 +35,8 @@ app.post('/api/login', function(req,res){
     })
     req.on('end',function(data){
         pool.query(sql,[loginData.username],(err,results)=>{
+            //results = JSON.stringify(results);
+            //results = JSON.parse(results);
             console.log(results);
             if(err){
                 res.send({
@@ -224,7 +226,7 @@ app.post('/api/findidentify',function(req,res){
 app.post('/api/signup', function(req,res){
     var signupData;
     const sqlUid = 'select Uid from user where username=? ';
-    const sqlInsert = 'insert into user(username,password,phoneNumber,regtime,name,trendsTitle,target,followers,grade,imgavatar,age,constellation,gender,area,bgImage) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ';
+    const sqlInsert = 'insert into user(username,password,phoneNumber,regtime,name,trendsTitle,target,followers,grade) values(?,?,?,?,?,?,?,?,?) ';
     req.on('data', function(data){
         signupData = JSON.parse(data);
         console.log(signupData);
@@ -236,7 +238,7 @@ app.post('/api/signup', function(req,res){
                 // 用户名不存在，注册
                 if(results[0] == undefined){
                     console.log('没有这个用户，可以注册');
-                    pool.query(sqlInsert,[signupData.username, signupData.password, signupData.phonenum,signupData.regtime,signupData.name,signupData.trendsTitle,signupData.target,signupData.followers,signupData.grade,signupData.imgavatar,signupData.age,signupData.constellation,signupData.gender,signupData.area,signupData.bgImage],(err,results)=>{
+                    pool.query(sqlInsert,[signupData.username, signupData.password, signupData.phonenum,signupData.regtime,signupData.name,signupData.trendsTitle,signupData.target,signupData.followers,signupData.grade],(err,results)=>{
                         if(err){
                             res.send({
                                 code:1,
@@ -339,73 +341,6 @@ get('sight/neirong','select * from article');
 // TODO: 选取点赞多的作为热门文章
 get('sight','select * from article,user where article.Uid=user.Uid');
 
-
-//post
-// function post(sql, url) {
-//     var options = [];
-//     app.post('/api/' + url, function (req, res) {
-//         var body = req.body;
-//         options = [];
-//         for (var i in body) {
-//             options.push(body[i]);
-//         }
-//         // console.log('options',options);
-//         db.query(sql, [...options], function (err, result) {
-//             if (err) {
-//                 res.send(err);
-//             }
-//             // console.log('result:',result);
-//         });
-//     });
-// }
-
-// //获得草稿箱的内容
-// post('me/interest','select * from savecomment where Uid = ? ')
-
-app.post('/api/me/interest', function(req,res) {
-    var Uid = req.body.Uid;
-    console.log('大苏打',Uid);
-    const sql = 'select * from savecomment where Uid = ?';
-    pool.query(sql,[Uid],(err,results)=>{
-        console.log(results);
-        if(results[0] === undefined){
-            res.send({
-                code:1,
-                status:'error',
-                message:"查询失败"
-            })
-        }else{
-            res.send(results);
-        }
-        
-        
-    })
-})
-
-
-
-app.post('/api/sight/neirong', function(req,res) {
-    var id = req.body.id;
-    // console.log('大苏打',id);
-    const sql = 'select * from article where id=?';
-    pool.query(sql,[id],(err,results)=>{
-        console.log(results);
-        if(results[0] === undefined){
-            res.send({
-                code:1,
-                status:'error',
-                message:"查询失败"
-            })
-        }else{
-            res.send(results);
-        }
-        
-        
-    })
-})
-
-
-
 // 我的页面请求个性签名
 app.post('/api/me', function(req,res) {
     var username = req.body.username;
@@ -431,7 +366,6 @@ app.post('/api/star',function(req,res){
     var star1 = req.body.star1;
     var id = req.body.id;
     var flag=req.body.flag;
-    console.log(id);
     const sql = 'update article set star1= ?,flag=? where id= ? ';
     pool.query(sql,[star1,flag,id],function(err,results){
         if(err){
@@ -450,6 +384,7 @@ app.post('/api/star',function(req,res){
     })
        
 })
+
 //首页点赞更新数据
 app.post('/api/star1',function(req,res){
 var star1 = req.body.star1;
@@ -484,6 +419,225 @@ app.post('/api/star2',function(req,res){
     )
 })
 })
+//评论内容
+app.post('/api/comment',function(req,res){
+    var id=req.body.id;
+    //var value=string(req.body.value);
+    var value=req.body.value;
+    const sql='select * from commentTable where id=? and valuess=?';
+    pool.query(
+        sql,[id,value],(err,result)=>{
+            if(err){
+                res.send({
+                    code:1,
+                    status:'error',
+                    message:'查询失败'
+    
+                })
+            
+             }
+             else{
+                res.send(result);
+            }
+        }
+    )
+})
+//首页,评论页评论更新
+app.post('/api/release',function(req,res){
+    var comment=req.body.comment;
+    var comments=req.body.comments;
+    var title=req.body.title;
+    var id=req.body.id;
+    var value=req.body.value;
+    var userId=req.body.userId;
+    var username=req.body.username;
+    var time=req.body.time;
+    //console.log(title);
+    const sql2='update article set comments= ? where id= ?';
+    const sql1='update rec_article set comments= ? where title= ?';
+    const sql ='insert into commentTable(id,commentUid,commentUsername,commentTime,comment,valuess) values(?,?,?,?,?,?);'
+    if(value==="rec_article"){
+        pool.query(sql1,[comments,title],function(err,results){
+            if(err){
+                res.send({
+                    code:1,
+                    status:'error',
+                    message:'修改失败'
+                })
+            }else{
+                // res.send({
+                //     code:0,
+                //     status:'success',
+                //     message:'修改成功'
+                // });
+                pool.query(sql,[id,userId,username,time,comment,value],(err,results)=>{
+                    if (err){
+                        res.send({
+                            code:2,
+                            status:'error',
+                            message:'添加失败'
+                        })
+                    }else{
+                        res.send({
+                            code:0,
+                            status:'success',
+                            message:'添加成功'
+                        });
+                    }
+                })
+            }
+        })
+    
+    }
+    else if(value==="sight"){
+        pool.query(sql2,[comments,id],function(err,results){
+            if(err){
+                res.send({
+                    code:1,
+                    status:'error',
+                    message:'修改失败'
+                });
+            }else{
+                // res.send({
+                //     code:0,
+                //     status:'success',
+                //     message:'修改成功'
+                // });
+                pool.query(sql,[id,userId,username,time,comment,value],(err,results)=>{
+                    if (err){
+                        res.send({
+                            code:2,
+                            status:'error',
+                            message:'添加失败'
+                        })
+                    }else{
+                        res.send({
+                            code:0,
+                            status:'success',
+                            message:'添加成功'
+                        });
+                    }
+                })
+            }
+        })
+    }
+})
+//文章添加收藏
+app.post('/api/collect',function(req,res){
+    var Uid=req.body.Uid;
+    var pid=req.body.pid;
+    var value=req.body.value;
+    var flag=req.body.flag;
+    var id=req.body.id;
+    const sql='insert into collect(Uid,pid,value,flag,id) values(?,?,?,?,?)';
+    if(value==='rec_article'){
+        pool.query(sql,[Uid,pid,value,flag,id],function(err,results){
+            if(err){
+                res.send({
+                    code:1,
+                    status:'error',
+                    message:'插入失败'
+                })
+            }else{
+                res.send({
+                    code:0,
+                    status:'success',
+                    message:'插入成功'
+                });
+            }
+        })
+    }
+    else if(value==='sight'){
+        pool.query(sql,[Uid,pid,value,flag,id],function(err,results){
+            if(err){
+                res.send({
+                    code:1,
+                    status:'error',
+                    message:'插入失败'
+                })
+            }else{
+                res.send({
+                    code:0,
+                    status:'success',
+                    message:'插入成功'
+                });
+            }
+        })
+    }
+})
+//文章取消收藏
+app.post('/api/unCollect',function(req,res){
+    var Uid=req.body.Uid;
+    var id=req.body.id;
+    var value=req.body.value;
+    const sql='delete from collect where Uid=? and id=?';
+    if(value==='rec_article'){
+        pool.query(sql,[Uid,id],function(err,results){
+            if(err){
+                res.send({
+                    code:1,
+                    status:'error',
+                    message:'删除失败'
+                })
+            }else{
+                res.send({
+                    code:0,
+                    status:'success',
+                    message:'删除成功'
+                });
+            }
+        })
+    }
+    else if(value==='sight'){
+        pool.query(sql,[Uid,id],function(err,results){
+            if(err){
+                res.send({
+                    code:1,
+                    status:'error',
+                    message:'删除失败'
+                })
+            }else{
+                res.send({
+                    code:0,
+                    status:'success',
+                    message:'删除成功'
+                });
+            }
+        })
+    }
+})
+//获取收藏表内容 
+app.post('/api/collect1',function(req,res){
+    var id=req.body.id;
+    const sql='select * from collect where Uid=?';
+    pool.query(sql,id,function(err,result){
+        if(err){
+            res.send({
+                code:1,
+                status:'查询失败',
+                message:'error'
+            });
+        }else{
+            res.send(result);
+        }
+    })
+})
+//文章页获取内容
+app.post('/api/trends',function(req,res){
+    var id=req.body.id;
+    const sql='select * from trends where trendsId in(select pid from collect where Uid=?)';
+    pool.query(sql,id,function(err,result){
+        if(err){
+            res.send({
+                code:1,
+                status:'查询失败',
+                message:'error'
+            });
+        }else{
+            res.send(result);
+        }
+    })
+})
 //编辑个人信息
 app.post('/api/change',function(req,res){
 var sex=req.body.sex;
@@ -492,8 +646,9 @@ var constellation=req.body.constellation;
 var geqian=req.body.geqian;
 var nicheng=req.body.nicheng;
 var myDate=req.body.myDate;
+var Uid=req.body.Uid;
 const sql='update user set gender=?,constellation=?,birthday=?,trendsTitle=?,name=? where username=?';
-pool.query(sql,[sex,constellation,myDate,geqian,nicheng,username],(err,results)=>{
+pool.query(sql,[sex,constellation,myDate,geqian,nicheng,username],function(err,results){
     if(err){
         res.send({
             code:1,
@@ -512,10 +667,8 @@ pool.query(sql,[sex,constellation,myDate,geqian,nicheng,username],(err,results)=
 
 app.post('/api/personal',(req,res)=>{
     var username = req.body.username;
-    // var userId = req.body.userId;
-    const sql = 'select * from user,article where username = ? and user.Uid = article.Uid';
+    const sql = 'select * from user,article where username = ? and user.Uid=article.Uid';
     pool.query(sql,[username],(err,results)=>{
-        console.log(222);
         console.log(results);
         if(results[0] === undefined){
             res.send({
@@ -529,57 +682,18 @@ app.post('/api/personal',(req,res)=>{
     })
 })
 
-app.post('/api/personal/del',(req,res)=>{
-    var Pdata;
-    var id = req.body.id;
-    console.log(id);
-    const sql1 = 'update article set Uid = Null where id = ?'
-    const sql2 = 'delete from article where id = ? ';
-    req.on('data', function(data){
-        console.log("1",data);
-        Pdata = JSON.parse(data)
-        console.log("2",Pdata);
-    });
-    req.on('end', function(error,results){
-        pool.query(sql1,[Pdata.id],(err,results)=>{
-            console.log("3",results);
-            if(results === undefined){
-                res.send({
-                    code:1,
-                    status:'error',
-                    message:"查询失败"
-                })
-            }else{
-                pool.query(sql2,[Pdata.id],(err,results)=>{
-                    console.log("4",results);
-                    res.send({
-                        code:0,
-                        status:'success',
-                        message:'删除成功'
-                    })
-                })
-            } 
-        })
-        
-        
-    })
-})
-
-
 //上传头像
 app.post('/api/avatar', (req, res) => {
-    var file = req.body.imgavatar;
-    var name = req.body.name;
-    console.log(name);
+    var file = req.body.avatar;
     var buf = new Buffer(file, 'base64');
     // log(buf);
-    fs.writeFile('../src/assets/imguser'+name, buf, err => {
+    fs.writeFile('./avatar.jpg', buf, err => {
         if (err) {
             log(err);
             res.send(err);
         } else {
             log("save success");
-            res.send("保存成功");
+            res.send("save success");
         }
     });
 });
@@ -631,78 +745,41 @@ getContent('movie','影视');
 
 
 
-//首页,评论页评论更新
-app.post('/api/release',function(req,res){
-    var comment=req.body.comment;
-    var comments=req.body.comments;
-    var title=req.body.title;
-    var id=req.body.id;
-    var value=req.body.value;
-    //console.log(title);
-    const sql2='update article set comments= ? where id= ?';
-    const sql1='update rec_article set comments= ? where title= ?';
-    
-    if(value==="rec_article"){
-        pool.query(sql1,[comments,title],function(err,results){
-            if(err){
-                res.send({
-                    code:1,
-                    status:'error',
-                    message:'修改失败'
-                })
-            }else{
-                res.send({
-                    code:0,
-                    status:'success',
-                    message:'修改成功'
-                });
-            }
-        })
-    
-    }
-    else if(value==="sight"){
-        pool.query(sql2,[comments,id],function(err,results){
-            if(err){
-                res.send({
-                    code:1,
-                    status:'error',
-                    message:'修改失败'
-                })
-            }else{
-                res.send({
-                    code:0,
-                    status:'success',
-                    message:'修改成功'
-                });
-            }
-        })
-    }
-})
-
-//保存文章
-
-app.post('/api/home/save',function(req,res){
-    var Uid = req.body.Uid;
-    var title = req.body.title;
-    var content = req.body.content;
-    var date = req.body.date;
-    var imgs = req.body.imgs;
-    const sql = 'insert into savecomment(Uid,title,content,date,imgs) values(?,?,?,?,?)';
-    pool.query(sql,[Uid,title,content,date,imgs],(err,results)=>{
-        console.log('save',results);
-        if(err){
-            res.send({
-                code:1,
-                status:'error',
-                message:'保存失败'
-            })
-        }else{
-            res.send(results);
-        }
-    })
-})
-
-
+// app.post('/api/release',function(req,res) {
+//     var name; // 评论人昵称
+//     var userId = req.body.userId; // 评论人的Id
+//     var username = req.body.username; // 评论人的用户名
+//     var id = req.body.id;  // 评论的文章id
+//     var time = req.body.time; // 评论时间
+//     var comments = req.body.comments; // 评论内容
+//     var value = req.body.value; // 评论的文章类型
+//     console.log(id,username,time,comments,value);
+//     pool.query(
+//         'select * from user where username=?',
+//         username,
+//         // 查询name
+//         (err,results)=>{
+//             results = JSON.stringify(results);
+//             results = JSON.parse(results);
+//             name = results[0].name;
+//             // 文章类型为推荐文章
+//             if(value == 'rec_article'){
+//                 pool.query(
+//                     'insert into trendsReply(id,username,replyContent,name) values(?,?,?,?) ',
+//                     [id,username,comments,name],
+//                 (err,results)=>{
+//                     if(err){
+//                         console.log(err);
+//                         res.end('1');
+//                     }else{
+//                         console.log('评论成功');
+//                     }
+//                 }
+//                 )
+//             }
+//         }
+//         )
+// })
 
 
 // 发布
@@ -712,7 +789,7 @@ app.post('/api/home/fabu', function(req,res) {
     var author;
     var uid;
     const sql1='select * from user where username=?';    
-    const sqlInsert = 'insert into article(author,title,sort,content,date,Uid,img,star1,comments,flag) values(?,?,?,?,?,?,?,?,?,?)';
+    const sqlInsert = 'insert into article(title,sort,content,date) values(?,?,?,?)';
     req.on('data', function(data){
         console.log("1",data);
         fabuData = JSON.parse(data)
@@ -728,8 +805,7 @@ app.post('/api/home/fabu', function(req,res) {
                     message:"查询失败"
                 })
             }else{
-                console.log('1111112222',fabuData.flag);
-                pool.query(sqlInsert,[fabuData.username,fabuData.title,fabuData.sort,fabuData.content,fabuData.date,fabuData.Uid,fabuData.img,fabuData.star1,fabuData.comments,fabuData.flag],(err,results)=>{
+                pool.query(sqlInsert,[fabuData.title,fabuData.sort,fabuData.content,fabuData.date],(err,results)=>{
                     console.log("4",results);
                     res.send({
                         code:0,
