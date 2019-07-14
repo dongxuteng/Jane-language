@@ -16,7 +16,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EmotionPage {
 
-  assey;
+  articles;
+  avatar=[];
+  useravatar=[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public http: HttpClient) {
   }
@@ -24,22 +26,23 @@ export class EmotionPage {
     
   }
   ionViewDidEnter() {
-    let elements = document.querySelectorAll(".tabbar");
-    if (elements != null) {
-      Object.keys(elements).map((key) => {
-        elements[key].style.display = 'none';
+    this.http.get('/api/emotion').subscribe((data)=>{
+      console.log(111);
+      console.log(data);
+      this.articles = data;
+      this.articles.forEach(e => {
+        this.avatar.push('../assets' + e.img);
+        this.useravatar.push('../assets' + e.imgavatar);
       });
-    }
-    // 请求数据
-    this.http.get('/api/emotions').subscribe((data)=>{
-      this.assey = data;
+      
     })
   }
 
   goNeirong(i){
+    console.log(i);
     this.navCtrl.push('NeirongPage',{
-      id: i,
-      value: 'emotion'
+      id: this.articles[i].id,
+      value: 'sight'
     })
   }
   //ionic当退出页面的时候触发的方法

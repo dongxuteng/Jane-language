@@ -43,9 +43,7 @@ export class MePage {
   }
 
   Text() {
-    this.navCtrl.push("WenPage",{
-      id:this.arr[0].Uid
-    })
+    this.navCtrl.push("WenPage")
   }
   Video(){
   this.navCtrl.push("VideoPage")

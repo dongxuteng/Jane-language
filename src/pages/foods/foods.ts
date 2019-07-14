@@ -9,22 +9,23 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FoodsPage {
 
-  arr;
+  articles;
+  avatar=[];
+  useravatar=[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public http: HttpClient) {
   }
 
   ionViewDidEnter(){
-    let elements = document.querySelectorAll(".tabbar");
-    if (elements != null) {
-       Object.keys(elements).map((key) => {
-          elements[key].style.display = 'none';
-      });
-    }
-
-    // 请求数据
     this.http.get('/api/foods').subscribe((data)=>{
-      this.arr = data;
+      console.log(111);
+      console.log(data);
+      this.articles = data;
+      this.articles.forEach(e => {
+        this.avatar.push('../assets' + e.img);
+        this.useravatar.push('../assets' + e.imgavatar);
+      });
+      
     })
   }
   //ionic当退出页面的时候触发的方法
@@ -38,9 +39,10 @@ export class FoodsPage {
   }
 
   foodsmore(i){
+    console.log(i);
     this.navCtrl.push('NeirongPage',{
-      id: i,
-      value: 'foods'
+      id: this.articles[i].id,
+      value: 'sight'
     })
   }
 }

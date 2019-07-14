@@ -12,28 +12,15 @@
 </ion-header>
 
 <ion-content>
-  <!-- 下拉刷新 -->
-  <ion-refresher (ionRefresh)="doRefresh($event)">
-      <ion-refresher-content
-            pullingIcon="arrow-dropdown"
-            pullingText="Pull to refresh"
-            refreshingSpinner="circles"
-            refreshingText="刷新...">
-    </ion-refresher-content>
-  </ion-refresher>
   
   <ion-list>
-    <ion-item *ngFor="let guanzhu of guanzhus" class="block">
+    <ion-item *ngFor="let arr of arr;let i = index" class="block">
       <ion-avatar item-start style="margin-bottom:10%">
-        <img [src]="guanzhu.imageUrl">
+        <img src="{{imgavatar[i]}}">
       </ion-avatar>     
-        <h2>{{guanzhu.title}}</h2>
-        <p>{{guanzhu.lastMessage}}</p>
-      <!-- <button class="guanzhu">{{guanzhu.zhuangtai}}</button> -->
-      <button id="follow" (click)="show1()">
-        <span id="true">关注</span>
-        <span id="false">已关注</span>
-   </button>
+      <h2>{{arr.name}}</h2>
+      <p>{{arr.trendsTitle}}</p>
+      <button id="follow" (click)="show1(i)">取消关注</button>
     </ion-item>
     
   </ion-list>

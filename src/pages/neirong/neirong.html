@@ -1,18 +1,14 @@
-<ion-header *ngFor="let arr of arr;let i=index">
+<ion-header *ngFor="let arr of arr">
   <ion-navbar>
     <ion-row>
-      <ion-col col-8>
-        <button (click)="return()" class="back-button disable-hover bar-button bar-button-md back-button-md bar-button-default bar-button-default-md show-back-button" ion-button="bar-button" ng-reflect-klass="back-button" ng-reflect-ng-class="back-button-md"><span class="button-inner"><ion-icon class="back-button-icon icon icon-md back-button-icon-md ion-md-arrow-back" role="img" ng-reflect-klass="back-button-icon" ng-reflect-ng-class="back-button-icon-md" aria-label="arrow back" ng-reflect-name="md-arrow-back"></ion-icon><span class="back-button-text back-button-text-md" ng-reflect-klass="back-button-text" ng-reflect-ng-class="back-button-text-md"></span></span><div class="button-effect"></div></button>
+      <ion-col col-10>
+        <i class="iconfont icon-left1" style="font-size:1.5em;position: absolute;left: 0.2em;color: black" (click)="return()"></i>
         <h5 class="title">
           {{ arr.title }}</h5>
       </ion-col>
-      <ion-col col-2 (click)="isCollect(i)" id="star">
-        <!-- 收藏、取消收藏 -->
-        <ion-icon name="star-outline" style="font-size:2.2em" ></ion-icon>
-      </ion-col>
       <ion-col col-2>
-        <!-- 分享 -->
-      <ion-icon name="share" style="font-size:1.5em;float:right;padding-top:0.2em;"></ion-icon>
+        <!-- 收藏、取消收藏 -->
+        <ion-icon name="star-outline" (click)="isCollect(i)" id="star"></ion-icon>
       </ion-col>
     </ion-row>
   </ion-navbar>
@@ -22,45 +18,29 @@
 
 <ion-content *ngFor='let arr of arr; let i=index'>
   <div class="div">
-    <img class="img" src="assets/imgs/home.jpeg">
+    <img class="img" src="{{Img}}">
     <div padding>
       <h2>{{arr.title}}</h2>
-      <b>&nbsp;&nbsp;&nbsp;&nbsp;作者/{{arr.author}}</b>
+      <b>作者/{{arr.author}}</b>
+      <!-- <p class="essay">{{arr.content}}</p> -->
       <p class="essay">{{arr.content}}</p>
       <p class="date">{{arr.date}}</p>
     </div>
     <!-- 底部-->
     <ion-row>
-      <ion-col class="left" col-6>
+      <ion-col class="left" >
         <div class="tx" (click)="goPersonal()">
-          <img src="assets/imgs/home.jpeg">
+          <img src="{{imgavatar}}">
         </div>
         <a class="username" (click)="goPersonal()">{{ arr.author }}</a>
-        <button id="follow" (click)="show1()">
-          <span id="true">关注</span>
-          <span id="false">已关注</span>
-        </button>
+        <button id="follow" (click)="show1(i)">关注</button>
+        <!-- <button ion-button id="follow" (click)="show1()">关注</button> -->
       </ion-col>
-      <!-- <ion-col class="likes" col-2 > -->
-          <!-- <ion-icon name="star-outline" class="like" ></ion-icon> -->
-          <!-- <ion-icon name="heart-outline" class="like" (click)="isLike(i)"  ></ion-icon>
-          <span id="likes"> </span> -->
-      <!-- </ion-col> -->
+     
     </ion-row>
   </div>
   <div>
     <div *ngFor='let commentList of commentList; let i=index' class="comments">
-            <!-- <div class="comment-wrap">
-                <div class="photo">
-                    <div class="avatar" style="background-image: url('/assets/coolboy.jpg')"></div>
-                </div>
-                <div class="comment-block">
-                    <form action="">
-                        <textarea name="" id="" cols="30" rows="3" placeholder="Say somthing..."></textarea>
-                    </form>
-                </div>
-            </div> -->
-        
             <div class="comment-wrap">
                 <div class="photo">
                     <div class="avatar" style="background-color:whitesmoke">{{commentList.commentUsername}}</div>
@@ -77,20 +57,10 @@
                 </div>
             </div>
     </div>
-      <!-- <span>{{commentList.commentUsername}}</span>
-      <span>{{commentList.commentTime}}</span>
-      <span>{{commentList.comment}}</span> -->
     <ul id="ul1">
-      <!-- <div class="comment">
-        <div class="icon">
-          <img src="../../assets/imgs/10.jpg" alt="">
-          <span>{{ username }}</span>
-        </div>
-        <div class="content"> {{ comments }} </div>
-        <div class="time"> {{ time }} </div>
-      </div> -->
+      
     </ul>
     <textarea placeholder="有什么感想？快来评论吧" id='txt' ></textarea>
     <i class="iconfont icon-fabu" id="btn1" (click)="release(i)"></i>
-</div>
+  </div>
 </ion-content>

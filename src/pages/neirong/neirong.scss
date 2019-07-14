@@ -14,8 +14,20 @@ page-neirong {
     padding-left: 2.5em;
     margin: 0;
   }
+  h2{
+    text-align: center;
+  }
+  b{
+    margin-left: 120px;
+  }
   .essay{
-    //background-image: url(../../assets/imgs/bg.jpg);
+    background-image: url(../../assets/imgs/bg.jpg);
+    height: 100%;
+    width: 600;
+    overflow: auto;
+    word-wrap:break-word;
+    text-indent: 2em;
+    text-align: center;
   }
   .date {
     float: right;
@@ -33,7 +45,8 @@ page-neirong {
       font-size: 16px;
     }
     .img {
-      height: 18em;
+      margin-top: 55px;
+      height: 15em;
       width: 100%;
     }
   }
@@ -44,7 +57,7 @@ page-neirong {
 
   .left {
     overflow: hidden;
-    display: flex;
+    // display: flex;
   }
   .username {
     margin-left: 1em;
@@ -59,7 +72,8 @@ page-neirong {
   }
 
   .tx {
-    float: left;
+    margin-left: -130px;
+    // float: left;
     width: 45px;
     height: 45px;
     border-radius: 50% 50%;
@@ -75,10 +89,7 @@ page-neirong {
     align-self: auto;
   }
   #star {
-    //font-size: 2.2em;
-    background-color:whitesmoke;
-    // background-color:;
-
+    font-size: 2.2em;
   }
   .collected {
     color: red;
@@ -91,10 +102,12 @@ page-neirong {
     color: red !important;
   }
   #follow {
-    display: block;
-    width: 5em;
-    height: 1.6em;
     margin-left: 10px;
+    float: right;
+    display: block;
+    width: 6em;
+    height: 1.6em;
+    
     background: rgb(247, 247, 247);
     border: 1px solid #0099FF;
     border-radius: 5px;
@@ -182,41 +195,10 @@ page-neirong {
       height: 3.5em;
     }
   }
-  input,
-  textarea {
-      outline: none;
-      border: none;
-      display: block;
-      margin: 0;
-      padding: 0;
-      -webkit-font-smoothing: antialiased;
-      font-family: "PT Sans", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
-      font-size: 1rem;
-      color: #555f77;
-  }
-  input::-webkit-input-placeholder,
-  textarea::-webkit-input-placeholder {
-      color: #ced2db;
-  }
-  input::-moz-placeholder,
-  textarea::-moz-placeholder {
-      color: #ced2db;
-  }
-  input:-moz-placeholder,
-  textarea:-moz-placeholder {
-      color: #ced2db;
-  }
-  input:-ms-input-placeholder,
-  textarea:-ms-input-placeholder {
-      color: #ced2db;
-  }
-  p {
-      line-height: 1.3125rem;
-  }
   .comments {
-      margin: 2.5rem auto 0;
-      max-width: 60.75rem;
-      padding: 0 1.25rem;
+    margin: 2.5rem auto 0;
+    max-width: 60.75rem;
+    padding: 0 1.25rem;
   }
   .comment-wrap {
       margin-bottom: 1.25rem;

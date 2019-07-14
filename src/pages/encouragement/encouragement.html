@@ -28,14 +28,14 @@
         <h3 text-center>每|日|励|志</h3>
         <p text-center>ENCOURAGEMENT</p>
     </div>
-    <div class="box" *ngFor='let arr of assey,let i = index'>
-        <div class="pic" (click)="goNeirong(i);"><img src="../../assets/imgs/e1.jpeg" /></div>
+    <div class="box" *ngFor='let arr of articles,let i = index'>
+        <div class="pic" (click)="goNeirong(i);"><img src="{{avatar[i]}}" /></div>
         <div class="tx" (click)="goNeirong(i)">
           <p>{{ arr.title }}</p>
         </div>
           <div class="avatar">
             <div class="icon">
-              <img src="../../assets/imgs/icon.png" /> 
+              <img src="{{useravatar[i]}}" /> 
             </div>
             <span>{{ arr.author }}</span>
             <i

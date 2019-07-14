@@ -16,18 +16,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EncouragementPage {
 
-  assey;
-
+  articles;
+  avatar=[];
+  useravatar=[];
   ionViewDidEnter() {
-    let elements = document.querySelectorAll(".tabbar");
-    if (elements != null) {
-      Object.keys(elements).map((key) => {
-        elements[key].style.display = 'none';
+    this.http.get('/api/encouragement').subscribe((data)=>{
+      console.log(111);
+      console.log(data);
+      this.articles = data;
+      this.articles.forEach(e => {
+        this.avatar.push('../assets' + e.img);
+        this.useravatar.push('../assets' + e.imgavatar);
       });
-    }
-    // 请求数据
-    this.http.get('/api/encouragements').subscribe((data)=>{
-      this.assey = data;
+      
     })
   }
   constructor(public navCtrl: NavController, public navParams: NavParams,public http:HttpClient) {
@@ -36,9 +37,10 @@ export class EncouragementPage {
   //   console.log('ionViewDidLoad EncouragementPage');
   // }
   goNeirong(i){
+    console.log(i);
     this.navCtrl.push('NeirongPage',{
-      id: i,
-      value: 'encouragements'
+      id: this.articles[i].id,
+      value: 'sight'
     })
   }
   goPersonal(){

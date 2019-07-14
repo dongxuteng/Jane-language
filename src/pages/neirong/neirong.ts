@@ -8,41 +8,51 @@ import { HttpClient } from "@angular/common/http";
   templateUrl: "neirong.html"
 })
 export class NeirongPage {
-  pid;
   title;
   articles;
   comments;
-  commentList;
   comment;
   username;
-  time:string;
+  time;
   userId;
   id: number;
   value: string;
   star1;
-  flag:string;
+  Img;
+  imgavatar;
+  Uid;
+  ID;
+  pid;
+  arr1;
+  commentList;
+  tag="true";
+  flag=false;
   flag1='true';
   arr: Array<1> = [1];
 
   constructor(public navCtrl: NavController,public navParams: NavParams,public alertCtrl: AlertController, public http: HttpClient) {
     // 获取主页传的内容id和value
     this.id = navParams.get('id');
+    console.log('2412312',this.id);
     this.value = navParams.get('value');
+    this.Uid = window.localStorage.getItem('userId');
   }
   ionViewDidEnter() {
-   // var date = new Date();
-    //this.time = date.getMonth()+1 + '月' + date.getDate() + '日';
+    var date = new Date();
+    this.time=new Date(+new Date() + 8 * 3600 * 1000).toISOString().slice(0,10)+" "+new Date(+new Date() + 8 * 3600 * 1000).toISOString().slice(11,19);
     //获取用户信息
     this.username = window.localStorage.getItem('username');
     this.userId = window.localStorage.getItem('userId');
     let elements = document.querySelectorAll(".tabbar");
+    this.http.get('/api/sight').subscribe((data)=>{
+      this.articles = data;
+      console.log(this.articles);
+    });
     this.http.post('/api/comment',{"id":this.id,"value":this.value}).subscribe((data)=>{
       this.commentList=data;
       console.log(this.commentList);
     })
-    // this.http.get('/api/sight').subscribe((data)=>{
-    //   this.articles = data;});
-    //   console.log(this.articles);
+      
     if (elements != null) {
       Object.keys(elements).map(key => {
         elements[key].style.display = "none";
@@ -50,15 +60,20 @@ export class NeirongPage {
     }
     // 获取内容
     if(this.value == 'rec_article'){
-      this.value='rec_article';
-      this.http.get('/api/home/neirong').subscribe((data)=>{
-        this.arr[0] = data[this.id-1];
+      this.http.post('/api/home/neirong',{"id":this.id,"Uid":this.Uid}).subscribe((data)=>{
+        this.imgavatar = './assets'+data[0].imgavatar;
+        this.Img='./assets'+data[0].img;
+        this.arr[0] = data[0];
       })
     }
     else if(this.value == 'sight') {
-      this.value='sight';
-      this.http.get('/api/sight/neirong').subscribe((data)=>{
-        this.arr[0] = data[this.id-1];
+      this.http.post('/api/sight/neirong',{"id":this.id,"Uid":this.Uid}).subscribe((data)=>{
+        console.log('3333',data);
+        this.imgavatar = './assets'+data[0].imgavatar;
+        this.Img='./assets'+data[0].img;
+        this.ID = data[0].id;
+        this.pid = data[0].Uid;
+        this.arr[0] = data[0];
       })
     }
     else if(this.value == 'emotion'){
@@ -97,10 +112,11 @@ export class NeirongPage {
   // 发布评论
   release(i) {
     this.comments=this.arr[i]['comments'];
+    
     this.title=this.arr[i]['title'];
     //this.comment=this.arr[i]['comment'];
     var date = new Date();
-    this.time = date.getMonth()+1 + '月' + date.getDate() + '日'+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
+    this.time=new Date(+new Date() + 8 * 3600 * 1000).toISOString().slice(0,10)+" "+new Date(+new Date() + 8 * 3600 * 1000).toISOString().slice(11,19);
     
         var oTxt = document.getElementById("txt");
         var oBtn = document.getElementById("btn1");
@@ -152,17 +168,28 @@ export class NeirongPage {
 
   //关注
   show1() {
-    var btn = document.getElementById("follow");
-    var aTrue = document.getElementById("true");
-    var aFalse = document.getElementById("false");
-    if (aTrue.style.display != "none") {
-      aTrue.style.display = "none";
-      aFalse.style.display = "inline";
-    } else {
-      aTrue.style.display = "inline";
-      aFalse.style.display = "none";
+    var btn = document.getElementById('follow');
+
+    if(this.tag === "true"){
+      btn.innerText = "取消关注";
+      this.tag = "false";
+      this.http.post('/api/neirong/guanzhu',{"Uid":this.Uid,"pid":this.pid,"tag":this.tag}).subscribe((data)=>{
+        console.log('关注成功',data);
+        // this.arr[0] = data[0];
+      })
+    }else if(this.tag === "false"){
+      btn.innerText = "关注";
+      this.tag = "true";
+      this.http.post('/api/neirong/quguan',{"pid":this.pid,"Uid":this.Uid,"tag":this.tag}).subscribe((data)=>{
+        console.log('取消关注',data);
+        // this.arr[0] = data[0];
+      })
     }
+
+
+    
   }
+  
   //收藏
   isCollect(i) {
     // var iscollect = document

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { HttpClient } from "@angular/common/http";
 /**
  * Generated class for the GuanzhuPage page.
  *
@@ -14,55 +14,71 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'guanzhu.html',
 })
 export class GuanzhuPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  tag;
+  Uid;
+  arr;
+  pid=[];
+  imgavatar=[];
+  constructor(public navCtrl: NavController, public navParams: NavParams,public http: HttpClient) {
+    this.Uid = window.localStorage.getItem('userId');
   }
 
   ionViewDidLoad() {
+    this.http.post('/api/me/guanzhu',{'Uid':this.Uid}).subscribe((data)=>{
+      console.log('aaaa',data);
+      this.arr = data;
+      this.arr.forEach(e => {
+        this.imgavatar.push('../assets' + e.imgavatar);
+        this.pid.push(e.pid);
+      });
+      
+    })
     console.log('ionViewDidLoad GuanzhuPage');
+
   }
 
-  guanzhus = [{
-    id: '001',
-    imageUrl:"../assets/imgs/icon.png",
-    title: '简小语',
-    lastMessage: '简语官方客服',
-    
-  },
-    {
-      id: '002',
-      imageUrl:"../assets/imgs/icon.png",
-      title: 'Tony',
-      lastMessage: '一个写手',
-    },
-    {
-      id: '003',
-      imageUrl: "../assets/imgs/icon.png",
-      title: 'Steve',
-      lastMessage: '666',
-      
-    }];
-
-     //下拉刷新
- doRefresh(refresher) {//请求数据的请求方法可以写在这个函数里面
-  console.log('Begin async operation', refresher);
-  setTimeout(() => {
-    console.log('刷新成功');
-    refresher.complete();
-  }, 2000);
- }
   function1(){
     this.navCtrl.pop();
   }
-   show1(){
-    var aTrue = document.getElementById('true');
-    var aFalse = document.getElementById('false');
-    if ( aTrue.style.display!="none"){
-        aTrue.style.display="none";
-        aFalse.style.display="inline";
-    }else{
-        aTrue.style.display="inline";
-        aFalse.style.display="none";
+   show1(i){
+    console.log(i);
+    console.log(this.pid);
+    console.log(this.pid[i]);
+    
+    var btn = document.getElementById('follow');
+    if(this.tag == null){
+      this.tag=this.arr[i].tag;
+      console.log(this.tag);
+      if(this.tag === "false"){
+        btn.innerText = "关注";
+        this.tag = "true";
+        this.http.post('/api/neirong/quguan',{"pid":this.pid[i],"Uid":this.Uid}).subscribe((data)=>{
+          console.log('取消关注',data);
+          // this.arr[0] = data[0];
+        })
+      }else if(this.tag === "true"){
+        btn.innerText = "取消关注";
+        this.tag = "false";
+        this.http.post('/api/neirong/guanzhu',{"Uid":this.Uid,"pid":this.pid[i],"tag":this.tag}).subscribe((data)=>{
+          console.log('关注成功',data);
+          // this.arr[0] = data[0];
+        })
+      }
+    }
+    else if(this.tag === "false"){
+      btn.innerText = "关注";
+      this.tag = "true";
+      this.http.post('/api/neirong/quguan',{"pid":this.pid[i],"Uid":this.Uid}).subscribe((data)=>{
+        console.log('取消关注',data);
+        // this.arr[0] = data[0];
+      })
+    }else if(this.tag === "true"){
+      btn.innerText = "取消关注";
+      this.tag = "false";
+      this.http.post('/api/neirong/guanzhu',{"Uid":this.Uid,"pid":this.pid[i],"tag":this.tag}).subscribe((data)=>{
+        console.log('关注成功',data);
+        // this.arr[0] = data[0];
+      })
     }
   } 
 

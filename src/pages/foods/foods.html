@@ -6,8 +6,8 @@
 
 
 <ion-content padding>
-  <ion-card *ngFor="let item of arr,let i = index"(click)='foodsmore(i)'>
-    <img src="../../assets/imgs/3.jpg" alt="">
+  <ion-card *ngFor="let item of articles,let i = index"(click)='foodsmore(i)'>
+    <img src="{{avatar[i]}}" alt="">
     <div class="card-title"> {{ item.title }} </div>
     <div class="card-username"> {{ item.author }}</div>
     <div class="card-subtitle"> {{ item.star1 }} Likes</div>

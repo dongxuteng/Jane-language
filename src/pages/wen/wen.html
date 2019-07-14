@@ -10,12 +10,12 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-card *ngFor = "let assey of articles;let i = index">
+  <ion-card *ngFor = "let assey of articles">
     <!-- <img src="{{ assey.imgSrc }}"> -->
     <ion-card-content (click)="goEncouragemore()">
-      <ion-card-title>{{ assey.articleName }}</ion-card-title>
+      <ion-card-title>{{ assey.title }}</ion-card-title>
       <img src="{{ img }}">
-      <p class="inner">{{ assey.articleContent}}</p>
+      <p class="inner">{{ assey.content }}</p>
     </ion-card-content>
     <ion-row >
       <ion-col col-8>
@@ -23,8 +23,8 @@
           <ion-avatar item-start>
             <img src="{{ imguser }}">
           </ion-avatar>
-          <h2 style="text-align: left;">{{ assey.name }}</h2>
-          <p style="text-align: left">{{ assey.transmit }}</p>
+          <h2 style="text-align: left;">{{ assey.author }}</h2>
+          <p style="text-align: left">{{ assey.talk }}</p>
         </ion-item>
       </ion-col>
       <ion-col col-2>
@@ -36,7 +36,7 @@
       <ion-col col-2>
         <button ion-button icon-start clear small>
             <ion-icon name="heart-outline"></ion-icon>
-            <div>{{ assey.star }}</div>
+            <div>{{ assey.star1 }}</div>
         </button>
       </ion-col>
     </ion-row>
