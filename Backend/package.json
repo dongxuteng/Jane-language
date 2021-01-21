@@ -16,7 +16,7 @@
     "morgan": "~1.9.1",
     "mysql": "latest",
     "serve-favicon": "~2.4.5",
-    "socket.io": "^2.1.1",
+    "socket.io": "^2.4.0",
     "compression": "latest",
     "connect-timeout": "latest"
   }
